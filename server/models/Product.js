@@ -24,7 +24,7 @@ module.exports = db.sequelize.define(
             type: Sequelize.DECIMAL,
             allowNull: false
         },
-        price: {
+        quantity: {
             type: Sequelize.INTEGER,
             allowNull: false
         },
