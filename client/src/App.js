@@ -5,7 +5,7 @@ function App() {
   const [users, setUsers] = useState([]);
 
   function getUsers() {
-    axios.post('/api/users/getAllUsers')
+    axios.get('/api/users/getAllUsers')
     .then(res => {
       setUsers(res.data)
     })

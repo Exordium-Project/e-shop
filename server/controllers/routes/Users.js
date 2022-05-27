@@ -139,7 +139,7 @@ users.post('/login', (req, res) => {
     })
 })
 
-users.post('/getAllUsers', (req, res) => {
+users.get('/getAllUsers', (req, res) => {
     User.findAll({
         attributes: ['id', 'username', 'email', 'full_name', 'profile_img', 'date_on_creating', 'date_of_last_modified', 'role'],
     })
@@ -215,7 +215,7 @@ users.post("/updateUserPass", (req, res) => {
     })
 })
 
-users.post('/getuserinfo', (req, res) => {
+users.get('/getuserinfo', (req, res) => {
     User.findAll({
         attributes: ['id', 'username', 'email', 'full_name', 'profile_img', 'date_on_creating', 'date_of_last_modified', 'role'],
         where: {
