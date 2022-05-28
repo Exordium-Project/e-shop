@@ -6,19 +6,19 @@ const Type = require("../../models/Type")
 types.use(cors())
 
 types.post("/addType", (req, res) => {
-    const brandData = {
+    const typeData = {
         name: req.body.name
     }
 
-    Brand.findOne({
+    Type.findOne({
         where: {
             name: req.body.name
         }
     })
-    .then(brand => {
-        if(!brand) {
-            Brand.create(brandData)
-            .then(user => {
+    .then(type => {
+        if(!type) {
+            Type.create(typeData)
+            .then(type => {
                 res.send(true)
             })
             .catch(err => {
@@ -34,11 +34,11 @@ types.post("/addType", (req, res) => {
 })
 
 types.get("/getAllTypes", (req, res) => {
-    Brand.findAll({
+    Type.findAll({
         attributes: ["name"]
     })
-    .then(brands => {
-        res.send(brands)
+    .then(types => {
+        res.send(types)
     })
     .catch(err => {
         res.json(err)

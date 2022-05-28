@@ -31,9 +31,9 @@ products.delete("/deleteProduct", (req, res) => {
             id: req.body.id
         }
     })
-    .then(user => {
-        if(user){
-            res.send(user)
+    .then(product => {
+        if(product){
+            res.send(product)
         }
     })
     .catch(err => {

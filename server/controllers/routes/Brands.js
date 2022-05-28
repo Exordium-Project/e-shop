@@ -18,7 +18,7 @@ brands.post("/addBrand", (req, res) => {
     .then(brand => {
         if(!brand) {
             Brand.create(brandData)
-            .then(user => {
+            .then(brand => {
                 res.send(true)
             })
             .catch(err => {
