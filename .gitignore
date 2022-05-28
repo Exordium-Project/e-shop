@@ -2,7 +2,7 @@
 .idea/
 
 #MacOS
-.DS_STORE
+.DS_Store
 
 node_modules
 server/.env
