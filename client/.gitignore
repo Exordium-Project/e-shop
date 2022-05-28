@@ -1,4 +1,9 @@
-.DS_STORE
+#IntelliJ
+.idea/
+
+#MacOS
+.DS_Store
+
 node_modules
 scripts/flow/*/.flowconfig
 .flowconfig
@@ -18,7 +23,6 @@ test/the-files-to-test.generated.js
 chrome-user-data
 *.sublime-project
 *.sublime-workspace
-.idea
 *.iml
 .vscode
 *.swp
