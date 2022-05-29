@@ -1,11 +1,12 @@
 const express = require("express")
 const products = express.Router()
 const cors = require('cors')
+const productService = require('../../services/ProductService')
 
 const Product = require("../../models/Product")
 products.use(cors())
 
-products.post("addProduct", (req, res) => {
+products.post("addProduct", async (req, res) => {
     const productData = {
         name: req.body.name,
         color: req.body.color,
@@ -15,30 +16,17 @@ products.post("addProduct", (req, res) => {
         brand_id: req.body.brand_id
     }
 
-    Product.create(productData)
-    .then(product => {
-        res.send(product)
-    })
-    .catch(err => {
-        res.json("error: " + err)
-    })
+    const product = await productService.createProduct(productData)
+
+    res.send(product)
 })
 
-products.delete("/deleteProduct", (req, res) => {
-    Product.destroy({
-        attributes: ['id', 'name', 'color', 'price', 'quantity', 'type_id', 'date_on_creating', 'date_of_last_modified', 'brand_id'],
-        where: {
-            id: req.body.id
-        }
-    })
-    .then(product => {
-        if(product){
-            res.send(product)
-        }
-    })
-    .catch(err => {
-        res.json("error: " + err)
-    })
+products.delete("/deleteProduct", async (req, res) => {
+    const projectId = req.body.id
+
+    await productService.deleteProduct(projectId)
+
+    res.send(true)
 })
 
 module.exports = products
