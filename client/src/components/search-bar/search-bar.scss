@@ -1,0 +1,43 @@
+@import'../../shared/styles/colors';
+
+.searchBar{
+    box-shadow: 0 0.4rem 1rem $search-bar-inner-shadow-color, 0 0.4rem 2rem $search-bar-outer-shadow-color;
+    width: fit-content;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+
+    .MuiTextField-root{
+        width: 40rem;
+        min-height: 3.5rem;
+        border-style: none;
+        border-radius: 0;
+    }
+
+    .MuiOutlinedInput-root{
+        border-radius: 0;
+        border-style: none;
+    }
+
+    .MuiInputBase-root{
+        min-width: 15rem;
+        min-height: 3.5rem;
+        background-color: #f5f7fa;
+        border-style: none;
+    }
+
+    .MuiOutlinedInput-notchedOutline{
+        border-width: 0 1px 0 0;
+    }
+
+    .MuiButton-root{
+        width: 8rem;
+        min-height: 3.5rem;
+        text-transform: none;
+        background-color: $search-bar-button-background-color;
+        color: $search-bar-button-text-color;
+        font-size: 0.9rem;
+        border-style: none;
+        border-radius: 0;
+    }
+}

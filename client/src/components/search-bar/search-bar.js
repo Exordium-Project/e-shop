@@ -8,7 +8,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 
-import styles from './search-bar.css';
+import styles from './search-bar.scss';
 
 
 const SearchBar = () =>{
@@ -20,7 +20,7 @@ const SearchBar = () =>{
     }
 
     return(
-      <div>
+      <div className="searchBar">
           <StyledEngineProvider injectFirst={true}>
               <TextFiled id="input-with-icon-textfield" placeholder="Search for anything" InputProps={{
                   startAdornment: (
