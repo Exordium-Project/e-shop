@@ -6,7 +6,7 @@ const productService = require('../../services/ProductService')
 const Product = require("../../models/Product")
 products.use(cors())
 
-products.post("addProduct", async (req, res) => {
+products.post("/product", async (req, res) => {
     const productData = {
         name: req.body.name,
         color: req.body.color,
@@ -21,7 +21,7 @@ products.post("addProduct", async (req, res) => {
     res.send(product)
 })
 
-products.delete("/deleteProduct", async (req, res) => {
+products.delete("/product", async (req, res) => {
     const projectId = req.body.id
 
     await productService.deleteProduct(projectId)

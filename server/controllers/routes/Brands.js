@@ -6,7 +6,7 @@ const brandService = reqiure('../../services/BrandService')
 const Brand = require("../../models/Brand")
 brands.use(cors())
 
-brands.post("/addBrand", async (req, res) => {
+brands.post("/brand", async (req, res) => {
     const brandData = {
         name: req.body.name
     }
@@ -15,7 +15,7 @@ brands.post("/addBrand", async (req, res) => {
         res.send(true)
 })
 
-brands.get("/getAllBrands", async (req, res) => {
+brands.get("/brand", async (req, res) => {
     const brands = await brandService.getAllBrands()
     
     res.send(brands)

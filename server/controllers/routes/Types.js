@@ -6,7 +6,7 @@ const typeService = require("../../services/TypeService")
 const Type = require("../../models/Type")
 types.use(cors())
 
-types.post("/addType", async (req, res) => {
+types.post("/types", async (req, res) => {
     const typeData = {
         name: req.body.name
     }
@@ -16,7 +16,7 @@ types.post("/addType", async (req, res) => {
     res.send(true)
 })
 
-types.get("/getAllTypes", async (req, res) => {
+types.get("/types", async (req, res) => {
     const types = await typeService.getAllTypes()
 
     res.send(types)
