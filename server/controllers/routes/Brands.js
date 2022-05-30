@@ -1,48 +1,24 @@
 const express = require("express")
 const brands = express.Router()
 const cors = require('cors')
+const brandService = reqiure('../../services/BrandService')
 
 const Brand = require("../../models/Brand")
 brands.use(cors())
 
-brands.post("/addBrand", (req, res) => {
+brands.post("/brand", async (req, res) => {
     const brandData = {
         name: req.body.name
     }
 
-    Brand.findOne({
-        where: {
-            name: req.body.name
-        }
-    })
-    .then(brand => {
-        if(!brand) {
-            Brand.create(brandData)
-            .then(brand => {
-                res.send(true)
-            })
-            .catch(err => {
-                res.send("error: " + err)
-            })
-        } else {
-            res.json({error: "Такъв бранд съществува"})
-        }
-    })
-    .catch(err => {
-        res.send("error: " + err)
-    })
+    if(await brandService.createBrand(brandData))
+        res.send(true)
 })
 
-brands.get("/getAllBrands", (req, res) => {
-    Brand.findAll({
-        attributes: ["name"]
-    })
-    .then(brands => {
-        res.send(brands)
-    })
-    .catch(err => {
-        res.json(err)
-    })
+brands.get("/brand", async (req, res) => {
+    const brands = await brandService.getAllBrands()
+    
+    res.send(brands)
 })
 
 module.exports = brands
