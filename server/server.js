@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 let Controllers = require('./controllers/routes/index.routes');
 
 app.use('/api/users', Controllers.Users);
+app.use('/api/products', Controllers.Products);
+app.use('/api/types', Controllers.Types);
+app.use('/api/brands', Controllers.Brands);
 
 server.listen(port, async () => {
     console.log('\x1b[36m', 'Exordium server is running on port: ' + port);
