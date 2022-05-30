@@ -1,9 +1,9 @@
-const Sequelize = require("sequelize")
-const db = require("../config/db.config")
-const Brand = require("./Brand")
-const Type = require("./Type")
+import { Sequelize }  from "sequelize"
+import db from "../config/db.config.js"
+import Brand from "./Brand.js"
+import Type from "./Type.js"
 
-module.exports = db.sequelize.define(
+export default db.sequelize.define(
     'product',
     {
         id: {
