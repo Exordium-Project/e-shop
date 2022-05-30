@@ -5,6 +5,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
+import { Link } from 'react-router-dom'
  
 const Header = () => {
   return(
@@ -24,11 +25,11 @@ const Header = () => {
               </Typography>
 
                 <ButtonGroup sx={{height: '6.3rem'}}>
-                    <Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem'}}>Toys
+                <Link to='/toys' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black',border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}>Toys
                       <span style={{marginLeft: '10px', background: 'blue', color: 'white', borderRadius: '0.5rem', fontSize: '0.7rem', width: '30%'}}>hot</span>
-                    </Button>
-                    <Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem'}}><FilterListOutlinedIcon fontSize="large"/> Catalog</Button>
-                    <Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem'}}>Brands</Button>
+                    </Button></Link>
+                    <Link to='/catalog' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}><FilterListOutlinedIcon fontSize="large"/> Catalog</Button></Link>
+                    <Link to='/brands' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}>Brands</Button></Link>
                     <FormControl fullWidth sx={{color: 'black', width: '12rem'}}>
                         <InputLabel sx={{mt: '1.4rem'}}><LanguageRoundedIcon /></InputLabel>  
                         <InputLabel sx={{mt: '1.3rem', ml: '2.7rem', fontSize: '1.2rem'}}>Language</InputLabel>
@@ -37,8 +38,8 @@ const Header = () => {
                               <MenuItem value='BUL'>BUL</MenuItem>
                           </Select>
                     </FormControl>
-                    <Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem'}}><AccountCircleRoundedIcon color='disabled' fontSize='large'/> Alexander</Button>
-                    <Button sx={{width: '13rem',color: 'black',border: '1px solid black', mr: '-1.4rem', fontSize: '1rem',fontSize: '1rem'}}>MY BAG <ShoppingCartOutlinedIcon fontSize='large'/></Button>
+                    <Link to='/user' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}><AccountCircleRoundedIcon color='disabled' fontSize='large'/> Alexander</Button></Link>
+                    <Link to='/mybag' style={{textDecoration: 'none'}}><Button sx={{width: '13rem',color: 'black',border: '1px solid black', mr: '-1.4rem', fontSize: '1rem',fontSize: '1rem', height: '6.4rem'}}>MY BAG <ShoppingCartOutlinedIcon fontSize='large'/></Button></Link>
                 </ButtonGroup>
 
               
