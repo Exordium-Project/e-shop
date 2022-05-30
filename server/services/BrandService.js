@@ -8,7 +8,7 @@ module.exports.createBrand = async (brandData) => {
     })
 
     if(brand)
-        res.json({error: "Такъв бранд съществува"})
+        res.json({error: "Brand with this name exists"})
 
     const newBrand = await Brand.create(brandData)
 

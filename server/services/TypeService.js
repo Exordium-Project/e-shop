@@ -8,7 +8,7 @@ module.exports.createType = async(typeData) => {
     })
 
     if(type)
-        res.json({error: "Такъв тип съществува"})
+        res.json({error: "ТаType with this name exists"})
 
     const newType = await Type.create(typeData)
 
