@@ -16,6 +16,7 @@ const SearchBar = () => {
     const [category, setCategory] = useState(0);
 
     const categories = ['All categories', 'To', 'Be', 'Fetched', 'From', 'Backend'];
+    let categoryCount = 0;
 
     const handleChange = (event) => {
         setCategory(event.target.value);
@@ -37,13 +38,11 @@ const SearchBar = () => {
                     </Grid>
                     <Grid item={true} sm={3} xs={12}>
                         <Select className="input" value={category} onChange={handleChange}>
-                            categories.map(c => <MenuItem value={0}>c</MenuItem>);
-                            <MenuItem value={0}>All categories</MenuItem>
-                            <MenuItem value={10}>To</MenuItem>
-                            <MenuItem value={20}>Be</MenuItem>
-                            <MenuItem value={30}>Fetched</MenuItem>
-                            <MenuItem value={40}>From</MenuItem>
-                            <MenuItem value={50}>Backend</MenuItem>
+                            {categories.map(category => {
+                                let item = <MenuItem value={categoryCount}>{category}</MenuItem>;
+                                categoryCount++;
+                                return item;
+                            })}
                         </Select>
                     </Grid>
                     <Grid item={true} sm={2} xs={12}>
