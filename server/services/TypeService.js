@@ -1,24 +1,29 @@
-import Type from "../models/Type"
+import Type from "../models/Type.js"
 
-module.exports.createType = async(typeData) => {
-    const type = await Type.findOne({
-        where: {
-            name: brandData.name
-        }
-    })
+export default class TypeService {
 
-    if(type)
-        res.json({error: "ТаType with this name exists"})
+    static async createType(typeData) {
+        const type = await Type.findOne({
+            where: {
+                name: brandData.name
+            }
+        })
 
-    const newType = await Type.create(typeData)
+        if (type)
+            res.json({
+                error: "Type with this name already exists"
+            })
 
-    return true;
-}
+        const newType = await Type.create(typeData)
 
-module.exports.getAllTypes = async() => {
-    const types = await Type.findAll({
-        attributes: ["name"]
-    })
+        return true;
+    }
 
-    return types;
+    static async getAllTypes() {
+        const types = await Type.findAll({
+            attributes: ["name"]
+        })
+
+        return types;
+    }
 }

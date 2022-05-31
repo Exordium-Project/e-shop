@@ -1,12 +1,9 @@
-const express = require("express")
-const products = express.Router()
-const cors = require('cors')
-const productService = require('../../services/ProductService')
+import express from "express"
+import productService from '../services/ProductService.js'
 
-const Product = require("../../models/Product")
-products.use(cors())
+const productsController = express.Router()
 
-products.post("/product", async (req, res) => {
+productsController.post("/", async (req, res) => {
     const productData = {
         name: req.body.name,
         color: req.body.color,
@@ -21,7 +18,7 @@ products.post("/product", async (req, res) => {
     res.send(product)
 })
 
-products.delete("/product", async (req, res) => {
+productsController.delete("/", async (req, res) => {
     const projectId = req.body.id
 
     await productService.deleteProduct(projectId)
@@ -29,4 +26,4 @@ products.delete("/product", async (req, res) => {
     res.send(true)
 })
 
-module.exports = products
+export default productsController

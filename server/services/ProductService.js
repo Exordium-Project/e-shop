@@ -1,18 +1,21 @@
-import Product from "../models/Product"
+import Product from "../models/Product.js"
 
-module.exports.createProduct = async (productData) => {
-    const product = await Product.create(productData)
+export default class ProductService {
 
-    return product
-}
+    static async createProduct(productData) {
+        const product = await Product.create(productData)
 
-module.exports.deleteProduct = async (projectId) => {
-    await Product.destroy({
-        attributes: ['id', 'name', 'color', 'price', 'quantity', 'type_id', 'date_on_creating', 'date_of_last_modified', 'brand_id'],
-        where: {
-            id: projectId
-        }
-    })
+        return product
+    }
 
-    return true
+    static async deleteProduct(projectId) {
+        await Product.destroy({
+            attributes: ['id', 'name', 'color', 'price', 'quantity', 'type_id', 'date_on_creating', 'date_of_last_modified', 'brand_id'],
+            where: {
+                id: projectId
+            }
+        })
+
+        return true
+    }
 }
