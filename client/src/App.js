@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header/Header';
 import Toys from './components/Header/Toys/Toys';
@@ -7,9 +7,6 @@ import Brands from './components/Header/Brands/Brands'
 import User from './components/Header/User-profile/UserProfile'
 import MyBag from './components/Header/MyBag/MyBag'
 
-
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import SearchBar from "./components/search-bar/search-bar";
 
 function App() {
@@ -30,9 +27,6 @@ function App() {
 
      <h2>Exordium Project</h2>
       <SearchBar></SearchBar>
-      {users.map(user => {
-        return <p>{user.username}</p>
-      })}
 
     </div>
   );
