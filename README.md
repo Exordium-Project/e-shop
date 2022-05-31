@@ -1,4 +1,4 @@
-# Exordium E-ahop
+# Exordium E-shop
 This is an all purpose e-shop practice project, maintain by a group of highly motivated young developers.
 
 ## Client
@@ -8,7 +8,7 @@ The client app is a React 18 JavaScript project, using MUI React components.
 The server application is a Node JS application.
 
 ### Local setup
-1. Start the database with Docker
+1. Start the MySQL database containter with Docker locally
   
     **folder /compose**  ```docker-compose up -d```
 
