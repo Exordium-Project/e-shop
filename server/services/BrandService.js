@@ -3,27 +3,38 @@ import Brand from "../models/Brand.js"
 export default class BrandService {
 
     static async createBrand(brandData) {
-        const brand = await Brand.findOne({
-            where: {
-                name: brandData.name
+        try {
+            const brand = await Brand.findOne({
+                where: {
+                    name: brandData.name
+                }
+            });
+
+            if (brand) {
+                res.json({
+                    error: "Brand with this name already exists"
+                })
             }
-        })
 
-        if (brand)
-            res.json({
-                error: "Brand with this name already exists"
-            })
+            /*const newBrand = UNUSED*/ await Brand.create(brandData);
 
-        const newBrand = await Brand.create(brandData)
+            return true;
+        } catch(err){
+            console.log(err);
+            return false;
+        }
 
-        return true;
     }
 
     static async getAllBrands() {
-        const brands = await Brand.findAll({
-            attributes: ["name"]
-        })
+        try {
+            return await Brand.findAll({
+                attributes: ["name"]
+            });
 
-        return brands;
+        } catch(err){
+            console.log(err);
+            return null;
+        }
     }
 }

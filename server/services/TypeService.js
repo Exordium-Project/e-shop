@@ -3,27 +3,37 @@ import Type from "../models/Type.js"
 export default class TypeService {
 
     static async createType(typeData) {
-        const type = await Type.findOne({
-            where: {
-                name: brandData.name
-            }
-        })
-
-        if (type)
-            res.json({
-                error: "Type with this name already exists"
+        try {
+            const type = await Type.findOne({
+                where: {
+                    name: brandData.name
+                }
             })
 
-        const newType = await Type.create(typeData)
+            if (type)
+                res.json({
+                    error: "Type with this name already exists"
+                })
 
-        return true;
+            /*const newType = UNUSED*/await Type.create(typeData);
+
+            return true;
+        } catch(err){
+            console.log(err);
+            return false;
+        }
     }
 
     static async getAllTypes() {
-        const types = await Type.findAll({
-            attributes: ["name"]
-        })
+        try {
+            const [types] = await Promise.all([Type.findAll({
+                attributes: ["name"]
+            })])
 
-        return types;
+            return types;
+        } catch(err){
+            console.log(err);
+            return null;
+        }
     }
 }
