@@ -1,13 +1,13 @@
-const express = require("express")
-const users = express.Router()
-const cors = require('cors')
-const jwt = require("jsonwebtoken")
-const bcrypt = require('bcrypt')
+import express from "express"
 
-const User = require("../../models/User")
-users.use(cors())
+import jwt from "jsonwebtoken"
+import bcrypt from 'bcrypt'
 
-users.post('/register', (req, res) => {
+import User from '../models/User.js'
+
+const usersController = express.Router()
+
+usersController.post('/registration', async (req, res) => {
     const userData = {
         username: req.body.username,
         password: req.body.password,
@@ -19,7 +19,7 @@ users.post('/register', (req, res) => {
         role: req.body.role,
     }
 
-    User.findOne({
+    const user = await User.findOne({
         where: {
             email: req.body.email
         }
@@ -45,75 +45,9 @@ users.post('/register', (req, res) => {
     })
 })
 
-users.post('/checkEmail', (req, res) => {
-    User.findOne({
-        where: {
-            email: req.body.email,
-        }
-    })
-    .then(user => {
-        if(user) {
-            res.send(true)
-        } else {
-            res.send(false)
-        }
-    })
-})
 
-users.post('/checkForgottenEmail', (req, res) => {
-    User.findOne({
-        attributes: ['id'],
-        where: {
-            email: req.body.email,
-        }
-    })
-    .then(user => {
-        if(user) {
-            let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                // 60 minutes
-                expiresIn: 3600
-            })
-            res.send({refreshToken: token, UIDU: user.id})
-        } else {
-            res.send(false)
-        }
-    })
-})
 
-users.post('/resetLogin', (req, res) => {
-    User.findOne({
-        attributes: ['id'],
-        where: {
-            id: req.body.uid,
-        }
-    })
-    .then(user => {
-        if(user) {
-            jwt.verify(req.body.refreshToken, process.env.SECRET_KEY, (value) => {
-                res.send(value)
-            })
-        } else {
-            res.send(false)
-        }
-    })
-})
-
-users.post('/checkUsername', (req, res) => {
-    User.findOne({
-        where: {
-            username: req.body.username,
-        }
-    })
-    .then(user => {
-        if(user) {
-            res.send(true)
-        } else {
-            res.send(false)
-        }
-    })
-})
-
-users.post('/login', (req, res) => {
+usersController.post('/token', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email,
@@ -139,7 +73,7 @@ users.post('/login', (req, res) => {
     })
 })
 
-users.get('/getAllUsers', (req, res) => {
+usersController.get('/', (req, res) => {
     User.findAll({
         attributes: ['id', 'username', 'email', 'full_name', 'profile_img', 'date_on_creating', 'date_of_last_modified', 'role'],
     })
@@ -152,7 +86,7 @@ users.get('/getAllUsers', (req, res) => {
 })
 
 
-users.put('/updateAvatar', (req, res) => {
+usersController.put('/avatar', (req, res) => {
     User.update(
     {
         profile_img: req.body.profile_img
@@ -170,7 +104,7 @@ users.put('/updateAvatar', (req, res) => {
     })
 })
 
-users.post("/updateUserPass", (req, res) => {
+usersController.post("/password", (req, res) => {
     User.findOne({
         where: {
             email: req.body.email,
@@ -215,7 +149,7 @@ users.post("/updateUserPass", (req, res) => {
     })
 })
 
-users.get('/getuserinfo', (req, res) => {
+usersController.get('/user-info/{id}', (req, res) => {
     User.findAll({
         attributes: ['id', 'username', 'email', 'full_name', 'profile_img', 'date_on_creating', 'date_of_last_modified', 'role'],
         where: {
@@ -234,23 +168,5 @@ users.get('/getuserinfo', (req, res) => {
     })
 })
 
-users.post('/deleteUser', (req, res) => {
-    User.destroy({
-        attributes: ['id', 'username', 'password', 'email', 'full_name', 'profile_img', 'date_on_creating', 'date_of_last_modified', 'role'],
-        where: {
-            id: req.body.id
-        }
-    })
-    .then(user => {
-        if(user) {
-            res.json(user)
-        } else {
-            res.send("Не съществува такъв запис!")
-        }
-    })
-    .catch(err => {
-        res.send('error:' + err)
-    })
-})
 
-module.exports = users
+export default usersController 
