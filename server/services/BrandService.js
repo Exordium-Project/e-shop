@@ -1,40 +1,39 @@
-import Brand from "../models/Brand.js"
+import Brand from '../models/Brand.js';
+import Error from '../error/Error.js';
 
 export default class BrandService {
 
     static async createBrand(brandData) {
-        try {
-            const brand = await Brand.findOne({
-                where: {
-                    name: brandData.name
-                }
-            });
-
-            if (brand) {
-                res.json({
-                    error: "Brand with this name already exists"
-                })
+        const brand = await Brand.findOne({
+            where: {
+                name: brandData.name
             }
+        }).catch(error => {
+            console.log(error);
+            return new Error(500, error.message);
+        });
 
-            /*const newBrand = UNUSED*/ await Brand.create(brandData);
-
-            return true;
-        } catch(err){
-            console.log(err);
-            return false;
+        if (brand) {
+            return new Error(409, "Conflict. A brand with the given name already exists");
         }
+
+        const newBrand = await Brand.create(brandData).catch(error => {
+            console.log(error);
+            return new Error(500, error.message);
+        });
+
+        return newBrand;
 
     }
 
     static async getAllBrands() {
-        try {
-            return await Brand.findAll({
-                attributes: ["name"]
-            });
+        const allBrands = await Brand.findAll({
+            attributes: ["name"]
+        }).catch(error => {
+            console.log(error);
+            return new Error(500, error.message);
+        });
 
-        } catch(err){
-            console.log(err);
-            return null;
-        }
+        return allBrands;
     }
 }
