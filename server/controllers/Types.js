@@ -1,22 +1,31 @@
-import express from "express"
-import  typeService from "../services/TypeService.js"
+import express from 'express';
+import  typeService from '../services/TypeService.js';
+import Error from '../error/Error.js';
 
-const typesController = express.Router()
+const typesController = express.Router();
 
 typesController.post("/", async (req, res) => {
     const typeData = {
         name: req.body.name
     }
 
-    await typeService.createType(typeData)
+    const createdType = await typeService.createType(typeData);
 
-    res.send(true)
+    if(createdType instanceof Error){
+        res.status(createdType.statusCode);
+    }
+
+    res.send(createdType);
 })
 
 typesController.get("/", async (req, res) => {
-    const types = await typeService.getAllTypes()
+    const types = await typeService.getAllTypes();
 
-    res.send(types)
+    if(types instanceof Error){
+        res.status(types.statusCode);
+    }
+
+    res.send(types);
 })
 
 export default typesController
