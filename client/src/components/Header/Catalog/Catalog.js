@@ -14,7 +14,7 @@ const Catalog = () => {
         <Box className='catalog-styles'>
             <StyledEngineProvider injectFirst={true}>
                 <Grid container={true} spacing={0}>
-                     <Grid item={true} xl={3.45}>
+                    <Grid item={true} xl={3.45}>
 
                         <Button className='catalog-btns firstButtonWidth'>
                             <HomeOutlinedIcon style={{ fontSize: '1.5rem' }} />

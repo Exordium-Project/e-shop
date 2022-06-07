@@ -34,7 +34,6 @@ const SideBar = () => {
                                 })
                             }
                         </Box>
-
                     </Toolbar>
                     <Slider className='slider' value={val} onChange={updateValue} />
 
@@ -138,7 +137,6 @@ const SideBar = () => {
                                     </FormControl>
                                 </Typography>
                             </AccordionDetails>
-
                         </Accordion>
 
                     </Box>
