@@ -1,18 +1,26 @@
-let express = require('express');
-let cors = require('cors');
-let bodyParser = require('body-parser');
+import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import UsersController from './controllers/Users.js'
+import ProductsController from './controllers/Products.js'
+import TypesController from './controllers/Types.js'
+import BrandsController from './controllers/Brands.js'
+
 let app = express();
 let port = process.env.PORT || 3004;
-let server = require('http').Server(app);
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
-let Controllers = require('./controllers/routes/index.routes');
 
-app.use('/api/users', Controllers.Users);
+app.use('/api/users', UsersController);
+app.use('/api/products', ProductsController);
+app.use('/api/types', TypesController);
+app.use('/api/brands', BrandsController);
 
-server.listen(port, async () => {
+app.listen(port, async () => {
     console.log('\x1b[36m', 'Exordium server is running on port: ' + port);
 })

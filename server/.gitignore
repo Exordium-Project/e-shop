@@ -1,1 +1,12 @@
+#IntelliJ
+.idea/
+
+#MacOS
+.DS_Store
+
+#yarn
+yarn.lock
+
+#npm
+package-lock.json
 node_modules

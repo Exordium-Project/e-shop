@@ -1,36 +1,48 @@
-import {Sequelize} from "sequelize"
+import { Sequelize }  from "sequelize"
 import db from "../config/db.config.js"
-
+import Brand from "./Brand.js"
+import Type from "./Type.js"
 
 export default db.sequelize.define(
-    'user', 
+    'product',
     {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
-        },
-        username: {
+        },        
+        name: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        password: {
+        color: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        email: {
-            type: Sequelize.STRING,
+        price: {
+            type: Sequelize.DECIMAL,
             allowNull: false
         },
-        full_name: {
-            type: Sequelize.STRING,
+        quantity: {
+            type: Sequelize.INTEGER,
             allowNull: false
         },
-        profile_img: {
-            type: Sequelize.STRING,
+        type_id: {
+            type: Sequelize.INTEGER,
             allowNull: false,
-            defaultValue: 'pr_default.png'
+            references: {
+                model: Type,
+                key: 'id'
+            }
+        },
+        brand_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            references: {
+                model: Brand,
+                key: 'id'
+            }
         },
         date_on_creating: {
             type: Sequelize.DATE,
@@ -41,12 +53,6 @@ export default db.sequelize.define(
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        role: {
-            type: Sequelize.ENUM('User', 'Admin', 'Custumer Support'),
-            defaultValue: 'User'
-        },
-    }, {
-        timestamps: true
+        }
     }
 )
