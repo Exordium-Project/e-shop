@@ -105,43 +105,7 @@ const Header = () => {
       </StyledEngineProvider>
     </Box>
 =======
-                <ButtonGroup sx={{height: '6.3rem'}}>
 
-                <Link to='/toys' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black',border: '1px solid black', fontSize: '1.2rem', height: '6.4rem', textTransform: 'capitalize'}}>Toys
-                      <span style={{marginLeft: '10px', background: 'rgba(50,63,175,1)', borderRadius: '.5rem', color: 'white', width: '30%', textTransform: 'lowercase', fontSize: '.9rem'}}>hot</span>
-                    </Button></Link>
-                    <Link to='/catalog' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1.2rem', height: '6.4rem', textTransform: 'capitalize', gap: '.5rem'}}><FilterListOutlinedIcon fontSize="large"/> Catalog</Button></Link>
-                    <Link to='/brands' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1.2rem', height: '6.4rem', textTransform: 'capitalize'}}>Brands</Button></Link>
-
-
-                <Link to='/toys' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black',border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}>Toys
-                      <span style={{marginLeft: '10px', background: 'blue', color: 'white', borderRadius: '0.5rem', fontSize: '0.7rem', width: '30%'}}>hot</span>
-                    </Button></Link>
-                    <Link to='/catalog' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}><FilterListOutlinedIcon fontSize="large"/> Catalog</Button></Link>
-                    <Link to='/brands' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}>Brands</Button></Link>
-
-
-                    <FormControl fullWidth sx={{color: 'black', width: '12rem'}}>
-                        <InputLabel sx={{mt: '1.4rem'}}><LanguageRoundedIcon /></InputLabel>  
-                        <InputLabel sx={{mt: '1.3rem', ml: '2.7rem', fontSize: '1.2rem'}}>Language</InputLabel>
-                          <Select sx={{height: '6.4rem', textAlign: 'center', fontSize: '1rem'}}>
-                              <MenuItem value='ENG' sx={{mt: '-7px'}}>ENG</MenuItem>
-                              <MenuItem value='BUL'>BUL</MenuItem> 
-                              <MenuItem value='GER'>GER</MenuItem>
-                          </Select>
-                    </FormControl>
-
-                    <Link to='/user' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1.2rem', height: '6.4rem', textTransform: 'capitalize'}}><AccountCircleRoundedIcon color='disabled' fontSize='large'/> Alexander</Button></Link>
-                    <Link to='/mybag' style={{textDecoration: 'none'}}><Button sx={{width: '13rem',color: 'black',border: '1px solid black', mr: '-2rem', fontSize: '1rem',fontSize: '1rem', height: '6.4rem', gap: '.7rem'}}>MY BAG <ShoppingCartOutlinedIcon fontSize='large'/></Button></Link>
-                </ButtonGroup>
-
-                    <Link to='/user' style={{textDecoration: 'none'}}><Button sx={{width: '11rem', color: 'black', border: '1px solid black', fontSize: '1rem', height: '6.4rem'}}><AccountCircleRoundedIcon color='disabled' fontSize='large'/> Alexander</Button></Link>
-                    <Link to='/mybag' style={{textDecoration: 'none'}}><Button sx={{width: '13rem',color: 'black',border: '1px solid black', mr: '-1.4rem', fontSize: '1rem',fontSize: '1rem', height: '6.4rem'}}>MY BAG <ShoppingCartOutlinedIcon fontSize='large'/></Button></Link>
-
-                </ButtonGroup>
-            </Toolbar>
-          </AppBar>
-        </Box>
 >>>>>>> 80bd8980865b4f9179c4fb95dc3a1c4fc95ae16a
   );
 }
