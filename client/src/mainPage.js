@@ -7,10 +7,14 @@ import Brands from './components/Header/Brands/Brands'
 import User from './components/Header/User-profile/UserProfile'
 import MyBag from './components/Header/MyBag/MyBag'
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Grid';
 
 import SearchBar from "./components/search-bar/search-bar";
 import './mainPage.scss';
 import image from  "./Rectangle_669.png";
+import ProductCard from './components/product-card/ProductCard';
+import { Container } from '@mui/system';
+import { Typography } from '@mui/material';
 
 const Main = () => {
     return (
@@ -33,11 +37,100 @@ const Main = () => {
                 </div>    
             
             </div>
-        
-            <div className='popular-products'>
-                <h1>Popular products</h1>
-            </div>
 
+            <Grid container={true}
+                spacing={2}>
+                <div className='products-and-specials-grid'>
+                    <div className='popular-products'>
+                        <Grid item sm={7}> 
+                            <div className='popular-products-h'>
+                                <Typography variant='h4'>
+                                    Popular products
+                                </Typography>
+                            </div>
+
+                            <div className='product-grid'>
+                                
+                                <Grid container={true}
+                                    spacing={2}>
+                                
+                                    <Grid item sm={4} xs={6}>
+                                        <ProductCard></ProductCard>
+                                    </Grid>
+
+                                    <Grid item sm={4} xs={6}>
+                                        <ProductCard></ProductCard>
+                                    </Grid>
+
+                                    <Grid item sm={4} xs={6}>
+                                        <ProductCard></ProductCard>
+                                    </Grid>
+
+                                    <Grid item sm={4} xs={6}>
+                                        <ProductCard></ProductCard>
+                                    </Grid>
+
+                                    <Grid item sm={4} xs={6}>
+                                        <ProductCard></ProductCard>
+                                    </Grid>
+
+                                    <Grid item sm={4} xs={6}>
+                                        <ProductCard></ProductCard>
+                                    </Grid>
+
+                                </Grid>
+                            </div> 
+
+                        </Grid>
+                        <div className='specials'>
+                        <Grid item sm={4}>
+                            <div className='popular-products-h'>
+                                <Typography variant='h4'>
+                                    Expordium Specials
+                                </Typography>
+                            </div>
+
+                            <div className='specials-grid'>
+                                <Grid container={true}
+                                    spacing={2}>
+
+                                        <Grid item sm={12}>
+                                            <Box>
+                                                specials in grid test
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                            </div>
+                        </Grid>
+                    </div>   
+
+                    </div>
+
+                    {/* <div className='specials'>
+                        <Grid item sm={5}>
+                            <div className='popular-products-h'>
+                                <Typography variant='h4'>
+                                    Expordium Specials
+                                </Typography>
+                            </div>
+
+                            <div className='specials-grid'>
+                                <Grid container={true}
+                                    spacing={2}>
+
+                                        <Grid item sm={12}>
+                                            <Box>
+                                                specials
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                            </div>
+                        </Grid>
+                    </div> */}
+
+                </div>
+
+            </Grid>
         </div>
     )
 }
