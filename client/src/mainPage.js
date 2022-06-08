@@ -8,13 +8,11 @@ import User from './components/Header/User-profile/UserProfile'
 import MyBag from './components/Header/MyBag/MyBag'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Grid';
+import { Typography, Divider } from '@mui/material'
 
 import SearchBar from "./components/search-bar/search-bar";
 import './mainPage.scss';
-import image from  "./Rectangle_669.png";
 import ProductCard from './components/product-card/ProductCard';
-import { Container } from '@mui/system';
-import { Typography } from '@mui/material';
 
 const Main = () => {
     return (
@@ -37,22 +35,129 @@ const Main = () => {
                 </div>    
             
             </div>
-
-            <Grid container>
-                <Grid item sm={7}>
-                    sm7
-                    <Grid container>
-                        <Grid item>
-                            
+            <Box sx={{ flexGrow: 1 }}
+            className='products-and-specials-grid'>
+            <Grid container 
+                spacing={10}
+                /* className='products-and-specials-grid' */>
+                
+                <Grid item sm={7} className='popular-products'> 
+                    
+                    <Typography variant='h4' className='section-header'>
+                        Popular products
+                    </Typography>
+                    <Box sx={{ flexGrow: 1 }}>
+                    <Grid container={true}
+                        spacing={2}
+                        className='popular-products-grid'>
+                    
+                        <Grid item sm={4} xs={6}>
+                            <ProductCard></ProductCard>
                         </Grid>
+
+                        <Grid item sm={4} xs={6}>
+                            <ProductCard></ProductCard>
+                        </Grid>
+
+                        <Grid item sm={4} xs={6}>
+                            <ProductCard></ProductCard>
+                        </Grid>
+
+                        <Grid item sm={4} xs={6}>
+                            <ProductCard></ProductCard>
+                        </Grid>
+
+                        <Grid item sm={4} xs={6}>
+                            <ProductCard></ProductCard>
+                        </Grid>
+
+                        <Grid item sm={4} xs={6}>
+                            <ProductCard></ProductCard>
+                        </Grid>
+
                     </Grid>
+                    </Box>
+                    
+                    <Box sx={{ flexGrow: 1 }}
+                        className='see-all'>
+                        See all
+                    </Box>
+
+                    <Box sx={{ flexGrow: 1 }}>
+                    <Divider orientation='horizontal'
+                        className='horizontal-divider'></Divider>
+                    </Box>
+
+                    <Box sx={{ flexGrow: 1 }} className='added-today'>
+                        <Typography variant='h4' className='section-header'>
+                            Added Today
+                        </Typography>
+                        <Box sx={{ flexGrow: 1 }}>
+                            <Grid container={true}
+                                spacing={2}
+                                className='added-today-products-grid'>
+                            
+                                <Grid item sm={4} xs={6}>
+                                    <ProductCard></ProductCard>
+                                </Grid>
+
+                                <Grid item sm={4} xs={6}>
+                                    <ProductCard></ProductCard>
+                                </Grid>
+
+                                <Grid item sm={4} xs={6}>
+                                    <ProductCard></ProductCard>
+                                </Grid>
+
+                                <Grid item sm={4} xs={6}>
+                                    <ProductCard></ProductCard>
+                                </Grid>
+
+                                <Grid item sm={4} xs={6}>
+                                    <ProductCard></ProductCard>
+                                </Grid>
+
+                                <Grid item sm={4} xs={6}>
+                                    <ProductCard></ProductCard>
+                                </Grid>
+
+                            </Grid>
+                        </Box>
+                    </Box>
+                    
+
                 </Grid>
-                    <div className='sm5'>
-                    <Grid item sm={5}>
-                        sm5
+        
+                <Grid item sm={5} className='specials'>
+                    
+                    <Typography variant='h4' className='section-header'>
+                        Expordium Specials 
+                    </Typography>
+                    <Box sx={{ flexGrow: 1 }}>
+                    <Grid container={true}
+                        spacing={3}
+                        className='specials-grid'>
+
+                            <Grid item sm={12}>
+                                <Box className='specials-placeholder'>
+                                     
+                                </Box>
+                            </Grid>
+                            <Grid item sm={12}>
+                                <Box className='specials-placeholder'>
+                                     
+                                </Box>
+                            </Grid>
+
                     </Grid>
-                    </div>
+                    </Box>
+                </Grid>
+						 
             </Grid>
+            </Box>
+        
+        
+        
         </div>
     )
 }
