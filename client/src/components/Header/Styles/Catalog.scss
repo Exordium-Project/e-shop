@@ -1,0 +1,118 @@
+.catalog-styles {
+    display: flex;
+    overflow: hidden;
+    .arrow-icon {
+        margin-left: 4rem;
+        color: gray;
+    }
+
+    .catalog-icons {
+        background-color: rgba(29, 30, 31, 1);
+        color: white;
+        padding: .3rem;
+        font-size: 2rem;
+        border-radius: 1rem;
+    }
+
+    .catalog-typography {
+        font-size: 1rem;
+        text-transform: capitalize;
+        font-size: 1.1rem;
+    }
+
+    .catalog-btns {
+        height: 4.3rem;
+        width: 100%;
+        border: 1px solid black;
+        color: black;
+        gap: .5rem;
+    }
+
+    .firstButtonWidth {
+        width: 27.34rem;
+    }
+
+    .secondButtonWidth {
+        width: 22rem;
+    }
+
+    .thirtButtonWidth {
+        width: 21.9rem;
+    }
+
+    .fourthButtonWidth {
+        width: 24.4rem;
+        margin-right: 1rem;
+    }
+
+    @media screen and (max-width: 1300px) {
+        .catalog-typography {
+            font-size: .9rem;
+        }
+
+        .firstButtonWidth {
+            width: 19.4rem;
+        }
+
+        .secondButtonWidth {
+            width: 19.55rem;
+        }
+
+        .thirtButtonWidth {
+            width: 19.4rem;
+        }
+
+        .fourthButtonWidth {
+            width: 19.5rem;
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        .catalog-typography {
+            font-size: .8rem;
+        }
+
+        .firstButtonWidth {
+            width: 18.3rem;
+        }
+
+        .secondButtonWidth {
+            width: 15.3rem;
+        }
+
+        .thirtButtonWidth {
+            width: 17.1rem;
+        }
+
+        .fourthButtonWidth {
+            width: 15.3rem;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .catalog-typography {
+            font-size: .7rem;
+        }
+
+        .firstButtonWidth {
+            width: 12.5rem;
+        }
+
+        .secondButtonWidth {
+            width: 12.7rem;
+        }
+
+        .thirtButtonWidth {
+            width: 14.4rem;
+
+        }
+
+        .catalog-typography {
+            font-size: .69rem;
+        }
+
+        .fourthButtonWidth {
+            width: 14.2rem;
+        }
+    }
+}
