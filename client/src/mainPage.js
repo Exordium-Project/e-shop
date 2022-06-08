@@ -38,98 +38,20 @@ const Main = () => {
             
             </div>
 
-            <Grid container={true}
-                spacing={2}>
-                <div className='products-and-specials-grid'>
-                    <div className='popular-products'>
-                        <Grid item sm={7}> 
-                            <div className='popular-products-h'>
-                                <Typography variant='h4'>
-                                    Popular products
-                                </Typography>
-                            </div>
-
-                            <div className='product-grid'>
-                                
-                                <Grid container={true}
-                                    spacing={2}>
-                                
-                                    <Grid item sm={4} xs={6}>
-                                        <ProductCard></ProductCard>
-                                    </Grid>
-
-                                    <Grid item sm={4} xs={6}>
-                                        <ProductCard></ProductCard>
-                                    </Grid>
-
-                                    <Grid item sm={4} xs={6}>
-                                        <ProductCard></ProductCard>
-                                    </Grid>
-
-                                    <Grid item sm={4} xs={6}>
-                                        <ProductCard></ProductCard>
-                                    </Grid>
-
-                                    <Grid item sm={4} xs={6}>
-                                        <ProductCard></ProductCard>
-                                    </Grid>
-
-                                    <Grid item sm={4} xs={6}>
-                                        <ProductCard></ProductCard>
-                                    </Grid>
-
-                                </Grid>
-                            </div> 
-
+            <Grid container>
+                <Grid item sm={7}>
+                    sm7
+                    <Grid container>
+                        <Grid item>
+                            
                         </Grid>
-                        <div className='specials'>
-                        <Grid item sm={4}>
-                            <div className='popular-products-h'>
-                                <Typography variant='h4'>
-                                    Expordium Specials
-                                </Typography>
-                            </div>
-
-                            <div className='specials-grid'>
-                                <Grid container={true}
-                                    spacing={2}>
-
-                                        <Grid item sm={12}>
-                                            <Box>
-                                                specials in grid test
-                                            </Box>
-                                        </Grid>
-                                    </Grid>
-                            </div>
-                        </Grid>
-                    </div>   
-
+                    </Grid>
+                </Grid>
+                    <div className='sm5'>
+                    <Grid item sm={5}>
+                        sm5
+                    </Grid>
                     </div>
-
-                    {/* <div className='specials'>
-                        <Grid item sm={5}>
-                            <div className='popular-products-h'>
-                                <Typography variant='h4'>
-                                    Expordium Specials
-                                </Typography>
-                            </div>
-
-                            <div className='specials-grid'>
-                                <Grid container={true}
-                                    spacing={2}>
-
-                                        <Grid item sm={12}>
-                                            <Box>
-                                                specials
-                                            </Box>
-                                        </Grid>
-                                    </Grid>
-                            </div>
-                        </Grid>
-                    </div> */}
-
-                </div>
-
             </Grid>
         </div>
     )
