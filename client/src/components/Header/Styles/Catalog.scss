@@ -33,26 +33,31 @@
     }
 
     .compare-products-button {
-        width: 22rem;
+        width: 21.8rem;
     }
 
     .wish-list-button {
         width: 21.9rem;
+        margin-left: -.1rem;
     }
 
     .products-button {
         width: 24.4rem;
-        margin-right: 1rem;
+        margin-left: -.1rem;
     }
 
     @media screen and (max-width: 1300px) {
 
-        .main-page-button, .wish-list-button {
+        .main-page-button {
             width: 19.4rem;
         }
 
         .compare-products-button {
-            width: 19.55rem;
+            width: 19.4rem;
+        }
+
+        .wish-list-button{
+            width: 19.6rem;
         }
 
         .products-button {

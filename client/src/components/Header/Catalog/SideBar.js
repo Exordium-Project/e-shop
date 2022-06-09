@@ -14,6 +14,7 @@ const SideBar = () => {
         { leftAndRightSide: 'From 100$' },
         { leftAndRightSide: 'To 5000$' }
     ]
+    
     const selectOptions = [
         {
             titles: 'Material',
@@ -54,6 +55,7 @@ const SideBar = () => {
                             }
                         </Box>
                     </Toolbar>
+
                     <Slider className='slider' value={val} onChange={updateValue} />
                     {
                         selectOptions.map(item => (
