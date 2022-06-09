@@ -10,7 +10,7 @@
         background-color: rgba(29, 30, 31, 1);
         color: white;
         padding: .3rem;
-        font-size: 2rem;
+        font-size: 1.7rem;
         border-radius: 1rem;
     }
 
@@ -28,42 +28,39 @@
         gap: .5rem;
     }
 
-    .firstButtonWidth {
+    .main-page-button {
         width: 27.34rem;
     }
 
-    .secondButtonWidth {
+    .compare-products-button {
         width: 22rem;
     }
 
-    .thirtButtonWidth {
+    .wish-list-button {
         width: 21.9rem;
     }
 
-    .fourthButtonWidth {
+    .products-button {
         width: 24.4rem;
         margin-right: 1rem;
     }
 
     @media screen and (max-width: 1300px) {
-        .catalog-typography {
-            font-size: .9rem;
-        }
 
-        .firstButtonWidth {
+        .main-page-button, .wish-list-button {
             width: 19.4rem;
         }
 
-        .secondButtonWidth {
+        .compare-products-button {
             width: 19.55rem;
         }
 
-        .thirtButtonWidth {
-            width: 19.4rem;
+        .products-button {
+            width: 19.7rem;
         }
-
-        .fourthButtonWidth {
-            width: 19.5rem;
+        .catalog-icons{
+            font-size: 1.5rem;
+            margin-left: .1rem;
         }
     }
 
@@ -72,37 +69,35 @@
             font-size: .8rem;
         }
 
-        .firstButtonWidth {
+        .main-page-button {
             width: 18.3rem;
         }
 
-        .secondButtonWidth {
+        .compare-products-button,
+        .products-button {
             width: 15.3rem;
         }
 
-        .thirtButtonWidth {
+        .wish-list-button {
             width: 17.1rem;
         }
 
-        .fourthButtonWidth {
-            width: 15.3rem;
+        .arrow-icon, .catalog-icons{
+            margin-left: 1rem;
+            font-size: 1.5rem;
         }
     }
 
     @media screen and (max-width: 900px) {
-        .catalog-typography {
-            font-size: .7rem;
-        }
-
-        .firstButtonWidth {
+        .main-page-button {
             width: 12.5rem;
         }
 
-        .secondButtonWidth {
+        .compare-products-button {
             width: 12.7rem;
         }
 
-        .thirtButtonWidth {
+        .wish-list-button {
             width: 14.4rem;
 
         }
@@ -111,8 +106,13 @@
             font-size: .69rem;
         }
 
-        .fourthButtonWidth {
+        .products-button {
             width: 14.2rem;
+        }
+
+        .arrow-icon, .catalog-icons{
+            margin-left: .3rem;
+            font-size: 1.3rem;
         }
     }
 }

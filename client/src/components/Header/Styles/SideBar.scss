@@ -33,20 +33,20 @@
     color: black;
     display: flex;
     justify-content: space-around;
-    gap: 1.4rem;
+    gap: 1rem;
     margin-top: 1rem;
-    margin-left: 1rem;
-    width: 90%;
+    margin-left: -.1rem;
+    width: 100%;
 }
 .slider{
     margin-top: 1rem;
-    width: 20.3rem;
-    margin-left: 3.5rem;
+    width: 21.9rem;
+    margin-left: 2.6rem;
 }   
 .price-txt{
     color: black;
     margin-top: 1.8rem;
-    margin-left: 3.8rem;
+    margin-left: 3.2rem;
     font-size: 1.3rem;
     background-color: rgba(241,241,241,1);
 }
@@ -64,8 +64,8 @@
         
     }
     .price-diapason{
-        width: 90%;
-
+        width: 93%;
+        margin-left: 1rem;
     }
     .price-txt{
         margin-left: 2.7rem;

@@ -16,7 +16,7 @@ const Catalog = () => {
                 <Grid container={true} spacing={0}>
                     <Grid item={true} xl={3.45}>
 
-                        <Button className='catalog-btns firstButtonWidth'>
+                        <Button className='catalog-btns main-page-button'>
                             <HomeOutlinedIcon style={{ fontSize: '1.5rem' }} />
                             <Typography variant='paragraph' className='catalog-typography'>Main page</Typography>
                             <ArrowForwardIosIcon style={{ fontSize: '.7rem' }} />
@@ -24,21 +24,21 @@ const Catalog = () => {
                         </Button>
                     </Grid>
                     <Grid xl={2.77}>
-                        <Button className='catalog-btns secondButtonWidth'>
+                        <Button className='catalog-btns compare-products-button'>
                             <CompareArrowsIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>Compare Products</Typography>
                             <ArrowForwardIosIcon className='arrow-icon' />
                         </Button>
                     </Grid>
                     <Grid xl={2.76}>
-                        <Button className='catalog-btns thirtButtonWidth'>
+                        <Button className='catalog-btns wish-list-button'>
                             <FavoriteBorderIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>Wish List - Empty</Typography>
                             <ArrowForwardIosIcon className='arrow-icon' />
                         </Button>
                     </Grid>
                     <Grid xl={1.9} lg={2} md={2} sm={2}>
-                        <Button className='catalog-btns fourthButtonWidth'>
+                        <Button className='catalog-btns products-button'>
                             <ShoppingBagOutlinedIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>0 products - 0$</Typography>
                             <ArrowForwardIosIcon className='arrow-icon' />

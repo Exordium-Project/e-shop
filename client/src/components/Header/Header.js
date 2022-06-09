@@ -66,7 +66,7 @@ const Header = () => {
               <FormControl fullWidth className='languages'>
                 <InputLabel sx={{ mt: '1.3rem' }} className='icon'><LanguageRoundedIcon /></InputLabel>
                 <InputLabel className='input-label'>Language</InputLabel>
-                <Select sx={{ height: '6.3rem', textAlign: 'center', fontSize: '1rem' }}>
+                <Select sx={{ height: '6.5rem', textAlign: 'center', fontSize: '1rem' }}>
                   {
                     languages.map(items => { return <MenuItem key="{language}">{items}</MenuItem> })
                   }
