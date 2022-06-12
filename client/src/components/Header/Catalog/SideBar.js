@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Typography, AppBar, Toolbar, Slider, Accordion, Checkbox, AccordionSummary, StyledEngineProvider, AccordionDetails, FormControlLabel, FormGroup } from '@mui/material';
+import { Box, Typography, Grid, AppBar, Toolbar, Slider, Accordion, Checkbox, AccordionSummary, StyledEngineProvider, AccordionDetails, FormControlLabel, FormGroup } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import '../Styles/SideBar.scss'
 
@@ -38,9 +38,10 @@ const SideBar = () => {
         }
     ]
     return (
-        <Box>
-            <StyledEngineProvider injectFirst={true}>
-                <AppBar className='AppBar'>
+        <StyledEngineProvider injectFirst={true}>
+            <Box className='container'>
+                <AppBar className='appBar'>
+                    <Box className='side-bar-background-color'>
                     <Typography className='price-txt'>Price</Typography>
 
                     <Toolbar>
@@ -75,10 +76,11 @@ const SideBar = () => {
                             </Box>
                         ))
                     }
+                    </Box>
                 </AppBar>
-            </StyledEngineProvider>
-        </Box>
+            </Box>
 
+        </StyledEngineProvider>
     );
 }
 export default SideBar;

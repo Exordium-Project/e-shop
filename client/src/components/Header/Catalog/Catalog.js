@@ -14,7 +14,7 @@ const Catalog = () => {
             <StyledEngineProvider injectFirst={true}>
                 <Box className='catalog-styles'>
                 <Grid container={true} spacing={0}>
-                    <Grid item={true} xs={3}>
+                    <Grid item={true} xs={6} md={3}>
 
                         <Button className='catalog-btns main-page-button'>
                             <HomeOutlinedIcon style={{ fontSize: '1.5rem' }} />
@@ -23,21 +23,21 @@ const Catalog = () => {
                             <Typography variant='paragraph' className='catalog-typography'>Catalog</Typography>
                         </Button>
                     </Grid>
-                    <Grid item={true} xs={3}>
+                    <Grid item={true} xs={6} md={3}>
                         <Button className='catalog-btns compare-products-button'>
                             <CompareArrowsIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>Compare Products</Typography>
                             <ArrowForwardIosIcon className='arrow-icon' />
                         </Button>
                     </Grid>
-                    <Grid item={true} xs={3}>
+                    <Grid item={true} xs={6} md={3}>
                         <Button className='catalog-btns wish-list-button'>
                             <FavoriteBorderIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>Wish List - Empty</Typography>
                             <ArrowForwardIosIcon className='arrow-icon' />
                         </Button>
                     </Grid>
-                    <Grid item={true} xs={3}>
+                    <Grid item={true} xs={6} md={3}>
                         <Button className='catalog-btns products-button'>
                             <ShoppingBagOutlinedIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>0 products - 0$</Typography>
@@ -47,8 +47,7 @@ const Catalog = () => {
                 </Grid>
              </Box>
              <SideBar />
-            </StyledEngineProvider>
-
+        </StyledEngineProvider>
     )
 }
 
