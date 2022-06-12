@@ -1,11 +1,5 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom'
-import Header from './components/Header/Header';
-import Toys from './components/Header/Toys/Toys';
-import Catalog from './components/Header/Catalog/Catalog';
-import Brands from './components/Header/Brands/Brands'
-import User from './components/Header/User-profile/UserProfile'
-import MyBag from './components/Header/MyBag/MyBag'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Grid';
 import { Typography, Divider } from '@mui/material'
@@ -51,27 +45,27 @@ const Main = () => {
                         spacing={2}
                         className='popular-products-grid'>
                     
-                        <Grid item sm={4} xs={6}>
+                        <Grid item xs={12} sm={6} md={4}>
                             <ProductCard></ProductCard>
                         </Grid>
 
-                        <Grid item sm={4} xs={6}>
+                        <Grid item xs={12} sm={6} md={4}>
                             <ProductCard></ProductCard>
                         </Grid>
 
-                        <Grid item sm={4} xs={6}>
+                        <Grid item xs={12} sm={6} md={4}>
                             <ProductCard></ProductCard>
                         </Grid>
 
-                        <Grid item sm={4} xs={6}>
+                        <Grid item xs={12} sm={6} md={4}>
                             <ProductCard></ProductCard>
                         </Grid>
 
-                        <Grid item sm={4} xs={6}>
+                        <Grid item xs={12} sm={6} md={4}>
                             <ProductCard></ProductCard>
                         </Grid>
 
-                        <Grid item sm={4} xs={6}>
+                        <Grid item xs={12} sm={6} md={4}>
                             <ProductCard></ProductCard>
                         </Grid>
 
@@ -80,7 +74,7 @@ const Main = () => {
                     
                     <Box sx={{ flexGrow: 1 }}
                         className='see-all'>
-                        See all
+                        See all {/* TODO Show more products */}
                     </Box>
 
                     <Box sx={{ flexGrow: 1 }}>
@@ -97,27 +91,27 @@ const Main = () => {
                                 spacing={2}
                                 className='added-today-products-grid'>
                             
-                                <Grid item sm={4} xs={6}>
+                                <Grid item xs={12} sm={6} md={4}>
                                     <ProductCard></ProductCard>
                                 </Grid>
 
-                                <Grid item sm={4} xs={6}>
+                                <Grid item xs={12} sm={6} md={4}>
                                     <ProductCard></ProductCard>
                                 </Grid>
 
-                                <Grid item sm={4} xs={6}>
+                                <Grid item xs={12} sm={6} md={4}>
                                     <ProductCard></ProductCard>
                                 </Grid>
 
-                                <Grid item sm={4} xs={6}>
+                                <Grid item xs={12} sm={6} md={4}>
                                     <ProductCard></ProductCard>
                                 </Grid>
 
-                                <Grid item sm={4} xs={6}>
+                                <Grid item xs={12} sm={6} md={4}>
                                     <ProductCard></ProductCard>
                                 </Grid>
 
-                                <Grid item sm={4} xs={6}>
+                                <Grid item xs={12} sm={6} md={4}>
                                     <ProductCard></ProductCard>
                                 </Grid>
 
