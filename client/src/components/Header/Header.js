@@ -103,7 +103,7 @@ const Header = () => {
         </Grid>
       </Grid>
     </Box>
-      </StyledEngineProvider >
+  </StyledEngineProvider >
   );
 }
 
