@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Typography, AppBar, Toolbar, Slider, Accordion, AccordionSummary, StyledEngineProvider, AccordionDetails, FormControl, FormControlLabel, RadioGroup, Radio } from '@mui/material';
+import { Box, Typography, AppBar, Toolbar, Slider, Accordion, Checkbox, AccordionSummary, StyledEngineProvider, AccordionDetails, FormControlLabel, FormGroup } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import '../Styles/SideBar.scss'
 
@@ -14,32 +14,27 @@ const SideBar = () => {
         { leftAndRightSide: 'From 100$' },
         { leftAndRightSide: 'To 5000$' }
     ]
-    
+
     const selectOptions = [
         {
             titles: 'Material',
-            firstOption: 'Space',
-            secondOption: 'Leather',
+            options: ['Space', 'Leather']
         },
         {
             titles: 'Brands',
-            firstOption: 'Nike',
-            secondOption: 'Puma',
+            options: ['Nike', 'Puma']
         },
         {
             titles: 'Colors',
-            firstOption: 'Black',
-            secondOption: 'White'
+            options: ['Black', 'White']
         },
         {
             titles: 'Characteristics',
-            firstOption: 'Sneakers',
-            secondOption: 'Athletic'
+            options: ['Sneakers', 'Athletic']
         },
         {
             titles: 'Location',
-            firstOption: 'Sofia, Bulgaria',
-            secondOption: 'Plovdiv, Bulgaria'
+            options: ['Sofia, Bulgaria', 'Plovdiv, Bulgaria']
         }
     ]
     return (
@@ -67,12 +62,13 @@ const SideBar = () => {
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <Typography>
-                                            <FormControl>
-                                                <RadioGroup aria-labelledby="demo-radio-buttons-group-label" name="radio-buttons-group">
-                                                    <FormControlLabel label={item.firstOption} value={item.firstOption} control={<Radio />} />
-                                                    <FormControlLabel label={item.secondOption} value={item.secondOption} control={<Radio />} />
-                                                </RadioGroup>
-                                            </FormControl>
+                                            <FormGroup>
+                                                {
+                                                    item.options.map(option => (
+                                                        <FormControlLabel control={<Checkbox />} label={option} value={option} />
+                                                    ))
+                                                }
+                                            </FormGroup>
                                         </Typography>
                                     </AccordionDetails>
                                 </Accordion>
@@ -82,6 +78,7 @@ const SideBar = () => {
                 </AppBar>
             </StyledEngineProvider>
         </Box>
+
     );
 }
 export default SideBar;
