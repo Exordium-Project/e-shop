@@ -6,7 +6,7 @@ import Catalog from './components/Header/Catalog/Catalog';
 import Brands from './components/Header/Brands/Brands';
 import User from './components/Header/User-profile/UserProfile';
 import MyBag from './components/Header/MyBag/MyBag';
-import Main from './mainPage';
+import Main from './components/main-layout/mainPage';
 
 function App() {
 

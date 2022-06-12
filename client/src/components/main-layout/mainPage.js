@@ -4,9 +4,9 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Grid';
 import { Typography, Divider } from '@mui/material'
 
-import SearchBar from "./components/search-bar/search-bar";
+import SearchBar from "../search-bar/search-bar";
 import './mainPage.scss';
-import ProductCard from './components/product-card/ProductCard';
+import ProductCard from '../product-card/ProductCard';
 
 const Main = () => {
     return (

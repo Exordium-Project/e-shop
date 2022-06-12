@@ -1,4 +1,4 @@
-@import'./shared/styles/colors';
+@import'../../shared/styles/colors';
 
 .main {
     max-width: 1536px; // equal to background image width
@@ -7,7 +7,7 @@
     margin: 0 auto; // centering the main layout
     
     .search-background-image {
-        background-image: url("./Rectangle_669.png");
+        background-image: url("../../../public/Rectangle_669.png");
         background-repeat: no-repeat;
         background-size: contain ;
         background-position: center;
