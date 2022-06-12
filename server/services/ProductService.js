@@ -1,11 +1,16 @@
-import Product from "../models/Product.js"
+import Product from '../models/Product.js';
+import Error from '../error/Error.js';
 
 export default class ProductService {
 
     static async createProduct(productData) {
-        const product = await Product.create(productData)
+        const createdProduct = await Product.create(productData).catch(error => {
+            console.log(error);
+            return new Error(500, error.message);
+        });
 
-        return product
+        return createdProduct;
+
     }
 
     static async deleteProduct(projectId) {
@@ -14,8 +19,11 @@ export default class ProductService {
             where: {
                 id: projectId
             }
-        })
+        }).catch(error =>{
+            console.log(error);
+            return new Error(500, error.message);
+        });
 
-        return true
+        return true;
     }
 }
