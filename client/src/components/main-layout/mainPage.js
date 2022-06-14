@@ -9,6 +9,19 @@ import './mainPage.scss';
 import ProductCard from '../product-card/ProductCard';
 
 const Main = () => {
+    let specialProducts = [<ProductCard></ProductCard>,
+                            <ProductCard></ProductCard>,
+                            <ProductCard></ProductCard>,
+                            <ProductCard></ProductCard>,
+                            <ProductCard></ProductCard>,
+                            <ProductCard></ProductCard>,];
+    let addedTodayProducts = [<ProductCard></ProductCard>,
+                                <ProductCard></ProductCard>,
+                                <ProductCard></ProductCard>,
+                                <ProductCard></ProductCard>,
+                                <ProductCard></ProductCard>,
+                                <ProductCard></ProductCard>,];
+    
     return (
         <div className='main'>
         
@@ -41,35 +54,17 @@ const Main = () => {
                         Popular products
                     </Typography>
                     <Box sx={{ flexGrow: 1 }}>
-                    <Grid container={true}
-                        spacing={2}
-                        className='popular-products-grid'>
-                    
-                        <Grid item xs={12} sm={6} md={4}>
-                            <ProductCard></ProductCard>
-                        </Grid>
+                        <Grid container={true}
+                            spacing={2}
+                            className='popular-products-grid'>
+                            
+                            {specialProducts.map((item,index)=>{
+                                return <Grid item xs={12} sm={6} md={4}
+                                    key={index}>{item}
+                                    </Grid>
+                            })}
 
-                        <Grid item xs={12} sm={6} md={4}>
-                            <ProductCard></ProductCard>
                         </Grid>
-
-                        <Grid item xs={12} sm={6} md={4}>
-                            <ProductCard></ProductCard>
-                        </Grid>
-
-                        <Grid item xs={12} sm={6} md={4}>
-                            <ProductCard></ProductCard>
-                        </Grid>
-
-                        <Grid item xs={12} sm={6} md={4}>
-                            <ProductCard></ProductCard>
-                        </Grid>
-
-                        <Grid item xs={12} sm={6} md={4}>
-                            <ProductCard></ProductCard>
-                        </Grid>
-
-                    </Grid>
                     </Box>
                     
                     <Box sx={{ flexGrow: 1 }}
@@ -90,30 +85,12 @@ const Main = () => {
                             <Grid container={true}
                                 spacing={2}
                                 className='added-today-products-grid'>
-                            
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <ProductCard></ProductCard>
-                                </Grid>
-
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <ProductCard></ProductCard>
-                                </Grid>
-
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <ProductCard></ProductCard>
-                                </Grid>
-
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <ProductCard></ProductCard>
-                                </Grid>
-
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <ProductCard></ProductCard>
-                                </Grid>
-
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <ProductCard></ProductCard>
-                                </Grid>
+                                
+                                {addedTodayProducts.map((item,index)=>{
+                                return <Grid item xs={12} sm={6} md={4}
+                                    key={index}>{item}
+                                    </Grid>
+                                })}
 
                             </Grid>
                         </Box>
