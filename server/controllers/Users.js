@@ -45,7 +45,36 @@ usersController.post('/registration', async (req, res) => {
     })
 })
 
+usersController.get("/login", async (req, res) => {
+    const userData = {
+        username: req.body.username,
+        password: req.body.password
+    }
 
+    const user = await User.findOne({
+        where: {
+            email: userData.username
+        }
+    })
+
+    if(!user){
+        res.status(404).send({
+            message: "Invalid credentials"
+        })
+    }
+
+    const isLoggedIn = await bcrypt.compare(userData.password, user.password)
+
+    if(isLoggedIn) {
+        res.status(200).send({
+            message: "You logged in"
+        })
+    } else{
+        res.status(404).send({
+            message: "Invalid credentials"
+        })
+    }
+})
 
 usersController.post('/token', (req, res) => {
     User.findOne({
