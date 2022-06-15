@@ -1,22 +1,32 @@
 import express from 'express'
 import BrandService from '../services/BrandService.js';
-
-const brandsCotnroller = express.Router()
+import Error from '../error/Error.js';
+const brandsCotnroller = express.Router();
 
 brandsCotnroller.post("/", async (req, res) => {
     const brandData = {
         name: req.body.name
     }
 
-    if(await BrandService.createBrand(brandData))
-        res.send(true)
+    const createdBrand = await BrandService.createBrand(brandData);
+
+    if(createdBrand instanceof Error){
+        res.status(createdBrand.statusCode);
+    }
+
+    res.send(createdBrand);
     
 })
 
 brandsCotnroller.get("/", async (req, res) => {
-    const brands = await BrandService.getAllBrands()
-    
-    res.send(brands)
+    const brands = await BrandService.getAllBrands();
+
+
+    if(brands instanceof Error){
+        res.status(brands.statusCode);
+    }
+
+    res.send(brands);
 })
 
 export default brandsCotnroller;

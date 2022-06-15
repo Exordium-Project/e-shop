@@ -1,0 +1,118 @@
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .appBar{
+        height: 100%;
+        width: 30%;
+        position: absolute;
+        left: 0;
+        top: 8rem;
+        box-sizing: border-box;
+    }
+    .side-bar-background-color{
+        background-color: rgba(241, 241, 241, 1);
+    }
+}
+.side-bar-boxes{
+    width: 80%;
+    margin-top: 15%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .acordion-style{
+        background-color: rgba(241,241,241,1);
+    }
+    .MuiButtonBase-root{
+        height: 4rem;
+    }
+}
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(222, 224, 231, 1);
+    height: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 100%;
+}
+.price-txt{
+    background-color: rgba(189,185,185,1);
+}
+.price-diapason{
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+.slider{
+    margin-top: 2rem;
+    width: 90%;
+    margin-left: 1rem;
+}   
+.price-txt{
+    color: black;
+    margin-top: 1.8rem;
+    padding-left: 10%;
+    margin-left: .6rem;
+    font-size: 1.3rem;
+    background-color: rgba(241,241,241,1);
+}
+@media screen and (max-width: 600px) {
+    .container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        .appBar{
+            height: 100%;
+            width: 40%;
+            position: absolute;
+            left: 0;
+            top: 15rem;
+            box-sizing: border-box;
+            background-color: rgba(241, 241, 241, 1);
+        }
+        .MuiBox-root{
+            background-color: rgba(241, 241, 241, 1);
+        }
+    }
+    .slider{
+        margin-left: .4rem;
+    }
+    .price{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(222, 224, 231, 1);
+        height: 1rem;
+        padding: 1rem;
+        border-radius: .5rem;
+        width: 100%;
+    }
+    .price-txt{
+        background-color: rgba(241,241,241,1);
+    }
+    .price-diapason{
+        color: black;
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    .price-txt{
+        color: black;
+        margin-top: 1.8rem;
+        padding-left: 10%;
+        margin-left: .1rem;
+        font-size: 1.1rem;
+        background-color: rgba(241,241,241,1);
+    }
+}

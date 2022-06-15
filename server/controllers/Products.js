@@ -1,5 +1,6 @@
-import express from "express"
-import productService from '../services/ProductService.js'
+import express from 'express';
+import productService from '../services/ProductService.js';
+import Error from '../error/Error.js';
 
 const productsController = express.Router()
 
@@ -13,16 +14,24 @@ productsController.post("/", async (req, res) => {
         brand_id: req.body.brand_id
     }
 
-    const product = await productService.createProduct(productData)
+    const createdProduct = await productService.createProduct(productData);
 
-    res.send(product)
+    if(createdProduct instanceof Error){
+        res.status(createdProduct.statusCode);
+    }
+
+    res.send(createdProduct);
 })
 
 productsController.delete("/", async (req, res) => {
-    const projectId = req.body.id
+    const projectId = req.body.id;
 
-    await productService.deleteProduct(projectId)
+    const result = await productService.deleteProduct(projectId);
 
+    if(result instanceof Error){
+        res.status(result.statusCode);
+        return res;
+    }
     res.send(true)
 })
 
