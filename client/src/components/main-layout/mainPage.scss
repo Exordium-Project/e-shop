@@ -29,7 +29,7 @@
     }
 
     .section-header{
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     .see-all{
@@ -43,12 +43,7 @@
     .added-today {
         margin-top: 30px;
     }
- 
-
-    .specials-placeholder {
-        background-color: black;
-        height: 1050px;
-    }
-    
-
+    .MuiGrid-item{
+        max-width: 100% !important;
+      }
 }
