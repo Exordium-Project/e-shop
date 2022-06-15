@@ -8,6 +8,7 @@ import SearchBar from "../search-bar/search-bar";
 
 import ProductCard from '../product-card/ProductCard';
 import SpecialComponent from '../special-components/SpecialComponent';
+import './mainPage.scss';
 
 const Main = () => {
     let specialProducts = [<SpecialComponent></SpecialComponent>,
@@ -114,11 +115,6 @@ const Main = () => {
                                                 key={index}>{item}
                                             </Grid>
                                         })}
-                                    </Box>
-                                </Grid>
-                                <Grid item sm={12}>
-                                    <Box className='specials-placeholder'>
-
                                     </Box>
                                 </Grid>
 

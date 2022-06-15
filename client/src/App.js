@@ -7,6 +7,8 @@ import Brands from './components/Header/Brands/Brands';
 import User from './components/Header/User-profile/UserProfile';
 import MyBag from './components/Header/MyBag/MyBag';
 import Main from './components/main-layout/mainPage';
+import './components/main-layout/mainPage.scss';
+
 
 function App() {
 
@@ -23,8 +25,6 @@ function App() {
                 <Route path='/mybag' element={<MyBag />} />
             </Routes>
 
-
-            <h2>Exordium Project</h2>
         </div>
     );
 }
