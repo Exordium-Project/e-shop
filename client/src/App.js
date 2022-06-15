@@ -23,6 +23,9 @@ function App() {
                 <Route path='/mybag' element={<MyBag />} />
             </Routes>
 
+
+            <h2>Exordium Project</h2>
+            <Main />
         </div>
     );
 }
