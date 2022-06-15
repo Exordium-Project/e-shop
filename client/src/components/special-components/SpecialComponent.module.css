@@ -1,7 +1,7 @@
 .card {
     margin-top: 15%;
     position: relative;
-    background-color: #000000;
+    background-color: rgba(29,30,31,1);
     width: 200%;
 }
 
@@ -53,18 +53,17 @@
   }
   
   .card .contentBox .buy {
-    position: relative;
     top: 100px;
-    opacity: 0;
     padding: 10px 30px;
     margin-top: 15px;
     color: white;
     text-decoration: none;
-    background: blue;
-    border-radius: 30px;
+    background-color: rgba(61,76,211,1);
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: 0.5s;
+    opacity: 1;
+    text-align: center;
+    width: 90%;
   }
   
   .card:hover .contentBox .buy {

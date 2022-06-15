@@ -25,7 +25,6 @@ function App() {
 
 
             <h2>Exordium Project</h2>
-            <Main />
         </div>
     );
 }
