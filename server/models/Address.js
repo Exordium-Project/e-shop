@@ -37,6 +37,7 @@ export default db.sequelize.define(
         },
         user_id:{
             type: Sequelize.INTEGER,
+            allowNull: false,
             references: {
                 model: User,
                 key: 'id'

@@ -1,8 +1,9 @@
 import {Sequelize} from "sequelize"
 import db from "../config/db.config.js"
+import passportLocalSequelize from 'passport-local-sequelize'
 
 
-export default db.sequelize.define(
+const User = db.sequelize.define(
     'user', 
     {
         id: {
@@ -50,3 +51,10 @@ export default db.sequelize.define(
         timestamps: true
     }
 )
+
+passportLocalSequelize.attachToUser(User, {
+    usernameField: 'username',
+    hashField: 'password'
+})
+
+export default User
