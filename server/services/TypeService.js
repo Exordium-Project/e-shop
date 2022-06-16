@@ -1,4 +1,5 @@
 import Type from "../models/Type.js"
+import Error from "../error/Error.js";
 
 export default class TypeService {
 
@@ -7,12 +8,15 @@ export default class TypeService {
             where: {
                 name: typeData.name
             }
+        }).catch(error => {
+            console.log(error);
+            return new Error(500, error.message);
         });
 
         if (type)
             return new Error(409, "A type with the given name already exists.");
 
-        const created = await Type.create(typeData).catch(error =>{
+        const created = await Type.create(typeData).catch(error => {
             console.log(error);
             return new Error(500, error.message);
         });
@@ -24,7 +28,7 @@ export default class TypeService {
     static async getAllTypes() {
         const [types] = await Promise.all([Type.findAll({
             attributes: ["name"]
-        })]).catch(error =>{
+        })]).catch(error => {
             console.log(error);
             return new Error(500, error.message);
         });

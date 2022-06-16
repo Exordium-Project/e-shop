@@ -43,16 +43,21 @@ export default db.sequelize.define(
                 model: Brand,
                 key: 'id'
             }
-        },
-        date_on_creating: {
-            type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        date_of_last_modified: {
-            type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
         }
+
+        // TODO: Add the following fields in the database
+        // date_on_creating: {
+        //     type: Sequelize.DATE,
+        //     allowNull: false,
+        //     defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        // },
+        // date_of_last_modified: {
+        //     type: Sequelize.DATE,
+        //     allowNull: false,
+        //     defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        // }
+    },
+    {
+        timestamps: false
     }
 )

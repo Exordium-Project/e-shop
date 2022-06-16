@@ -4,6 +4,17 @@ import Error from '../error/Error.js';
 export default class ProductService {
 
     static async createProduct(productData) {
+
+        const product = await Product.findOne({
+            where: {
+                name: productData.name
+            }
+        });
+
+
+        if (product)
+            return new Error(409, "A product with the given name already exists.");
+
         const createdProduct = await Product.create(productData).catch(error => {
             console.log(error);
             return new Error(500, error.message);

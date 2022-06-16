@@ -14,5 +14,8 @@ export default db.sequelize.define(
             type: Sequelize.STRING,
             allowNull: false
         }
+    },
+    {
+        timestamps: false
     }
 )
