@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from './Logo.png'
-import { Typography, Button, MenuItem, FormControl, Select, InputLabel, Box, Grid, StyledEngineProvider } from '@mui/material';
+import { Typography, Button, MenuItem, FormControl, Select, InputLabel,Box, Grid, StyledEngineProvider } from '@mui/material';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -13,90 +13,97 @@ const Header = () => {
   const textDecorationObject = {
     textDecoration: 'none'
   }
-  const languages = ['ENG', 'BUL', 'GER']
-  return(
-    <Box>
-      <StyledEngineProvider injectFirst={true}>
+  const languages = [
+    {
+      title: 'Language',
+      options: ['BULGARIAN', 'ENGLISH', 'GERMAN']
+    }
+  ]
+  return (
+    <StyledEngineProvider injectFirst={true}>
+      <Box className='header-div'>
         <Grid container={true} spacing={0} >
-
-          <Grid item={true} xl={3.45} lg={3} md={3.36} sm={12} xs={12}>
+          <Grid item={true} xs={12} md={3}>
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <img src={Logo} className='img' />
-              <Typography sx={{ fontSize: '1.1rem', ml: '11rem', mt: '-4.4rem', color: 'white' }}>
+              <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-4.4rem', color: 'white' }}>
                 EXORDIUM
-                <Typography sx={{ color: 'rgb(122, 122, 122)', fontSize: '0.9rem' }}>ALL DAY STORE</Typography>
+                <Typography sx={{ color: 'rgb(122, 122, 122)', fontSize: '1.1rem' }}>ALL DAY STORE</Typography>
               </Typography>
             </Typography>
           </Grid>
 
-          <Grid item={true} >
-            <Box className='header-div'>
-              <Link to='/toys' style={textDecorationObject}>
-                <Button>
-                  <Typography className='pages'>Toys</Typography>
-                  <span className='span'>hot</span>
-                </Button>
-              </Link>
-            </Box>
+          <Grid item={true} xs={12} sm={2} md={1.5}>
+
+            <Link to='/toys' style={textDecorationObject}>
+              <Button className='header-buttons'>
+                <Typography className='pages'>Toys</Typography>
+                <span className='span'>hot</span>
+              </Button>
+            </Link>
+
           </Grid>
 
-          <Grid item={true} lg={1.49} xl={1.37}>
-            <Box className='header-div'>
-              <Link to="/catalog" style={textDecorationObject}>
-                <Button>
-                  <FilterListOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
-                  <Typography className='pages'>Catalog</Typography>
-                </Button>
-              </Link>
-            </Box>
+          <Grid item={true} xs={12} sm={2} md={1.5}>
+
+            <Link to="/catalog" style={textDecorationObject}>
+              <Button className='header-buttons'>
+                <FilterListOutlinedIcon sx={{ color: 'black', fontSize: '1.7rem' }} />
+                <Typography className='pages'>Catalog</Typography>
+              </Button>
+            </Link>
+
           </Grid>
 
-          <Grid item={true} lg={1.5} xl={1.37}>
-            <Box className='header-div'>
-              <Link to="/brands" style={textDecorationObject}>
-                <Button>
-                  <Typography className='pages'>Brands</Typography>
-                </Button>
-              </Link>
-            </Box>
+          <Grid item={true}  xs={12} sm={2} md={1.5}>
+
+            <Link to="/brands" style={textDecorationObject}>
+              <Button className='header-buttons'>
+                <Typography className='pages'>Brands</Typography>
+              </Button>
+            </Link>
+
           </Grid>
 
-          <Grid item={true}>
-            <Box className='header-div'>
-              <FormControl fullWidth className='languages'>
-                <InputLabel sx={{ mt: '1.3rem' }} className='icon'><LanguageRoundedIcon /></InputLabel>
-                <InputLabel className='input-label'>Language</InputLabel>
-                <Select sx={{ height: '6.5rem', textAlign: 'center', fontSize: '1rem' }}>
-                  {
-                    languages.map(items => { return <MenuItem key="{language}">{items}</MenuItem> })
-                  }
-                </Select>
-              </FormControl>
-            </Box>
+          <Grid item={true} xs={12} sm={2} md={1.5}>
+            {
+              languages.map(item => {
+                return (
+                  <FormControl fullWidth className='languages'>
+                        <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{item.title}</InputLabel>
+                        <Select sx={{ height: '7.5rem', textAlign: 'center' }}>
+                          {
+                            item.options.map(item => { return <MenuItem value={item}>{item}</MenuItem> })
+                          }
+                        </Select>
+                  </FormControl>
+                )
+              })
+            }
           </Grid>
 
-          <Grid item={true}>
-            <Box className='header-div'>
-              <Link to='/user' style={textDecorationObject}>
-                <Button className=''><AccountCircleRoundedIcon color='disabled' fontSize='large' />
-                  <Typography className='pages'>Alexander</Typography>
-                </Button></Link>
-            </Box>
-          </Grid>
+        <Grid item={true} xs={12} sm={2} md={1.5}>
 
-          <Grid item={true}>
-            <Box className='header-div'>
-              <Link to='/mybag' style={textDecorationObject}>
-                <Button className='bagBtn'>
-                  <Typography className='pages'>My Bag</Typography>
-                  <ShoppingCartOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
-                </Button>
-              </Link>
-            </Box>
-          </Grid>
+          <Link to='/user' style={textDecorationObject}>
+            <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
+              <Typography className='pages'>Alex</Typography>
+            </Button></Link>
+
         </Grid>
-      </StyledEngineProvider>
+
+        <Grid item={true} xs={12} sm={2} md={1.5}>
+
+          <Link to='/mybag' style={textDecorationObject}>
+            <Button className='header-buttons'>
+              <Typography className='pages'>My Bag</Typography>
+              <ShoppingCartOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
+            </Button>
+          </Link>
+
+        </Grid>
+      </Grid>
     </Box>
+  </StyledEngineProvider >
   );
 }
 

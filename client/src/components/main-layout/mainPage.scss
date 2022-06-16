@@ -1,0 +1,49 @@
+@import'../../shared/styles/colors';
+
+.main {
+    max-width: 1536px; // equal to background image width
+    min-height: 1000vh;
+    background-color: $main-background-color;
+    margin: 0 auto; // centering the main layout
+    
+    .search-background-image {
+        background-image: url("../../../public/Rectangle_669.png");
+        background-repeat: no-repeat;
+        background-size: contain ;
+        background-position: center;
+        
+        width: 100%;
+        height:0; 
+        padding-bottom: 24.93%; // scaling the div to match the background image 
+    }
+
+    .search-bar {
+        padding-top: 6%;  
+    }
+
+    .products-and-specials-grid{
+        max-width: 1536px;
+        margin-top: 40px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .section-header{
+        margin-bottom: 10px;
+    }
+
+    .see-all{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .added-today {
+        margin-top: 30px;
+    }
+    .MuiGrid-item{
+        max-width: 100% !important;
+      }
+}

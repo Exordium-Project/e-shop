@@ -11,10 +11,10 @@ import '../Styles/Catalog.scss'
 
 const Catalog = () => {
     return (
-        <Box className='catalog-styles'>
             <StyledEngineProvider injectFirst={true}>
+                <Box className='catalog-styles'>
                 <Grid container={true} spacing={0}>
-                    <Grid item={true} xl={3.45}>
+                    <Grid item={true} xs={6} md={3}>
 
                         <Button className='catalog-btns main-page-button'>
                             <HomeOutlinedIcon style={{ fontSize: '1.5rem' }} />
@@ -23,21 +23,21 @@ const Catalog = () => {
                             <Typography variant='paragraph' className='catalog-typography'>Catalog</Typography>
                         </Button>
                     </Grid>
-                    <Grid xl={2.77}>
+                    <Grid item={true} xs={6} md={3}>
                         <Button className='catalog-btns compare-products-button'>
                             <CompareArrowsIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>Compare Products</Typography>
                             <ArrowForwardIosIcon className='arrow-icon' />
                         </Button>
                     </Grid>
-                    <Grid xl={2.76}>
+                    <Grid item={true} xs={6} md={3}>
                         <Button className='catalog-btns wish-list-button'>
                             <FavoriteBorderIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>Wish List - Empty</Typography>
                             <ArrowForwardIosIcon className='arrow-icon' />
                         </Button>
                     </Grid>
-                    <Grid xl={1.9} lg={2} md={2} sm={2}>
+                    <Grid item={true} xs={6} md={3}>
                         <Button className='catalog-btns products-button'>
                             <ShoppingBagOutlinedIcon className='catalog-icons' />
                             <Typography variant='paragraph' className='catalog-typography'>0 products - 0$</Typography>
@@ -45,10 +45,9 @@ const Catalog = () => {
                         </Button>
                     </Grid>
                 </Grid>
-            </StyledEngineProvider>
-
-            <SideBar />
-        </Box>
+             </Box>
+             <SideBar />
+        </StyledEngineProvider>
     )
 }
 
