@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import bodyParser from 'body-parser';
 import UsersController from './controllers/Users.js'
 import ProductsController from './controllers/Products.js'
 import TypesController from './controllers/Types.js'
