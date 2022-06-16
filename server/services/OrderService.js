@@ -1,5 +1,5 @@
 import Order from '../models/Order.js';
-import OrderItem from '../models/OrderItem';
+import OrderItem from '../models/OrderItem.js';
 import Error from '../error/Error.js';
 
 export default class OrderService {

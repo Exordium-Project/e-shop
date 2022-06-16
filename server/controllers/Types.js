@@ -1,5 +1,5 @@
 import express from 'express';
-import  typeService from '../services/TypeService.js';
+import typeService from '../services/TypeService.js';
 import Error from '../error/Error.js';
 
 const typesController = express.Router();
@@ -11,7 +11,7 @@ typesController.post("/", async (req, res) => {
 
     const createdType = await typeService.createType(typeData);
 
-    if(createdType instanceof Error){
+    if (createdType instanceof Error) {
         res.status(createdType.statusCode);
     }
 
@@ -21,7 +21,7 @@ typesController.post("/", async (req, res) => {
 typesController.get("/", async (req, res) => {
     const types = await typeService.getAllTypes();
 
-    if(types instanceof Error){
+    if (types instanceof Error) {
         res.status(types.statusCode);
     }
 
