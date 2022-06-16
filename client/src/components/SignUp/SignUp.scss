@@ -1,0 +1,76 @@
+.left-and-right-header-side {
+    display: flex;
+
+    .left-side-header {
+        display: flex;
+        margin-left: -4rem;
+        width: 100%;
+    }
+
+    .left-side-text {
+        margin-top: 2.4rem;
+        margin-left: .5rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    .sign-up-img {
+        border-radius: 50%;
+        height: 3rem;
+        margin-left: 5rem;
+        margin-top: 1.8rem;
+    }
+
+    .right-side-header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 1.5rem;
+        margin-top: 2.4rem;
+    }
+}
+
+.option-part {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.email-box,
+.password-box,
+.name-box {
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    .MuiOutlinedInput-input {
+        height: .7rem;
+        width: 60rem;
+    }
+}
+.span-and-button{
+    display: grid;
+    .span{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+        width: 45%;
+        font-size: 1rem;
+    }
+    .button{
+       margin-top: 1rem;
+       background-color: black;
+       color: white;
+       width: 45%;
+       margin-left: auto;
+       margin-right: auto;
+       padding: .7rem;
+       border-radius: 1rem;
+    }
+}
