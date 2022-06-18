@@ -1,0 +1,90 @@
+@media screen and (max-width: 600px) {
+    .email-box,
+    .password-box,
+    .name-box {
+        width: 70%;
+        margin-left: 1rem;
+        display: flex;
+        gap: .3rem;
+        margin-top: 2rem;
+        display: grid;
+
+        .MuiOutlinedInput-input {
+            height: .7rem;
+            width: 60rem;
+        }
+    }
+
+    .span-and-button {
+        display: grid;
+
+        .tearms-and-conditions {
+            margin-left: 1rem;
+            margin-top: 1rem;
+            width: 75%;
+            font-size: 1rem;
+        }
+
+        .button {
+            margin-top: 1rem;
+            background-color: black;
+            color: white;
+            width: 70%;
+            margin-left: 1rem;
+            padding: .7rem;
+            border-radius: 2rem;
+        }
+    }
+
+    .option-part {
+        width: 70%;
+    }
+
+    .vertical-line {
+        background-color: lightgray;
+        position: relative;
+        left: 84%;
+        top: -95%;
+        width: .1rem;
+        height: 100%;
+
+        .vertical-line-text {
+            background-color: white;
+            position: relative;
+            top: 14rem;
+            left: -.3rem;
+            width: 1rem;
+        }
+    }
+
+    .buttons-group {
+        position: relative;
+        left: 54%;
+        top: -21rem;
+        display: grid;
+        width: 50%;
+        grid-gap: 2rem;
+
+        .MuiButton-root {
+            width: 70%;
+            padding: .7rem;
+        }
+
+        .facebook-signUp {
+            border: 1px solid #4267B2;
+            background-color: #4267B2;
+            color: white;
+            border-radius: 2rem;
+            width: 90%;
+        }
+
+        .google-signUp,
+        .apple-signUp {
+            border: 1px solid black;
+            color: black;
+            border-radius: 2rem;
+            width: 90%;
+            text-align: center;
+        }
+    }
+}

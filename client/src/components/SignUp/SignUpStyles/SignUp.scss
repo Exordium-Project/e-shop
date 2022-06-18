@@ -1,4 +1,4 @@
-.left-and-right-header-side {
+.signUp-header {
     display: flex;
 
     .left-side-header {
@@ -37,40 +37,4 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-}
-
-.email-box,
-.password-box,
-.name-box {
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-
-    .MuiOutlinedInput-input {
-        height: .7rem;
-        width: 60rem;
-    }
-}
-.span-and-button{
-    display: grid;
-    .span{
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1rem;
-        width: 45%;
-        font-size: 1rem;
-    }
-    .button{
-       margin-top: 1rem;
-       background-color: black;
-       color: white;
-       width: 45%;
-       margin-left: auto;
-       margin-right: auto;
-       padding: .7rem;
-       border-radius: 1rem;
-    }
 }

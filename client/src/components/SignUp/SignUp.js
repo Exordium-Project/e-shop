@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './SignUp.scss'
-import Logo from '../Header/Logo.png'
+import './SignUpStyles/SignUp.scss'
 import { Box, StyledEngineProvider, Grid, Typography, Link, RadioGroup, Radio, FormControlLabel, FormControl } from '@mui/material'
 import Inputs from './Inputs'
+import LogoWithoutBackground from './Exordium.png'
 
 const SignUp = () => {
     const [value, setValue] = useState('')
@@ -21,13 +21,13 @@ const SignUp = () => {
         <StyledEngineProvider injectFirst={true}>
             <Grid container={true} spacing={0}>
                 <Grid xs={12} md={12}>
-                    <Box className="left-and-right-header-side">
+                    <Box className="signUp-header">
                         <Box className='left-side-header'>
-                            <img src={Logo} alt="sign up logo" className='sign-up-img' />
+                            <img src={LogoWithoutBackground} alt="sign up logo" className='sign-up-img' />
                             <Typography className='left-side-text'><strong>All day store</strong></Typography>
                         </Box>
                         <Box className='right-side-header'>
-                            <Typography>Already a member? <Link to='/user'>Sign in</Link></Typography>
+                            <Typography>Already a member? <Link to='#' sx={{ cursor: 'pointer' }}>Sign in</Link></Typography>
                         </Box>
                     </Box>
                 </Grid>
@@ -43,7 +43,7 @@ const SignUp = () => {
                                                 return (
                                                     <FormControl>
                                                         <RadioGroup onChange={handleChange} value={value}>
-                                                            <FormControlLabel data-testid='radio-button' control={<Radio />} value={optionItem} label={optionItem} />
+                                                            <FormControlLabel control={<Radio />} value={optionItem} label={optionItem} />
                                                         </RadioGroup>
                                                     </FormControl>
                                                 )

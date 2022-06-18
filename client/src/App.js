@@ -26,9 +26,6 @@ function App() {
                 <Route path='/mybag' element={<MyBag/>}/>
                 <Route path='/sign' element={<SignUp />} />
             </Routes>
-{/* 
-            <h2>Exordium Project</h2>
-            <SearchBar></SearchBar> */}
 
         </div>
     );

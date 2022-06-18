@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Box, Typography, Grid, AppBar, Toolbar, Slider, Accordion, Checkbox, AccordionSummary, StyledEngineProvider, AccordionDetails, FormControlLabel, FormGroup } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import '../Styles/SideBar.scss'
+import SearchBar from '../../search-bar/search-bar';
 
 const SideBar = () => {
     const [val, setVal] = useState([30, 60])
@@ -78,8 +79,8 @@ const SideBar = () => {
                     }
                     </Box>
                 </AppBar>
+            <SearchBar />
             </Box>
-
         </StyledEngineProvider>
     );
 }
