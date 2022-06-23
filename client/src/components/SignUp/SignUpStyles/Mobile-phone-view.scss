@@ -1,0 +1,72 @@
+@media screen and (max-width: 600px) {
+    .main-box{ 
+        display: flex;
+        justify-content: space-around;
+        gap: 2rem;
+        margin-top: 1rem;
+        width: 83%;
+        margin-left: auto;
+        margin-right: auto;
+    
+            .MuiGrid-root{
+                width: 97%;
+            }
+            .MuiOutlinedInput-input{
+                height: .5rem;
+            }
+
+            .tearms-and-conditions{
+                font-size: .9rem;
+            }
+            .create-account-button{
+                margin-top: 1rem;
+                background-color: black;
+                margin-left: 1rem;
+                color: white;
+                width: 100%;
+                padding: .4rem;
+                font-size: 1rem;
+                cursor: pointer;
+                border-radius: 2rem;
+            }
+        .container{
+            width: 100%;
+            .buttons-group{
+                background: none;
+                width: 100%;
+                display: grid;
+                grid-gap: 3rem;
+                grid-template-columns: repeat(1, 1fr);
+                .facebook-signUp{
+                    background-color: #39569c;
+                    text-transform: capitalize;
+                    color: white;
+                    font-size: .9rem;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    border-radius: 2rem;
+                }
+                .google-signUp, .apple-signUp{
+                   display: grid;
+                   grid-template-columns: 1fr 15fr;
+                   text-transform: capitalize;
+                   font-size: .9rem;
+                   color: black;
+                   border: 1px solid black;
+                   border-radius: 2rem;
+                }
+            }
+        }
+        .vertical-line {
+          background-color: lightgray;
+          width: .1rem;
+          height: 20rem;
+          .vertical-line-text {
+              background-color: white;
+              margin-top: 9rem;
+              margin-left: -.2rem;
+              width: 1rem;
+          }
+        }
+    }
+}
