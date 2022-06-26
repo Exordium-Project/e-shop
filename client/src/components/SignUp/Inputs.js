@@ -18,13 +18,15 @@ export default function SignUp() {
                         <TextField placeholder='First name' fullWidth
                             {...register('firstName', { required: 'Required field' })}
                             error={!!errors?.firstName}
-                            helperText={errors?.firstName ? errors.firstName.message : null} />
+                            helperText={errors?.firstName ? errors.firstName.message : null}
+                            inputProps={{ "data-testid": "first-name-input" }} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <TextField placeholder='Last name' fullWidth
                             {...register('lastName', { required: 'Required field' })}
                             error={!!errors?.lastName}
-                            helperText={errors?.lastName ? errors.lastName.message : null} />
+                            helperText={errors?.lastName ? errors.lastName.message : null}
+                            inputProps={{ "data-testid": "last-name-input" }} />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField placeholder='Email' fullWidth {...register('email', {
@@ -33,8 +35,11 @@ export default function SignUp() {
                                 message: 'Invalid email address'
                             }
                         })}
+                            inputProps={{ "data-testid": "email-input" }}
+                            type='email'
                             error={!!errors?.email}
                             helperText={errors?.email ? errors.email.message : null} />
+
                     </Grid>
                     <Grid item xs={12}>
                         <TextField required fullWidth placeholder='Password' type='password'
@@ -45,12 +50,12 @@ export default function SignUp() {
                                 }
                             })}
                             error={!!errors?.password}
-                            helperText={errors?.password ? errors.password.message : null} />
+                            helperText={errors?.password ? errors.password.message : null} inputProps={{ "data-testid": "password-input" }} />
                     </Grid>
                     <Grid item xs={12}>
                         <Typography className='tearms-and-conditions'>By signing in you accept Exordium Terms and Conditions <Link to="#" sx={{ cursor: 'pointer' }}>Learn more</Link></Typography>
                     </Grid>
-                    <button onClick={handleSubmit(onSubmit)} className='create-account-button'>Create account</button>
+                    <button onClick={handleSubmit(onSubmit)} data-testid='submit-button' className='create-account-button'>Create account</button>
                 </Grid>
 
                 <Box className='vertical-line'>

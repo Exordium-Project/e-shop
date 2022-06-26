@@ -24,7 +24,7 @@ const SignUp = () => {
                     <Box className="signUp-header">
                         <Box className='left-side-header'>
                             <img src={LogoWithoutBackground} alt="sign up logo" className='sign-up-img' />
-                            <Typography className='left-side-text'><strong>All day store</strong></Typography>
+                            <Typography className='left-side-text' data-testid='title'><strong>All day store</strong></Typography>
                         </Box>
                         <Box className='right-side-header'>
                             <Typography>Already a member? <Link to='#' sx={{ cursor: 'pointer' }}>Sign in</Link></Typography>
