@@ -1,3 +1,4 @@
+@import'../../shared/styles/colors';
 .login-form{
     display: flex;
     flex-direction: column;
@@ -39,8 +40,6 @@
     .MuiFormHelperText-root{
         text-align: left;
         width: 78%;
-        // font-size: 1rem;
-
     }
 }
 .horizontal-line-class{
@@ -74,7 +73,7 @@
         margin-left: auto;
         margin-right: auto;
         .facebook-signUp{
-            background-color: #39569c;
+            background-color: $facebook-icon-color;
             text-transform: capitalize;
             color: white;
             font-size: 1.2rem;

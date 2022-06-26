@@ -1,3 +1,4 @@
+@import'../../../shared/styles/colors';
 .main-box{ 
     display: flex;
     justify-content: space-around;
@@ -31,7 +32,7 @@
             grid-gap: 2rem;
             margin-top: 3rem;
             .facebook-signUp{
-                background-color: #39569c;
+                background-color: $facebook-icon-color;
                 text-transform: capitalize;
                 color: white;
                 font-size: 1.2rem;

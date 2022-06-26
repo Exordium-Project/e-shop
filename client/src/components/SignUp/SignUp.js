@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './SignUpStyles/SignUp.scss'
-import { Box, StyledEngineProvider, Grid, Typography, Link, RadioGroup, Radio, FormControlLabel, FormControl } from '@mui/material'
+import { Box, StyledEngineProvider, Grid, Typography, RadioGroup, Radio, FormControlLabel, FormControl } from '@mui/material'
 import Inputs from './Inputs'
 import LogoWithoutBackground from './Exordium.png'
+import {Link} from 'react-router-dom'
 
 const SignUp = () => {
     const [value, setValue] = useState('')
@@ -27,7 +28,7 @@ const SignUp = () => {
                             <Typography className='left-side-text' data-testid='title'><strong>All day store</strong></Typography>
                         </Box>
                         <Box className='right-side-header'>
-                            <Typography>Already a member? <Link to='#' sx={{ cursor: 'pointer' }}>Sign in</Link></Typography>
+                            <Typography>Already a member? <Link to='/login' sx={{ cursor: 'pointer' }}>Sign in</Link></Typography>
                         </Box>
                     </Box>
                 </Grid>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, TextField, Box, StyledEngineProvider, Grid, Checkbox, FormControlLabel, Typography, Link, Hidden } from '@mui/material'
+import { Button, TextField, Box, StyledEngineProvider, Grid, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import './SignIn.scss'
 import './Mobile-view.scss'
 import LogoWithoutBackground from '../SignUp/Exordium.png'
@@ -8,6 +8,7 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import GoogleIcon from '@mui/icons-material/Google'
 import AppleIcon from '@mui/icons-material/Apple'
 import ErrorSharpIcon from '@mui/icons-material/ErrorSharp';
+import {Link} from 'react-router-dom'
 
 export default function SignIn() {
     const [show, setShow] = useState(false)
@@ -30,7 +31,7 @@ export default function SignIn() {
                     <Box className='login-form'>
                         <Box className='sign-in-header'>
                             <Typography variant='h4' sx={{ textAlign: 'center', textTransform: 'uppercase' }}><strong>Exordium</strong></Typography>
-                            <Typography>Sign in to Exordium or <Link to='#' sx={{ cursor: 'pointer' }}>create an account</Link></Typography>
+                            <Typography>Sign in to Exordium or <Link to='/sign' sx={{ cursor: 'pointer' }}>create an account</Link></Typography>
                         </Box>
                         <Box component="form" noValidate sx={{ mt: 1 }} className='login-form-styles'>
                             <Box className='span-class' sx={{ visibility: errors?.email ? 'visible' : 'hidden' }}>
