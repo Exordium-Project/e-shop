@@ -1,3 +1,4 @@
+@import'../../../shared/styles/colors';
 @media screen and (max-width: 600px) {
     .main-box{ 
         display: flex;
@@ -38,7 +39,7 @@
                 grid-gap: 3rem;
                 grid-template-columns: repeat(1, 1fr);
                 .facebook-signUp{
-                    background-color: #39569c;
+                    background-color: $facebook-icon-color;
                     text-transform: capitalize;
                     color: white;
                     font-size: .9rem;

@@ -9,6 +9,7 @@ import MyBag from './components/Header/MyBag/MyBag';
 import Main from './components/main-layout/mainPage';
 import './components/main-layout/mainPage.scss';
 import SignUp from './components/SignUp/SignUp';
+import SignIn from './components/SignIn/SignIn';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/user' element={<User/>}/>
                 <Route path='/mybag' element={<MyBag/>}/>
                 <Route path='/sign' element={<SignUp />} />
+                <Route path='/login' element={<SignIn />} />
             </Routes>
 
         </div>
