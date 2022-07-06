@@ -3,7 +3,7 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: 'exorduim-eshop'
+      MYSQL_DATABASE: 'exordium-eshop'
       MYSQL_USER: 'user'  # Use root to have admin rights
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
