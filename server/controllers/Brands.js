@@ -13,7 +13,6 @@ brandsCotnroller.post("/", async (req, res) => {
         console.log(error);
         return new Error(500, error.message);
     });
-    ;
 
     if (createdBrand instanceof Error) {
         res.status(createdBrand.statusCode);
