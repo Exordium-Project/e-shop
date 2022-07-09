@@ -1,8 +1,12 @@
 import {Sequelize} from "sequelize"
 
 const db = {}
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER,process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST,
+let db_name = process.env.DB_NAME || 'exorduim-eshop';
+let db_host = process.env.DB_HOST || '127.0.0.1';
+let db_user = process.env.DB_USER || 'user';
+let db_password = process.env.DB_PASSWORD || 'password';
+const sequelize = new Sequelize(db_name,db_user,db_password, {
+    host: db_host,
     dialect: 'mysql',
     operatorsAliases: false,
     timezone: '+02:00',

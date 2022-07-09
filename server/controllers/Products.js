@@ -22,6 +22,15 @@ productsController.post("/", async (req, res) => {
 
     res.send(createdProduct);
 })
+productsController.get('/', async (req, res) => {
+    const products = await productService.getAllProducts()
+
+    if(products instanceof Error){
+        res.status(products.statusCode)
+    }
+    
+    res.send(products)
+})
 
 productsController.delete("/", async (req, res) => {
     const projectId = req.body.id;

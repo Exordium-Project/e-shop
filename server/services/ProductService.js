@@ -23,7 +23,14 @@ export default class ProductService {
         return createdProduct;
 
     }
-
+    static async getAllProducts(){
+        const allProducts = await Product.findAll({
+            attributes: ['id', 'name', 'color', 'price', 'quantity', 'brand_id', 'type_id']
+        }).catch(err => {
+            return new Error(500, err.message)
+        })
+        return allProducts;
+    }
     static async deleteProduct(projectId) {
         await Product.destroy({
             attributes: ['id', 'name', 'color', 'price', 'quantity', 'type_id', 'date_on_creating', 'date_of_last_modified', 'brand_id'],
