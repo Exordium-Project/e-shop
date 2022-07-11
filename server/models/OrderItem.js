@@ -25,6 +25,14 @@ export default db.sequelize.define(
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
+                model: Order,
+                key: 'id'
+            }
+        },
+        product_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            references: {
                 model: Product,
                 key: 'id'
             }
