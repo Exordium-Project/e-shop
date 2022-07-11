@@ -37,7 +37,7 @@ export default db.sequelize.define(
                 key: 'id'
             }
         },
-        product_id: {
+        user_id: {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
