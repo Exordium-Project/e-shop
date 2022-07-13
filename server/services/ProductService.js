@@ -23,7 +23,7 @@ export default class ProductService {
         return createdProduct;
 
     }
-    static async getAllProducts(){
+    static async getAllProducts(){    
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity', 'brand_id', 'type_id']
         }).catch(err => {

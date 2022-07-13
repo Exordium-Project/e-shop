@@ -6,7 +6,6 @@ import bcrypt from 'bcrypt'
 import UserService from "../services/UserService.js"
 
 const usersController = express.Router()
-
 usersController.post('/registration', async (req, res) => {
     const userData = {
         username: req.body.username,
@@ -18,8 +17,8 @@ usersController.post('/registration', async (req, res) => {
         date_of_last_modified: req.body.date_of_last_modified,
         role: req.body.role,
     }
-
     await UserService.registerUser(userData)
+    res.json(userData)
 })
 
 usersController.get("/login", async (req, res) => {

@@ -4,7 +4,7 @@ import User from "../models/User.js"
 import Error from "../error/Error.js"
 
 export default class UserService {
-    static async registerUser (userData) {
+    static async registerUser(userData) {
         const user = await User.findOne({
             where: {
                 email: userData.email
@@ -14,43 +14,38 @@ export default class UserService {
             return new Error(500, error.message)
         })
 
-        if(user) {
+        if (user) {
             return new Error(409, "User exists")
         }
 
         const isPasswordValid = userData.password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/)
-        if(isPasswordValid === null) {
+        if (isPasswordValid === null) {
             return new Error(400, "Weak password")
         }
 
-        bcrypt.hash(userData.password, 10, (err, hash) => {
-            userData.password = hash
-            const newUser = User.create(userData)
-            .catch(err => {
-                return new Error(500, error.message)
-            })
-
-            return newUser;
-        })
+        const hash = await bcrypt.hash(userData.password, 10);
+        userData.password = hash;
+        const newUser = User.create(userData)
+        return newUser;
     }
 
-    static async login (userData) {
+    static async login(userData) {
         const user = await User.findOne({
             where: {
                 email: userData.username
             }
         })
-    
-        if(!user){
+
+        if (!user) {
             return new Error(404, "User not found")
         }
-    
+
         const isLoggedIn = await bcrypt.compare(userData.password, user.password)
-    
+
         return isLoggedIn
     }
 
-    static async generateToken (userEmail) {
+    static async generateToken(userEmail) {
         const user = User.findOne({
             where: {
                 email: userEmail
@@ -59,11 +54,11 @@ export default class UserService {
             return new Error(500, error.message)
         })
 
-        if(!user) {
+        if (!user) {
             return new Error(404, "User not found")
         }
 
-        if(bcrypt.compareSync(req.body.password, user.password)) {
+        if (bcrypt.compareSync(req.body.password, user.password)) {
             let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                 expiresIn: 1440
             })
@@ -109,7 +104,7 @@ export default class UserService {
             }
         })
 
-        if(!user) {
+        if (!user) {
             return new Error(404, "User not found")
         }
 
@@ -129,7 +124,7 @@ export default class UserService {
                     return new Error(500, error.message)
                 })
 
-                if(updatedRecord)
+                if (updatedRecord)
                     return true;
             })
         }
