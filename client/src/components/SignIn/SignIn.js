@@ -13,17 +13,15 @@ import Axios from 'axios'
 
 export default function SignIn() {
     const [show, setShow] = useState(false)
-    const [usernameOrEmail, setUsernameOrEmail] = useState('')
+    const [loginMethod, setLoginMethod] = useState('')
     const [password, setPassword] = useState('')
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-    //const handleChange = () => setShow(true)
 
     const login = () => {
         Axios.post('http://localhost:3004/api/users/login', {
-            username: usernameOrEmail
-        }).then((res) => {
-            console.log(res)
+            login: loginMethod,
+            password: password
         })
         setShow(true)
     }
@@ -57,7 +55,7 @@ export default function SignIn() {
                                 {...register('email', { required: 'Enter email or username to continue' })}
                                 error={!!errors?.email}
                                 inputRef={{'data-testid' : 'firstName'}}
-                                onChange={(e) => setUsernameOrEmail(e.target.value)}
+                                onChange={(event) => setLoginMethod(event.target.value)}
                             />
                             {  show ?  <TextField type="password"
                                 placeholder='Password'
@@ -69,7 +67,7 @@ export default function SignIn() {
                                 })}
                                 error={!!errors?.password}
                                 helperText={errors?.password ? errors.password.message : null}
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(event) => setPassword(event.target.value)}
                             /> : null }
 
                             <Box className='button-class'>

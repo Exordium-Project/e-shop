@@ -36,7 +36,7 @@ export default function SignUp() {
                             error={!!errors?.firstName}
                             helperText={errors?.firstName ? errors.firstName.message : null}
                             inputProps={{ "data-testid": "first-name-input" }}
-                            onChange={(e) => setFirstName(e.target.value)}
+                            onChange={(event) => setFirstName(event.target.value)}
                             />
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -45,7 +45,7 @@ export default function SignUp() {
                             error={!!errors?.lastName}
                             helperText={errors?.lastName ? errors.lastName.message : null}
                             inputProps={{ "data-testid": "last-name-input" }} 
-                            onChange={(e) => setLastName(e.target.value)}
+                            onChange={(event) => setLastName(event.target.value)}
                             />
                     </Grid>
                     <Grid item xs={12}>
@@ -59,7 +59,7 @@ export default function SignUp() {
                             type='email'
                             error={!!errors?.email}
                             helperText={errors?.email ? errors.email.message : null} 
-                            onChange={(e) => setEmailReg(e.target.value)}
+                            onChange={(event) => setEmailReg(event.target.value)}
                             />
                     </Grid>
                     <Grid item xs={12}>
@@ -68,7 +68,7 @@ export default function SignUp() {
                             error={!!errors?.username}
                             helperText={errors?.username ? errors.username.message : null}
                             inputProps={{ "data-testid": "username-input" }} 
-                            onChange={(e) => setUsernameReg(e.target.value)}
+                            onChange={(event) => setUsernameReg(event.target.value)}
                             />
                     </Grid>
                     <Grid item xs={12}>
@@ -81,7 +81,7 @@ export default function SignUp() {
                             })}
                             error={!!errors?.password}
                             helperText={errors?.password ? errors.password.message : null} inputProps={{ "data-testid": "password-input" }} 
-                            onChange={(e) => setPasswordReg(e.target.value)}
+                            onChange={(event) => setPasswordReg(event.target.value)}
                             />
                     </Grid>
                     <Grid item xs={12}>
