@@ -1,4 +1,7 @@
 import {Sequelize} from "sequelize"
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const db = {}
 let db_name = process.env.DB_NAME || 'exorduim-eshop';
