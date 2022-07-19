@@ -109,7 +109,7 @@ export default class UserService {
         }
 
         if (bcrypt.compareSync(oldPassword, newPassword)) {
-            bcrypt.hash(req.body.new_password, 10, (err, hash) => {
+            bcrypt.hash(req.body.new_password, SALT_ROUNDS, (err, hash) => {
                 req.body.new_password = hash
                 const updatedRecord = User.update(
                     {
