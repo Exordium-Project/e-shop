@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const db = {}
-let db_name = process.env.DB_NAME || 'exorduim-eshop';
+let db_name = process.env.DB_NAME || 'exordium-eshop';
 let db_host = process.env.DB_HOST || '127.0.0.1';
 let db_user = process.env.DB_USER || 'user';
 let db_password = process.env.DB_PASSWORD || 'password';

@@ -1,60 +1,59 @@
-import {Sequelize} from "sequelize"
+import { Sequelize, DataTypes } from "sequelize"
 import db from "../config/db.config.js"
 import passportLocalSequelize from 'passport-local-sequelize'
 
-
 const User = db.sequelize.define(
-    'user', 
+    'users', 
     {
         id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
         username: {
-            type: Sequelize.STRING,
+             type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         password: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         email: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         full_name: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         profile_img: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false,
             defaultValue: 'pr_default.png'
         },
         date_on_creating: {
-            type: Sequelize.DATE,
+            type: Sequelize.DataTypes.DATE,
             allowNull: false,
             defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
         },
         date_of_last_modified: {
-            type: Sequelize.DATE,
+            type: Sequelize.DataTypes.DATE,
             allowNull: false,
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+          defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
         },
         role: {
-            type: Sequelize.ENUM('User', 'Admin', 'Custumer Support'),
+            type: Sequelize.DataTypes.ENUM('User', 'Admin', 'Customer Support'),
             defaultValue: 'User'
         },
     }, {
-        timestamps: true
+        timestamps: false,
+        freezeTableName: true
     }
-)
-
-passportLocalSequelize.attachToUser(User, {
-    usernameField: 'username',
-    hashField: 'password'
-})
-
+    )
+    
+    passportLocalSequelize.attachToUser(User, {
+        usernameField: 'username',
+        hashField: 'password'
+    })
 export default User

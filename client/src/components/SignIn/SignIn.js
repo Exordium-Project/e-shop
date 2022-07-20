@@ -9,12 +9,22 @@ import GoogleIcon from '@mui/icons-material/Google'
 import AppleIcon from '@mui/icons-material/Apple'
 import ErrorSharpIcon from '@mui/icons-material/ErrorSharp';
 import {Link} from 'react-router-dom'
+import Axios from 'axios'
 
 export default function SignIn() {
     const [show, setShow] = useState(false)
+    const [loginMethod, setLoginMethod] = useState('')
+    const [password, setPassword] = useState('')
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const handleChange = () => setShow(true)
+
+    const login = () => {
+        Axios.post('http://localhost:3004/api/users/login', {
+            login: loginMethod,
+            password: password
+        })
+        setShow(true)
+    }
 
     return (
         <StyledEngineProvider injectFirst={true}>
@@ -36,7 +46,7 @@ export default function SignIn() {
                         <Box component="form" noValidate sx={{ mt: 1 }} className='login-form-styles'>
                             <Box className='span-class' sx={{ visibility: errors?.email ? 'visible' : 'hidden' }}>
                                 <ErrorSharpIcon />
-                                <Typography onClick={handleSubmit(handleChange)}>
+                                <Typography onClick={handleSubmit(login)}>
                                     Ouch, that's not a match.
                                 </Typography>
                             </Box>
@@ -45,6 +55,7 @@ export default function SignIn() {
                                 {...register('email', { required: 'Enter email or username to continue' })}
                                 error={!!errors?.email}
                                 inputRef={{'data-testid' : 'firstName'}}
+                                onChange={(event) => setLoginMethod(event.target.value)}
                             />
                             {  show ?  <TextField type="password"
                                 placeholder='Password'
@@ -56,10 +67,11 @@ export default function SignIn() {
                                 })}
                                 error={!!errors?.password}
                                 helperText={errors?.password ? errors.password.message : null}
+                                onChange={(event) => setPassword(event.target.value)}
                             /> : null }
 
                             <Box className='button-class'>
-                                <button className='log-in-account-button' onClick={handleSubmit(handleChange)}>Continue</button>
+                                <button className='log-in-account-button' onClick={handleSubmit(login)}>Continue</button>
                             </Box>
                         </Box>
                     </Box>

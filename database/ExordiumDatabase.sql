@@ -1,9 +1,9 @@
-USE `exorduim-eshop`;
+USE `exordium-eshop`;
 
 create table users(
 id int not null auto_increment primary key,
 username varchar(50) not null,
-password varchar(30) not null,
+password varchar(255) not null,
 email varchar(50) not null,
 full_name varchar(150) not null,
 profile_img varchar(2048) not null, 
