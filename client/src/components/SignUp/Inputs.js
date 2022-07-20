@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Typography, TextField, Grid, Box, Link, Button } from '@mui/material'
 import { useForm } from 'react-hook-form';
 import './SignUpStyles/Registration-inputs.scss'
@@ -9,70 +8,70 @@ import AppleIcon from '@mui/icons-material/Apple';
 import Axios from 'axios'
 
 export default function SignUp() {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [usernameReg, setUsernameReg] = useState('')
-    const [emailReg, setEmailReg] = useState('')
-    const [passwordReg, setPasswordReg] = useState('')
-
-
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, getValues } = useForm()
     const onSubmit = () => {
         Axios.post('http://localhost:3004/api/users/registration', {
-            username: usernameReg, email: emailReg,
-            password: passwordReg, full_name: firstName + ' ' + lastName
-        }).then((err) => {
-            console.log(err)
+            username: getValues('username'), email: getValues('email'),
+            password: getValues('password'), full_name: getValues('firstName') + ' ' + getValues('lastName')
         })
-        
     }
     return (
-        <Box component="form" noValidate sx={{ mt: 3 }}>
-            <Box className='main-box'>
+        <Box component="form" noValidate sx={{ mt: 3 }} onSubmit={handleSubmit(onSubmit)}>
+            <Box className='main-box' >
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
                         <TextField placeholder='First name' fullWidth
+                            type='text'
+                            name='firstName'
                             {...register('firstName', { required: 'Required field' })}
-                            error={!!errors?.firstName}
                             helperText={errors?.firstName ? errors.firstName.message : null}
+                            error={!!errors?.firstName}
+                            autoComplete='given-name'
                             inputProps={{ "data-testid": "first-name-input" }}
-                            onChange={(event) => setFirstName(event.target.value)}
-                            />
+                        />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <TextField placeholder='Last name' fullWidth
+                            type='text'
+                            name='lastName'
                             {...register('lastName', { required: 'Required field' })}
-                            error={!!errors?.lastName}
                             helperText={errors?.lastName ? errors.lastName.message : null}
-                            inputProps={{ "data-testid": "last-name-input" }} 
-                            onChange={(event) => setLastName(event.target.value)}
-                            />
+                            error={!!errors?.lastName}
+                            autoComplete='family-name'
+                            inputProps={{ "data-testid": "last-name-input" }}
+                        />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField placeholder='Email' fullWidth {...register('email', {
-                            required: 'This field is required', pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: 'Invalid email address'
-                            }
-                        })}
-                            inputProps={{ "data-testid": "email-input" }}
+                        <TextField placeholder='Email' fullWidth
                             type='email'
+                            name='email'
+                            {...register('email', {
+                                required: 'This field is required', pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                    message: 'Invalid email address'
+                                }
+                            })}
+                            inputProps={{ "data-testid": "email-input" }}
+                            helperText={errors?.email ? errors.email.message : null}
                             error={!!errors?.email}
-                            helperText={errors?.email ? errors.email.message : null} 
-                            onChange={(event) => setEmailReg(event.target.value)}
-                            />
+                            autoComplete='email'
+                        />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField placeholder='Username' fullWidth
+                            type='text'
+                            name='username'
                             {...register('username', { required: 'Required field' })}
                             error={!!errors?.username}
                             helperText={errors?.username ? errors.username.message : null}
-                            inputProps={{ "data-testid": "username-input" }} 
-                            onChange={(event) => setUsernameReg(event.target.value)}
-                            />
+                            inputProps={{ "data-testid": "username-input" }}
+                        />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField required fullWidth placeholder='Password' type='password'
+                        <TextField required fullWidth
+                            placeholder='Password'
+                            type='password'
+                            name='password'
                             {...register('password', {
                                 required: 'This field is required', pattern: {
                                     value: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/,
@@ -80,16 +79,15 @@ export default function SignUp() {
                                 }
                             })}
                             error={!!errors?.password}
-                            helperText={errors?.password ? errors.password.message : null} inputProps={{ "data-testid": "password-input" }} 
-                            onChange={(event) => setPasswordReg(event.target.value)}
-                            />
+                            helperText={errors?.password ? errors.password.message : null} inputProps={{ "data-testid": "password-input" }}
+                        />
                     </Grid>
+
                     <Grid item xs={12}>
                         <Typography className='tearms-and-conditions'>By signing in you accept Exordium Terms and Conditions <Link to="#" sx={{ cursor: 'pointer' }}>Learn more</Link></Typography>
                     </Grid>
-                    <button onClick={handleSubmit(onSubmit)} data-testid='submit-button' className='create-account-button'>Create account</button>
+                    <Button type='submit' data-testid='submit-button' className='create-account-button' sx={{ textTransform: 'none' }}>Create account</Button>
                 </Grid>
-
                 <Box className='vertical-line'>
                     <Box className='vertical-line-text'>or</Box>
                 </Box>

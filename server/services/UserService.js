@@ -72,7 +72,7 @@ export default class UserService {
     static async getAllUsers() {
         const users = User.findAll({
             attributes: ['id', 'username', 'email', 'full_name', 'profile_img', 'date_on_creating', 'date_of_last_modified', 'role'],
-        }).catch(err => {
+        }).catch(error => {
             return new Error(500, error.message)
         })
 

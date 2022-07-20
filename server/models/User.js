@@ -43,7 +43,7 @@ const User = db.sequelize.define(
           defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
         },
         role: {
-            type: Sequelize.DataTypes.ENUM('User', 'Admin', 'Custumer Support'),
+            type: Sequelize.DataTypes.ENUM('User', 'Admin', 'Customer Support'),
             defaultValue: 'User'
         },
     }, {
