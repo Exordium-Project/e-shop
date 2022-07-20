@@ -11,7 +11,7 @@ export default db.sequelize.define(
             allowNull: false
         },
         name: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         }
     },

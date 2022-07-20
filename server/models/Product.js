@@ -7,29 +7,29 @@ export default db.sequelize.define(
     'product',
     {
         id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },        
         name: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         color: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         price: {
-            type: Sequelize.DECIMAL,
+            type: Sequelize.DataTypes.DECIMAL,
             allowNull: false
         },
         quantity: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false
         },
         type_id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Type,
@@ -37,7 +37,7 @@ export default db.sequelize.define(
             }
         },
         brand_id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Brand,

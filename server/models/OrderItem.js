@@ -8,21 +8,21 @@ import User from "./User.js"
 export default db.sequelize.define(
     'order_items', {
         id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
         quantity: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false
         },
         price: {
-            type: Sequelize.DECIMAL,
+            type: Sequelize.DataTypes.DECIMAL,
             allowNull: false
         },
         order_id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Order,
@@ -30,7 +30,7 @@ export default db.sequelize.define(
             }
         },
         product_id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Product,

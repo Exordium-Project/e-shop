@@ -8,29 +8,29 @@ import User from "./User.js"
 export default db.sequelize.define(
     'order', {
         id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
         number: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         price: {
-            type: Sequelize.DECIMAL,
+            type: Sequelize.DataTypes.DECIMAL,
             allowNull: false
         },
         notes: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false
         },
         status:{
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         user_id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: User,
@@ -38,12 +38,15 @@ export default db.sequelize.define(
             }
         },
         address_id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Address,
                 key: "id"
             }
-        },
+        }
+    },
+    {
+        timestamps: true
     }
 )

@@ -6,37 +6,37 @@ export default db.sequelize.define(
     'address',
     {
         id: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },        
         full_name: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         city: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         country: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         street: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         postcode: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         phone: {
-            type: Sequelize.STRING,
+            type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
         user_id:{
-            type: Sequelize.INTEGER,
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: User,
