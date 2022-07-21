@@ -42,5 +42,8 @@ export default db.sequelize.define(
                 key: 'id'
             }
         }
+    },
+    {
+        timestamps: true
     }
 )

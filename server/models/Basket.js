@@ -21,6 +21,9 @@ export default db.sequelize.define(
                 model: User,
                 key: 'id'
             }
-        },
+        }
+    },
+    {
+        timestamps: false
     }
 )
