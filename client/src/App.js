@@ -20,7 +20,7 @@ i18n.use(Backend).use(initReactI18next).init({
         en: en,
         bg: bg
       },
-      lng: "bg", 
+      lng: "en", 
       fallbackLng: "en",
   
       interpolation: {
