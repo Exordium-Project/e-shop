@@ -1,16 +1,17 @@
 import React from 'react'
 import Logo from './Logo.png'
-import { Typography, Button, MenuItem, FormControl, Select, InputLabel,Box, Grid, StyledEngineProvider } from '@mui/material';
+import { Typography, Button, MenuItem, FormControl, Select, InputLabel, Box, Grid, StyledEngineProvider } from '@mui/material';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Link } from 'react-router-dom'
 import './Styles/Header.scss'
+import CodeIcon from '@mui/icons-material/Code';
 
 const Header = () => {
-  const { i18n,t } = useTranslation();
+  const { i18n, t } = useTranslation();
   const textDecorationObject = {
     textDecoration: 'none'
   }
@@ -18,12 +19,12 @@ const Header = () => {
     {
       title: 'Language',
       options: [
-        {value:"bg",text:'Български'}, 
-        {value: "en",text: 'English'}
+        { value: "bg", text: 'Български' },
+        { value: "en", text: 'English' }
       ]
     }
   ]
-  const onLanguageChange = (e)=>{
+  const onLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value)
   }
 
@@ -31,7 +32,7 @@ const Header = () => {
     <StyledEngineProvider injectFirst={true}>
       <Box className='header-div'>
         <Grid container={true} spacing={0} >
-          <Grid item={true} xs={12} md={3}>
+          <Grid item={true} xs={12} md={2.5}>
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} className='img' /></Link>
               <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-4.4rem', color: 'white' }}>
@@ -39,6 +40,13 @@ const Header = () => {
                 <Typography sx={{ color: 'rgb(122, 122, 122)', fontSize: '1.1rem' }}>ALL DAY STORE</Typography>
               </Typography>
             </Typography>
+          </Grid>
+          <Grid item={true} xs={12} sm={2} md={0.5}>
+            <Link to='/team' style={textDecorationObject}>
+              <Button className='header-buttons'>
+                <CodeIcon></CodeIcon>
+              </Button>
+            </Link>
           </Grid>
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
@@ -63,7 +71,7 @@ const Header = () => {
 
           </Grid>
 
-          <Grid item={true}  xs={12} sm={2} md={1.5}>
+          <Grid item={true} xs={12} sm={2} md={1.5}>
 
             <Link to="/brands" style={textDecorationObject}>
               <Button className='header-buttons'>
@@ -75,46 +83,46 @@ const Header = () => {
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
             {
-              languages.map((item,index) => {
+              languages.map((item, index) => {
                 return (
-                  <FormControl key={index+"formcontrol"} fullWidth className='languages'>
-                        <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{item.title}</InputLabel>
-                        <Select 
-                        sx={{ height: '7.5rem', textAlign: 'center' }} 
-                        onChange={onLanguageChange}
-                        defaultValue="en">
-                          {
-                            item.options.map((item,index) => { return <MenuItem key={"language"+index} value={item.value}>{item.text}</MenuItem> })
-                          }
-                        </Select>
+                  <FormControl key={index + "formcontrol"} fullWidth className='languages'>
+                    <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{item.title}</InputLabel>
+                    <Select
+                      sx={{ height: '7.5rem', textAlign: 'center' }}
+                      onChange={onLanguageChange}
+                      defaultValue="en">
+                      {
+                        item.options.map((item, index) => { return <MenuItem key={"language" + index} value={item.value}>{item.text}</MenuItem> })
+                      }
+                    </Select>
                   </FormControl>
                 )
               })
             }
           </Grid>
 
-        <Grid item={true} xs={12} sm={2} md={1.5}>
+          <Grid item={true} xs={12} sm={2} md={1.5}>
 
-          <Link to='/user' style={textDecorationObject}>
-            <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
-              <Typography className='pages'>Alex</Typography>
-            </Button></Link>
+            <Link to='/user' style={textDecorationObject}>
+              <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
+                <Typography className='pages'>Alex</Typography>
+              </Button></Link>
 
+          </Grid>
+
+          <Grid item={true} xs={12} sm={2} md={1.5}>
+
+            <Link to='/mybag' style={textDecorationObject}>
+              <Button className='header-buttons'>
+                <Typography className='pages'>{t('Navigation.cart')}</Typography>
+                <ShoppingCartOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
+              </Button>
+            </Link>
+
+          </Grid>
         </Grid>
-
-        <Grid item={true} xs={12} sm={2} md={1.5}>
-
-          <Link to='/mybag' style={textDecorationObject}>
-            <Button className='header-buttons'>
-              <Typography className='pages'>{t('Navigation.cart')}</Typography>
-              <ShoppingCartOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
-            </Button>
-          </Link>
-
-        </Grid>
-      </Grid>
-    </Box>
-  </StyledEngineProvider >
+      </Box>
+    </StyledEngineProvider >
   );
 }
 
