@@ -4,16 +4,9 @@ import {
 import db from "../config/db.config.js"
 import Product from "./Product.js"
 import User from "./User.js"
-import Order from "./Order.js"
 
 export default db.sequelize.define(
-    'order_items', {
-        id: {
-            type: Sequelize.DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
-        },
+    'basket_items', {
         quantity: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false
@@ -26,7 +19,7 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Order,
+                model: Product,
                 key: 'id'
             }
         },
@@ -34,17 +27,12 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Product,
-                key: 'id'
-            }
-        },
-        user_id: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-            references: {
                 model: User,
                 key: 'id'
             }
         }
+    },
+    {
+        timestamps: false
     }
 )

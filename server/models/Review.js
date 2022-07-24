@@ -1,50 +1,49 @@
-import {
-    Sequelize
+import 
+{
+ Sequelize
 } from "sequelize"
 import db from "../config/db.config.js"
 import Product from "./Product.js"
 import User from "./User.js"
-import Order from "./Order.js"
 
 export default db.sequelize.define(
-    'order_items', {
+    'review', {
         id: {
-            type: Sequelize.DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
-        quantity: {
-            type: Sequelize.DataTypes.INTEGER,
-            allowNull: false
-        },
         price: {
-            type: Sequelize.DataTypes.DECIMAL,
+            type: Sequelize.DECIMAL,
             allowNull: false
         },
-        order_id: {
-            type: Sequelize.DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Order,
-                key: 'id'
-            }
+       description: {
+         type: Sequelize.STRING,
+         allowNull: false
+       },
+        likes: {
+            type: Sequelize.INTEGER,
+            allowNull: true
         },
         product_id: {
-            type: Sequelize.DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: Product,
                 key: 'id'
             }
         },
-        user_id: {
-            type: Sequelize.INTEGER,
+         user_id: {
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: User,
                 key: 'id'
             }
         }
+    },
+    {
+        timestamps: true
     }
 )
