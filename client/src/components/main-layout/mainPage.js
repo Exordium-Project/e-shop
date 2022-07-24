@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Grid';
 import { Typography, Divider } from '@mui/material'
-
 import SearchBar from "../search-bar/search-bar";
-
 import ProductCard from '../product-card/ProductCard';
 import SpecialComponent from '../special-components/SpecialComponent';
 import './mainPage.scss';
+import axios from 'axios';
 
 const Main = () => {
+    const [products, getProducts] = useState('');
+
+    const url = 'http://localhost:3004/api/products';
+
+    useEffect(() => {
+        getAllProducts();
+    }, []);
+
+    const getAllProducts = () => {
+        axios.get(url, products)
+        .then ((response) => {
+            console.log(response.data);
+        })
+        .catch(error => console.error(`Error: ${error}`));
+    }
+    
     let specialProducts = [<SpecialComponent></SpecialComponent>,
     <SpecialComponent></SpecialComponent>,
     <SpecialComponent></SpecialComponent>,];
