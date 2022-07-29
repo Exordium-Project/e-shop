@@ -1,6 +1,8 @@
-import { Typography, Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 import './Team.scss';
+
 
 const Team = () => {
     const teamMembers = [
@@ -16,7 +18,14 @@ const Team = () => {
             linkedin: "https://github.com/IvayloSlavchev",
             position: "Frontend Developer",
             github: "https://github.com/IvayloSlavchev",
-            imgsrc: "https://media-exp1.licdn.com/dms/image/C4E03AQH3Umcu8klQJQ/profile-displayphoto-shrink_400_400/0/1630830179729?e=1664409600&v=beta&t=nJ4Jb76ZamQ5E9DV5tmwyYvZiv3X0AnjLYulpHh5nUs"
+            imgsrc: "https://media-exp1.licdn.com/dms/image/D4D35AQE4y26QIx7SVA/profile-framedphoto-shrink_400_400/0/1658997884989?e=1659729600&v=beta&t=qbgu_C2yIoXwXz2ekWZlF9PZoY_gQRHj7bC9o97BkMA"
+        },
+        {
+            name: 'Mehmed Dukov',
+            linkedin: "https://www.linkedin.com/in/mehmed-mehmedov-dukov-07a18a225/",
+            position: "Fronend Developer",
+            github: "https://github.com/Medikko",
+            imgsrc: "https://media-exp1.licdn.com/dms/image/C4D03AQHv6FsZ7o8Yng/profile-displayphoto-shrink_400_400/0/1658952648967?e=1664409600&v=beta&t=CQCams4dENjaVC7XAbiqgZJffpjPjBn9ugUSbnDdb2s"
         },
         {
             name: 'Petar Arabadzhiev',
@@ -26,6 +35,13 @@ const Team = () => {
             imgsrc: "https://avatars.githubusercontent.com/u/76776739?v=4"
         },
         {
+            name: 'Filip Bozhkov',
+            linkedin: "https://www.linkedin.com/in/filip-bozhkov-27b4361b7/",
+            github: "https://github.com/fbozhkov",
+            position: "Frontend Developer",
+            imgsrc: "https://avatars.githubusercontent.com/u/52756776?v=4"
+        },
+        {
             name: 'Petya Marinova',
             linkedin: "https://www.linkedin.com/in/pmmarinova/",
             position: "Frontend Developer",
@@ -33,38 +49,33 @@ const Team = () => {
             imgsrc: "https://avatars.githubusercontent.com/u/13080328?v=4"
         },
         {
+            name: 'Stanislav Stanchev',
+            linkedin: "https://www.linkedin.com/in/stanislav-stanchev/",
+            position: "Frontend Developer",
+            github: "https://github.com/Stanislav001",
+            imgsrc: "https://avatars.githubusercontent.com/u/77980171?v=4"
+        },
+        {
             name: 'Niazi Yazadzhiev',
             linkedin: "https://www.linkedin.com/in/niazi-yazadzhiev-942a6421b",
             position: "Backend Developer",
             github: "https://github.com/nyazadzhiev",
             imgsrc: "https://media-exp2.licdn.com/dms/image/D4E03AQGD2RkICOrGsg/profile-displayphoto-shrink_400_400/0/1631128288158?e=1661990400&v=beta&t=dBMgDLBTNi4n4X-HLbsalPajbtaiYwO21AwMgyM_huM"
-        },
-        {
-            name: 'Filip Bozhkov',
-            linkedin: "https://www.linkedin.com/in/filip-bozhkov-27b4361b7/",
-            github: "https://github.com/fbozhkov",
-            position: "Frontend Developer",
-            imgsrc: "https://avatars.githubusercontent.com/u/52756776?v=4"
         }
+       
     ];
-    let chunkSize = 3;
-    const res = [];
-    while (teamMembers.length > 0) {
-        const chunk = teamMembers.splice(0, chunkSize);
-        res.push(chunk);
-    }
-    console.log(res);
+
     return (
-        <Box className="body">
-            <Box className="banner"  >
-                <Typography className="group-info" variant="h2">
-                    Team Exordium Eshop Project
-                </Typography>
-                <Grid class="card-container" >
-                    {
-                        res.map((resitem) => {
-                           return resitem.map((item) => {
-                                return <div className="card" >
+
+        <Grid className="container-grid" container spacing={2}>
+       
+            {
+                teamMembers.map((item) => {
+                   return <Grid item xs={12} sm={6} md={3}>
+                    <Box className="body">
+                        <Box className="banner"  >
+                            <Grid class="card-container" >
+                                <div className="card" >
                                     <img src={item.imgsrc} alt="" className='memberImage' />
                                     <h1 className="name">{item.name}</h1>
                                     <h3 className="positon">{item.position}</h3>
@@ -78,16 +89,15 @@ const Team = () => {
                                                 alt="" className='social-image' />
                                         </a>
                                     </div>
-
                                 </div>
-                            });
-                        })
-
-                    }
+                            </Grid>
+                        </Box>
+                    </Box>
                 </Grid>
-            </Box>
+                })
+            }
+        </Grid>
 
-        </Box>
 
     );
 }

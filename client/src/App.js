@@ -15,7 +15,7 @@ import { initReactI18next } from "react-i18next";
 import Backend from "i18next-xhr-backend";
 import {en} from './i18n/en'
 import {bg} from './i18n/bg'
-import Team from './components/Header/Team/Team';
+import TeamHistory from './components/Header/Team/TeamHistory';
 i18n.use(Backend).use(initReactI18next).init({
     resources: {
         en: en,
@@ -40,7 +40,7 @@ function App() {
                 <Route path='/toys' element={<Toys/>}/>
                 <Route path='/catalog' element={<Catalog/>}/>
                 <Route path='/brands' element={<Brands/>}/>
-                <Route path='/team' element={<Team/>}/>
+                <Route path='/team' element={<TeamHistory/>}/>
                 <Route path='/user' element={<User/>}/>
                 <Route path='/mybag' element={<MyBag/>}/>
                 <Route path='/sign' element={<SignUp />} />
