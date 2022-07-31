@@ -20,6 +20,12 @@ usersController.post('/registration', async (req, res) => {
     await UserService.registerUser(userData)
     res.json(userData)
 })
+usersController.get('/check-username/{username}', async (req, res) => {
+    console.log("int the endpoint check username")
+    const userExists = await UserService.checkUsername(req.body.username)
+
+    res.send(userExists)
+})
 
 usersController.get("/login", async (req, res) => {
     const userData = {
@@ -69,6 +75,7 @@ usersController.get('/user-info/{id}', async (req, res) => {
 
     res.send(user)
 })
+
 
 
 export default usersController 

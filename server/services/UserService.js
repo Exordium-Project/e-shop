@@ -142,4 +142,27 @@ export default class UserService {
 
         return user;
     }
+    static async checkUsername(username) {
+        const userEmail = User.findAll({
+            attributes: ['email'],
+            where: {
+                id: username
+            }
+        }).catch(error => { })
+        if (!userEmail) {
+            const userUsername = User.findAll({
+                attributes: ['username'],
+                where: {
+                    id: username
+                }
+            }).catch(error => { })
+            if (userUsername) {
+                return true;
+            }
+        } else {
+            return true;
+        }
+
+        return false;
+    }
 }
