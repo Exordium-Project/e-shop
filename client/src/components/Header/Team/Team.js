@@ -2,65 +2,72 @@ import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import './Team.scss';
-
+import jordanImg from './team-img/jordan.jpeg'
+import ivayloImg from './team-img/ivaylo.jpeg'
+import mehmedImg from './team-img/mehmed.jpeg'
+import petarImg from './team-img/petar.jpeg'
+import filipImg from './team-img/filip.jpeg'
+import petyaImg from './team-img/petya.jpeg'
+import stanislavImg from './team-img/stanislav.jpeg'
+import niaziImg from './team-img/niazi.jpeg'
 
 const Team = () => {
     const teamMembers = [
         {
             name: 'Jordan Radushev',
-            position: "Backend Developer",
+            position: "Full-stack Developer",
             linkedin: "https://www.linkedin.com/in/jordan-radushev-76665b1a4/",
             github: "https://github.com/JordanRad",
-            imgsrc: "https://avatars.githubusercontent.com/u/63496500?v=4"
+            imgsrc: jordanImg
         },
         {
             name: 'Ivaylo Slavchev',
-            linkedin: "https://github.com/IvayloSlavchev",
+            linkedin: "https://www.linkedin.com/in/ivaylo-slavchev-6425a521b/",
             position: "Frontend Developer",
             github: "https://github.com/IvayloSlavchev",
-            imgsrc: "https://media-exp1.licdn.com/dms/image/D4D35AQE4y26QIx7SVA/profile-framedphoto-shrink_400_400/0/1658997884989?e=1659729600&v=beta&t=qbgu_C2yIoXwXz2ekWZlF9PZoY_gQRHj7bC9o97BkMA"
+            imgsrc: ivayloImg
         },
         {
             name: 'Mehmed Dukov',
             linkedin: "https://www.linkedin.com/in/mehmed-mehmedov-dukov-07a18a225/",
-            position: "Fronend Developer",
+            position: "Backend Developer",
             github: "https://github.com/Medikko",
-            imgsrc: "https://media-exp1.licdn.com/dms/image/C4D03AQHv6FsZ7o8Yng/profile-displayphoto-shrink_400_400/0/1658952648967?e=1664409600&v=beta&t=CQCams4dENjaVC7XAbiqgZJffpjPjBn9ugUSbnDdb2s"
+            imgsrc: mehmedImg
         },
         {
             name: 'Petar Arabadzhiev',
             linkedin: "https://www.linkedin.com/in/petar-arabadzhiev-88535a230/",
-            position: "Fullstack Developer",
+            position: "Full-stack Developer",
             github: "https://github.com/Arabadzhiew",
-            imgsrc: "https://avatars.githubusercontent.com/u/76776739?v=4"
+            imgsrc: petarImg
         },
         {
             name: 'Filip Bozhkov',
             linkedin: "https://www.linkedin.com/in/filip-bozhkov-27b4361b7/",
             github: "https://github.com/fbozhkov",
             position: "Frontend Developer",
-            imgsrc: "https://avatars.githubusercontent.com/u/52756776?v=4"
+            imgsrc: filipImg
         },
         {
             name: 'Petya Marinova',
             linkedin: "https://www.linkedin.com/in/pmmarinova/",
             position: "Frontend Developer",
             github: "https://github.com/petya0111",
-            imgsrc: "https://avatars.githubusercontent.com/u/13080328?v=4"
+            imgsrc: petyaImg
         },
         {
             name: 'Stanislav Stanchev',
             linkedin: "https://www.linkedin.com/in/stanislav-stanchev/",
             position: "Frontend Developer",
             github: "https://github.com/Stanislav001",
-            imgsrc: "https://avatars.githubusercontent.com/u/77980171?v=4"
+            imgsrc: stanislavImg
         },
         {
             name: 'Niazi Yazadzhiev',
             linkedin: "https://www.linkedin.com/in/niazi-yazadzhiev-942a6421b",
             position: "Backend Developer",
             github: "https://github.com/nyazadzhiev",
-            imgsrc: "https://media-exp2.licdn.com/dms/image/D4E03AQGD2RkICOrGsg/profile-displayphoto-shrink_400_400/0/1631128288158?e=1661990400&v=beta&t=dBMgDLBTNi4n4X-HLbsalPajbtaiYwO21AwMgyM_huM"
+            imgsrc: niaziImg
         }
        
     ];

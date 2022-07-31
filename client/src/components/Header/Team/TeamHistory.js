@@ -18,7 +18,7 @@ const TeamHistory = () => {
                 <Typography className="group-info" variant="h6">
                 This is an all purpose e-shop practice project, maintain by a group of highly motivated young developers.
                 </Typography>
-                <Team></Team>
+                <Team/>
             </Box>
         </Box>
     );

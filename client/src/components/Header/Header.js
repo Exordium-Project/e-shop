@@ -44,7 +44,7 @@ const Header = () => {
           <Grid item={true} xs={12} sm={2} md={0.5}>
             <Link to='/team' style={textDecorationObject}>
               <Button className='header-buttons'>
-                <CodeIcon></CodeIcon>
+                <CodeIcon/>
               </Button>
             </Link>
           </Grid>
@@ -83,16 +83,16 @@ const Header = () => {
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
             {
-              languages.map((item, index) => {
+              languages.map((languageItem, index) => {
                 return (
                   <FormControl key={index + "formcontrol"} fullWidth className='languages'>
-                    <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{item.title}</InputLabel>
+                    <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{languageItem.title}</InputLabel>
                     <Select
                       sx={{ height: '7.5rem', textAlign: 'center' }}
                       onChange={onLanguageChange}
                       defaultValue="en">
                       {
-                        item.options.map((item, index) => { return <MenuItem key={"language" + index} value={item.value}>{item.text}</MenuItem> })
+                        languageItem.options.map((optionItem, index) => { return <MenuItem key={"language" + index} value={optionItem.value}>{optionItem.text}</MenuItem> })
                       }
                     </Select>
                   </FormControl>
