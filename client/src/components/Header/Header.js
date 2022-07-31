@@ -32,7 +32,7 @@ const Header = () => {
     <StyledEngineProvider injectFirst={true}>
       <Box className='header-div'>
         <Grid container={true} spacing={0} >
-          <Grid item={true} xs={12} md={2.5}>
+          <Grid item={true} xs={12} md={3}>
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} className='img' /></Link>
               <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-4.4rem', color: 'white' }}>
@@ -41,14 +41,6 @@ const Header = () => {
               </Typography>
             </Typography>
           </Grid>
-          <Grid item={true} xs={12} sm={2} md={0.5}>
-            <Link to='/team' style={textDecorationObject}>
-              <Button className='header-buttons'>
-                <CodeIcon/>
-              </Button>
-            </Link>
-          </Grid>
-
           <Grid item={true} xs={12} sm={2} md={1.5}>
 
             <Link to='/toys' style={textDecorationObject}>
@@ -122,6 +114,14 @@ const Header = () => {
           </Grid>
         </Grid>
       </Box>
+      <Grid item={true} xs={12} >
+        <Link to='/team' style={textDecorationObject}>
+          <Button className='header-buttons'>
+            <CodeIcon />
+            <Typography uppercase={false} className='pages'>Team Developers</Typography>
+          </Button>
+        </Link>
+      </Grid>
     </StyledEngineProvider >
   );
 }
