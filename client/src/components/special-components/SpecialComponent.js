@@ -1,11 +1,11 @@
 import styles from './SpecialComponent.module.css';
 
-export default function SpecialComponent() {
+const SpecialComponent = (props) =>  {
     return (
 
         <div className={styles.card}>
             <div className={styles.contentBox}>
-                <p className={styles.productInfo}>Product name</p>
+                <p className={styles.productInfo}> {props.name}</p>
                 <p className={styles.productInfo}>Category</p>
             </div>
             <div className={styles.images}>
@@ -20,3 +20,4 @@ export default function SpecialComponent() {
 
     );
 }
+export default SpecialComponent

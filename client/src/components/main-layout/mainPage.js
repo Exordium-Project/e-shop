@@ -11,31 +11,55 @@ import axios from 'axios';
 
 const Main = () => {
     const [products, getProducts] = useState('');
+    const [categories, getCategories] = useState('');
 
-    const url = 'http://localhost:3004/api/products';
+    const url = 'http://localhost:3004'; // change url when deploying
+    const productURL = url + '/api/products';
+    const categoryURL = url + '/api/types';
+
+    let props = [];
 
     useEffect(() => {
         getAllProducts();
+        getAllCategories();
     }, []);
 
     const getAllProducts = () => {
-        axios.get(url, products)
+        axios.get(productURL)
         .then ((response) => {
-            console.log(response.data);
+            const products = response.data;
+            getProducts(products);
+            console.log('products', products);
+            console.log('products[0].name', products[0].name);
+            props.push(products);
+        })
+        .catch(error => console.error(`Error: ${error}`));
+    }
+
+    const getAllCategories = () => {
+        axios.get(categoryURL)
+        .then ((response) => {
+            const categories = response.data;
+            getCategories(categories);
+            console.log('categories', categories);
+            console.log('categories[0].name', categories[0].name);
+            props.push(categories);
+            console.log('props', props);
         })
         .catch(error => console.error(`Error: ${error}`));
     }
     
-    let specialProducts = [<SpecialComponent></SpecialComponent>,
-    <SpecialComponent></SpecialComponent>,
-    <SpecialComponent></SpecialComponent>,];
+    let specialProducts = [<SpecialComponent {...products[2]} />,
+    <SpecialComponent {...products[4]} />,
+    <SpecialComponent {...products[5]} /> ];
 
-    let addedTodayProducts = [<ProductCard></ProductCard>,
-    <ProductCard></ProductCard>,
-    <ProductCard></ProductCard>,
-    <ProductCard></ProductCard>,
-    <ProductCard></ProductCard>,
-    <ProductCard></ProductCard>,];
+    let addedTodayProducts = products.map((product, index) => {return <ProductCard {...product} key={index}> </ProductCard>})
+    /* [<ProductCard {...products[0]} />,
+    <ProductCard {...products[1]} />,
+    <ProductCard {...products[2]} />,
+    <ProductCard {...products[3]} />,
+    <ProductCard {...products[4]} />,
+    <ProductCard {...products[5]} /> ]; */
 
     return (
         <div className='main'>
