@@ -1,9 +1,10 @@
-import express from "express"
+import express, { query } from "express"
 
 import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
 
 import UserService from "../services/UserService.js"
+import User from '../models/User.js'
 
 const usersController = express.Router()
 usersController.post('/registration', async (req, res) => {
@@ -20,36 +21,44 @@ usersController.post('/registration', async (req, res) => {
     await UserService.registerUser(userData)
     res.json(userData)
 })
-usersController.get('/check-username/{username}', async (req, res) => {
-    console.log("int the endpoint check username")
-    const userExists = await UserService.checkUsername(req.body.username)
-
-    res.send(userExists)
+usersController.post('/check-email/:email', async (req, res) => {
+    await User.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(async (email) => {
+        if(!email){
+           return res.status(401).json({msg: 'Email not found'})
+        }
+        let isMatch = bcrypt.compareSync(req.body.password, email.password)
+        if (!isMatch) {
+            res.status(401).json({ msg: 'Invalid password' })
+        } else {
+            res.status(200).send('Welcome back User :)')
+        }
+    })
 })
 
-usersController.get("/login", async (req, res) => {
-    const userData = {
-        username: req.body.username,
-        password: req.body.password
-    }
-
-    const isLoggedIn = await UserService.login(userData)
-
-    if(isLoggedIn) {
-        res.status(200).send({
-            message: "You logged in"
-        })
-    } else{
-        res.status(404).send({
-            message: "Invalid credentials"
-        })
-    }
+usersController.post("/check-username/:username", async (req, res) => {
+    await User.findOne({
+        where: {
+            username: req.body.username
+        }
+    }).then(async (username) => {
+        if(!username) return res.status(401).json({msg: 'Username not found'})
+        let isMatch = bcrypt.compareSync(req.body.password, username.password)
+        if (!isMatch) {
+            res.status(401).json({ msg: 'Invalid password' })
+        } else {
+            res.status(200).send('Welcome back User :)')
+        }
+    })
 })
 
 usersController.post('/token', async (req, res) => {
     const token = await UserService.generateToken(req.body.email)
 
-    if(token) {
+    if (token) {
         res.send(token)
     }
 })

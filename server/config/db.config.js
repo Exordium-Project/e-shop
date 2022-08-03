@@ -11,7 +11,7 @@ let db_password = process.env.DB_PASSWORD || 'password';
 const sequelize = new Sequelize(db_name,db_user,db_password, {
     host: db_host,
     dialect: 'mysql',
-    operatorsAliases: false,
+    operatorsAliases: 0,
     timezone: '+02:00',
 
     pool: {
