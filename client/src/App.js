@@ -10,6 +10,7 @@ import Main from './components/main-layout/mainPage';
 import './components/main-layout/mainPage.scss';
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
+import ErrorPage from './components/Error/ErrorPage';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route path='/mybag' element={<MyBag/>}/>
                 <Route path='/sign' element={<SignUp />} />
                 <Route path='/login' element={<SignIn />} />
+                <Route path='*' element={<ErrorPage />} />
             </Routes>
 
         </div>

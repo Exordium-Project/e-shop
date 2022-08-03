@@ -2,7 +2,8 @@ import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
 import User from "../models/User.js"
 import Error from "../error/Error.js"
-
+import dotenv from 'dotenv'
+dotenv.config();
 export default class UserService {
     static async registerUser(userData) {
         const user = await User.findOne({
@@ -28,22 +29,29 @@ export default class UserService {
         const newUser = User.create(userData)
         return newUser;
     }
-
-    static async login(userData) {
-        const user = await User.findOne({
-            where: {
-                email: userData.username
-            }
-        })
-
-        if (!user) {
-            return new Error(404, "User not found")
-        }
-
-        const isLoggedIn = await bcrypt.compare(userData.password, user.password)
-
-        return isLoggedIn
-    }
+    // static async checkUsername(userData, req, res){
+    //     await User.findOne({
+    //         where: {
+    //             username: req.body.username
+    //         }
+    //     }).then(async (username) => {
+    //         if (!username) return res.json({ msg: 'Username not found' })
+    //         let isMatch = bcrypt.compareSync(req.body.password, username.password)
+    //         if (!isMatch) {
+    //             res.json({ msg: 'Invalid password' })
+    //         } else {
+    //             res.send('Welcome back User :)')
+    //         }
+    //     })
+    // }
+    // static async checkEmail(userData){
+    //     const userEmail = await User.findAll({
+    //         attributes: ['email'],
+    //         where: {
+    //             email: userData.email
+    //         }
+    //     })
+    // }
 
     static async generateToken(userEmail) {
         const user = User.findOne({
@@ -57,7 +65,6 @@ export default class UserService {
         if (!user) {
             return new Error(404, "User not found")
         }
-
         if (bcrypt.compareSync(req.body.password, user.password)) {
             let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                 expiresIn: 1440

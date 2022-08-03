@@ -4,6 +4,7 @@ import {
 import db from "../config/db.config.js"
 import Product from "./Product.js"
 import User from "./User.js"
+import Order from './Order.js'
 
 export default db.sequelize.define(
     'order_items', {
