@@ -74,12 +74,8 @@ const Team = () => {
 
     ];
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modalData, setModalData] = useState(null);
-
-    function toggleModal() {
-        setIsOpen(!isOpen);
-    }
 
     return (
 
@@ -106,21 +102,9 @@ const Team = () => {
                                             </a>
                                             <button className="modal-anchor"
                                                 onClick={() => {
-                                                    // setModalData(item);
-                                                    toggleModal(true);
+                                                    setModalData(item);
+                                                    setModalIsOpen(true);
                                                 }}>more</button>
-                                            <Modal
-                                                isOpen={isOpen}
-                                                onRequestClose={toggleModal}
-                                                contentLabel="Member info"
-                                            >
-                                                <Typography className="group-info" variant="h6">
-                                                    {item.name}
-                                                </Typography>
-
-                                                <button onClick={toggleModal}>Close modal</button>
-                                            </Modal>
-
                                         </div>
                                     </div>
                                 </Grid>
@@ -129,6 +113,17 @@ const Team = () => {
                     </Grid>
                 })
             }
+            <Modal
+                isOpen={modalIsOpen} 
+                onRequestClose={() => setModalIsOpen(false)}
+                contentLabel="Member info"
+            >
+                <Typography className="group-info" variant="h6">
+                    {modalData?.name}
+                </Typography>
+
+                <button onClick={() => setModalIsOpen(false)}>Close modal</button>
+            </Modal>
         </Grid>
 
 
