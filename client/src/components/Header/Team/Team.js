@@ -20,56 +20,64 @@ const Team = () => {
             position: "Full-stack Developer",
             linkedin: "https://www.linkedin.com/in/jordan-radushev-76665b1a4/",
             github: "https://github.com/JordanRad",
-            imgsrc: jordanImg
+            imgsrc: jordanImg,
+            moreInfo:"More info"
         },
         {
             name: 'Ivaylo Slavchev',
             linkedin: "https://www.linkedin.com/in/ivaylo-slavchev-6425a521b/",
             position: "Frontend Developer",
             github: "https://github.com/IvayloSlavchev",
-            imgsrc: ivayloImg
+            imgsrc: ivayloImg,
+            moreInfo:"More info"
         },
         {
             name: 'Mehmed Dukov',
             linkedin: "https://www.linkedin.com/in/mehmed-mehmedov-dukov-07a18a225/",
             position: "Backend Developer",
             github: "https://github.com/Medikko",
-            imgsrc: mehmedImg
+            imgsrc: mehmedImg,
+            moreInfo:"More info"
         },
         {
             name: 'Petar Arabadzhiev',
             linkedin: "https://www.linkedin.com/in/petar-arabadzhiev-88535a230/",
             position: "Full-stack Developer",
             github: "https://github.com/Arabadzhiew",
-            imgsrc: petarImg
+            imgsrc: petarImg,
+            moreInfo:"More info"
         },
         {
             name: 'Filip Bozhkov',
             linkedin: "https://www.linkedin.com/in/filip-bozhkov-27b4361b7/",
             github: "https://github.com/fbozhkov",
             position: "Frontend Developer",
-            imgsrc: filipImg
+            imgsrc: filipImg,
+            moreInfo:"More info"
         },
         {
             name: 'Petya Marinova',
             linkedin: "https://www.linkedin.com/in/pmmarinova/",
             position: "Frontend Developer",
             github: "https://github.com/petya0111",
-            imgsrc: petyaImg
+            imgsrc: petyaImg,
+            moreInfo:"More info"
         },
         {
             name: 'Stanislav Stanchev',
             linkedin: "https://www.linkedin.com/in/stanislav-stanchev/",
             position: "Frontend Developer",
             github: "https://github.com/Stanislav001",
-            imgsrc: stanislavImg
+            imgsrc: stanislavImg,
+            moreInfo:"More info"
         },
         {
             name: 'Niazi Yazadzhiev',
             linkedin: "https://www.linkedin.com/in/niazi-yazadzhiev-942a6421b",
             position: "Backend Developer",
             github: "https://github.com/nyazadzhiev",
-            imgsrc: niaziImg
+            imgsrc: niaziImg,
+            moreInfo:"More info"
         }
 
     ];
@@ -121,7 +129,7 @@ const Team = () => {
                 <Typography className="group-info" variant="h6">
                     {modalData?.name}
                 </Typography>
-
+                <div>{modalData?.moreInfo}</div>
                 <button onClick={() => setModalIsOpen(false)}>Close modal</button>
             </Modal>
         </Grid>

@@ -46,7 +46,7 @@ const TeamHistory = () => {
                             When problem arises it is supported by experienced developers 
                             from the <b>Discord IT Carrer and Lifestyle</b> community.
                         </Typography>
-                        <Button  href="https://discord.gg/FdHFU3Mm6a">Join</Button>
+                        <Button target="_blank"  href="https://discord.gg/FdHFU3Mm6a">Join Discord</Button>
                     </AccordionDetails>
                 </Accordion>
                 <Team />
