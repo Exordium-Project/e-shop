@@ -5,6 +5,7 @@ import Box from '@mui/material/Grid';
 import { Typography, Divider } from '@mui/material'
 import SearchBar from "../search-bar/search-bar";
 import ProductCard from '../product-card/ProductCard';
+import ProductList from '../product-list/ProductList';
 import SpecialComponent from '../special-components/SpecialComponent';
 import './mainPage.scss';
 import axios from 'axios';
@@ -27,11 +28,11 @@ const Main = () => {
     const getAllProducts = () => {
         axios.get(productURL)
         .then ((response) => {
-            const products = response.data;
-            getProducts(products);
-            console.log('products', products);
+            /* const products = response.data; */
+            getProducts(response.data);
+            /* console.log('products', products);
             console.log('products[0].name', products[0].name);
-            props.push(products);
+            props.push(products); */
         })
         .catch(error => console.error(`Error: ${error}`));
     }
@@ -41,10 +42,10 @@ const Main = () => {
         .then ((response) => {
             const categories = response.data;
             getCategories(categories);
-            console.log('categories', categories);
+            /* console.log('categories', categories);
             console.log('categories[0].name', categories[0].name);
             props.push(categories);
-            console.log('props', props);
+            console.log('props', props); */
         })
         .catch(error => console.error(`Error: ${error}`));
     }
@@ -53,13 +54,15 @@ const Main = () => {
     <SpecialComponent {...products[4]} />,
     <SpecialComponent {...products[5]} /> ];
 
-    let addedTodayProducts = products.map((product, index) => {return <ProductCard {...product} key={index}> </ProductCard>})
-    /* [<ProductCard {...products[0]} />,
+    let addedTodayProducts = 
+    [<ProductCard {...products[0]} />,
     <ProductCard {...products[1]} />,
     <ProductCard {...products[2]} />,
     <ProductCard {...products[3]} />,
     <ProductCard {...products[4]} />,
-    <ProductCard {...products[5]} /> ]; */
+    <ProductCard {...products[5]} /> ];
+
+    Object.values(products).map(data => console.log(data));
 
     return (
         <div className='main'>
@@ -95,12 +98,14 @@ const Main = () => {
                             <Grid container={true}
                                 spacing={2}
                                 className='popular-products-grid'>
-
-                                {addedTodayProducts.map((item, index) => {
+                                    <Grid item xs={12} sm={6} md={4}>
+                                        <ProductList />
+                                    </Grid>
+                                {/* {addedTodayProducts.map((item, index) => {
                                     return <Grid item xs={12} sm={6} md={4}
                                         key={index}>{item}
                                     </Grid>
-                                })}
+                                })} */}
 
                             </Grid>
                         </Box>

@@ -5,7 +5,7 @@ const ProductCard = (props) => {
 
     return (
         <div className="card">
-            <img src="https://via.placeholder.com/600" alt="Image" className='productImage' />
+            <img src="http://www.foaminsulationni.com/images/placeholder/600x600.gif" alt="Image" className='productImage' />
             <h1 className="name">{props.name}</h1>
             <div className="productInfo">
                 <p>Sizes: (TODO?)</p>

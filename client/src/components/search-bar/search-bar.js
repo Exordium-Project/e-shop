@@ -15,6 +15,8 @@ const SearchBar = () => {
 
     const [category, setCategory] = useState(0);
 
+    
+    
     const categories = ['All categories', 'To', 'Be', 'Fetched', 'From', 'Backend'];
     let categoryCount = 0;
 
