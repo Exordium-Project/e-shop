@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Button, TextField, Box, StyledEngineProvider, Grid, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import './SignIn.scss'
 import './Mobile-view.scss'
@@ -12,35 +12,32 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
 export default function SignIn() {
-    const [show, setShow] = useState(false)
-    const [loginMethod, setLoginMethod] = useState('')
-    const [userPassword, setUserPassword] = useState('')
-    const [error, setError] = useState(false)
-    const { register, control, formState: { errors }, handleSubmit } = useForm()
+    const [show, setShow] = useState(false);
+    const [loginMethod, setLoginMethod] = useState('');
+    const [userPassword, setUserPassword] = useState('');
+    const [isErrorPresent, setErrorPresent] = useState(false);
+    const { register, control, formState: { errors }, handleSubmit } = useForm();
+    const localHost = 'http://localhost:3004'
 
     const onSubmit = async () => {
-        if (!loginMethod.includes('@')) {
-            await Axios.post('http://localhost:3004/api/users/check-username/:username', {
-                username: loginMethod,
-                password: userPassword
-            }).then((response) => {
-                console.log(response)
-                setError(false)
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        const usernameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
+        if (!emailRegex.test(loginMethod)) {
+            //Here is for username
+            await Axios.get(`${localHost}/api/users/username/${loginMethod}`).then((response) => {
+                setErrorPresent(false)
             }).catch(() => {
-                setError(true);
-
+                setErrorPresent(true);
             })
-        } else {
-            await Axios.post('http://localhost:3004/api/users/check-email/:email', {
-                email: loginMethod,
-                password: userPassword
-            }).then((response) => {
-                console.log(response)
-                setError(false)
+        } else if(!usernameRegex.test(loginMethod)){
+            //Here is for email
+            await Axios.get(`${localHost}/api/users/email/${loginMethod}`).then((response) => {
+                setErrorPresent(false)
             }).catch(() => {
-                setError(true)
+                setErrorPresent(true)
             })
         }
+        
     }
     
     return (
@@ -62,7 +59,7 @@ export default function SignIn() {
                         </Box>
                         <Box component="form" sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)} className='login-form-styles'>
                             {
-                                error && (
+                                isErrorPresent && (
                                     <Box className='span-class'>
                                         <ErrorSharpIcon />
                                         <Typography>
@@ -77,7 +74,7 @@ export default function SignIn() {
                                 error={!!errors?.usernameOrEmail}
                                 helperText={errors?.usernameOrEmail ? errors.usernameOrEmail.message : null}
                                 inputProps={{ "data-testid": "username-input" }}
-                                onChange={(e) => { setLoginMethod(e.target.value) }}
+                                onChange={(event) => { setLoginMethod(event.target.value) }}
                             />
                             <TextField type="password"
                                 placeholder='Password'
@@ -90,7 +87,7 @@ export default function SignIn() {
                                 })}
                                 error={!!errors?.password}
                                 helperText={errors?.password ? errors.password.message : null}
-                                onChange={(e) => { setUserPassword(e.target.value) }}
+                                onChange={(event) => { setUserPassword(event.target.value) }}
                             />
                             {/* {
                                 show ?  <TextField type="password"

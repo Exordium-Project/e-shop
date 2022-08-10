@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
 
 import UserService from "../services/UserService.js"
-import User from '../models/User.js'
 
 const usersController = express.Router()
 usersController.post('/registration', async (req, res) => {
@@ -21,40 +20,22 @@ usersController.post('/registration', async (req, res) => {
     await UserService.registerUser(userData)
     res.json(userData)
 })
-usersController.post('/check-email/:email', async (req, res) => {
-    await User.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(async (email) => {
-        if(!email){
-           return res.status(401).json({msg: 'Email not found'})
-        }
-        let isMatch = bcrypt.compareSync(req.body.password, email.password)
-        if (!isMatch) {
-            res.status(401).json({ msg: 'Invalid password' })
-        } else {
-            res.status(200).send('Welcome back User :)')
-        }
-    })
+usersController.get('/email/:email/', async (req, res) => {
+    const response = await UserService.checkEmail(req, res);
+    res.json(response);
 })
 
-usersController.post("/check-username/:username", async (req, res) => {
-    await User.findOne({
-        where: {
-            username: req.body.username
-        }
-    }).then(async (username) => {
-        if(!username) return res.status(401).json({msg: 'Username not found'})
-        let isMatch = bcrypt.compareSync(req.body.password, username.password)
-        if (!isMatch) {
-            res.status(401).json({ msg: 'Invalid password' })
-        } else {
-            res.status(200).send('Welcome back User :)')
-        }
-    })
+usersController.get('/username/:username/', async (req, res) => {
+    await UserService.checkUsername(req, res);
 })
+usersController.post("/login", async (req, res) => {
+    const userData = {
+        username: req.body.username,
+        password: req.body.password
+    }
 
+    await UserService.login(userData, res)
+})
 usersController.post('/token', async (req, res) => {
     const token = await UserService.generateToken(req.body.email)
 
