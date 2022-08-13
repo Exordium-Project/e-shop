@@ -8,7 +8,7 @@ export default class UserService {
     static async registerUser(userData) {
         const user = await User.findOne({
             where: {
-                email: userData.email
+                email: userData.email.toLowerCase()
             }
         }).catch(error => {
             console.log(error)
@@ -29,49 +29,62 @@ export default class UserService {
         const newUser = User.create(userData)
         return newUser;
     }
-    static async checkUsername(req, res) {
-        await User.findOne({
-            where: {
-                username: req.params["username"],   
-            }
-        }).then(async (user) => {
-            if(!user) return res.status(404).json({msg: "Username was not found in our database."})
-        })
+    static async checkUsernameOrEmail(usernameOrEmail, res) {
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        const usernameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
+        if (!emailRegex.test(usernameOrEmail)) {
+            await User.findOne({
+                where: {
+                    username: usernameOrEmail
+                }
+            }).then(async (user) => {
+                if (!user) return res.status(404).json({ msg: `Username was not found in our database.` });
+                else res.status(200).send(`Welcome back, ${user.username}`);
+            })
+            
+        } else if(!usernameRegex.test(usernameOrEmail)){
+            await User.findOne({
+                where: {
+                    email: usernameOrEmail
+                }
+            }).then(async (user) => {
+                if (!user) return res.status(404).json({ msg: `Email was not found in our database.` });
+                else res.status(200).send(`Welcome back, ${user.email}`);
+            })
+        }
     }
     static async login(userData, res) {
-        const user = await User.findOne({
-            where: {
-                username: userData.username
-            }
-        })
+        let user;
+        if(userData.username){
+             user = await User.findOne({
+                where: {
+                    username: userData.username.toLowerCase(),
+                }
+            })
+        } else if(userData.email){
+             user = await User.findOne({
+                where: {
+                    email: userData.email.toLowerCase(),
+                }
+            })
+        }
 
         if (!user) {
             return res.status(404).send('User not found')
         }
 
         const isLoggedIn = await bcrypt.compare(userData.password, user.password)
-        if(isLoggedIn) {
+        if (isLoggedIn) {
             res.status(200).send({
                 message: 'Welcome back'
             })
-        } else{
+        } else {
             res.status(404).send({
                 message: "Invalid credentials"
             })
         }
 
         return isLoggedIn
-    }
-
-    static async checkEmail(req, res) {
-        await User.findOne({
-            where: {
-                email: req.params["email"]
-            }
-        }).then(async (user) => {
-            if(!user) return res.status(404).json({msg: `Email was not found in our database.`});
-            else res.status(200).send(`Welcome back, ${user.email}`);
-        })
     }
     static async generateToken(userEmail) {
         const user = User.findOne({

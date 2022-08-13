@@ -8,9 +8,9 @@ import UserService from "../services/UserService.js"
 const usersController = express.Router()
 usersController.post('/registration', async (req, res) => {
     const userData = {
-        username: req.body.username,
+        username: req.body.username.toLowerCase(),
         password: req.body.password,
-        email: req.body.email,
+        email: req.body.email.toLowerCase(),
         full_name: req.body.full_name,
         profile_img: req.body.profile_img,
         date_on_creating: req.body.date_on_creating,
@@ -20,17 +20,14 @@ usersController.post('/registration', async (req, res) => {
     await UserService.registerUser(userData)
     res.json(userData)
 })
-usersController.get('/email/:email/', async (req, res) => {
-    const response = await UserService.checkEmail(req, res);
+usersController.get('/usernameOrEmail/:usernameOrEmail/', async (req, res) => {
+    const response = await UserService.checkUsernameOrEmail(req.params['usernameOrEmail'], res);
     res.json(response);
-})
-
-usersController.get('/username/:username/', async (req, res) => {
-    await UserService.checkUsername(req, res);
 })
 usersController.post("/login", async (req, res) => {
     const userData = {
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     }
 

@@ -16,30 +16,43 @@ export default function SignIn() {
     const [loginMethod, setLoginMethod] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const [isErrorPresent, setErrorPresent] = useState(false);
-    const { register, control, formState: { errors }, handleSubmit } = useForm();
-    const localHost = 'http://localhost:3004'
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = async () => {
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         const usernameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
-        if (!emailRegex.test(loginMethod)) {
-            //Here is for username
-            await Axios.get(`${localHost}/api/users/username/${loginMethod}`).then((response) => {
+
+        const loginUrl = 'http://localhost:3004/api/users/login';
+        if (show == false) {
+            await Axios.get(`http://localhost:3004/api/users/usernameOrEmail/${loginMethod}`).then(() => {
                 setErrorPresent(false)
+                setShow(true);
             }).catch(() => {
                 setErrorPresent(true);
             })
-        } else if(!usernameRegex.test(loginMethod)){
-            //Here is for email
-            await Axios.get(`${localHost}/api/users/email/${loginMethod}`).then((response) => {
-                setErrorPresent(false)
-            }).catch(() => {
-                setErrorPresent(true)
-            })
+        } else {
+            if (!emailRegex.test(loginMethod)) {
+                await Axios.post(`${loginUrl}`, {
+                    username: loginMethod,
+                    password: userPassword
+                }).then(() => {
+                    setErrorPresent(false);
+                }).catch(() => {
+                    setErrorPresent(true);
+                })
+            } else if (!usernameRegex.test(loginMethod)) {
+                await Axios.post(`${loginUrl}`, {
+                    email: loginMethod,
+                    password: userPassword
+                }).then(() => {
+                    setErrorPresent(false);
+                }).catch(() => {
+                    setErrorPresent(true);
+                })
+            }
         }
-        
     }
-    
+
     return (
         <StyledEngineProvider injectFirst={true}>
             <Grid container={true} spacing={0}>
@@ -76,34 +89,21 @@ export default function SignIn() {
                                 inputProps={{ "data-testid": "username-input" }}
                                 onChange={(event) => { setLoginMethod(event.target.value) }}
                             />
-                            <TextField type="password"
-                                placeholder='Password'
-                                name='password'
-                                {...register('password', {
-                                    required: 'This field is required', pattern: {
-                                        value: /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-                                        message: 'Password should be at least 8 characters long'
-                                    }
-                                })}
-                                error={!!errors?.password}
-                                helperText={errors?.password ? errors.password.message : null}
-                                onChange={(event) => { setUserPassword(event.target.value) }}
-                            />
-                            {/* {
-                                show ?  <TextField type="password"
-                                placeholder='Password'
-                                name='password'
-                                {...register('password', {
-                                    required: 'This field is required', pattern: {
-                                        value: /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-                                        message: 'Password should be at least 8 characters long'
-                                    }
-                                })}
-                                error={!!errors?.userPassword}
-                                helperText={errors?.userPassword ? errors.userPassword.message : null}
-                                onChange={(e) => {setUserPassword(e.target.value);}}
-                            />  : null
-                            } */}
+                            {
+                                show ? <TextField type="password"
+                                    placeholder='Password'
+                                    name='password'
+                                    {...register('password', {
+                                        required: 'This field is required', pattern: {
+                                            value: /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+                                            message: 'Password should be at least 8 characters long'
+                                        }
+                                    })}
+                                    error={!!errors?.userPassword}
+                                    helperText={errors?.userPassword ? errors.userPassword.message : null}
+                                    onChange={(e) => { setUserPassword(e.target.value); }}
+                                /> : null
+                            }
                             <Box className='button-class'>
                                 <Button className='log-in-account-button' type='submit'>Continue</Button>
                             </Box>
