@@ -38,8 +38,8 @@ export default class UserService {
                     username: usernameOrEmail
                 }
             }).then(async (user) => {
-                if (!user) return res.status(404).json({ msg: `Username was not found in our database.` });
-                else res.status(200).send(`Welcome back, ${user.username}`);
+                if (!user) return res.status(404);
+                else res.status(200);
             })
             
         } else if(!usernameRegex.test(usernameOrEmail)){
@@ -48,8 +48,8 @@ export default class UserService {
                     email: usernameOrEmail
                 }
             }).then(async (user) => {
-                if (!user) return res.status(404).json({ msg: `Email was not found in our database.` });
-                else res.status(200).send(`Welcome back, ${user.email}`);
+                if (!user) return res.status(404);
+                else res.status(200);
             })
         }
     }
