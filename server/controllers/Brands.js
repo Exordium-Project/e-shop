@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import BrandService from '../services/BrandService.js';
 import Error from '../error/Error.js';
 

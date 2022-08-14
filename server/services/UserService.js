@@ -109,7 +109,7 @@ export default class UserService {
         }
 
         if (bcrypt.compareSync(oldPassword, newPassword)) {
-            bcrypt.hash(req.body.new_password, 10, (err, hash) => {
+            bcrypt.hash(req.body.new_password, SALT_ROUNDS, (err, hash) => {
                 req.body.new_password = hash
                 const updatedRecord = User.update(
                     {
@@ -141,5 +141,28 @@ export default class UserService {
         })
 
         return user;
+    }
+    static async checkUsername(username) {
+        const userEmail = User.findAll({
+            attributes: ['email'],
+            where: {
+                id: username
+            }
+        }).catch(error => { })
+        if (!userEmail) {
+            const userUsername = User.findAll({
+                attributes: ['username'],
+                where: {
+                    id: username
+                }
+            }).catch(error => { })
+            if (userUsername) {
+                return true;
+            }
+        } else {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -1,0 +1,98 @@
+.container-grid {
+    background-color: rgb(29, 30, 31);
+}
+
+.body {
+    background: #171835;
+    width: 100%;
+
+    .banner {
+        left: 0px;
+        top: 100px;
+        background: linear-gradient(180deg,
+                rgba(23, 24, 53, 0.3) 0%,
+                rgba(0, 0, 0, 0.3) 100%);
+        border: 1px solid #000000;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        .accordion-container{
+            background-color: rgb(29, 30, 31);
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            .expand-icon{
+                color: white;
+            }
+        }
+
+        .group-info {
+            color: white;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            display: flex;
+            align-items: center;
+
+            .card {
+                max-width: 400px;
+                margin: auto;
+                text-align: center;
+                font-family: arial;
+            }
+
+            h1 {
+                color: white;
+            }
+
+            h3 {
+                color: white;
+            }
+
+            .memberImage {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                box-shadow: 0 4px 8px 0 white;
+            }
+
+            .memberInfo {
+                a {
+                    cursor: pointer;
+
+                    .social-image {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                    }
+                }
+
+                .modal-anchor {
+                    color: black;
+                    cursor: pointer;
+                    padding: 2px 5px;
+                    background-color: white;
+                    border-radius: 5px;
+                    margin-left: 20px;
+                }
+            }
+
+            .card button {
+                display: inline-block;
+                border-radius: 45%;
+                border: none;
+                outline: 0;
+                padding: 12px;
+                text-align: center;
+                cursor: pointer;
+                width: 30%;
+                font-size: 18px;
+                margin-left: 10%;
+            }
+
+            .card button:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
