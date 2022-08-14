@@ -3,9 +3,10 @@ import ProductCard from '../product-card/ProductCard';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import '../main-layout/mainPage.scss';
+import {useTranslation} from "react-i18next";
 
 const ProductList = () => {
-    
+    let {t} = useTranslation()
     const [products, getProducts] = useState('');
 
     const url = 'http://localhost:3004'; // change url when deploying
@@ -39,7 +40,7 @@ const ProductList = () => {
                 className='popular-products-grid'>
                 {addedTodayProducts.map((item, index) => {
                                     return <Grid item xs={12} sm={6} md={4}
-                                        key={index}>{item}
+                                        key={"products"+index}>{item}
                                     </Grid>
                                 })} 
 

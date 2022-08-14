@@ -8,8 +8,10 @@ import SpecialProductList from '../special-product-list/SpecialProductList';
 import SpecialComponent from '../special-components/SpecialComponent';
 import './mainPage.scss';
 import axios from 'axios';
+import {useTranslation} from "react-i18next";
 
 const Main = () => {
+    let {t} = useTranslation()
     const [products, getProducts] = useState('');
 
     const url = 'http://localhost:3004'; // change url when deploying
@@ -64,7 +66,7 @@ const Main = () => {
                     <Grid item sm={7} className='popular-products'>
 
                         <Typography variant='h4' className='section-header'>
-                            Popular products
+                            {t('Main.sections.popular')}
                         </Typography>
                         <Box sx={{ flexGrow: 1 }}>
                             <ProductList />
@@ -72,7 +74,7 @@ const Main = () => {
 
                         <Box sx={{ flexGrow: 1 }}
                             className='see-all'>
-                            See all {/* TODO Show more products */}
+                                {t('Main.sections.all')} {/* TODO Show more products */}
                         </Box>
 
                         <Box sx={{ flexGrow: 1 }}>
@@ -82,7 +84,7 @@ const Main = () => {
 
                         <Box sx={{ flexGrow: 1 }} className='added-today'>
                             <Typography variant='h4' className='section-header'>
-                                Added Today
+                                {t('Main.sections.addedToday')}
                             </Typography>
                             <Box sx={{ flexGrow: 1 }}>
                                 <Grid container={true}
@@ -91,7 +93,7 @@ const Main = () => {
 
                                     {addedTodayProducts.map((item, index) => {
                                         return <Grid item xs={12} sm={6} md={4}
-                                            key={index}>{item}
+                                            key={"added-today-"+index}>{item}
                                         </Grid>
                                     })}
 
@@ -105,7 +107,7 @@ const Main = () => {
                     <Grid item sm={5} className='specials'>
 
                         <Typography variant='h4' className='section-header'>
-                            Expordium Specials
+                            {t('Main.sections.specials')}
                         </Typography>
                         <Box sx={{ flexGrow: 1 }}>
                             <SpecialProductList />

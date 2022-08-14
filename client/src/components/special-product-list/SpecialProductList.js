@@ -3,8 +3,10 @@ import { Box, Grid } from '@mui/material'
 import axios from 'axios';
 import SpecialComponent from '../special-components/SpecialComponent';
 import '../main-layout/mainPage.scss';
+import {useTranslation} from "react-i18next";
 
 const SpecialProductList = () => {
+    let {t} = useTranslation()
     const [products, getProducts] = useState('');
     const url = 'http://localhost:3004'; // change url when deploying
     const productURL = url + '/api/products';
@@ -37,7 +39,7 @@ const SpecialProductList = () => {
                     <Box className='specials-placeholder'>
                         {specialProducts.map((item, index) => {
                             return <Grid item xs={12} sm={6} md={4}
-                                key={index}>{item}
+                                key={"specials-"+index}>{item}
                             </Grid>
                         })}
                     </Box>
