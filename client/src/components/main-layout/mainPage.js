@@ -27,11 +27,7 @@ const Main = () => {
         })
         .catch(error => console.error(`Error: ${error}`));
     }
-    // I am leaving specialProducts and addedTodayProducts untill we have done task #46 'Create mock data sql/sequelize script'
-    let specialProducts = [<SpecialComponent {...products[2]} />,
-    <SpecialComponent {...products[4]} />,
-    <SpecialComponent {...products[5]} /> ];
-
+    
     let addedTodayProducts =  //There is no DB datetime column to sort Products by date hence addedTodayProducts
     [<ProductCard {...products[0]} />,
     <ProductCard {...products[1]} />,
@@ -113,21 +109,6 @@ const Main = () => {
                         </Typography>
                         <Box sx={{ flexGrow: 1 }}>
                             <SpecialProductList />
-                            {/* <Grid container={true}
-                                spacing={3}
-                                className='specials-grid'>
-
-                                <Grid item sm={12}>
-                                    <Box className='specials-placeholder'>
-                                        {specialProducts.map((item, index) => {
-                                            return <Grid item xs={12} sm={6} md={4}
-                                                key={index}>{item}
-                                            </Grid>
-                                        })}
-                                    </Box>
-                                </Grid>
-
-                            </Grid> */}
                         </Box>
                     </Grid>
 

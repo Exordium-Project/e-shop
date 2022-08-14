@@ -7,17 +7,13 @@ import '../main-layout/mainPage.scss';
 const ProductList = () => {
     
     const [products, getProducts] = useState('');
-    const [categories, getCategories] = useState('');
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productURL = url + '/api/products';
     const categoryURL = url + '/api/types';
 
-    let props = [];
-
     useEffect(() => {
         getAllProducts();
-        getAllCategories();
     }, []);
 
     const getAllProducts = () => {
@@ -29,14 +25,6 @@ const ProductList = () => {
         .catch(error => console.error(`Error: ${error}`));
     }
 
-    const getAllCategories = () => {
-        axios.get(categoryURL)
-        .then ((response) => {
-            const categories = response.data;
-            getCategories(categories);
-        })
-        .catch(error => console.error(`Error: ${error}`));
-    }
     const productKeys = Object.values(products);
     const addedTodayProducts = productKeys.map( productData => 
          

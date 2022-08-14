@@ -11,13 +11,13 @@ const SpecialProductList = () => {
 
     useEffect(() => {
         getAllProducts();
-    })
+    }, [])
 
     const getAllProducts = () => {
         axios.get(productURL)
         .then ((response) => {
-            /* const products = response.data; */
-            getProducts(response.data);
+            const products = response.data;
+            getProducts(products);
         })
         .catch(error => console.error(`Error: ${error}`));
     }
