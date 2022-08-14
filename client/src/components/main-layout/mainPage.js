@@ -1,69 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Grid';
-import { Typography, Divider } from '@mui/material'
+import { Box, Grid, Typography, Divider } from '@mui/material'
 import SearchBar from "../search-bar/search-bar";
 import ProductCard from '../product-card/ProductCard';
 import ProductList from '../product-list/ProductList';
+import SpecialProductList from '../special-product-list/SpecialProductList';
 import SpecialComponent from '../special-components/SpecialComponent';
 import './mainPage.scss';
 import axios from 'axios';
 
 const Main = () => {
     const [products, getProducts] = useState('');
-    const [categories, getCategories] = useState('');
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productURL = url + '/api/products';
     const categoryURL = url + '/api/types';
 
-    let props = [];
-
     useEffect(() => {
         getAllProducts();
-        getAllCategories();
     }, []);
 
     const getAllProducts = () => {
         axios.get(productURL)
         .then ((response) => {
-            /* const products = response.data; */
             getProducts(response.data);
-            /* console.log('products', products);
-            console.log('products[0].name', products[0].name);
-            props.push(products); */
         })
         .catch(error => console.error(`Error: ${error}`));
     }
-
-    const getAllCategories = () => {
-        axios.get(categoryURL)
-        .then ((response) => {
-            const categories = response.data;
-            getCategories(categories);
-            /* console.log('categories', categories);
-            console.log('categories[0].name', categories[0].name);
-            props.push(categories);
-            console.log('props', props); */
-        })
-        .catch(error => console.error(`Error: ${error}`));
-    }
-    
+    // I am leaving specialProducts and addedTodayProducts untill we have done task #46 'Create mock data sql/sequelize script'
     let specialProducts = [<SpecialComponent {...products[2]} />,
     <SpecialComponent {...products[4]} />,
     <SpecialComponent {...products[5]} /> ];
 
-    let addedTodayProducts = 
+    let addedTodayProducts =  //There is no DB datetime column to sort Products by date hence addedTodayProducts
     [<ProductCard {...products[0]} />,
     <ProductCard {...products[1]} />,
     <ProductCard {...products[2]} />,
     <ProductCard {...products[3]} />,
     <ProductCard {...products[4]} />,
     <ProductCard {...products[5]} /> ];
-
-    Object.values(products).map(data => console.log(data));
-
+    
     return (
         <div className='main'>
 
@@ -86,8 +62,8 @@ const Main = () => {
             <Box sx={{ flexGrow: 1 }}
                 className='products-and-specials-grid'>
                 <Grid container
-                    spacing={10}
-                /* className='products-and-specials-grid' */>
+                    spacing={10}>
+
 
                     <Grid item sm={7} className='popular-products'>
 
@@ -95,19 +71,7 @@ const Main = () => {
                             Popular products
                         </Typography>
                         <Box sx={{ flexGrow: 1 }}>
-                            <Grid container={true}
-                                spacing={2}
-                                className='popular-products-grid'>
-                                    <Grid item xs={12} sm={6} md={4}>
-                                        <ProductList />
-                                    </Grid>
-                                {/* {addedTodayProducts.map((item, index) => {
-                                    return <Grid item xs={12} sm={6} md={4}
-                                        key={index}>{item}
-                                    </Grid>
-                                })} */}
-
-                            </Grid>
+                            <ProductList />
                         </Box>
 
                         <Box sx={{ flexGrow: 1 }}
@@ -148,7 +112,8 @@ const Main = () => {
                             Expordium Specials
                         </Typography>
                         <Box sx={{ flexGrow: 1 }}>
-                            <Grid container={true}
+                            <SpecialProductList />
+                            {/* <Grid container={true}
                                 spacing={3}
                                 className='specials-grid'>
 
@@ -162,7 +127,7 @@ const Main = () => {
                                     </Box>
                                 </Grid>
 
-                            </Grid>
+                            </Grid> */}
                         </Box>
                     </Grid>
 

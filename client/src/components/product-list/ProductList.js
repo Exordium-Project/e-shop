@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../product-card/ProductCard';
+import Grid from '@mui/material/Grid';
 import axios from 'axios';
+import '../main-layout/mainPage.scss';
 
 const ProductList = () => {
     
@@ -23,9 +25,6 @@ const ProductList = () => {
         .then ((response) => {
             const products = response.data;
             getProducts(products);
-            console.log('products', products);
-            console.log('products[0].name', products[0].name);
-            /* props.push(products); */
         })
         .catch(error => console.error(`Error: ${error}`));
     }
@@ -35,16 +34,10 @@ const ProductList = () => {
         .then ((response) => {
             const categories = response.data;
             getCategories(categories);
-            console.log('categories', categories);
-            console.log('categories[0].name', categories[0].name);
-            /* props.push(categories);
-            console.log('props', props); */
         })
         .catch(error => console.error(`Error: ${error}`));
     }
     const productKeys = Object.values(products);
-    console.log("Type of productKeys", typeof(productKeys));
-    console.log("productKeys", productKeys);
     const addedTodayProducts = productKeys.map( productData => 
          
         <ProductCard {...productData} /> );
@@ -53,7 +46,17 @@ const ProductList = () => {
 
     return (
         <div>
-          {addedTodayProducts}  
+            <Grid container={true}
+                spacing={2}
+                className='popular-products-grid'>
+                {addedTodayProducts.map((item, index) => {
+                                    return <Grid item xs={12} sm={6} md={4}
+                                        key={index}>{item}
+                                    </Grid>
+                                })} 
+
+            </Grid>
+
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState, useEffect } from "react";
 import {StyledEngineProvider} from "@mui/material";
 import TextFiled from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -7,6 +7,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
+import axios from 'axios';
 
 import './search-bar.scss';
 
@@ -14,10 +15,25 @@ import './search-bar.scss';
 const SearchBar = () => {
 
     const [category, setCategory] = useState(0);
+    const [categories, getCategories] = useState('');
 
-    
-    
-    const categories = ['All categories', 'To', 'Be', 'Fetched', 'From', 'Backend'];
+    const url = 'http://localhost:3004'; // change url when deploying
+    const categoryURL = url + '/api/types';
+
+    useEffect(() => {
+        getAllCategories();
+    }, []);
+
+    const getAllCategories = () => {
+        axios.get(categoryURL)
+        .then ((response) => {
+            const responseCategories = response.data;
+            getCategories(responseCategories);
+        })
+        .catch(error => console.error(`Error: ${error}`));
+    }
+    const arr = [];
+    Object.keys(categories).forEach(key => arr.push({name: key, value: categories[key]}));
     let categoryCount = 0;
 
     const handleChange = (event) => {
@@ -40,8 +56,8 @@ const SearchBar = () => {
                     </Grid>
                     <Grid item={true} sm={3} xs={12}>
                         <Select className="input" value={category} onChange={handleChange}>
-                            {categories.map(category => {
-                                let item = <MenuItem value={categoryCount}>{category}</MenuItem>;
+                            {arr.map(category => {
+                                let item = <MenuItem value={categoryCount}>{category.value.name}</MenuItem>;
                                 categoryCount++;
                                 return item;
                             })}
