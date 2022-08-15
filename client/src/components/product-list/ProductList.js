@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import {useTranslation} from "react-i18next";
 import ProductCard from '../product-card/ProductCard';
 import Grid from '@mui/material/Grid';
-import axios from 'axios';
 import '../main-layout/mainPage.scss';
-import {useTranslation} from "react-i18next";
 
 const ProductList = () => {
-    let {t} = useTranslation()
-    const [products, getProducts] = useState('');
+    const {t} = useTranslation()
+    const [products, setProducts] = useState([]);
 
     const url = 'http://localhost:3004'; // change url when deploying
-    const productURL = url + '/api/products';
-    const categoryURL = url + '/api/types';
+    const productURL = `${url}/api/products`;
+    const categoryURL = `${url}/api/types`;
 
     useEffect(() => {
         getAllProducts();
@@ -21,17 +21,14 @@ const ProductList = () => {
         axios.get(productURL)
         .then ((response) => {
             const products = response.data;
-            getProducts(products);
+            setProducts(products);
         })
         .catch(error => console.error(`Error: ${error}`));
     }
 
     const productKeys = Object.values(products);
-    const addedTodayProducts = productKeys.map( productData => 
-         
-        <ProductCard {...productData} /> );
-     
-
+    const addedTodayProducts = productKeys.map(productData =>
+        <ProductCard {...productData} />);
 
     return (
         <div>

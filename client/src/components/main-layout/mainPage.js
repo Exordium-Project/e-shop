@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import { Box, Grid, Typography, Divider } from '@mui/material'
+import axios from 'axios';
+import {useTranslation} from "react-i18next";
 import SearchBar from "../search-bar/search-bar";
 import ProductCard from '../product-card/ProductCard';
 import ProductList from '../product-list/ProductList';
 import SpecialProductList from '../special-product-list/SpecialProductList';
 import SpecialComponent from '../special-components/SpecialComponent';
 import './mainPage.scss';
-import axios from 'axios';
-import {useTranslation} from "react-i18next";
 
 const Main = () => {
-    let {t} = useTranslation()
-    const [products, getProducts] = useState('');
+    const {t} = useTranslation()
+    const [products, setProducts] = useState([]);
 
     const url = 'http://localhost:3004'; // change url when deploying
-    const productURL = url + '/api/products';
-    const categoryURL = url + '/api/types';
+    const productURL = `${url}/api/products`;
+    const categoryURL = `${url}/api/types`;
 
     useEffect(() => {
         getAllProducts();
@@ -25,7 +25,7 @@ const Main = () => {
     const getAllProducts = () => {
         axios.get(productURL)
         .then ((response) => {
-            getProducts(response.data);
+            setProducts(response.data);
         })
         .catch(error => console.error(`Error: ${error}`));
     }

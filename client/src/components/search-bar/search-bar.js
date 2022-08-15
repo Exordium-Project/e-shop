@@ -32,8 +32,7 @@ const SearchBar = () => {
         })
         .catch(error => console.error(`Error: ${error}`));
     }
-    const arr = [];
-    Object.keys(categories).forEach(key => arr.push({name: key, value: categories[key]}));
+    const arr = Object.keys(categories).map(key => ({name: key, value: categories[key]}));
     let categoryCount = 0;
 
     const handleChange = (event) => {
