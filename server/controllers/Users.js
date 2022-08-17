@@ -1,4 +1,4 @@
-import express from "express"
+import express, { query } from "express"
 
 import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
@@ -8,9 +8,9 @@ import UserService from "../services/UserService.js"
 const usersController = express.Router()
 usersController.post('/registration', async (req, res) => {
     const userData = {
-        username: req.body.username,
+        username: req.body.username.toLowerCase(),
         password: req.body.password,
-        email: req.body.email,
+        email: req.body.email.toLowerCase(),
         full_name: req.body.full_name,
         profile_img: req.body.profile_img,
         date_on_creating: req.body.date_on_creating,
@@ -20,36 +20,23 @@ usersController.post('/registration', async (req, res) => {
     await UserService.registerUser(userData)
     res.json(userData)
 })
-usersController.get('/check-username/{username}', async (req, res) => {
-    console.log("int the endpoint check username")
-    const userExists = await UserService.checkUsername(req.body.username)
-
-    res.send(userExists)
+usersController.get('/usernameOrEmail/:usernameOrEmail/', async (req, res) => {
+    const response = await UserService.checkUsernameOrEmail(req.params['usernameOrEmail'].toLowerCase(), res);
+    res.json(response);
 })
-
-usersController.get("/login", async (req, res) => {
+usersController.post("/login", async (req, res) => {
     const userData = {
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     }
 
-    const isLoggedIn = await UserService.login(userData)
-
-    if(isLoggedIn) {
-        res.status(200).send({
-            message: "You logged in"
-        })
-    } else{
-        res.status(404).send({
-            message: "Invalid credentials"
-        })
-    }
+    await UserService.login(userData, res)
 })
-
 usersController.post('/token', async (req, res) => {
     const token = await UserService.generateToken(req.body.email)
 
-    if(token) {
+    if (token) {
         res.send(token)
     }
 })

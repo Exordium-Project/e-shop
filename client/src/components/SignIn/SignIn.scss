@@ -17,6 +17,7 @@
     .button-class{
         display: flex;
         justify-content: center;
+        align-items: center;
 
         .log-in-account-button{
             margin-top: 1rem;
@@ -27,6 +28,10 @@
             font-size: 1.2rem;
             cursor: pointer;
             border-radius: 2rem;
+        }
+        .login-button-link{
+            display: flex;
+            justify-content: center;
         }
     }
     .MuiOutlinedInput-root{

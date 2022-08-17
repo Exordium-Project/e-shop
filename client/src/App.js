@@ -15,6 +15,7 @@ import { initReactI18next } from "react-i18next";
 import Backend from "i18next-xhr-backend";
 import {en} from './i18n/en'
 import {bg} from './i18n/bg'
+import ErrorPage from './components/Error/ErrorPage';
 import TeamHistory from './components/Header/Team/TeamHistory';
 i18n.use(Backend).use(initReactI18next).init({
     resources: {
@@ -28,6 +29,7 @@ i18n.use(Backend).use(initReactI18next).init({
         escapeValue: false
       }
 })
+
 
 function App() {
     
@@ -45,6 +47,7 @@ function App() {
                 <Route path='/mybag' element={<MyBag/>}/>
                 <Route path='/sign' element={<SignUp />} />
                 <Route path='/login' element={<SignIn />} />
+                <Route path='*' element={<ErrorPage />} />
             </Routes>
 
         </div>

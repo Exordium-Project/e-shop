@@ -8,22 +8,52 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import GoogleIcon from '@mui/icons-material/Google'
 import AppleIcon from '@mui/icons-material/Apple'
 import ErrorSharpIcon from '@mui/icons-material/ErrorSharp';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
 export default function SignIn() {
-    const [show, setShow] = useState(false)
-    const [loginMethod, setLoginMethod] = useState('')
-    const [password, setPassword] = useState('')
+    const [show, setShow] = useState(false);
+    const [loginMethod, setLoginMethod] = useState('');
+    const [userPassword, setUserPassword] = useState('');
+    const [isErrorPresent, setErrorPresent] = useState(false);
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const onSubmit = async () => {
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        const usernameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
 
-    const login = () => {
-        Axios.post('http://localhost:3004/api/users/login', {
-            login: loginMethod,
-            password: password
-        })
-        setShow(true)
+        const loginUrl = 'http://localhost:3004/api/users/login'; //We should change it when we deploy the app.
+        const usernameOrEmailURL = `http://localhost:3004/api/users/usernameOrEmail/${loginMethod}`; //Same as above.
+
+        if (show == false) {
+            await Axios.get(`${usernameOrEmailURL}`).then(() => {
+                setErrorPresent(false)
+                setShow(true);
+            }).catch(() => {
+                setErrorPresent(true);
+            })
+        } else {
+            if (!emailRegex.test(loginMethod)) {
+                await Axios.post(`${loginUrl}`, {
+                    username: loginMethod,
+                    password: userPassword
+                }).then(() => {
+                    setErrorPresent(false);
+                }).catch(() => {
+                    setErrorPresent(true);
+                })
+            } else if (!usernameRegex.test(loginMethod)) {
+                await Axios.post(`${loginUrl}`, {
+                    email: loginMethod,
+                    password: userPassword
+                }).then(() => {
+                    setErrorPresent(false);
+                }).catch(() => {
+                    setErrorPresent(true);
+                })
+            }
+        }
+
     }
 
     return (
@@ -43,35 +73,42 @@ export default function SignIn() {
                             <Typography variant='h4' sx={{ textAlign: 'center', textTransform: 'uppercase' }}><strong>Exordium</strong></Typography>
                             <Typography>Sign in to Exordium or <Link to='/sign' sx={{ cursor: 'pointer' }}>create an account</Link></Typography>
                         </Box>
-                        <Box component="form" noValidate sx={{ mt: 1 }} className='login-form-styles'>
-                            <Box className='span-class' sx={{ visibility: errors?.email ? 'visible' : 'hidden' }}>
-                                <ErrorSharpIcon />
-                                <Typography onClick={handleSubmit(login)}>
-                                    Ouch, that's not a match.
-                                </Typography>
-                            </Box>
-                            <TextField margin="normal" fullWidth id="email" placeholder='Email or username' name="email"
-                                autoComplete="email" autoFocus 
-                                {...register('email', { required: 'Enter email or username to continue' })}
-                                error={!!errors?.email}
-                                inputRef={{'data-testid' : 'firstName'}}
-                                onChange={(event) => setLoginMethod(event.target.value)}
+                        <Box component="form" sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)} className='login-form-styles'>
+                            {
+                                isErrorPresent && (
+                                    <Box className='span-class'>
+                                        <ErrorSharpIcon />
+                                        <Typography>
+                                            Oops, that's not a match!
+                                        </Typography>
+                                    </Box>)
+                            }
+                            <TextField placeholder='Username or Email' fullWidth
+                                type='text'
+                                name='usernameOrEmail'
+                                {...register('usernameOrEmail', { required: 'This field is required' })}
+                                error={!!errors?.usernameOrEmail}
+                                helperText={errors?.usernameOrEmail ? errors.usernameOrEmail.message : null}
+                                inputProps={{ "data-testid": "username-input" }}
+                                onChange={(event) => { setLoginMethod(event.target.value) }}
                             />
-                            {  show ?  <TextField type="password"
-                                placeholder='Password'
-                                {...register('password', {
-                                    required: 'This field is required', pattern: {
-                                        value: /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-                                        message: 'Password should be at least 8 characters long'
-                                    }
-                                })}
-                                error={!!errors?.password}
-                                helperText={errors?.password ? errors.password.message : null}
-                                onChange={(event) => setPassword(event.target.value)}
-                            /> : null }
-
+                            {
+                                show ? <TextField type="password"
+                                    placeholder='Password'
+                                    name='password'
+                                    {...register('password', {
+                                        required: 'This field is required', pattern: {
+                                            value: /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+                                            message: 'Password should be at least 8 characters long'
+                                        }
+                                    })}
+                                    error={!!errors?.userPassword}
+                                    helperText={errors?.userPassword ? errors.userPassword.message : null}
+                                    onChange={(event) => { setUserPassword(event.target.value); }}
+                                /> : null
+                            }
                             <Box className='button-class'>
-                                <button className='log-in-account-button' onClick={handleSubmit(login)}>Continue</button>
+                                <Button className='log-in-account-button' type='submit'>Continue</Button>
                             </Box>
                         </Box>
                     </Box>
@@ -86,7 +123,7 @@ export default function SignIn() {
                 <Grid xs={12} md={12}>
                     <Box className='icon-container'>
                         <Box className='buttons-group'>
-                            <Button className='facebook-signUp'><FacebookRoundedIcon sx={{fontSize: '1.7rem'}}/> Facebook</Button>
+                            <Button className='facebook-signUp'><FacebookRoundedIcon sx={{ fontSize: '1.7rem' }} /> Facebook</Button>
                             <Button className='google-signUp'><GoogleIcon /> Continue with Google</Button>
                             <Button className='apple-signUp'><AppleIcon /> Continue with Apple</Button>
                         </Box>
