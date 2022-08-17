@@ -1,21 +1,19 @@
-import './product-card.css';
+import React from 'react';
+import { Box, Typography, Button } from '@mui/material'
+import "./product-card.scss"
 
 const ProductCard = (props) => {
-    
-
     return (
-        <div className="card">
+        <Box className='card'>
             <img src="http://www.foaminsulationni.com/images/placeholder/600x600.gif" alt="Image" className='productImage' />
-            <h1 className="name">{props.name}</h1>
-            <div className="productInfo">
-                <p>Sizes: (TODO?)</p>
-                <p>Small Description: </p>
-                <p className="productPrice">{props.price}$</p>
-            </div>
-            <button className="button">
-                +
-            </button>
-        </div>
+            <Typography variant='h4' className="name">{props.name}</Typography>
+            <Box className='productInfo'>
+                <Typography>Sizes: (TODO?)</Typography>
+                <Typography>Small Description:  </Typography>
+                <Typography className="productPrice">{props.price}$</Typography>
+            </Box>
+            <Button className="button">+</Button>
+        </Box>
     );
 }
 
