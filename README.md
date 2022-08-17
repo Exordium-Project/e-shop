@@ -10,7 +10,15 @@ The server application is a Node JS application.
 ### Local setup
 1. Start the MySQL database containter with Docker locally
   
-    **folder /compose**  ```docker-compose up -d```
+    1.1 **folder /compose**  ```docker-compose up -d```
+
+    1.2.1 Open Postman
+    
+    1.2.2 From hamburger menu in the top left corner "File -> import" select **database / mock_data_brands-types-products.postman_collection.json**
+    
+    1.2.3 In Postman right click on the loaded mock_data collection and click run collection
+    
+    The mock data should be now loaded to the database
 
 
 2. Start the server application

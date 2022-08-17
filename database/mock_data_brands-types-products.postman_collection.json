@@ -1,0 +1,251 @@
+{
+	"variables": [],
+	"info": {
+		"name": "mock data brands/types/products",
+		"_postman_id": "e8838f97-6428-5664-8db5-8b0b5618e1f9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. create brands - 1 Adidas",
+			"request": {
+				"url": "http://localhost:3004/api/brands",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Adidas\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "1. create brands - 2 Apple",
+			"request": {
+				"url": "http://localhost:3004/api/brands",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Apple\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "1. create brands - 3 Acer",
+			"request": {
+				"url": "http://localhost:3004/api/brands",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Acer\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2. create types - 1 shoes",
+			"request": {
+				"url": "http://localhost:3004/api/types",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"shoes\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2. create types - 2 smartphones",
+			"request": {
+				"url": "http://localhost:3004/api/types",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"smartphones\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2. create types - 3 laptops",
+			"request": {
+				"url": "http://localhost:3004/api/types",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"laptops\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3. create products - 1 Adidas Superstar",
+			"request": {
+				"url": "http://localhost:3004/api/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3. create products - 2 Adidas Stan Smith",
+			"request": {
+				"url": "http://localhost:3004/api/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3. create products - 3 iPhone 13",
+			"request": {
+				"url": "http://localhost:3004/api/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"type_id\": 2\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3. create products - 4 iPhone 6S",
+			"request": {
+				"url": "http://localhost:3004/api/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"type_id\": 2\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3. create products - 5 Acer Swift 3",
+			"request": {
+				"url": "http://localhost:3004/api/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"type_id\": 3\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3. create products - 6 MacBook Pro",
+			"request": {
+				"url": "http://localhost:3004/api/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
