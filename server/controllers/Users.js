@@ -21,7 +21,7 @@ usersController.post('/registration', async (req, res) => {
     res.json(userData)
 })
 usersController.get('/usernameOrEmail/:usernameOrEmail/', async (req, res) => {
-    const response = await UserService.checkUsernameOrEmail(req.params['usernameOrEmail'], res);
+    const response = await UserService.checkUsernameOrEmail(req.params['usernameOrEmail'].toLowerCase(), res);
     res.json(response);
 })
 usersController.post("/login", async (req, res) => {

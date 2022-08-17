@@ -22,9 +22,11 @@ export default function SignIn() {
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         const usernameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
 
-        const loginUrl = 'http://localhost:3004/api/users/login';
+        const loginUrl = 'http://localhost:3004/api/users/login'; //We should change it when we deploy the app.
+        const usernameOrEmailURL = `http://localhost:3004/api/users/usernameOrEmail/${loginMethod}`; //Same as above.
+
         if (show == false) {
-            await Axios.get(`http://localhost:3004/api/users/usernameOrEmail/${loginMethod}`).then(() => {
+            await Axios.get(`${usernameOrEmailURL}`).then(() => {
                 setErrorPresent(false)
                 setShow(true);
             }).catch(() => {
@@ -51,6 +53,7 @@ export default function SignIn() {
                 })
             }
         }
+
     }
 
     return (
@@ -101,7 +104,7 @@ export default function SignIn() {
                                     })}
                                     error={!!errors?.userPassword}
                                     helperText={errors?.userPassword ? errors.userPassword.message : null}
-                                    onChange={(e) => { setUserPassword(e.target.value); }}
+                                    onChange={(event) => { setUserPassword(event.target.value); }}
                                 /> : null
                             }
                             <Box className='button-class'>
