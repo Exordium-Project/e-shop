@@ -28,6 +28,14 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false
         },
+        imageUrl: {
+            type: Sequelize.DataTypes.STRING,
+            allowNull: false
+        },
+        smallDescription: {
+            type: Sequelize.DataTypes.STRING,
+            allowNull: false
+        },
         type_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,

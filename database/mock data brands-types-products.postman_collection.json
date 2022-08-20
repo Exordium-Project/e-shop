@@ -141,14 +141,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"imageUrl\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"smallDescription\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "3. create products - 2 Adidas Stan Smith",
+			"name": "3. create products - 2 Adidas San Smith",
 			"request": {
 				"url": "http://localhost:3004/api/products",
 				"method": "POST",
@@ -161,7 +161,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas San Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"imageUrl\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"smallDescription\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
 				},
 				"description": ""
 			},
@@ -181,7 +181,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"type_id\": 2\n\t\n}"
+					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"type_id\": 2,\n\"imageUrl\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"smallDescription\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
 				},
 				"description": ""
 			},
@@ -201,7 +201,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"type_id\": 2\n\t\n}"
+					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"type_id\": 2,\n\t\"imageUrl\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"smallDescription\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
 				},
 				"description": ""
 			},
@@ -221,7 +221,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"type_id\": 3\n\t\n}"
+					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"type_id\": 3,\n\t\"imageUrl\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"smallDescription\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
 				},
 				"description": ""
 			},
@@ -241,7 +241,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3\n\t\n}"
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3,\n\t\"imageUrl\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"smallDescription\": \"Supercharged for pros.\"\n\t\n}"
 				},
 				"description": ""
 			},
