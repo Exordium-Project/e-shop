@@ -148,7 +148,7 @@
 			"response": []
 		},
 		{
-			"name": "3. create products - 2 Adidas San Smith",
+			"name": "3. create products - 2 Adidas Stan Smith",
 			"request": {
 				"url": "http://localhost:3004/api/products",
 				"method": "POST",
@@ -161,7 +161,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas San Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"imageUrl\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"smallDescription\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"imageUrl\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"smallDescription\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
 				},
 				"description": ""
 			},
