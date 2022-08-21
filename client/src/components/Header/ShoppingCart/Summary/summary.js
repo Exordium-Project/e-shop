@@ -13,17 +13,17 @@ const Summary = (props) => {
                 <div className={styles.subtotalAndDelivery}>
                     <div className={styles.summaryField}>
                         <div>{t('ShoppingCart.Summary.subtotalPriceLabel')}</div>
-                        <div className={styles.priceText}>BGN {props.productsPrice}</div>
+                        <div className={styles.priceText}>${props.productsPrice}</div>
                     </div>
                     <div className={styles.summaryField}>
                         <div>{t('ShoppingCart.Summary.deliveryPriceLabel')}</div>
-                        <div className={styles.priceText}>BGN {props.deliveryPrice}</div>
+                        <div className={styles.priceText}>${props.deliveryPrice}</div>
                     </div>
                 </div>
                 <div className={styles.total}>
                     <div className={styles.summaryField}>
                         <div>{t('ShoppingCart.Summary.totalPriceLabel')}</div>
-                        <b className={styles.priceText}>BGN {props.productsPrice + props.deliveryPrice}</b>
+                        <b className={styles.priceText}>${props.productsPrice + props.deliveryPrice}</b>
                     </div>
                 </div>
                 <div className={styles.checkoutButtons}>

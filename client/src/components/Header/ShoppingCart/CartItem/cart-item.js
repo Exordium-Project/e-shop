@@ -18,7 +18,7 @@ const CartItem = (props) => {
                 <p>{t('ShoppingCart.CartItem.quantityLabel')}{props.quantity}</p>
             </div>
             <div className={styles.priceContainer}>
-                BGN {props.price}
+                ${props.price}
             </div>
         </div>
     );
