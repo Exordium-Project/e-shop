@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom'
 import { Box, Grid, Typography, Divider } from '@mui/material'
 import axios from 'axios';
 import {useTranslation} from "react-i18next";
@@ -7,7 +6,6 @@ import SearchBar from "../search-bar/search-bar";
 import ProductCard from '../product-card/ProductCard';
 import ProductList from '../product-list/ProductList';
 import SpecialProductList from '../special-product-list/SpecialProductList';
-import SpecialComponent from '../special-components/SpecialComponent';
 import './mainPage.scss';
 
 const Main = () => {

@@ -5,7 +5,6 @@ import Toys from './components/Header/Toys/Toys';
 import Catalog from './components/Header/Catalog/Catalog';
 import Brands from './components/Header/Brands/Brands';
 import User from './components/Header/User-profile/UserProfile';
-import MyBag from './components/Header/MyBag/MyBag';
 import Main from './components/main-layout/mainPage';
 import './components/main-layout/mainPage.scss';
 import SignUp from './components/SignUp/SignUp';
@@ -17,6 +16,7 @@ import {en} from './i18n/en'
 import {bg} from './i18n/bg'
 import ErrorPage from './components/Error/ErrorPage';
 import TeamHistory from './components/Header/Team/TeamHistory';
+import ShoppingCart from "./components/Header/ShoppingCart/shopping-cart";
 i18n.use(Backend).use(initReactI18next).init({
     resources: {
         en: en,
@@ -44,7 +44,7 @@ function App() {
                 <Route path='/brands' element={<Brands/>}/>
                 <Route path='/team' element={<TeamHistory/>}/>
                 <Route path='/user' element={<User/>}/>
-                <Route path='/mybag' element={<MyBag/>}/>
+                <Route path='/cart' element={<ShoppingCart/>}/>
                 <Route path='/sign' element={<SignUp />} />
                 <Route path='/login' element={<SignIn />} />
                 <Route path='*' element={<ErrorPage />} />

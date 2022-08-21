@@ -16,6 +16,9 @@ export const bg ={
             "brands":"Марки",
             "cart":"Количка",
             "trending":"промо"
+        },
+        "ShoppingCart": {
+            "heading": "Вашата количка"
         }
     }
 }

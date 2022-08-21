@@ -104,7 +104,7 @@ const Header = () => {
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
 
-            <Link to='/mybag' style={textDecorationObject}>
+            <Link to='/cart' style={textDecorationObject}>
               <Button className='header-buttons'>
                 <Typography className='pages'>{t('Navigation.cart')}</Typography>
                 <ShoppingCartOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
