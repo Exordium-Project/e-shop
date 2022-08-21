@@ -65,7 +65,7 @@ const Main = () => {
 
                     <Grid item sm={7} className='popular-products'>
 
-                        <Typography variant='h4' className='section-header'>
+                        <Typography fontSize="30px" fontFamily="Montserrat" className='section-header'>
                             {t('Main.sections.popular')}
                         </Typography>
                         <Box sx={{ flexGrow: 1 }}>
@@ -83,7 +83,7 @@ const Main = () => {
                         </Box>
 
                         <Box sx={{ flexGrow: 1 }} className='added-today'>
-                            <Typography variant='h4' className='section-header'>
+                            <Typography fontSize="30px" fontFamily="Montserrat" className='section-header'>
                                 {t('Main.sections.addedToday')}
                             </Typography>
                             <Box sx={{ flexGrow: 1 }}>

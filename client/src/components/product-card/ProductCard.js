@@ -1,18 +1,26 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material'
 import "./product-card.scss"
+import { IconButton } from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const ProductCard = (props) => {
     return (
         <Box className='card'>
-            <img src="http://www.foaminsulationni.com/images/placeholder/600x600.gif" alt="Image" className='productImage' />
-            <Typography variant='h4' className="name">{props.name}</Typography>
+            <img src={props.imageUrl} alt="Image" className='productImage' />
+            <Typography fontSize="13px" className="name">{props.name}</Typography>
             <Box className='productInfo'>
-                <Typography>Sizes: (TODO?)</Typography>
-                <Typography>Small Description:  </Typography>
-                <Typography className="productPrice">{props.price}$</Typography>
+                {/* <Typography>Sizes: (TODO?)</Typography> */}
+                <Typography fontSize="11px">{props.smallDescription}</Typography>
             </Box>
-            <Button className="button">+</Button>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography className="productPrice" fontSize="13px">{props.price}$</Typography>
+                <IconButton className="button" sx={{ color: 'white', backgroundColor: 'rgba(69,37,242,1)', alignSelf: 'end' }}>
+                    <AddShoppingCartIcon>
+                    </AddShoppingCartIcon>
+                </IconButton>
+            </Box>
+
         </Box>
     );
 }

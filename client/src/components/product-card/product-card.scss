@@ -2,11 +2,13 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 400px;
     margin: auto;
-    text-align: center;
+    text-align: start;
     font-family: arial;
+    padding: 12px;
 
     .productImage {
         width: 100%;
+        object-fit: cover;
       }
     
       .productInfo {
@@ -14,12 +16,12 @@
         
         .productPrice {
           color: grey;
-          font-size: 22px;
+          font-size: 13px;
         }
       }
     
     
-      .card button {
+      .card .button {
         display: inline-block;
         border-radius: 45%;
         border: none;

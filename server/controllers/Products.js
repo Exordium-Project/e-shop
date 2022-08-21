@@ -10,6 +10,8 @@ productsController.post("/", async (req, res) => {
         color: req.body.color,
         price: req.body.price,
         quantity: req.body.quantity,
+        imageUrl: req.body.imageUrl,
+        smallDescription: req.body.smallDescription,
         type_id: req.body.type_id,
         brand_id: req.body.brand_id
     }
