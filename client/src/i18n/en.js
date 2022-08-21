@@ -14,11 +14,23 @@ export const en = {
             "toys": "Toys",
             "catalog": "Catalog",
             "brands": "Brands",
-            "cart": "My Cart",
+            "cart": "Cart",
             "trending": "trending"
         },
         "ShoppingCart": {
-            "heading": "Your cart"
+            "productsHeading": "Your cart",
+            "summaryHeading": "Summary",
+            "CartItem": {
+                "sizeLabel": "Size ",
+                "quantityLabel": "Quantity "
+            },
+            "Summary": {
+                "subtotalPriceLabel": "Subtotal ",
+                "deliveryPriceLabel": "Estimated delivery & handling ",
+                "totalPriceLabel": "Total ",
+                "guestCheckoutButton": "Guest Checkout",
+                "memberCheckoutButton": "Member Checkout"
+            }
         }
     }
 }

@@ -18,7 +18,19 @@ export const bg ={
             "trending":"промо"
         },
         "ShoppingCart": {
-            "heading": "Вашата количка"
+            "productsHeading": "Вашата количка",
+            "summaryHeading": "Ценоразпис",
+            "CartItem": {
+                "sizeLabel": "Размер ",
+                "quantityLabel": "Количество "
+            },
+            "Summary": {
+                "subtotalPriceLabel": "Междинна сума ",
+                "deliveryPriceLabel": "Цена за доставка ",
+                "totalPriceLabel": "Крайна сума ",
+                "guestCheckoutButton": "Платете без регистрация",
+                "memberCheckoutButton": "Платете с регистрация"
+            }
         }
     }
 }

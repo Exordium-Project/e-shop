@@ -1,0 +1,47 @@
+@import '../../../../shared/styles/palette';
+@import '../../../../shared/styles/colors';
+
+.summaryContainer {
+  width: 22.5rem;
+
+  .summaryField {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+
+    .priceText {
+      width: 6rem;
+      display: flex;
+    }
+  }
+
+  .subtotalAndDelivery {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid $orchid-whisper;
+  }
+
+  .total {
+    border-bottom: 2px solid $orchid-whisper;
+  }
+
+  .checkoutButtons {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+
+    .guestCheckoutButton {
+      background-color: $shopping-cart-summary-guest-checkout-button-background;
+    }
+
+    .memberCheckoutButton {
+      background-color: #212223;
+    }
+
+    :global(.MuiButton-root) {
+      height: 4rem;
+      margin-top: 1rem;
+      color: #ffffff;
+      text-transform: none;
+    }
+  }
+}
