@@ -1,23 +1,25 @@
-import styles from './SpecialComponent.module.css';
+import React from 'react';
+import styles from './SpecialComponent.module.scss';
+import { Typography, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const SpecialComponent = (props) =>  {
     return (
-
-        <div className={styles.card}>
-            <div className={styles.contentBox}>
-                <p className={styles.productInfo}> {props.name}</p>
-                <p className={styles.productInfo}>Category</p>
-            </div>
-            <div className={styles.images}>
-                <img src="https://eu.ui-avatars.com/api/?name=John+Doe&size=250" className={styles.userImage} />
-                <span className={styles.userInfo}>Username</span>
-                <img src="http://www.foaminsulationni.com/images/placeholder/600x600.gif" alt="Product Image" className={styles.mouse} />
-            </div>
-            <div className={styles.contentBox}>
-                <a href="#" className={styles.buy}>See Details</a>
-            </div>
-        </div>
-
+        <Box className={styles.card}>
+            <Box className={styles.contentBox}>
+                <Typography fontSize='13px' className={styles.productInfo}>{props.name}</Typography>
+                <Typography fontSize='13px' className={styles.productInfo}>Category</Typography>
+            </Box>
+            <Box className={styles.images}>
+                {/* We should set special products from Back-End */}
+                <img src="https://eu.ui-avatars.com/api/?name=John+Doe&size=250" className={styles.userImage}/> 
+                <Box component='span' className={styles.userInfo}>Username</Box>
+                <img src="http://www.foaminsulationni.com/images/placeholder/600x600.gif" className={styles.mouse} />
+            </Box>
+            <Box className={styles.contentBox}>
+                <Link to="#" className={styles.buy}>See Details</Link>
+            </Box>
+        </Box>
     );
 }
 export default SpecialComponent

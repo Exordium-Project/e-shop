@@ -15,7 +15,7 @@ export const bg ={
             "catalog":"Каталог",
             "brands":"Марки",
             "cart":"Количка",
-            "trending":"промо"
+            "hot":"промо"
         }
     }
 }

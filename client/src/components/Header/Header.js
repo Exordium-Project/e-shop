@@ -46,7 +46,7 @@ const Header = () => {
             <Link to='/toys' style={textDecorationObject}>
               <Button className='header-buttons'>
                 <Typography className='pages'>{t("Navigation.toys")}</Typography>
-                <span className='span'>{t("Navigation.trending")}</span>
+                <span className='span'>{t("Navigation.hot")}</span>
               </Button>
             </Link>
 

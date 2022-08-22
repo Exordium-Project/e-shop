@@ -15,7 +15,7 @@ export const en ={
             "catalog":"Catalog",
             "brands":"Brands",
             "cart":"My Cart",
-            "trending":"trending"
+            "hot":"hot"
         }
     }
 }

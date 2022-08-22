@@ -4,6 +4,8 @@
         height: 7.5rem;
         width: 100%;
         border: 1px solid black;
+        border-right: none;
+        border-radius: 0px;
     }
     .pages {
         color: black;
@@ -29,8 +31,8 @@
     .languages{
         color: black;
         border: 1px solid black;
-        border-radius: .2rem;
-        height: 7.35rem;       
+        height: 7.36rem;  
+        border-right: none;     
     }
     .input-label{
         font-size: 1.1rem;
@@ -47,7 +49,6 @@
     background-color: rgba(29, 30, 31, 1);
     margin-left: -2.7rem;
     height: 7.5rem;
-    border-radius: .1rem;
 }
 .img{
     border-radius: 50%;
