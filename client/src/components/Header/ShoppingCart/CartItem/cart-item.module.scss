@@ -15,7 +15,19 @@
   .infoContainer {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    min-width: 10rem;
+    min-width: 15rem;
+
+    .increaseQuantityButton{
+      margin-left: 0.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .decreaseQuantityButton{
+      margin-right: 0.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
 
   .priceContainer {

@@ -1,10 +1,11 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
 import styles from './cart-item.module.scss';
+import {IconButton} from "@mui/material";
 
 const CartItem = (props) => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <div className={styles.cartItem}>
@@ -15,7 +16,10 @@ const CartItem = (props) => {
                 <b>{props.name}</b>
                 <p>{props.type}</p>
                 <p>{t('ShoppingCart.CartItem.sizeLabel')}{props.size}</p>
-                <p>{t('ShoppingCart.CartItem.quantityLabel')}{props.quantity}</p>
+                {t('ShoppingCart.CartItem.quantityLabel')}
+                <IconButton onClick={props.onDecrease} className={styles.decreaseQuantityButton}>-</IconButton>
+                {props.quantity}
+                <IconButton onClick={props.onIncrease} className={styles.increaseQuantityButton}>+</IconButton>
             </div>
             <div className={styles.priceContainer}>
                 ${props.price}
