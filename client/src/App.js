@@ -17,6 +17,7 @@ import {en} from './i18n/en'
 import {bg} from './i18n/bg'
 import ErrorPage from './components/Error/ErrorPage';
 import TeamHistory from './components/Header/Team/TeamHistory';
+import ProductPage from './components/product-page/ProductPage'
 i18n.use(Backend).use(initReactI18next).init({
     resources: {
         en: en,
@@ -48,6 +49,7 @@ function App() {
                 <Route path='/sign' element={<SignUp />} />
                 <Route path='/login' element={<SignIn />} />
                 <Route path='*' element={<ErrorPage />} />
+                <Route path='/product/:productID' element={<ProductPage />} />
             </Routes>
 
         </div>
