@@ -7,8 +7,8 @@ const SpecialComponent = (props) =>  {
     return (
         <Box className={styles.card}>
             <Box className={styles.contentBox}>
-                <Typography fontSize='13px' className={styles.productInfo}>{props.name}</Typography>
-                <Typography fontSize='13px' className={styles.productInfo}>Category</Typography>
+                <Typography className={styles.productInfo}>{props.name}</Typography>
+                <Typography className={styles.productInfo}>Category</Typography>
             </Box>
             <Box className={styles.images}>
                 {/* We should set special products from Back-End */}
