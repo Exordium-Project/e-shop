@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Footer from './components/Header/Footer/Footer';
 import Toys from './components/Header/Toys/Toys';
 import Catalog from './components/Header/Catalog/Catalog';
 import Brands from './components/Header/Brands/Brands';
@@ -49,6 +50,7 @@ function App() {
                 <Route path='/login' element={<SignIn />} />
                 <Route path='*' element={<ErrorPage />} />
             </Routes>
+            <Footer/>
 
         </div>
     );
