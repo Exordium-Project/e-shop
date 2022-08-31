@@ -40,14 +40,18 @@
         height: 7.37rem;
         border-left: none;
         width: 100.1%;
-    }
 
+        .MuiOutlinedInput-notchedOutline{
+            border: none;
+        }
+    }
     .input-label {
         font-size: 1.1rem;
         display: flex;
         justify-content: center;
         margin-top: 1.7rem;
         margin-left: -.5rem;
+        color: black;
     }
 
     .MuiSelect-select {
