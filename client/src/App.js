@@ -42,7 +42,7 @@ function App() {
                 <Route path='/toys' element={<Toys/>}/>
                 <Route path='/catalog' element={<Catalog/>}/>
                 <Route path='/brands' element={<Brands/>}/>
-                <Route path='/team' element={<TeamHistory/>}/>
+                {/* <Route path='/team' element={<TeamHistory/>}/> */}
                 <Route path='/user' element={<User/>}/>
                 <Route path='/mybag' element={<MyBag/>}/>
                 <Route path='/sign' element={<SignUp />} />

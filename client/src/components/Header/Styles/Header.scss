@@ -41,10 +41,11 @@
         border-left: none;
         width: 100.1%;
 
-        .MuiOutlinedInput-notchedOutline{
+        .MuiOutlinedInput-notchedOutline {
             border: none;
         }
     }
+
     .input-label {
         font-size: 1.1rem;
         display: flex;
@@ -71,17 +72,16 @@
         font-size: .9rem;
         font-family: Montserrat;
     }
-}
-
-.first-typography {
-    background-color: rgba(29, 30, 31, 1);
-    margin-left: -2.7rem;
-    height: 7.5rem;
-}
-
-.img {
-    border-radius: 50%;
-    height: 3.5rem;
-    margin-left: 5.9rem;
-    margin-top: 1.7rem;
+    .first-typography {
+        background-color: rgba(29, 30, 31, 1);
+        margin-left: -4.7rem;
+        height: 7.5rem;
+    }
+    
+    .img {
+        border-radius: 50%;
+        height: 3.5rem;
+        margin-left: 6rem;
+        margin-top: 1.7rem;
+    }
 }
