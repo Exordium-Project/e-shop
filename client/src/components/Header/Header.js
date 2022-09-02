@@ -33,20 +33,20 @@ const Header = () => {
       <Box className='header-div'>
         <Grid container={true} spacing={0} >
           <Grid item={true} xs={12} md={3}>
-            <Typography variant="h6" color="inherit" component="div" className='first-typography'>
-              <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
-              <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-4.4rem', color: 'white' }}>
-                EXORDIUM
-                <Typography sx={{ color: 'rgb(122, 122, 122)', fontSize: '1.1rem' }}>ALL DAY STORE</Typography>
+              <Typography variant="h6" color="inherit" component="div" className='first-typography'>
+                <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
+                <Typography className='exordium-header-title'>
+                  EXORDIUM
+                  <Typography className='exordium-header-subtitle'>ALL DAY STORE</Typography>
+                </Typography>
               </Typography>
-            </Typography>
           </Grid>
           <Grid item={true} xs={12} sm={2} md={1.5}>
 
             <Link to='/toys' style={textDecorationObject}>
               <Button className='header-buttons'>
                 <Typography className='pages'>{t("Navigation.toys")}</Typography>
-                <span className='span'>{t("Navigation.trending")}</span>
+                <span className='span'>{t("Navigation.hot")}</span>
               </Button>
             </Link>
 
@@ -80,7 +80,7 @@ const Header = () => {
                   <FormControl key={index + "formcontrol"} fullWidth className='languages'>
                     <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{languageItem.title}</InputLabel>
                     <Select
-                      sx={{ height: '7.5rem', textAlign: 'center' }}
+                      sx={{ height: '7.5rem', textAlign: 'center', width: '100.1%' }}
                       onChange={onLanguageChange}
                       defaultValue="en">
                       {
@@ -114,14 +114,14 @@ const Header = () => {
           </Grid>
         </Grid>
       </Box>
-      <Grid item={true} xs={12} >
+      {/* <Grid item={true} xs={12} >
         <Link to='/team' style={textDecorationObject}>
           <Button className='header-buttons'>
             <CodeIcon />
             <Typography color="rgb(122, 122, 122)" className='pages' paddingLeft="10px">Team Developers</Typography>
           </Button>
         </Link>
-      </Grid>
+      </Grid> */}
     </StyledEngineProvider >
   );
 }
