@@ -16,19 +16,24 @@ const Footer = () => {
 
   return (
     <StyledEngineProvider>
-      <Box className='header-div'  >
-        
-          <Grid  className='grid' >
+      <Box className='footer-div'  >
+      <Grid container={true} spacing={1} className="grid-container" >
+      <Grid item={true} xs={12} md={3}  className='grid' >
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
-              <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-4.4rem', color: 'white' }}>
+              <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-3.6rem', color: 'white' }}>
                 EXORDIUM
                 <Typography sx={{ color: 'rgb(122, 122, 122)', fontSize: '1.1rem' }}>ALL DAY STORE</Typography>
               </Typography>
-              <Typography sx={{    fontSize: '1.1rem',color: 'white' }}>About us</Typography>
+             
             </Typography>
-            
+           
           </Grid>
+          <Grid item={true} xs={12} md={3}>
+          <Link to='/team'><Typography sx={{    fontSize: '1.1rem',color: 'white' }} to='/team'>About us</Typography></Link>
+          </Grid>
+        </Grid>
+         
          
       </Box>
       {/* <Grid item={true} xs={12} >

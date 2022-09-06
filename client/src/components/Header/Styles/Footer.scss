@@ -1,10 +1,15 @@
-.header-div{
-    display: flex;
-   .MuiGrid-root{
+.footer-div {
+  width: 100%;
+  .grid-container {
     width: 100%;
-    .first-typography{
-        width: 100%;;
-    }
-   }
-    
+    background-color: rgb(29, 30, 31);
+    display: flex;
+    align-items: center;
+  }
+}
+.img {
+    border-radius: 50%;
+    height: 3.5rem;
+    margin-left: 6rem;
+    margin-top: 1.7rem;
 }
