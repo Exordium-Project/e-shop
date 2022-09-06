@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import { Button, TextField, Box, StyledEngineProvider, Grid, Checkbox, FormControlLabel, Typography } from '@mui/material'
-import './SignIn.scss'
-import './Mobile-view.scss'
-import LogoWithoutBackground from '../SignUp/Exordium.png'
-import { useForm } from 'react-hook-form'
+import React, { useState } from 'react';
+import { Button, TextField, Box, StyledEngineProvider, Grid, Checkbox, FormControlLabel, Typography } from '@mui/material';
+import './SignIn.scss';
+import './Mobile-view.scss';
+import LogoWithoutBackground from '../SignUp/Exordium.png';
+import { useForm } from 'react-hook-form';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import GoogleIcon from '@mui/icons-material/Google'
-import AppleIcon from '@mui/icons-material/Apple'
+import GoogleIcon from '@mui/icons-material/Google';
+import AppleIcon from '@mui/icons-material/Apple';
 import ErrorSharpIcon from '@mui/icons-material/ErrorSharp';
-import { Link } from 'react-router-dom'
-import Axios from 'axios'
-
+import { Link, Navigate } from 'react-router-dom';
+import Axios from 'axios';
 export default function SignIn() {
     const [show, setShow] = useState(false);
     const [loginMethod, setLoginMethod] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const [isErrorPresent, setErrorPresent] = useState(false);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [isLogged, setIsLogged] = useState(false);
 
     const onSubmit = async () => {
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -37,8 +37,10 @@ export default function SignIn() {
                 await Axios.post(`${loginUrl}`, {
                     username: loginMethod,
                     password: userPassword
-                }).then(() => {
+                }).then((user) => {
                     setErrorPresent(false);
+                    setIsLogged(true);
+                    localStorage.setItem('username', user.data.user.full_name);
                 }).catch(() => {
                     setErrorPresent(true);
                 })
@@ -46,18 +48,19 @@ export default function SignIn() {
                 await Axios.post(`${loginUrl}`, {
                     email: loginMethod,
                     password: userPassword
-                }).then(() => {
+                }).then((user) => {
                     setErrorPresent(false);
+                    setIsLogged(true);
+                    localStorage.setItem('username', user.data.user.full_name)
                 }).catch(() => {
                     setErrorPresent(true);
                 })
             }
         }
-
     }
-
     return (
         <StyledEngineProvider injectFirst={true}>
+             
             <Grid container={true} spacing={0}>
                 <Grid xs={12} md={12}>
                     <Box className="signUp-header">
@@ -107,8 +110,12 @@ export default function SignIn() {
                                     onChange={(event) => { setUserPassword(event.target.value); }}
                                 /> : null
                             }
-                            <Box className='button-class'>
-                                <Button className='log-in-account-button' type='submit'>Continue</Button>
+                            <Box className='button-class'> 
+                                {
+                                    !isLogged ? <Button className='log-in-account-button' type='submit'>Continue</Button>
+                                    : <Navigate to='/'><Button className='log-in-account-button' type='submit'>Continue</Button></Navigate>
+                                }
+                            
                             </Box>
                         </Box>
                     </Box>
