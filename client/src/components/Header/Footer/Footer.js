@@ -32,6 +32,7 @@ const Footer = () => {
           <Grid item={true} xs={12} md={3}>
           <Link to='/team'><Typography sx={{    fontSize: '1.1rem',color: 'white' }} to='/team'>About us</Typography></Link>
           </Grid>
+          {/* join discord logo */}
         </Grid>
          
          
