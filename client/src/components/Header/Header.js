@@ -30,7 +30,7 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const initialValue = localStorage.getItem("user-name");
+    const initialValue = localStorage.getItem("username");
     if(initialValue) {
       const firstName = initialValue.split(' ')[0];
       setUsername(firstName);
@@ -102,7 +102,6 @@ const Header = () => {
           </Grid>
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
-              
               {
                 username == 'Sign Up' ?  <Link to='/sign' style={textDecorationObject}>
                 <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
