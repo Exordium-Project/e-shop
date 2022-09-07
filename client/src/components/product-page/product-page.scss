@@ -23,49 +23,38 @@
 
         .product-image-grid {
             margin: 0 auto;
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+
+            .image-slider{
+                max-width: 600px;
+                margin: 0 auto;
+                .product-image{
+                    width: 100%;
+                    height: auto;
+                }
+                
+                .slider-and-buttons {
+                    position: relative;
+                }
+                .back-img {
+                    border: none;
+                    background: rgba(255, 255, 255, 0);
+                    position: absolute;
+                    top: 50%;
+                    right: 95%;
+                }
+
+                .next-img {
+                    border: none;
+                    background: rgba(255, 255, 255, 0);
+                    position: absolute;
+                    top: 50%;
+                    left: 95%
+                }
+            }
         }
         
-        .image-slider {
-            height: 600px;
-            width: 600px;
-            max-width: 100%;
-            max-height: 100%;
-            margin: 0 auto;       
-            background: #3d4cd3;
-
-            .carousel {
-                height: 100%;
-                width: 100%;
-            }
-
-            .slider-and-buttons {
-                position: relative;
-            }
-
-            .product-image {
-                height: 100%;
-                width: 100%;
-                object-fit: contain;
-            }
-
-            .back-img {
-                border: none;
-                background: rgba(255, 255, 255, 0);
-                position: absolute;
-                top: 50%;
-                right: 95%;
-            }
-
-            .next-img {
-                border: none;
-                background: rgba(255, 255, 255, 0);
-                position:absolute;
-                top: 50%;
-                left: 95%
-            }
-        }
+        
 
         .product-details-grid {
             width: 100%;
