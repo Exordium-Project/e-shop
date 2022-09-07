@@ -11,6 +11,7 @@ import './Styles/Header.scss';
 
 const Header = () => {
   const [username, setUsername] = useState("Sign Up");
+  const [path, setPath] = useState('/sign');
 
   const { i18n, t } = useTranslation();
   const textDecorationObject = {
@@ -34,6 +35,7 @@ const Header = () => {
     if(initialValue) {
       const firstName = initialValue.split(' ')[0];
       setUsername(firstName);
+      setPath('/user');
     }
   }, [])
   return (
@@ -102,7 +104,12 @@ const Header = () => {
           </Grid>
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
-              {
+               <Link to={path} style={textDecorationObject}>
+                <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
+                  <Typography className='pages'>{username}</Typography>
+                </Button>
+              </Link>
+              {/* {
                 username == 'Sign Up' ?  <Link to='/sign' style={textDecorationObject}>
                 <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
                   <Typography className='pages'>{username}</Typography>
@@ -112,7 +119,7 @@ const Header = () => {
                   <Typography className='pages'>{username}</Typography>
                 </Button>
               </Link>  
-              }
+              } */}
           </Grid>
 
           <Grid item={true} xs={12} sm={2} md={1.5}>

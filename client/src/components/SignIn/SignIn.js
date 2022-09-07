@@ -18,6 +18,9 @@ export default function SignIn() {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [isLogged, setIsLogged] = useState(false);
 
+    const notAcceptedLoginRequest = <Button className='log-in-account-button' type='submit'>Continue</Button>;
+    const loginButton = <Navigate to='/'><Button className='log-in-account-button' type='submit'>Continue</Button></Navigate>;
+
     const onSubmit = async () => {
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         const usernameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
@@ -112,10 +115,8 @@ export default function SignIn() {
                             }
                             <Box className='button-class'> 
                                 {
-                                    !isLogged ? <Button className='log-in-account-button' type='submit'>Continue</Button>
-                                    : <Navigate to='/'><Button className='log-in-account-button' type='submit'>Continue</Button></Navigate>
-                                }
-                            
+                                    !isLogged ? notAcceptedLoginRequest : loginButton
+                                }          
                             </Box>
                         </Box>
                     </Box>
