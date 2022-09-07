@@ -16,6 +16,12 @@ export const en ={
             "brands":"Brands",
             "cart":"My Cart",
             "hot":"hot"
+        },
+        "ProductPage":{
+            "selectSize":"Select Size",
+            "addToCart":"Add To Cart",
+            "deliveryAndReturns":"Free Delivery And Returns",
+            "reviews":"Reviews"
         }
     }
 }

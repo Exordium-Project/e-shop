@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { Box, Grid, Typography, Divider, IconButton, Button } from '@mui/material'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import DeliveryAccordion from './DeliveryAccordion';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import './product-page.scss';
 
 const ProductPage = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const id = useParams().productID;
     const [product, setProduct] = useState([]);
@@ -72,32 +78,44 @@ const ProductPage = () => {
             <Box className='product'>
                 <Grid container
                     spacing={5}>
-                    <Grid item sm={8}>
+                    <Grid item lg={8} md={12}
+                        className='product-image-grid'>
                         <Box className='image-slider'>
-                            <Box className='main-image-div'>
-                                <Box component="img"
-                                    className='main-product-image'
-                                    alt="Image"
-                                    src={images[0]}>
-                                </Box>
-                            </Box>
+                            <CarouselProvider
+                                className='carousel'
+                                naturalSlideWidth={1}
+                                naturalSlideHeight={1}
+                                totalSlides={images.length}
+                            >
+                                <Box className='slider-and-buttons'>
+                                    <Slider>
+                                        {images.map((image, i) => (
+                                            <Slide index={i}>
+                                                <Box component="img"
+                                                    className='product-image'
+                                                    key={i}
+                                                    alt="Image"
+                                                    src={image}>
+                                                </Box>
+                                            </Slide>
+                                        ))}
+                                    </Slider>
 
-                            <Box className='slider'>
-                                {images.map((image,i) => (
-                                    <Box component="img"
-                                        className='product-image-slider-wrap'
-                                        key = {i}
-                                        alt="Image"
-                                        src={image}>
-                                    </Box>
-                                ))}
-                            </Box>
+                                    <IconButton as={ButtonBack} className='back-img'>
+                                        <ArrowBackIosIcon />
+                                    </IconButton>
+                                    <IconButton as={ButtonNext} className='next-img'>
+                                        <ArrowForwardIosIcon />
+                                    </IconButton>
+                                </Box>
+                                
+                            </CarouselProvider>
 
                         </Box>
                     </Grid>
 
-                    <Grid item sm={4}
-                        className='product-details'>
+                    <Grid item lg={4} md={12}
+                        className='product-details-grid'>
                             <Box className='title-and-category-div'>
                                 <Typography className='product-title'>
                                     {product.name}
@@ -117,7 +135,7 @@ const ProductPage = () => {
                                 <Box className='sizes-div'>
                                 <Box className='sizes-text-div'>
                                     <Typography className='select-size-text'>
-                                        Select Size
+                                        {t('ProductPage.selectSize')}
                                     </Typography>
                                     {/* add size guide later (clickable) */}
                                     {/* <Typography className='size-guide'>
@@ -139,7 +157,7 @@ const ProductPage = () => {
                             </Box>  }
 
                             <Box className='add-to-cart-button-div'>
-                                <Button className='add-to-cart-button' variant="contained"> Add To Cart </Button>
+                            <Button className='add-to-cart-button' variant="contained"> {t('ProductPage.addToCart')} </Button>
                             </Box>
 
                             <Box className='product-description-div'>

@@ -16,6 +16,12 @@ export const bg ={
             "brands":"Марки",
             "cart":"Количка",
             "hot":"промо"
+        },
+        "ProductPage": {
+            "selectSize": "Избери размер",
+            "addToCart": "Добави в количка",
+            "deliveryAndReturns": "Безплатна доставка и връщане",
+            "reviews": "Ревюта"
         }
     }
 }

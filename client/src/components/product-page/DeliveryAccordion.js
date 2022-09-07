@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -8,6 +9,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import './product-page.scss';
 
 export default function DeliveryAccordion() {
+    const { t } = useTranslation();
   return (
     <div>
     <StyledEngineProvider injectFirst>
@@ -15,7 +17,7 @@ export default function DeliveryAccordion() {
         <AccordionSummary 
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography className='delivery-accordion-summary'>Free Delivery And Returns</Typography>
+                      <Typography className='delivery-accordion-summary'>{t('ProductPage.deliveryAndReturns')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -30,7 +32,7 @@ export default function DeliveryAccordion() {
           className='reviews-accordion-summary'
           expandIcon={<ExpandMoreIcon className='reviews-accordion-content-margin' />}
         >
-          <Typography className='reviews-accordion-content-margin reviews-accordion-summary'>Reviews </Typography>
+                  <Typography className='reviews-accordion-content-margin reviews-accordion-summary'>{t('ProductPage.reviews')} </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
