@@ -16,6 +16,11 @@ export const en ={
             "brands":"Brands",
             "cart":"My Cart",
             "hot":"hot"
+        },
+        "Footer": {
+            "team": "About us",
+            "join": "Join Discord Community",
+            "copyright": "Copyright"
         }
     }
 }

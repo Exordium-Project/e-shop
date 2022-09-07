@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../Logo.png'
-import { Typography,  Box, Grid, StyledEngineProvider } from '@mui/material';
+import { Typography, Box, Grid, StyledEngineProvider, Button } from '@mui/material';
 import { useTranslation } from "react-i18next";
 import { Link } from 'react-router-dom'
 import '../Styles/Footer.scss'
@@ -17,34 +17,31 @@ const Footer = () => {
   return (
     <StyledEngineProvider>
       <Box className='footer-div'  >
-      <Grid container={true} spacing={1} className="grid-container" >
-      <Grid item={true} xs={12} md={3}  className='grid' >
+        <Grid container={true} spacing={1} className="grid-container" >
+          <Grid item={true} xs={12} md={3} className='grid' >
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
-              <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-3.6rem', color: 'white' }}>
+              <Typography className='exordium-header-title'>
                 EXORDIUM
-                <Typography sx={{ color: 'rgb(122, 122, 122)', fontSize: '1.1rem' }}>ALL DAY STORE</Typography>
+                <Typography className='exordium-header-subtitle'>ALL DAY STORE</Typography>
               </Typography>
-             
             </Typography>
-           
           </Grid>
-          <Grid item={true} xs={12} md={3}>
-          <Link to='/team'><Typography sx={{    fontSize: '1.1rem',color: 'white' }} to='/team'>About us</Typography></Link>
+          <Grid item={true} xs={12} sm={2} md={3}>
+          <Button className='buttonDecoration' href="/team">{t("Footer.team")}</Button>
           </Grid>
-          {/* join discord logo */}
+          <Grid item={true} xs={12} sm={5} md={3}>
+          <Button className='buttonDecoration' target="_blank"  href="https://discord.gg/FdHFU3Mm6a">{t("Footer.join")}</Button>
+          </Grid>
+          <Grid item={true} xs={12} sm={5} md={3}>
+            <Typography color={'white'} fontFamily={'Montserrat'}>
+            {t("Footer.copyright")}{" © "}
+              {new Date().getFullYear()}
+              {"."}
+            </Typography>
+          </Grid>
         </Grid>
-         
-         
       </Box>
-      {/* <Grid item={true} xs={12} >
-        <Link to='/team' style={textDecorationObject}>
-          <Button className='header-buttons'>
-            <CodeIcon />
-            <Typography color="rgb(122, 122, 122)" className='pages' paddingLeft="10px">Team Developers</Typography>
-          </Button>
-        </Link>
-      </Grid> */}
     </StyledEngineProvider >
   );
 }
