@@ -18,7 +18,7 @@ const Footer = () => {
     <StyledEngineProvider>
       <Box className='footer-div'  >
         <Grid container={true} spacing={1} className="grid-container" >
-          <Grid item={true} xs={12} md={3} className='grid' >
+          <Grid item={true} xs={12} sm={12} md={3} className='grid' >
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
               <Typography className='exordium-header-title'>
@@ -27,13 +27,13 @@ const Footer = () => {
               </Typography>
             </Typography>
           </Grid>
-          <Grid item={true} xs={12} sm={2} md={3}>
+          <Grid item={true} xs={12} sm={4} md={3}>
           <Button className='buttonDecoration' href="/team">{t("Footer.team")}</Button>
           </Grid>
-          <Grid item={true} xs={12} sm={5} md={3}>
+          <Grid item={true} xs={12} sm={4} md={3}>
           <Button className='buttonDecoration' target="_blank"  href="https://discord.gg/FdHFU3Mm6a">{t("Footer.join")}</Button>
           </Grid>
-          <Grid item={true} xs={12} sm={5} md={3}>
+          <Grid item={true} xs={12} sm={4} md={3}>
             <Typography color={'white'} fontFamily={'Montserrat'}>
             {t("Footer.copyright")}{" © "}
               {new Date().getFullYear()}
