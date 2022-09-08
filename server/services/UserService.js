@@ -76,7 +76,7 @@ export default class UserService {
         const isLoggedIn = await bcrypt.compare(userData.password, user.password)
         if (isLoggedIn) {
             res.status(200).send({
-                message: 'Welcome back'
+                user
             })
         } else {
             res.status(404).send({
