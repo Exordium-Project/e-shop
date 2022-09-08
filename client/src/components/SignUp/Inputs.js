@@ -80,7 +80,7 @@ export default function SignUp() {
                             {...register('password', {
                                 required: 'This field is required', pattern: {
                                     value: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/,
-                                    message: 'Password should be at least 8 characters long'
+                                    message: 'Password should have at least one capital letter, a number and be 8 characters long'
                                 }
                             })}
                             error={!!errors?.password}

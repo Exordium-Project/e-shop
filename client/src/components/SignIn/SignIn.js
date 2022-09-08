@@ -115,7 +115,7 @@ export default function SignIn() {
                             }
                             <Box className='button-class'> 
                                 {
-                                    !isLogged ? notAcceptedLoginRequest : loginButton
+                                    isLogged ? loginButton : notAcceptedLoginRequest
                                 }          
                             </Box>
                         </Box>
