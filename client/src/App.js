@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Footer from './components/Header/Footer/Footer';
 import Toys from './components/Header/Toys/Toys';
 import Catalog from './components/Header/Catalog/Catalog';
 import Brands from './components/Header/Brands/Brands';
@@ -13,42 +14,46 @@ import SignIn from './components/SignIn/SignIn';
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import Backend from "i18next-xhr-backend";
-import {en} from './i18n/en'
-import {bg} from './i18n/bg'
+import { en } from './i18n/en'
+import { bg } from './i18n/bg'
 import ErrorPage from './components/Error/ErrorPage';
 import TeamHistory from './components/Header/Team/TeamHistory';
 i18n.use(Backend).use(initReactI18next).init({
     resources: {
         en: en,
         bg: bg
-      },
-      lng: "en", 
-      fallbackLng: "en",
-  
-      interpolation: {
+    },
+    lng: "en",
+    fallbackLng: "en",
+
+    interpolation: {
         escapeValue: false
-      }
+    }
 })
 
 
 function App() {
-    
-    return (
-        <div className="App">
-            <Header />
 
-            <Routes>
-                <Route path='/' element={<Main />} />
-                <Route path='/toys' element={<Toys/>}/>
-                <Route path='/catalog' element={<Catalog/>}/>
-                <Route path='/brands' element={<Brands/>}/>
-                {/* <Route path='/team' element={<TeamHistory/>}/> */}
-                <Route path='/user' element={<User/>}/>
-                <Route path='/mybag' element={<MyBag/>}/>
-                <Route path='/sign' element={<SignUp />} />
-                <Route path='/login' element={<SignIn />} />
-                <Route path='*' element={<ErrorPage />} />
-            </Routes>
+    return (
+        <div className="App" id="page-container">
+            <div id="content-wrap">
+                <Header />
+
+                <Routes>
+                    <Route path='/' element={<Main />} />
+                    <Route path='/toys' element={<Toys />} />
+                    <Route path='/catalog' element={<Catalog />} />
+                    <Route path='/brands' element={<Brands />} />
+                    <Route path='/team' element={<TeamHistory />} />
+                    <Route path='/user' element={<User />} />
+                    <Route path='/mybag' element={<MyBag />} />
+                    <Route path='/sign' element={<SignUp />} />
+                    <Route path='/login' element={<SignIn />} />
+                    <Route path='*' element={<ErrorPage />} />
+                </Routes>
+            </div>
+
+            <Footer id="footer" />
 
         </div>
     );

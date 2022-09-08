@@ -16,6 +16,11 @@ export const bg ={
             "brands":"Марки",
             "cart":"Количка",
             "hot":"промо"
+        },
+        "Footer": {
+            "team": "За нас",
+            "join": "Присъедини се към Discord",
+            "copyright": "Авторско право"
         }
     }
 }

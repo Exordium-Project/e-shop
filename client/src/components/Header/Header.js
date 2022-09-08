@@ -134,14 +134,6 @@ const Header = () => {
           </Grid>
         </Grid>
       </Box>
-      {/* <Grid item={true} xs={12} >
-        <Link to='/team' style={textDecorationObject}>
-          <Button className='header-buttons'>
-            <CodeIcon />
-            <Typography color="rgb(122, 122, 122)" className='pages' paddingLeft="10px">Team Developers</Typography>
-          </Button>
-        </Link>
-      </Grid> */}
     </StyledEngineProvider >
   );
 }
