@@ -18,7 +18,7 @@ const Footer = () => {
     <StyledEngineProvider>
       <Box className='footer-div'  >
         <Grid container={true} spacing={1} className="grid-container" pb={2}>
-          <Grid item={true} xs={12} sm={12} md={3} className='grid' >
+          <Grid item={true} xs={12} sm={4} md={3} className='grid' >
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
               <Typography className='exordium-header-title'>
@@ -33,7 +33,7 @@ const Footer = () => {
           <Grid item={true} xs={12} sm={4} md={3}>
           <Button className='buttonDecoration' target="_blank"  href="https://discord.gg/FdHFU3Mm6a">{t("Footer.join")}</Button>
           </Grid>
-          <Grid item={true} xs={12} sm={4} md={3} >
+          <Grid item={true} xs={12} sm={6} md={3} >
             <Typography color={'white'} fontFamily={'Montserrat'}>
             {t("Footer.copyright")}{" © "}
               {new Date().getFullYear()}
