@@ -46,7 +46,6 @@ const ProductPage = () => {
     }
 
     function hasSizes(productCategory) {
-        /* console.log('productCategory = ', productCategory ); */
         if (productCategory === 'clothes' || productCategory ===  'shoes') {
             return true;
         }
@@ -56,8 +55,6 @@ const ProductPage = () => {
     }
     
     const productCategory = category[product.type_id-1]?.name;
-    /* console.log('product', productCategory);
-    console.log('func', hasSizes(productCategory)); */
     const images = [
         product.imageUrl,
         product.imageUrl,
@@ -137,10 +134,6 @@ const ProductPage = () => {
                                     <Typography className='select-size-text'>
                                         {t('ProductPage.selectSize')}
                                     </Typography>
-                                    {/* add size guide later (clickable) */}
-                                    {/* <Typography className='size-guide'>
-                                        Size Guide
-                                    </Typography> */}
                                 </Box>
                                 <Box className='product-size-select'>
                                     <Grid container 
