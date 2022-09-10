@@ -21,6 +21,12 @@ export const bg ={
             "team": "За нас",
             "join": "Присъедини се към Discord",
             "copyright": "Авторско право"
+        },
+        "ProductPage": {
+            "selectSize": "Избери размер",
+            "addToCart": "Добави в количка",
+            "deliveryAndReturns": "Безплатна доставка и връщане",
+            "reviews": "Ревюта"
         }
     }
 }

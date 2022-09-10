@@ -21,6 +21,12 @@ export const en ={
             "team": "About us",
             "join": "Join Discord Community",
             "copyright": "Copyright"
+        },
+        "ProductPage":{
+            "selectSize":"Select Size",
+            "addToCart":"Add To Cart",
+            "deliveryAndReturns":"Free Delivery And Returns",
+            "reviews":"Reviews"
         }
     }
 }

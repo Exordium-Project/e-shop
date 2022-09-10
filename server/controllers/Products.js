@@ -34,6 +34,12 @@ productsController.get('/', async (req, res) => {
     res.send(products)
 })
 
+productsController.get(`/product-info/:id`, async (req, res) => {
+    const product = await productService.getProduct(req.params['id'])
+
+    res.send(product)
+})
+
 productsController.delete("/", async (req, res) => {
     const projectId = req.body.id;
 

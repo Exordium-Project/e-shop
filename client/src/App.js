@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import {useLayoutEffect} from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Header/Footer/Footer';
 import Toys from './components/Header/Toys/Toys';
@@ -18,6 +19,7 @@ import { en } from './i18n/en'
 import { bg } from './i18n/bg'
 import ErrorPage from './components/Error/ErrorPage';
 import TeamHistory from './components/Header/Team/TeamHistory';
+import ProductPage from './components/product-page/ProductPage';
 i18n.use(Backend).use(initReactI18next).init({
     resources: {
         en: en,
@@ -31,12 +33,22 @@ i18n.use(Backend).use(initReactI18next).init({
     }
 })
 
+const Wrapper = ({children}) => {
+    const location = useLocation();
+    useLayoutEffect(() => {
+      document.documentElement.scrollTo(0, 0);
+    }, [location.pathname]);
+    return children
+  } 
+
 
 function App() {
 
     return (
         <div className="App" id="page-container">
+          <Wrapper>
             <div id="content-wrap">
+              
                 <Header />
 
                 <Routes>
@@ -50,11 +62,11 @@ function App() {
                     <Route path='/sign' element={<SignUp />} />
                     <Route path='/login' element={<SignIn />} />
                     <Route path='*' element={<ErrorPage />} />
+                    <Route path='/product/:productID' element={<ProductPage />} />
                 </Routes>
             </div>
-
-            <Footer id="footer" />
-
+          <Footer id="footer" />
+          </Wrapper>
         </div>
     );
 }

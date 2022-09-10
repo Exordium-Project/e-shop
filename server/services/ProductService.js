@@ -31,6 +31,20 @@ export default class ProductService {
         })
         return allProducts;
     }
+
+    static async getProduct(productId) {
+        const product = await Product.findOne({
+            attributes: ['id', 'name', 'color', 'price', 'quantity','imageUrl', 'smallDescription', 'brand_id', 'type_id'],
+            where: {
+                id: productId
+            }
+        }).catch(error => {
+            return new Error(404, "Product not found!")
+        })
+
+        return product;
+    }
+
     static async deleteProduct(projectId) {
         await Product.destroy({
             attributes: ['id', 'name', 'color', 'price', 'quantity', 'imageUrl', 'smallDescription', 'type_id', 'date_on_creating', 'date_of_last_modified', 'brand_id'],
