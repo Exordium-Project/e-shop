@@ -32,7 +32,7 @@ const TeamHistory = () => {
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion className="accordion-container">
+                <Accordion className="accordion-container second-accordion-container">
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon className="expand-icon" />}
                         aria-controls="panel1a-content"

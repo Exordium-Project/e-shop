@@ -44,16 +44,16 @@
         .MuiOutlinedInput-notchedOutline {
             border: none;
         }
+        .input-label {
+            font-size: .9rem;
+            display: flex;
+            justify-content: center;
+             margin-top: 1.2rem;
+            margin-left: -.5rem;
+            color: black;
+        }
     }
 
-    .input-label {
-        font-size: 1.1rem;
-        display: flex;
-        justify-content: center;
-        margin-top: 1.7rem;
-        margin-left: -.5rem;
-        color: black;
-    }
 
     .MuiSelect-select {
         width: 100%;

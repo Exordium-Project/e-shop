@@ -88,9 +88,9 @@ const Header = () => {
               languages.map((languageItem, index) => {
                 return (
                   <FormControl key={index + "formcontrol"} fullWidth className='languages'>
-                    <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{languageItem.title}</InputLabel>
+                    <Typography sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon fontSize='small' />{languageItem.title}</Typography>
                     <Select
-                      sx={{ height: '7.5rem', textAlign: 'center', width: '100.1%' }}
+                      sx={{ height: '2.5rem', textAlign: 'center', width: '100.1%' }}
                       onChange={onLanguageChange}
                       defaultValue="en">
                       {
@@ -109,17 +109,6 @@ const Header = () => {
                   <Typography className='pages'>{username}</Typography>
                 </Button>
               </Link>
-              {/* {
-                username == 'Sign Up' ?  <Link to='/sign' style={textDecorationObject}>
-                <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
-                  <Typography className='pages'>{username}</Typography>
-                </Button>
-              </Link>  :  <Link to='/user' style={textDecorationObject}>
-                <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
-                  <Typography className='pages'>{username}</Typography>
-                </Button>
-              </Link>  
-              } */}
           </Grid>
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
