@@ -54,6 +54,19 @@ export default class ProductService {
         })
         return allProducts;
     }
+    static async getSpecialProducts() {
+        const allProducts = await Product.findAll({
+            attributes: ['id', 'name', 'color', 'price', 'quantity',
+            'date_added', 'is_special_product',
+            'small_description', 'brand_id', 'type_id'],
+            where: {
+                is_special_product: true
+            }
+        }).catch(err => {
+            return new Error(500, err.message)
+        })
+        return allProducts;
+    }
 
     static async getProduct(productId) {
         const product = await Product.findOne({

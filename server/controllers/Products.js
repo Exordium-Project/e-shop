@@ -43,6 +43,15 @@ productsController.get('/today-products', async (req, res) => {
     
     res.send(products)
 })
+productsController.get('/special-products', async (req, res) => {
+    const products = await productService.getSpecialProducts()
+
+    if(products instanceof Error){
+        res.status(products.statusCode)
+    }
+    
+    res.send(products)
+})
 
 productsController.get(`/product-info/:id`, async (req, res) => {
     const product = await productService.getProduct(req.params['id'])

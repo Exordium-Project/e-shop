@@ -568,6 +568,26 @@
 			"response": []
 		},
 		{
+			"name": "get special products",
+			"request": {
+				"url": "http://localhost:3004/api/products/special-products",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"imageUrl\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"product_id\": 6\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "create sizes product 1",
 			"request": {
 				"url": "http://localhost:3004/api/sizes",
