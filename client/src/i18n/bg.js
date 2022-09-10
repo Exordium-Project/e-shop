@@ -17,6 +17,11 @@ export const bg ={
             "cart":"Количка",
             "hot":"промо"
         },
+        "Footer": {
+            "team": "За нас",
+            "join": "Присъедини се към Discord",
+            "copyright": "Авторско право"
+        },
         "ProductPage": {
             "selectSize": "Избери размер",
             "addToCart": "Добави в количка",
