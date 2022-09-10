@@ -10,8 +10,9 @@ productsController.post("/", async (req, res) => {
         color: req.body.color,
         price: req.body.price,
         quantity: req.body.quantity,
-        imageUrl: req.body.imageUrl,
-        smallDescription: req.body.smallDescription,
+        image_url: req.body.image_url,
+        is_special_product: req.body.is_special_product,
+        small_description: req.body.small_description,
         type_id: req.body.type_id,
         brand_id: req.body.brand_id
     }
@@ -26,6 +27,15 @@ productsController.post("/", async (req, res) => {
 })
 productsController.get('/', async (req, res) => {
     const products = await productService.getAllProducts()
+
+    if(products instanceof Error){
+        res.status(products.statusCode)
+    }
+    
+    res.send(products)
+})
+productsController.get('/today-products', async (req, res) => {
+    const products = await productService.getTodayProducts()
 
     if(products instanceof Error){
         res.status(products.statusCode)

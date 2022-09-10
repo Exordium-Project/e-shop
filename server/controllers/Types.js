@@ -6,7 +6,8 @@ const typesController = express.Router();
 
 typesController.post("/", async (req, res) => {
     const typeData = {
-        name: req.body.name
+        name: req.body.name,
+        category_id: req.body.category_id
     }
 
     const createdType = await typeService.createType(typeData);
@@ -17,6 +18,7 @@ typesController.post("/", async (req, res) => {
 
     res.send(createdType);
 })
+// get all types for category?
 
 typesController.get("/", async (req, res) => {
     const types = await typeService.getAllTypes();

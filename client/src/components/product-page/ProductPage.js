@@ -56,11 +56,11 @@ const ProductPage = () => {
     
     const productCategory = category[product.type_id-1]?.name;
     const images = [
-        product.imageUrl,
-        product.imageUrl,
-        product.imageUrl,
-        product.imageUrl,
-        product.imageUrl
+        product.image_url,
+        product.image_url,
+        product.image_url,
+        product.image_url,
+        product.image_url
     ]
     const sizes = [ 38.5, 39, 39.5, 40, 40.5, 41, 42, 42.5, 43, 44, 45];
 
@@ -155,7 +155,7 @@ const ProductPage = () => {
 
                             <Box className='product-description-div'>
                                 <Typography className='product-description'>
-                                    {product.smallDescription}
+                                    {product.small_description}
                                 </Typography>
                             </Box>
 
