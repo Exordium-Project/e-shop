@@ -40,7 +40,9 @@ const Team = () => {
             position: "Back-End Developer",
             github: "https://github.com/Medikko",
             imgsrc: mehmedImg,
-            moreInfo: "More info"
+            moreInfo: `Mehmed Dukov is a 19 years old software engineer from Velingrad. He is studying software engineering for about 2 years now. 
+              He is very curious about Blockchain development and currently he is learning more about it.
+            `
         },
         {
             name: 'Petar Arabadzhiev',
