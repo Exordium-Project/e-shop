@@ -11,12 +11,13 @@ productsController.post("/", async (req, res) => {
         price: req.body.price,
         quantity: req.body.quantity,
         image_url: req.body.image_url,
-        is_special_product: req.body.is_special_product,
+        is_special: req.body.is_special,
+        gender: req.body.gender,
         small_description: req.body.small_description,
         type_id: req.body.type_id,
         brand_id: req.body.brand_id
     }
-
+    
     const createdProduct = await productService.createProduct(productData);
 
     if(createdProduct instanceof Error){
@@ -34,7 +35,7 @@ productsController.get('/', async (req, res) => {
     
     res.send(products)
 })
-productsController.get('/today-products', async (req, res) => {
+productsController.get('/today', async (req, res) => {
     const products = await productService.getTodayProducts()
 
     if(products instanceof Error){

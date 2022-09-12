@@ -18,10 +18,6 @@ export default db.sequelize.define(
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false
     },
-    isMaleGender: {
-        type: Sequelize.DataTypes.BOOLEAN,
-        allowNull: false
-    },
     product_id: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,

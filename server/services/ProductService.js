@@ -28,7 +28,7 @@ export default class ProductService {
     static async getAllProducts() {
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
-                'date_added', 'is_special_product', 'image_url',
+                'date_added', 'is_special', 'image_url',
                 'small_description', 'brand_id', 'type_id']
         }).catch(err => {
             return new Error(500, err.message)
@@ -41,8 +41,8 @@ export default class ProductService {
         const Op = Sequelize.Op;
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
-            'date_added', 'is_special_product',
-            'small_description', 'brand_id', 'type_id'],
+                'date_added', 'is_special',
+                'small_description', 'brand_id', 'type_id'],
             where: {
                 date_added: {
                     [Op.gt]: TODAY_START,
@@ -57,10 +57,10 @@ export default class ProductService {
     static async getSpecialProducts() {
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
-            'date_added', 'is_special_product',
-            'small_description', 'brand_id', 'type_id'],
+                'date_added', 'is_special',
+                'small_description', 'brand_id', 'type_id'],
             where: {
-                is_special_product: true
+                is_special: true
             }
         }).catch(err => {
             return new Error(500, err.message)
@@ -72,11 +72,12 @@ export default class ProductService {
         const product = await Product.findOne({
             attributes: ['id', 'name', 'color', 'price',
                 'quantity', 'small_description', 'image_url',
-                'date_added', 'is_special_product', 'brand_id', 'type_id'],
+                'date_added', 'is_special', 'brand_id', 'type_id'],
             where: {
                 id: productId
             }
-        }).catch(error => {
+        })
+        .catch(error => {
             return new Error(404, "Product not found!")
         })
 
@@ -85,8 +86,8 @@ export default class ProductService {
 
     static async deleteProduct(projectId) {
         await Product.destroy({
-            attributes: ['id', 'name', 'color', 'price', 'quantity','image_url',
-                'date_added', 'is_special_product', 'small_description', 'type_id', 'brand_id'],
+            attributes: ['id', 'name', 'color', 'price', 'quantity', 'image_url',
+                'date_added', 'is_special', 'small_description', 'type_id', 'brand_id'],
             where: {
                 id: projectId
             }

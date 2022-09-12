@@ -15,11 +15,19 @@ export default class SizeService {
     }
     static async getAllSizesForProduct(productId){    
         const allSizesForProduct = await Size.findAll({
-            attributes: ['id', 'size','quantity','isMaleGender','product_id'],
+            attributes: ['id', 'size','quantity','product_id'],
             where: {
                 product_id: productId
             }
-        }).catch(err => {
+        })
+        .then(size => {
+            let sizeArr = [];
+             size.forEach(s=> {
+                sizeArr.push({[s.size]: s.quantity});
+            })
+            return {"sizes": sizeArr};
+        })
+        .catch(err => {
             return new Error(500, err.message)
         })
         return allSizesForProduct;
@@ -27,7 +35,7 @@ export default class SizeService {
 
     static async deleteSize(projectId) {
         await Size.destroy({
-            attributes: ['id', 'size','quantity','isMaleGender', 'product_id'],
+            attributes: ['id', 'size','quantity', 'product_id'],
             where: {
                 id: projectId
             }

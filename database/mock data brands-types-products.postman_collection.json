@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "mock data brands/types/products",
-		"_postman_id": "7c745c2e-e393-e16b-ff32-17bf51f3d0ad",
+		"_postman_id": "5f8532a7-f972-9f1c-7b4f-3978f9c5df60",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -181,7 +181,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"is_special_product\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"small_description\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"gender\":\"male\",\n\"type_id\": 1,\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"small_description\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
 				},
 				"description": ""
 			},
@@ -241,7 +241,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"is_special_product\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"small_description\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"gender\":\"male\",\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"small_description\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
 				},
 				"description": ""
 			},
@@ -321,7 +321,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"type_id\": 2,\n\"is_special_product\": true,\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"small_description\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
+					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"gender\":\"unisex\",\n\"type_id\": 2,\n\"is_special\": true,\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"small_description\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
 				},
 				"description": ""
 			},
@@ -381,7 +381,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"type_id\": 2,\n\"is_special_product\": false,\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"small_description\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
+					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"type_id\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"small_description\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
 				},
 				"description": ""
 			},
@@ -441,7 +441,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"type_id\": 3,\n\"is_special_product\": false,\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"small_description\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
+					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"small_description\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
 				},
 				"description": ""
 			},
@@ -501,7 +501,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3,\n\"is_special_product\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
 				},
 				"description": ""
 			},
@@ -550,7 +550,7 @@
 		{
 			"name": "get added today products",
 			"request": {
-				"url": "http://localhost:3004/api/products/today-products",
+				"url": "http://localhost:3004/api/products/today",
 				"method": "GET",
 				"header": [
 					{
@@ -601,7 +601,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":1,\n\"isMaleGender\": true\n\t\n}"
+					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":1\t\n}"
 				},
 				"description": ""
 			},
@@ -621,7 +621,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"42\",\n\"quantity\":20,\n\"product_id\":1,\n\"isMaleGender\": true\n\t\n}"
+					"raw": "{\n\"size\":\"42\",\n\"quantity\":20,\n\"product_id\":1\t\n}"
 				},
 				"description": ""
 			},
@@ -641,7 +641,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":1,\n\"isMaleGender\": false\n\t\n}"
+					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":1\n\t\n}"
 				},
 				"description": ""
 			},
@@ -661,7 +661,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":2,\n\"isMaleGender\": true\n\t\n}"
+					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":2\t\n}"
 				},
 				"description": ""
 			},
@@ -681,7 +681,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":2,\n\"isMaleGender\": false\n\t\n}"
+					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":2\n\t\n}"
 				},
 				"description": ""
 			},
@@ -701,7 +701,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"42\",\n\"quantity\":10,\n\"product_id\":2,\n\"isMaleGender\": true\n\t\n}"
+					"raw": "{\n\"size\":\"42\",\n\"quantity\":10,\n\"product_id\":2\t\n}"
 				},
 				"description": ""
 			},

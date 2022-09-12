@@ -8,7 +8,6 @@ sizesController.post("/", async (req, res) => {
     const imageData = {
         size: req.body.size,
         quantity: req.body.quantity,
-        isMaleGender: req.body.isMaleGender,
         product_id: req.body.product_id,
     }
 

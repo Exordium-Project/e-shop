@@ -39,7 +39,8 @@ color varchar(40),
 price decimal not null,
 quantity int not null,
 date_added datetime not null,
-is_special_product boolean,
+is_special boolean,
+gender ENUM('male', 'female', 'unisex'),
 brand_id int not null,
 type_id int not null,
 constraint fk_products_brands
@@ -54,7 +55,6 @@ CREATE TABLE sizes(
 	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size VARCHAR(50) NOT NULL,
 	quantity int not null,
-    isMaleGender boolean,
     product_id int not null,
     constraint fk_sizes_products
     foreign key(product_id)

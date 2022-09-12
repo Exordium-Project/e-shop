@@ -40,8 +40,12 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.DATE,
             allowNull: false
         },
-        is_special_product: {
+        is_special: {
             type: Sequelize.DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        gender: {
+            type: Sequelize.DataTypes.ENUM('male', 'female', 'unisex'),
             allowNull: false
         },
         type_id: {
