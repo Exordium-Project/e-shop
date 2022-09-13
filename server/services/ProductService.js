@@ -1,5 +1,6 @@
 import Product from '../models/Product.js';
 import Error from '../error/Error.js';
+import { Sequelize } from "sequelize"
 
 export default class ProductService {
 
@@ -10,6 +11,7 @@ export default class ProductService {
                 name: productData.name
             }
         });
+        productData.date_added = new Date();
 
 
         if (product)
@@ -23,9 +25,43 @@ export default class ProductService {
         return createdProduct;
 
     }
-    static async getAllProducts(){    
+    static async getAllProducts() {
         const allProducts = await Product.findAll({
-            attributes: ['id', 'name', 'color', 'price', 'quantity','imageUrl', 'smallDescription', 'brand_id', 'type_id']
+            attributes: ['id', 'name', 'color', 'price', 'quantity',
+                'date_added', 'is_special', 'image_url',
+                'small_description', 'brand_id', 'type_id']
+        }).catch(err => {
+            return new Error(500, err.message)
+        })
+        return allProducts;
+    }
+    static async getTodayProducts() {
+        const TODAY_START = new Date().setHours(0, 0, 0, 0);
+        const NOW = new Date();
+        const Op = Sequelize.Op;
+        const allProducts = await Product.findAll({
+            attributes: ['id', 'name', 'color', 'price', 'quantity',
+                'date_added', 'is_special',
+                'small_description', 'brand_id', 'type_id'],
+            where: {
+                date_added: {
+                    [Op.gt]: TODAY_START,
+                    [Op.lt]: NOW
+                },
+            }
+        }).catch(err => {
+            return new Error(500, err.message)
+        })
+        return allProducts;
+    }
+    static async getSpecialProducts() {
+        const allProducts = await Product.findAll({
+            attributes: ['id', 'name', 'color', 'price', 'quantity',
+                'date_added', 'is_special',
+                'small_description', 'brand_id', 'type_id'],
+            where: {
+                is_special: true
+            }
         }).catch(err => {
             return new Error(500, err.message)
         })
@@ -34,11 +70,14 @@ export default class ProductService {
 
     static async getProduct(productId) {
         const product = await Product.findOne({
-            attributes: ['id', 'name', 'color', 'price', 'quantity','imageUrl', 'smallDescription', 'brand_id', 'type_id'],
+            attributes: ['id', 'name', 'color', 'price',
+                'quantity', 'small_description', 'image_url',
+                'date_added', 'is_special', 'brand_id', 'type_id'],
             where: {
                 id: productId
             }
-        }).catch(error => {
+        })
+        .catch(error => {
             return new Error(404, "Product not found!")
         })
 
@@ -47,11 +86,12 @@ export default class ProductService {
 
     static async deleteProduct(projectId) {
         await Product.destroy({
-            attributes: ['id', 'name', 'color', 'price', 'quantity', 'imageUrl', 'smallDescription', 'type_id', 'date_on_creating', 'date_of_last_modified', 'brand_id'],
+            attributes: ['id', 'name', 'color', 'price', 'quantity', 'image_url',
+                'date_added', 'is_special', 'small_description', 'type_id', 'brand_id'],
             where: {
                 id: projectId
             }
-        }).catch(error =>{
+        }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
         });

@@ -28,12 +28,24 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false
         },
-        imageUrl: {
+        image_url: {
             type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
-        smallDescription: {
+        small_description: {
             type: Sequelize.DataTypes.STRING,
+            allowNull: false
+        },
+        date_added: {
+            type: Sequelize.DataTypes.DATE,
+            allowNull: false
+        },
+        is_special: {
+            type: Sequelize.DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        gender: {
+            type: Sequelize.DataTypes.ENUM('male', 'female', 'unisex'),
             allowNull: false
         },
         type_id: {

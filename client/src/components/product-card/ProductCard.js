@@ -13,12 +13,12 @@ const ProductCard = (props) => {
     return (
         <Card className='card'>
             <CardActionArea component={Link} to={newTo}>
-                <img src={props.imageUrl} alt="Image" className='productImage' />
+                <img src={props.image_url} alt="Image" className='productImage' />
             </CardActionArea> 
             <Typography fontSize=".8rem" className="name">{props.name}</Typography>
             <Box className='productInfo'>
                 {/* <Typography>Sizes: (TODO?)</Typography> */}
-                <Typography fontSize=".7rem">{props.smallDescription}</Typography>
+                <Typography fontSize=".7rem">{props.small_description}</Typography>
             </Box>
                
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
