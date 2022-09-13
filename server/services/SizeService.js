@@ -18,7 +18,11 @@ export default class SizeService {
             attributes: ['id', 'size','quantity','product_id'],
             where: {
                 product_id: productId
-            }
+            },
+            order: [
+                ['product_id','ASC'],
+                ['size','ASC']
+            ]
         })
         .then(size => {
             let sizeArr = [];

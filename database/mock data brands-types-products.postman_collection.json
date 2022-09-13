@@ -1,729 +1,1102 @@
 {
-	"variables": [],
 	"info": {
+		"_postman_id": "ca42b524-8a3a-4b67-9bee-36d9e4a0588e",
 		"name": "mock data brands/types/products",
-		"_postman_id": "5f8532a7-f972-9f1c-7b4f-3978f9c5df60",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22822450"
 	},
 	"item": [
 		{
 			"name": "create brands - 1 Adidas",
 			"request": {
-				"url": "http://localhost:3004/api/brands",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"Adidas\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/brands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"brands"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create brands - 2 Apple",
 			"request": {
-				"url": "http://localhost:3004/api/brands",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"Apple\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/brands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"brands"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create brands - 3 Acer",
 			"request": {
-				"url": "http://localhost:3004/api/brands",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"Acer\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/brands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"brands"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create category - 1 clothing",
 			"request": {
-				"url": "http://localhost:3004/api/categories",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"clothing\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create category - 1 tech",
 			"request": {
-				"url": "http://localhost:3004/api/categories",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"tech\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create types - 1 shoes",
 			"request": {
-				"url": "http://localhost:3004/api/types",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"shoes\",\n\t\"category_id\": 1\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/types",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"types"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create types - 2 smartphones",
 			"request": {
-				"url": "http://localhost:3004/api/types",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"smartphones\",\n\t\"category_id\": 2\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/types",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"types"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create types - 3 laptops",
 			"request": {
-				"url": "http://localhost:3004/api/types",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"laptops\",\n\t\"category_id\": 2\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/types",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"types"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create products - 1 Adidas Superstar",
 			"request": {
-				"url": "http://localhost:3004/api/products",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"gender\":\"male\",\n\"type_id\": 1,\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"small_description\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 1 Adidas Superstar",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"product_id\": 1\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 2 Adidas Superstar",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://sizeer.bg/media/cache/gallery/rc/rk14wrxg/adidas-superstar-junior-mladezhki-maratonki-byal-fu7712.jpg\",\n\"product_id\": 1\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create products - 2 Adidas Stan Smith",
 			"request": {
-				"url": "http://localhost:3004/api/products",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"gender\":\"male\",\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"small_description\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 1 Adidas Stan Smith",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"product_id\": 2\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 2 Adidas Stan Smith",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://sneakerstudio.bg/bul_pl_adidas-Originals-Stan-Smith-Vegan-FX5502-1022031_5.jpg\",\n\"product_id\": 2\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 3 Adidas Stan Smith",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207773493_01_ki_1_1.jpg\",\n\"product_id\": 2\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "3. create products - 3 iPhone 13",
 			"request": {
-				"url": "http://localhost:3004/api/products",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"gender\":\"unisex\",\n\"type_id\": 2,\n\"is_special\": true,\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"small_description\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 1 iPhone 13",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"product_id\": 3\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 2 iPhone 13",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://www.yettel.bg/sites/default/files/styles/device-full/public/28.02._22_-_iphone_pro_max_-_gold_-_1234.png?itok=UEeCbm42\",\n\"product_id\": 3\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "3. create products - 4 iPhone 6S",
 			"request": {
-				"url": "http://localhost:3004/api/products",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"type_id\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"small_description\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 1 iPhone 6S",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"product_id\": 4\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 2 iPhone 6S",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://gsm-bg.eu/image/cache/catalog/apple-iphone-6s-white%20silver-500x500.png\",\n\"product_id\": 4\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "3. create products - 5 Acer Swift 3",
 			"request": {
-				"url": "http://localhost:3004/api/products",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"small_description\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 1 Acer Swift 3",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"product_id\": 5\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 2 Acer Swift",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/SF314_512/20220328/acer-laptop-swift-3-pick-up-and-go-s.jpg\",\n\"product_id\": 5\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "3. create products - 6 MacBook Pro",
 			"request": {
-				"url": "http://localhost:3004/api/products",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 1 MacBook Pro",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"product_id\": 6\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create image - 2 MacBook Pro",
 			"request": {
-				"url": "http://localhost:3004/api/images",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"image_url\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"product_id\": 6\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "get added today products",
 			"request": {
-				"url": "http://localhost:3004/api/products/today",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"imageUrl\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"product_id\": 6\n\t\n}"
-				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products/today",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products",
+						"today"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "get special products",
 			"request": {
-				"url": "http://localhost:3004/api/products/special-products",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"imageUrl\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"product_id\": 6\n\t\n}"
-				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/products/special-products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products",
+						"special-products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create sizes product 1",
 			"request": {
-				"url": "http://localhost:3004/api/sizes",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":1\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create sizes product 1",
 			"request": {
-				"url": "http://localhost:3004/api/sizes",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"size\":\"42\",\n\"quantity\":20,\n\"product_id\":1\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create sizes product 1",
 			"request": {
-				"url": "http://localhost:3004/api/sizes",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":1\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create sizes product 2",
 			"request": {
-				"url": "http://localhost:3004/api/sizes",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":2\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create sizes product 2",
 			"request": {
-				"url": "http://localhost:3004/api/sizes",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":2\n\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "create sizes product 2",
 			"request": {
-				"url": "http://localhost:3004/api/sizes",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\"size\":\"42\",\n\"quantity\":10,\n\"product_id\":2\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "get sizes for products",
 			"request": {
-				"url": "http://localhost:3004/api/sizes/size-info/2",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3004/api/sizes/size-info/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes",
+						"size-info",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create sizes product 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"imageUrl\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"product_id\": 6\n\t\n}"
+					"raw": "{\n\"size\":\"41\",\n\"quantity\":4,\n\"product_id\":1\t\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create sizes product 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"size\":\"44\",\n\"quantity\":0,\n\"product_id\":1\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/sizes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes"
+					]
+				}
 			},
 			"response": []
 		}

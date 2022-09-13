@@ -14,9 +14,9 @@ export default class ImageService {
     }
     static async getAllImagesForProduct(productId){    
         const allImagesForProduct = await Image.findAll({
-            attributes: ['id', 'image_url'],
+            attributes: ['id', 'image_url', 'product_id'],
             where: {
-                id: productId
+                product_id: productId
             }
         }).catch(err => {
             return new Error(500, err.message)
