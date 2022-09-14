@@ -13,13 +13,16 @@ import './mainPage.scss';
 const Main = () => {
     const {t} = useTranslation()
     const [products, setProducts] = useState([]);
+    const [addedToday, setAddedToday] = useState([]);
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productURL = `${url}/api/products`;
     const categoryURL = `${url}/api/types`;
+    const addedTodayURL = `${url}/api/products/today`;
 
     useEffect(() => {
         getAllProducts();
+        getAddedToday();
     }, []);
 
     const getAllProducts = () => {
@@ -29,15 +32,19 @@ const Main = () => {
         })
         .catch(error => console.error(`Error: ${error}`));
     }
-    
-    let addedTodayProducts =  //There is no DB datetime column to sort Products by date hence addedTodayProducts
-    [<ProductCard {...products[0]} />,
-    <ProductCard {...products[1]} />,
-    <ProductCard {...products[2]} />,
-    <ProductCard {...products[3]} />,
-    <ProductCard {...products[4]} />,
-    <ProductCard {...products[5]} /> ];
-    
+
+    const getAddedToday = () => {
+        axios.get(addedTodayURL)
+            .then((response) => {
+                const addedTodayArray = response.data;
+                setAddedToday(addedTodayArray);
+            })
+            .catch(error => console.error(`Error: ${error}`));
+    }
+    const addedTodayKeys = Object.values(addedToday);
+    const todayProducts = addedTodayKeys.map ( productData =>
+        <ProductCard {...productData} /> );
+
     return (
         <div className='main'>
 
@@ -82,6 +89,7 @@ const Main = () => {
                                 className='horizontal-divider'></Divider>
                         </Box>
 
+                        {addedToday.length ?
                         <Box sx={{ flexGrow: 1 }} className='added-today'>
                             <Typography fontSize="30px" fontFamily="Montserrat" className='section-header'>
                                 {t('Main.sections.addedToday')}
@@ -91,7 +99,7 @@ const Main = () => {
                                     spacing={2}
                                     className='added-today-products-grid'>
 
-                                    {addedTodayProducts.map((item, index) => {
+                                        {todayProducts.map((item, index) => {
                                         return <Grid item xs={12} sm={6} md={4}
                                             key={"added-today-"+index}>{item}
                                         </Grid>
@@ -100,10 +108,13 @@ const Main = () => {
                                 </Grid>
                             </Box>
                         </Box>
-
+                        : 
+                            <Typography fontSize="30px" fontFamily="Montserrat" className='section-header'>
+                                No new products today
+                            </Typography>}
 
                     </Grid>
-
+                                
                     <Grid item sm={5} className='specials'>
 
                         <Typography variant='h4' className='section-header'>

@@ -17,13 +17,20 @@ const ProductPage = () => {
     const id = useParams().productID;
     const [product, setProduct] = useState([]);
     const [category, setCategory] = useState([]);
+    const [productImages, setProductImages] = useState([]);
+    const [msizes, setSizes] = useState([]);
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productInfoURL = `${url}/api/products/product-info/${id}`;
     const categoryURL = `${url}/api/types`;
+    const imagesURL = `${url}/api/images/image-info/${id}`;
+    const sizesURL = `${url}/api/sizes/size-info/${id}`;
+
     useEffect(() => {
         getProductInfo();
         getCategory();
+        getProductImages();
+        getSizes();
     }, []);
 
     const getProductInfo = () => {
@@ -45,6 +52,24 @@ const ProductPage = () => {
         .catch(error => console.error(`Error: ${error}`));
     }
 
+    const getProductImages = () => {
+        axios.get(imagesURL)
+            .then((response) => {
+                const imagesArray = response.data;
+                setProductImages(imagesArray);
+            })
+            .catch(error => console.error(`Error: ${error}`));
+    }
+
+    const getSizes = () => {
+        axios.get(sizesURL)
+            .then((response) => {
+                const sizesArray = response.data.sizes;
+                setSizes(sizesArray);
+            })
+            .catch(error => console.error(`Error: ${error}`));
+    }
+
     function hasSizes(productCategory) {
         if (productCategory === 'clothes' || productCategory ===  'shoes') {
             return true;
@@ -55,15 +80,7 @@ const ProductPage = () => {
     }
     
     const productCategory = category[product.type_id-1]?.name;
-    const images = [
-        product.image_url,
-        product.image_url,
-        product.image_url,
-        product.image_url,
-        product.image_url
-    ]
-    const sizes = [ 38.5, 39, 39.5, 40, 40.5, 41, 42, 42.5, 43, 44, 45];
-
+    
     return(
         <div className='product-page'>
             <Box className='back-banner'>
@@ -82,17 +99,17 @@ const ProductPage = () => {
                                 className='carousel'
                                 naturalSlideWidth={1}
                                 naturalSlideHeight={1}
-                                totalSlides={images.length}
+                                totalSlides={productImages.length}
                             >
                                 <Box className='slider-and-buttons'>
                                     <Slider>
-                                        {images.map((image, i) => (
+                                        {productImages.map((image, i) => (
                                             <Slide index={i}>
                                                 <Box component="img"
                                                     className='product-image'
                                                     key={i}
                                                     alt="Image"
-                                                    src={image}>
+                                                    src={image.image_url}>
                                                 </Box>
                                             </Slide>
                                         ))}
@@ -118,7 +135,7 @@ const ProductPage = () => {
                                     {product.name}
                                 </Typography>
                                 <Typography className='product-category'>
-                                    Men's Shoes
+                                    {productCategory}
                                 </Typography>
                             </Box>
                             <Box className='price-div'>
@@ -139,10 +156,38 @@ const ProductPage = () => {
                                     <Grid container 
                                         columnSpacing={1}
                                         rowSpacing={2}>
-                                        {sizes.map((size) => {
-                                            return <Grid item xs={4}>
-                                                <Button className='product-size-button' variant="outlined">{size}</Button>
-                                            </Grid>
+                                        {msizes.map((element,index) => {
+                                            let obj = Object.keys(element);
+                                            let size = obj[0];
+                                            let quantity = element[size];
+                                            if (quantity > 5) {
+                                                return <Grid item xs={4}>
+                                                    <Button className='product-size-button' variant="outlined">
+                                                        <Typography>
+                                                            {size}
+                                                        </Typography>
+                                                    </Button>
+                                                </Grid>
+                                            } else if (quantity >= 1) {
+                                                return <Grid item xs={4}>
+                                                    <Button className='product-size-button-few-left' variant="outlined">
+                                                        <Typography>
+                                                            {size}
+                                                        </Typography>
+                                                        <Typography className='size-quantity'>{quantity} more left</Typography>
+                                                    </Button>
+                                                </Grid>                        
+                                            } else {
+                                                return <Grid item xs={4}>
+                                                    <Button className='product-size-button-sold-out' variant="outlined" disabled>
+                                                        <Typography>
+                                                            {size}
+                                                        </Typography>
+                                                        <Typography className='size-quantity'>sold out</Typography>
+                                                    </Button>
+                                                </Grid>   
+                                            }
+                                            
                                         })}
                                     </Grid>
 

@@ -27,7 +27,7 @@ export default class TypeService {
 
     static async getAllTypes() {
         const [types] = await Promise.all([Type.findAll({
-            attributes: ["name"]
+            attributes: ['id','name']
         })]).catch(error => {
             console.log(error);
             return new Error(500, error.message);

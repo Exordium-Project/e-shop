@@ -42,7 +42,7 @@ export default class ProductService {
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special',
-                'small_description', 'brand_id', 'type_id'],
+                'small_description', 'image_url', 'brand_id', 'type_id'],
             where: {
                 date_added: {
                     [Op.gt]: TODAY_START,
@@ -58,7 +58,7 @@ export default class ProductService {
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special',
-                'small_description', 'brand_id', 'type_id'],
+                'small_description', 'image_url', 'brand_id', 'type_id'],
             where: {
                 is_special: true
             }
