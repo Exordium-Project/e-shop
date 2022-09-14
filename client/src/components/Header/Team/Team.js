@@ -64,7 +64,7 @@ const Team = () => {
         {
             name: 'Petya Marinova',
             linkedin: "https://www.linkedin.com/in/pmmarinova/",
-            position: "Front-End Developer",
+            position: "Full-Stack Developer",
             github: "https://github.com/petya0111",
             imgsrc: petyaImg,
             moreInfo: "Software developer currently with frontend technologies Angular & JavaScript. Interested in IT conferences and networking. Glad to take part in programming and different aspect of courses and workshops. I live in Rousse."

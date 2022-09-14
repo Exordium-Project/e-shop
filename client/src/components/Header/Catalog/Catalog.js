@@ -6,13 +6,13 @@ import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 
-import SideBar from './SideBar'
-import '../Styles/Catalog.scss'
+import SideBar from './SideBar';
+import '../Styles/Catalog.scss';
 
 const Catalog = () => {
     return (
-            <StyledEngineProvider injectFirst={true}>
-                <Box className='catalog-styles'>
+        <StyledEngineProvider injectFirst={true}>
+            <Box className='catalog-styles'>
                 <Grid container={true} spacing={0}>
                     <Grid item={true} xs={6} md={3}>
 
@@ -45,8 +45,8 @@ const Catalog = () => {
                         </Button>
                     </Grid>
                 </Grid>
-             </Box>
-             <SideBar />
+            </Box>
+                <SideBar />
         </StyledEngineProvider>
     )
 }

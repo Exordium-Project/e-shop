@@ -1,20 +1,17 @@
 import React, { useState } from 'react'
-import { Box, Typography, Grid, AppBar, Toolbar, Slider, Accordion, Checkbox, AccordionSummary, StyledEngineProvider, AccordionDetails, FormControlLabel, FormGroup } from '@mui/material';
+import { Box, Typography, Grid, AppBar, Toolbar, Slider, Accordion, Checkbox, AccordionSummary, StyledEngineProvider, AccordionDetails, FormControlLabel, FormGroup, Card } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import '../Styles/SideBar.scss'
 import SearchBar from '../../search-bar/search-bar';
 
 const SideBar = () => {
-    const [val, setVal] = useState([30, 60])
 
-    const updateValue = (e, data) => {
-        setVal(data)
-    }
-
-    const priceBoxes = [
-        { leftAndRightSide: 'From 100$' },
-        { leftAndRightSide: 'To 5000$' }
-    ]
+    const products = [
+        {
+            avaiableProducts: 6458,
+            categories: ["Shoes", "Shorts", "Hoodies & Jackets"]
+        }
+    ];
 
     const selectOptions = [
         {
@@ -40,46 +37,45 @@ const SideBar = () => {
     ]
     return (
         <StyledEngineProvider injectFirst={true}>
-            <Box className='container'>
-                <AppBar className='appBar'>
-                    <Box className='side-bar-background-color'>
-                    <Typography className='price-txt'>Price</Typography>
-
-                    <Toolbar>
-                        <Box className='price-diapason'>
-                            {
-                                priceBoxes.map(item => { return (<Typography className='price'>{item.leftAndRightSide}</Typography>) })
-                            }
-                        </Box>
-                    </Toolbar>
-
-                    <Slider className='slider' value={val} onChange={updateValue} />
+            <Box className='side-bar'>
+                <Box className='avaiable-products-class'>
                     {
-                        selectOptions.map(item => (
-                            <Box className='side-bar-boxes'>
+                        products.map((item, index) => {
+                            return (
+                                <Box className='avaiable-products' key={index}>
+                                    <Typography key={index} variant='h6' className='avaiable-products-text'><strong>Avaiable products ({item.avaiableProducts})</strong></Typography>
+                                    <ul>
+                                    
+                                    </ul>
 
-                                <Accordion className='acordion-style'>
-                                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                        <Typography>{item.titles}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <Typography>
-                                            <FormGroup>
-                                                {
-                                                    item.options.map(option => (
-                                                        <FormControlLabel control={<Checkbox />} label={option} value={option} />
-                                                    ))
-                                                }
-                                            </FormGroup>
-                                        </Typography>
-                                    </AccordionDetails>
-                                </Accordion>
-                            </Box>
+                                </Box>
+                            )
+                        })
+                    }
+                </Box>
+                <Box className='side-bar-boxes'>
+                    {
+                        selectOptions.map((item, index) => (
+                            <Accordion className='accordion-style' defaultExpanded={true}>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                    <Typography>{item.titles}</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        <FormGroup>
+                                            {
+                                                item.options.map(option => (
+                                                    <FormControlLabel control={<Checkbox />} label={option} value={option} />
+                                                ))
+                                            }
+                                        </FormGroup>
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
                         ))
                     }
-                    </Box>
-                </AppBar>
-            <SearchBar />
+                </Box>
+             
             </Box>
         </StyledEngineProvider>
     );
