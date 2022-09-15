@@ -55,9 +55,9 @@ CREATE TABLE sizes(
 	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size VARCHAR(50) NOT NULL,
 	quantity int not null,
-    product_id int not null,
+    productId int not null,
     constraint fk_sizes_products
-    foreign key(product_id)
+    foreign key(productId)
     references products(id)
 );
 create table baskets(
@@ -113,9 +113,9 @@ references users(id)
 create table images(
 id int not null auto_increment primary key,
 image_url varchar(2048) not null,
-product_id int not null,
+productId int not null,
 constraint fk_images_products
-foreign key (product_id)
+foreign key (productId)
 references products(id)
 );
 create table address(

@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "ca42b524-8a3a-4b67-9bee-36d9e4a0588e",
+		"_postman_id": "10ec90ec-826e-4a4b-9bff-21936d586567",
 		"name": "mock data brands/types/products",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22822450"
+		"_exporter_id": "21609321"
 	},
 	"item": [
 		{
@@ -279,7 +279,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"product_id\": 1\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"productId\": 1\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -308,7 +308,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://sizeer.bg/media/cache/gallery/rc/rk14wrxg/adidas-superstar-junior-mladezhki-maratonki-byal-fu7712.jpg\",\n\"product_id\": 1\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://sizeer.bg/media/cache/gallery/rc/rk14wrxg/adidas-superstar-junior-mladezhki-maratonki-byal-fu7712.jpg\",\n\"productId\": 1\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -366,7 +366,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"product_id\": 2\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"productId\": 2\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -395,7 +395,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://sneakerstudio.bg/bul_pl_adidas-Originals-Stan-Smith-Vegan-FX5502-1022031_5.jpg\",\n\"product_id\": 2\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://sneakerstudio.bg/bul_pl_adidas-Originals-Stan-Smith-Vegan-FX5502-1022031_5.jpg\",\n\"productId\": 2\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -424,7 +424,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207773493_01_ki_1_1.jpg\",\n\"product_id\": 2\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207773493_01_ki_1_1.jpg\",\n\"productId\": 2\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -482,7 +482,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"product_id\": 3\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"productId\": 3\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -511,7 +511,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.yettel.bg/sites/default/files/styles/device-full/public/28.02._22_-_iphone_pro_max_-_gold_-_1234.png?itok=UEeCbm42\",\n\"product_id\": 3\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://www.yettel.bg/sites/default/files/styles/device-full/public/28.02._22_-_iphone_pro_max_-_gold_-_1234.png?itok=UEeCbm42\",\n\"productId\": 3\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -569,7 +569,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"product_id\": 4\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"productId\": 4\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -598,7 +598,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://gsm-bg.eu/image/cache/catalog/apple-iphone-6s-white%20silver-500x500.png\",\n\"product_id\": 4\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://gsm-bg.eu/image/cache/catalog/apple-iphone-6s-white%20silver-500x500.png\",\n\"productId\": 4\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -656,7 +656,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"product_id\": 5\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"productId\": 5\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -685,7 +685,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/SF314_512/20220328/acer-laptop-swift-3-pick-up-and-go-s.jpg\",\n\"product_id\": 5\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/SF314_512/20220328/acer-laptop-swift-3-pick-up-and-go-s.jpg\",\n\"productId\": 5\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -732,6 +732,40 @@
 			"response": []
 		},
 		{
+			"name": "get product 6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/products/product-info/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products",
+						"product-info",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create image - 1 MacBook Pro",
 			"request": {
 				"method": "POST",
@@ -743,7 +777,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"product_id\": 6\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"productId\": 6\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -772,7 +806,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"product_id\": 6\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"productId\": 6\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -853,7 +887,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":1\t\n}"
+					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"productId\":1\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",
@@ -882,7 +916,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"42\",\n\"quantity\":20,\n\"product_id\":1\t\n}"
+					"raw": "{\n\"size\":\"42\",\n\"quantity\":20,\n\"productId\":1\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",
@@ -911,7 +945,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":1\n\t\n}"
+					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"productId\":1\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",
@@ -940,7 +974,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"product_id\":2\t\n}"
+					"raw": "{\n\"size\":\"43\",\n\"quantity\":35,\n\"productId\":2\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",
@@ -969,7 +1003,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"product_id\":2\n\t\n}"
+					"raw": "{\n\"size\":\"38\",\n\"quantity\":10,\n\"productId\":2\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",
@@ -998,7 +1032,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"42\",\n\"quantity\":10,\n\"product_id\":2\t\n}"
+					"raw": "{\n\"size\":\"42\",\n\"quantity\":10,\n\"productId\":2\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",
@@ -1054,7 +1088,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"41\",\n\"quantity\":4,\n\"product_id\":1\t\n}"
+					"raw": "{\n\"size\":\"41\",\n\"quantity\":4,\n\"productId\":1\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",
@@ -1083,7 +1117,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"size\":\"44\",\n\"quantity\":0,\n\"product_id\":1\t\n}"
+					"raw": "{\n\"size\":\"44\",\n\"quantity\":0,\n\"productId\":1\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/sizes",

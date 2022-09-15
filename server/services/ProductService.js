@@ -1,6 +1,9 @@
 import Product from '../models/Product.js';
+import Size from '../models/Size.js';
+import ImageProduct from '../models/Image.js';
 import Error from '../error/Error.js';
 import { Sequelize } from "sequelize"
+import Type from '../models/Type.js';
 
 export default class ProductService {
 
@@ -69,17 +72,37 @@ export default class ProductService {
     }
 
     static async getProduct(productId) {
+        Product.hasMany(Size);
+        Product.hasMany(ImageProduct);
+        Product.hasOne(Type);
         const product = await Product.findOne({
             attributes: ['id', 'name', 'color', 'price',
                 'quantity', 'small_description', 'image_url',
                 'date_added', 'is_special', 'brand_id', 'type_id'],
             where: {
                 id: productId
+            },
+            include: [{
+                model: Size,
+                attributes: ['size', 'quantity'],
+                where: {
+                    productId: productId,
+                }
+            },
+            {
+                model: ImageProduct,
+                attributes: ['image_url'],
+                where: {
+                    productId: productId,
+                }
             }
+            ],
+
         })
-        .catch(error => {
-            return new Error(404, "Product not found!")
-        })
+            .catch(error => {
+                console.error(error);
+                return new Error(404, "Product not found!")
+            })
 
         return product;
     }
