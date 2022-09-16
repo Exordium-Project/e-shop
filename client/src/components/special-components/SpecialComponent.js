@@ -23,7 +23,7 @@ const SpecialComponent = (props) =>  {
             .catch(error => console.error(`Error: ${error}`));
     }
 
-    const typeID = props.type_id;
+    const typeID = props.typeId;
 
     const newTo = {
         pathname: `/product/${props.id}`

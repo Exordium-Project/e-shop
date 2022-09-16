@@ -13,14 +13,14 @@ role varchar(20) not null
 );
 CREATE TABLE categories(
 id int not null auto_increment primary key,
-	name VARCHAR(50) NOT NULL
+name VARCHAR(50) NOT NULL
 );
 create table types(
 id int not null auto_increment primary key,
 name varchar(50),
-category_id int not null,
+categoryId int not null,
 constraint fk_types_categories
-foreign key(category_id)
+foreign key(categoryId)
 references categories(id)
 );
 
@@ -42,13 +42,17 @@ date_added datetime not null,
 is_special boolean,
 gender ENUM('male', 'female', 'unisex'),
 brand_id int not null,
-type_id int not null,
+typeId int not null,
+categoryId int not null,
 constraint fk_products_brands
 foreign key (brand_id)
 references brands(id),
 constraint fk_products_types
-foreign key (type_id)
-references types(id)
+foreign key (typeId)
+references types(id),
+constraint fk_products_categories
+foreign key (categoryId)
+references categories(id)
 );
 
 CREATE TABLE sizes(

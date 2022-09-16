@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "10ec90ec-826e-4a4b-9bff-21936d586567",
+		"_postman_id": "3fb19ee3-5520-4889-8681-f4d7ecd9925d",
 		"name": "mock data brands/types/products",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21609321"
@@ -163,7 +163,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"shoes\",\n\t\"category_id\": 1\n}"
+					"raw": "{\n\t\"name\": \"shoes\",\n\t\"categoryId\": 1\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/types",
@@ -192,7 +192,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"smartphones\",\n\t\"category_id\": 2\n}"
+					"raw": "{\n\t\"name\": \"smartphones\",\n\t\"categoryId\": 2\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/types",
@@ -221,7 +221,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"laptops\",\n\t\"category_id\": 2\n}"
+					"raw": "{\n\t\"name\": \"laptops\",\n\t\"categoryId\": 2\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/types",
@@ -250,7 +250,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"gender\":\"male\",\n\"type_id\": 1,\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"small_description\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"gender\":\"male\",\n\"typeId\": 1,\n\"categoryId\": 1,\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"small_description\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -337,7 +337,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"type_id\": 1,\n\"gender\":\"male\",\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"small_description\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"typeId\": 1,\n\"categoryId\": 1,\n\"gender\":\"male\",\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"small_description\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -453,7 +453,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"gender\":\"unisex\",\n\"type_id\": 2,\n\"is_special\": true,\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"small_description\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
+					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"gender\":\"unisex\",\n\"typeId\": 2,\n\"categoryId\": 2,\n\"is_special\": true,\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"small_description\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -540,7 +540,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"type_id\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"small_description\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
+					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"typeId\": 2,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"small_description\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -627,7 +627,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"small_description\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
+					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"typeId\": 3,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"small_description\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -714,7 +714,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"typeId\": 3,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -746,7 +746,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"type_id\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"typeId\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products/product-info/1",
@@ -760,6 +760,100 @@
 						"products",
 						"product-info",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"typeId\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "types",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"typeId\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/types/type-info/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"types",
+						"type-info",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get from category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3004/api/products/product-category/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products",
+						"product-category",
+						"2"
 					]
 				}
 			},
