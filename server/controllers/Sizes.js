@@ -8,7 +8,7 @@ sizesController.post("/", async (req, res) => {
     const imageData = {
         size: req.body.size,
         quantity: req.body.quantity,
-        product_id: req.body.product_id,
+        productId: req.body.productId,
     }
 
     const createdSize = await SizeService.createSize(imageData);

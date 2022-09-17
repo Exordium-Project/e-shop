@@ -15,7 +15,7 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
-        category_id: {
+        categoryId: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {

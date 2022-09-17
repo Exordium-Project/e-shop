@@ -14,9 +14,9 @@ export default class ImageService {
     }
     static async getAllImagesForProduct(productId){    
         const allImagesForProduct = await Image.findAll({
-            attributes: ['id', 'image_url', 'product_id'],
+            attributes: ['id', 'image_url', 'productId'],
             where: {
-                product_id: productId
+                productId: productId
             }
         }).catch(err => {
             return new Error(500, err.message)
@@ -26,7 +26,7 @@ export default class ImageService {
 
     static async deleteImage(projectId) {
         await Image.destroy({
-            attributes: ['id', 'image_url', 'product_id'],
+            attributes: ['id', 'image_url', 'productId'],
             where: {
                 id: projectId
             }

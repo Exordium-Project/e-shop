@@ -14,7 +14,8 @@ productsController.post("/", async (req, res) => {
         is_special: req.body.is_special,
         gender: req.body.gender,
         small_description: req.body.small_description,
-        type_id: req.body.type_id,
+        typeId: req.body.typeId,
+        categoryId: req.body.categoryId,
         brand_id: req.body.brand_id
     }
     
@@ -56,6 +57,11 @@ productsController.get('/special-products', async (req, res) => {
 
 productsController.get(`/product-info/:id`, async (req, res) => {
     const product = await productService.getProduct(req.params['id'])
+
+    res.send(product)
+})
+productsController.get(`/category/:id`, async (req, res) => {
+    const product = await productService.getProductsByCategory(req.params['id'])
 
     res.send(product)
 })

@@ -7,7 +7,7 @@ const imagesController = express.Router()
 imagesController.post("/", async (req, res) => {
     const imageData = {
         image_url: req.body.image_url,
-        product_id: req.body.product_id
+        productId: req.body.productId
     }
 
     const createdImage = await ImageService.createImage(imageData);

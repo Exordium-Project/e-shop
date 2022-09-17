@@ -1,6 +1,10 @@
 import Product from '../models/Product.js';
+import Size from '../models/Size.js';
+import ImageProduct from '../models/Image.js';
 import Error from '../error/Error.js';
 import { Sequelize } from "sequelize"
+import Type from '../models/Type.js';
+import Category from '../models/Category.js';
 
 export default class ProductService {
 
@@ -29,7 +33,7 @@ export default class ProductService {
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special', 'image_url',
-                'small_description', 'brand_id', 'type_id']
+                'small_description', 'brand_id', 'typeId', 'categoryId']
         }).catch(err => {
             return new Error(500, err.message)
         })
@@ -42,7 +46,7 @@ export default class ProductService {
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special',
-                'small_description', 'image_url', 'brand_id', 'type_id'],
+                'small_description', 'image_url', 'brand_id', 'typeId', 'categoryId'],
             where: {
                 date_added: {
                     [Op.gt]: TODAY_START,
@@ -58,7 +62,7 @@ export default class ProductService {
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special',
-                'small_description', 'image_url', 'brand_id', 'type_id'],
+                'small_description', 'image_url', 'brand_id', 'typeId', 'categoryId'],
             where: {
                 is_special: true
             }
@@ -69,25 +73,76 @@ export default class ProductService {
     }
 
     static async getProduct(productId) {
+        Product.hasMany(Size);
+        Product.hasMany(ImageProduct);
+        Product.hasOne(Type);
+
         const product = await Product.findOne({
             attributes: ['id', 'name', 'color', 'price',
                 'quantity', 'small_description', 'image_url',
-                'date_added', 'is_special', 'brand_id', 'type_id'],
+                'date_added', 'is_special', 'brand_id', 'typeId', 'categoryId'],
             where: {
                 id: productId
+            },
+            include: [{
+                model: Size,
+                attributes: ['size', 'quantity'],
+                where: {
+                    productId: productId,
+                },
+                required: false
+            },
+            {
+                model: ImageProduct,
+                attributes: ['image_url'],
+                where: {
+                    productId: productId,
+                },
+                required: false
             }
-        })
-        .catch(error => {
-            return new Error(404, "Product not found!")
-        })
+            ],
 
+        })
+            .catch(error => {
+                console.error(error);
+                return new Error(404, "Product not found!")
+            })
         return product;
+    }
+    static async getProductsByCategory(category_id) {
+        Product.belongsTo(Type);
+        Product.belongsTo(Category);
+        const allProducts = await Product.findAll({
+            attributes: ['id', 'name', 'color', 'price', 'quantity',
+                'date_added', 'is_special', 'image_url',
+                'small_description', 'brand_id'],
+            where: {
+                categoryId: category_id
+            },
+            include: [
+                {
+                    model: Type,
+                    attributes: ['name'],
+                    required: false
+                },
+                {
+                    model: Category,
+                    attributes: ['name'],
+                    required: false
+                }
+            ],
+        })
+            .catch(err => {
+                console.error(err);
+                return new Error(500, err.message)
+            })
+        return allProducts;
     }
 
     static async deleteProduct(projectId) {
         await Product.destroy({
             attributes: ['id', 'name', 'color', 'price', 'quantity', 'image_url',
-                'date_added', 'is_special', 'small_description', 'type_id', 'brand_id'],
+                'date_added', 'is_special', 'small_description', 'typeId', 'categoryId', 'brand_id'],
             where: {
                 id: projectId
             }

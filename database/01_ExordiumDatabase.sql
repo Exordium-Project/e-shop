@@ -13,14 +13,14 @@ role varchar(20) not null
 );
 CREATE TABLE categories(
 id int not null auto_increment primary key,
-	name VARCHAR(50) NOT NULL
+name VARCHAR(50) NOT NULL
 );
 create table types(
 id int not null auto_increment primary key,
 name varchar(50),
-category_id int not null,
+categoryId int not null,
 constraint fk_types_categories
-foreign key(category_id)
+foreign key(categoryId)
 references categories(id)
 );
 
@@ -42,22 +42,26 @@ date_added datetime not null,
 is_special boolean,
 gender ENUM('male', 'female', 'unisex'),
 brand_id int not null,
-type_id int not null,
+typeId int not null,
+categoryId int not null,
 constraint fk_products_brands
 foreign key (brand_id)
 references brands(id),
 constraint fk_products_types
-foreign key (type_id)
-references types(id)
+foreign key (typeId)
+references types(id),
+constraint fk_products_categories
+foreign key (categoryId)
+references categories(id)
 );
 
 CREATE TABLE sizes(
 	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size VARCHAR(50) NOT NULL,
 	quantity int not null,
-    product_id int not null,
+    productId int not null,
     constraint fk_sizes_products
-    foreign key(product_id)
+    foreign key(productId)
     references products(id)
 );
 create table baskets(
@@ -113,9 +117,9 @@ references users(id)
 create table images(
 id int not null auto_increment primary key,
 image_url varchar(2048) not null,
-product_id int not null,
+productId int not null,
 constraint fk_images_products
-foreign key (product_id)
+foreign key (productId)
 references products(id)
 );
 create table address(

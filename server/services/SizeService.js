@@ -15,12 +15,12 @@ export default class SizeService {
     }
     static async getAllSizesForProduct(productId){    
         const allSizesForProduct = await Size.findAll({
-            attributes: ['id', 'size','quantity','product_id'],
+            attributes: ['id', 'size','quantity','productId'],
             where: {
-                product_id: productId
+                productId: productId
             },
             order: [
-                ['product_id','ASC'],
+                ['productId','ASC'],
                 ['size','ASC']
             ]
         })
@@ -39,7 +39,7 @@ export default class SizeService {
 
     static async deleteSize(projectId) {
         await Size.destroy({
-            attributes: ['id', 'size','quantity', 'product_id'],
+            attributes: ['id', 'size','quantity', 'productId'],
             where: {
                 id: projectId
             }
