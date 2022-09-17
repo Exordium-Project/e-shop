@@ -12,6 +12,8 @@ import TypesController from './controllers/Types.js';
 import BrandsController from './controllers/Brands.js';
 import OrdersController from './controllers/Orders.js';
 import CategoriesController from './controllers/Categories.js';
+import imagesController from './controllers/Images.js';
+import sizesController from './controllers/Sizes.js';
 
 let app = express();
 let port = process.env.PORT || 3004;
@@ -38,6 +40,8 @@ app.use('/api/types', TypesController);
 app.use('/api/brands', BrandsController);
 app.use('/api/orders',OrdersController);
 app.use('/api/categories',CategoriesController);
+app.use('/api/images',imagesController);
+app.use('/api/sizes',sizesController);
 
 app.listen(port, async () => {
     console.log('\x1b[36m', 'Exordium server is running on port: ' + port);

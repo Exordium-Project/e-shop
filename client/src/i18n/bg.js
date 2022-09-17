@@ -14,8 +14,8 @@ export const bg ={
             "toys":"Играчки",
             "catalog":"Каталог",
             "brands":"Марки",
-            "cart":"Количка",
-            "trending":"промо"
+            "cart": "Количка",
+            "hot": "промо"
         },
         "ShoppingCart": {
             "productsHeading": "Вашата количка",
@@ -31,6 +31,17 @@ export const bg ={
                 "guestCheckoutButton": "Платете без регистрация",
                 "memberCheckoutButton": "Платете с регистрация"
             }
+        },
+        "Footer": {
+            "team": "За нас",
+            "join": "Присъедини се към Discord",
+            "copyright": "Авторско право"
+        },
+        "ProductPage": {
+            "selectSize": "Избери размер",
+            "addToCart": "Добави в количка",
+            "deliveryAndReturns": "Безплатна доставка и връщане",
+            "reviews": "Ревюта"
         }
     }
 }

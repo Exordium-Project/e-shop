@@ -1,6 +1,7 @@
 import { Sequelize }  from "sequelize"
 import db from "../config/db.config.js"
 import Brand from "./Brand.js"
+import Category from "./Category.js"
 import Type from "./Type.js"
 
 export default db.sequelize.define(
@@ -28,19 +29,39 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false
         },
-        imageUrl: {
+        image_url: {
             type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
-        smallDescription: {
+        small_description: {
             type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
-        type_id: {
+        date_added: {
+            type: Sequelize.DataTypes.DATE,
+            allowNull: false
+        },
+        is_special: {
+            type: Sequelize.DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        gender: {
+            type: Sequelize.DataTypes.ENUM('male', 'female', 'unisex'),
+            allowNull: false
+        },
+        typeId: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Type,
+                key: 'id'
+            }
+        },
+        categoryId: {
+            type: Sequelize.DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Category,
                 key: 'id'
             }
         },

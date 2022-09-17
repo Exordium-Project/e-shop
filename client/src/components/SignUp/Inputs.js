@@ -1,19 +1,24 @@
-import { Typography, TextField, Grid, Box, Link, Button } from '@mui/material'
+import React, {useState} from 'react';
+import { Typography, TextField, Grid, Box, Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import './SignUpStyles/Registration-inputs.scss'
 import './SignUpStyles/Mobile-phone-view.scss'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
-import Axios from 'axios'
+import Axios from 'axios';
+import { Link, Navigate } from 'react-router-dom';
 
 export default function SignUp() {
+    const [isRegistrated, setIsRegistrated] = useState(false);
+
     const { register, handleSubmit, formState: { errors }, getValues } = useForm()
     const onSubmit = () => {
         Axios.post('http://localhost:3004/api/users/registration', {
             username: getValues('username'), email: getValues('email'),
             password: getValues('password'), full_name: getValues('firstName') + ' ' + getValues('lastName')
-        })
+        });
+        setIsRegistrated(true);
     }
     return (
         <Box component="form" noValidate sx={{ mt: 3 }} onSubmit={handleSubmit(onSubmit)}>
@@ -75,7 +80,7 @@ export default function SignUp() {
                             {...register('password', {
                                 required: 'This field is required', pattern: {
                                     value: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/,
-                                    message: 'Password should be at least 8 characters long'
+                                    message: 'Password should have at least one capital letter, a number and be 8 characters long'
                                 }
                             })}
                             error={!!errors?.password}
@@ -86,7 +91,10 @@ export default function SignUp() {
                     <Grid item xs={12}>
                         <Typography className='tearms-and-conditions'>By signing in you accept Exordium Terms and Conditions <Link to="#" sx={{ cursor: 'pointer' }}>Learn more</Link></Typography>
                     </Grid>
-                    <Button type='submit' data-testid='submit-button' className='create-account-button' sx={{ textTransform: 'none' }}>Create account</Button>
+                    {
+                        !isRegistrated ? <Button type='submit' data-testid='submit-button' className='create-account-button' sx={{ textTransform: 'none' }}>Create account</Button>
+                        : <Navigate to='/login' type='submit'><Button type='submit' data-testid='submit-button' className='create-account-button' sx={{ textTransform: 'none' }}>Create account</Button></Navigate>
+                    }
                 </Grid>
                 <Box className='vertical-line'>
                     <Box className='vertical-line-text'>or</Box>

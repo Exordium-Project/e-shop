@@ -1,5 +1,6 @@
 import Type from "../models/Type.js"
 import Error from "../error/Error.js";
+import Category from "../models/Category.js";
 
 export default class TypeService {
 
@@ -7,7 +8,7 @@ export default class TypeService {
         const type = await Type.findOne({
             where: {
                 name: typeData.name
-            }
+                }
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -27,7 +28,7 @@ export default class TypeService {
 
     static async getAllTypes() {
         const [types] = await Promise.all([Type.findAll({
-            attributes: ["name"]
+            attributes: ['id','name',"categoryId"]
         })]).catch(error => {
             console.log(error);
             return new Error(500, error.message);

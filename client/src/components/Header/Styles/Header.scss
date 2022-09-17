@@ -1,16 +1,22 @@
-.header-div{
+.header-div {
     display: flex;
-    .header-buttons{
+
+    .header-buttons {
         height: 7.5rem;
         width: 100%;
         border: 1px solid black;
+        border-left: none;
+        border-radius: 0px;
     }
+
     .pages {
-        color: black;
-        font-size: 1.2rem;
+        font-family: Roboto;
+        font-size: 1.1rem;
         text-transform: capitalize;
+        color: black;
     }
-    .span{
+
+    .span {
         margin-left: .6rem;
         background: rgba(50, 63, 175, 1);
         border-radius: .5rem;
@@ -21,37 +27,61 @@
         text-transform: lowercase;
         font-size: 1rem;
     }
-    .bagBtn{
+
+    .bagBtn {
         width: 100%;
         color: black;
         margin-right: -2rem;
     }
-    .languages{
+
+    .languages {
         color: black;
         border: 1px solid black;
-        border-radius: .2rem;
-        height: 7.35rem;       
+        height: 7.37rem;
+        border-left: none;
+        width: 100.1%;
+
+        .MuiOutlinedInput-notchedOutline {
+            border: none;
+        }
+        .input-label {
+            font-size: .9rem;
+            display: flex;
+            justify-content: center;
+             margin-top: 1.2rem;
+            margin-left: -.5rem;
+            color: black;
+        }
     }
-    .input-label{
-        font-size: 1.1rem;
-        display: flex;
-        justify-content: center;
-        margin-top: 1.7rem;
-        margin-left: -.5rem;
-    }
-    .MuiSelect-select{
+
+
+    .MuiSelect-select {
         width: 100%;
     }
+
+    .exordium-header-title {
+        font-size: 1rem;
+        margin-left: 11rem;
+        margin-top: -3.6rem;
+        color: white;
+        font-family: Montserrat;
+    }
+
+    .exordium-header-subtitle {
+        color: rgb(122, 122, 122);
+        font-size: .9rem;
+        font-family: Montserrat;
+    }
+    .first-typography {
+        background-color: rgba(29, 30, 31, 1);
+        margin-left: -4.7rem;
+        height: 7.5rem;
+    }
+    
+    .img {
+        border-radius: 50%;
+        height: 3.5rem;
+        margin-left: 6rem;
+        margin-top: 1.7rem;
+    }
 }
-.first-typography{
-    background-color: rgba(29, 30, 31, 1);
-    margin-left: -2.7rem;
-    height: 7.5rem;
-    border-radius: .1rem;
-}
-.img{
-    border-radius: 50%;
-    height: 3.5rem;
-    margin-left: 5.9rem;
-    margin-top: 1.7rem;
-}   

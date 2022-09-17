@@ -7,25 +7,25 @@ import '../main-layout/mainPage.scss';
 
 const SpecialProductList = () => {
     const {t} = useTranslation()
-    const [products, setProducts] = useState([]);
+    const [specialProducts, setSpecialProducts] = useState([]);
+
     const url = 'http://localhost:3004'; // change url when deploying
-    const productURL = `${url}/api/products`;
+    const specialProductURL = `${url}/api/products/special-products`;
 
     useEffect(() => {
-        getAllProducts();
+        getAllSpecialProducts();
     }, [])
 
-    const getAllProducts = () => {
-        axios.get(productURL)
-        .then ((response) => {
-            const products = response.data;
-            setProducts(products);
-        })
-        .catch(error => console.error(`Error: ${error}`));
+    const getAllSpecialProducts = () => {
+        axios.get(specialProductURL)
+            .then((response) => {
+                setSpecialProducts(response.data);
+            })
+            .catch(error => console.error(`Error: ${error}`));
     }
 
-    const productKeys = Object.values(products);
-    const specialProducts = productKeys.map( productData => 
+    const specialProductKeys = Object.values(specialProducts);
+    const specials = specialProductKeys.map( productData => 
          
         <SpecialComponent {...productData} /> );
 
@@ -37,7 +37,7 @@ const SpecialProductList = () => {
 
                 <Grid item sm={12}>
                     <Box className='specials-placeholder'>
-                        {specialProducts.map((item, index) => {
+                        {specials.map((item, index) => {
                             return <Grid item xs={12} sm={6} md={4}
                                 key={"specials-"+index}>{item}
                             </Grid>

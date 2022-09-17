@@ -10,12 +10,15 @@ productsController.post("/", async (req, res) => {
         color: req.body.color,
         price: req.body.price,
         quantity: req.body.quantity,
-        imageUrl: req.body.imageUrl,
-        smallDescription: req.body.smallDescription,
-        type_id: req.body.type_id,
+        image_url: req.body.image_url,
+        is_special: req.body.is_special,
+        gender: req.body.gender,
+        small_description: req.body.small_description,
+        typeId: req.body.typeId,
+        categoryId: req.body.categoryId,
         brand_id: req.body.brand_id
     }
-
+    
     const createdProduct = await productService.createProduct(productData);
 
     if(createdProduct instanceof Error){
@@ -32,6 +35,35 @@ productsController.get('/', async (req, res) => {
     }
     
     res.send(products)
+})
+productsController.get('/today', async (req, res) => {
+    const products = await productService.getTodayProducts()
+
+    if(products instanceof Error){
+        res.status(products.statusCode)
+    }
+    
+    res.send(products)
+})
+productsController.get('/special-products', async (req, res) => {
+    const products = await productService.getSpecialProducts()
+
+    if(products instanceof Error){
+        res.status(products.statusCode)
+    }
+    
+    res.send(products)
+})
+
+productsController.get(`/product-info/:id`, async (req, res) => {
+    const product = await productService.getProduct(req.params['id'])
+
+    res.send(product)
+})
+productsController.get(`/category/:id`, async (req, res) => {
+    const product = await productService.getProductsByCategory(req.params['id'])
+
+    res.send(product)
 })
 
 productsController.delete("/", async (req, res) => {

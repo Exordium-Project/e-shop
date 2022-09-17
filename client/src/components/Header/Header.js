@@ -1,16 +1,18 @@
-import React from 'react'
-import Logo from './Logo.png'
+import React, { useState, useEffect } from 'react';
+import Logo from './Logo.png';
 import { Typography, Button, MenuItem, FormControl, Select, InputLabel, Box, Grid, StyledEngineProvider } from '@mui/material';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import { useTranslation } from "react-i18next";
-import { Link } from 'react-router-dom'
-import './Styles/Header.scss'
-import CodeIcon from '@mui/icons-material/Code';
+import { Link } from 'react-router-dom';
+import './Styles/Header.scss';
 
 const Header = () => {
+  const [username, setUsername] = useState("Sign Up");
+  const [path, setPath] = useState('/sign');
+
   const { i18n, t } = useTranslation();
   const textDecorationObject = {
     textDecoration: 'none'
@@ -28,6 +30,14 @@ const Header = () => {
     i18n.changeLanguage(e.target.value)
   }
 
+  useEffect(() => {
+    const initialValue = localStorage.getItem("username");
+    if(initialValue) {
+      const firstName = initialValue.split(' ')[0];
+      setUsername(firstName);
+      setPath('/user');
+    }
+  }, [])
   return (
     <StyledEngineProvider injectFirst={true}>
       <Box className='header-div'>
@@ -35,9 +45,9 @@ const Header = () => {
           <Grid item={true} xs={12} md={3}>
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
-              <Typography sx={{ fontSize: '1.5rem', ml: '11rem', mt: '-4.4rem', color: 'white' }}>
+              <Typography className='exordium-header-title'>
                 EXORDIUM
-                <Typography sx={{ color: 'rgb(122, 122, 122)', fontSize: '1.1rem' }}>ALL DAY STORE</Typography>
+                <Typography className='exordium-header-subtitle'>ALL DAY STORE</Typography>
               </Typography>
             </Typography>
           </Grid>
@@ -46,7 +56,7 @@ const Header = () => {
             <Link to='/toys' style={textDecorationObject}>
               <Button className='header-buttons'>
                 <Typography className='pages'>{t("Navigation.toys")}</Typography>
-                <span className='span'>{t("Navigation.trending")}</span>
+                <span className='span'>{t("Navigation.hot")}</span>
               </Button>
             </Link>
 
@@ -78,9 +88,9 @@ const Header = () => {
               languages.map((languageItem, index) => {
                 return (
                   <FormControl key={index + "formcontrol"} fullWidth className='languages'>
-                    <InputLabel sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon />{languageItem.title}</InputLabel>
+                    <Typography sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon fontSize='small' />{languageItem.title}</Typography>
                     <Select
-                      sx={{ height: '7.5rem', textAlign: 'center' }}
+                      sx={{ height: '2.5rem', textAlign: 'center', width: '100.1%' }}
                       onChange={onLanguageChange}
                       defaultValue="en">
                       {
@@ -94,12 +104,11 @@ const Header = () => {
           </Grid>
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
-
-            <Link to='/user' style={textDecorationObject}>
-              <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
-                <Typography className='pages'>Alex</Typography>
-              </Button></Link>
-
+               <Link to={path} style={textDecorationObject}>
+                <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
+                  <Typography className='pages'>{username}</Typography>
+                </Button>
+              </Link>
           </Grid>
 
           <Grid item={true} xs={12} sm={2} md={1.5}>
@@ -114,14 +123,6 @@ const Header = () => {
           </Grid>
         </Grid>
       </Box>
-      <Grid item={true} xs={12} >
-        <Link to='/team' style={textDecorationObject}>
-          <Button className='header-buttons'>
-            <CodeIcon />
-            <Typography color="rgb(122, 122, 122)" className='pages' paddingLeft="10px">Team Developers</Typography>
-          </Button>
-        </Link>
-      </Grid>
     </StyledEngineProvider >
   );
 }

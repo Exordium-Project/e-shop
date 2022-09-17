@@ -15,19 +15,19 @@
         border: 1px solid #000000;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-        .accordion-container{
+        .accordion-container {
             background-color: rgb(29, 30, 31);
             color: white;
+            padding-bottom: 1rem;
             border: 1px solid rgba(0, 0, 0, 0.25);
-            .expand-icon{
+
+            .expand-icon {
                 color: white;
             }
         }
 
-        .group-info {
-            color: white;
-            margin-top: 40px;
-            margin-bottom: 40px;
+        .second-accordion-container {
+            margin-top: -1rem;
         }
 
         .card-container {
@@ -35,7 +35,7 @@
             align-items: center;
 
             .card {
-                max-width: 400px;
+                width: 100%;
                 margin: auto;
                 text-align: center;
                 font-family: arial;
@@ -57,6 +57,11 @@
             }
 
             .memberInfo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+
                 a {
                     cursor: pointer;
 
@@ -68,12 +73,16 @@
                 }
 
                 .modal-anchor {
-                    color: black;
-                    cursor: pointer;
-                    padding: 2px 5px;
-                    background-color: white;
                     border-radius: 5px;
-                    margin-left: 20px;
+                    background-color: #fff;
+                    background: linear-gradient(to left, white 50%, lightblue 50%) right;
+                    background-size: 200%;
+                    transition: .4s;
+                    width: 30%;
+                }
+
+                .modal-anchor:hover {
+                    background-position: left;
                 }
             }
 
@@ -87,12 +96,42 @@
                 cursor: pointer;
                 width: 30%;
                 font-size: 18px;
-                margin-left: 10%;
             }
 
             .card button:hover {
                 opacity: 0.7;
             }
         }
+    }
+}
+
+.member-info-box {
+    .group-info {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding-left: 1rem;
+    }
+
+    .group-info img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    .close-modal-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: black;
+    }
+
+    .member-info {
+        margin-top: 3rem;
+        padding-left: 1rem;
+        font-size: 1.3rem;
     }
 }
