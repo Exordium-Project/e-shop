@@ -11,8 +11,8 @@ export const en ={
             }
         },
         "Navigation":{
-            "toys":"Toys",
-            "catalog":"Catalog",
+            "clothing":"Clothing",
+            "tech":"Tech",
             "brands":"Brands",
             "cart":"My Cart",
             "hot":"hot"

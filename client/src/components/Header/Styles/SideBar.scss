@@ -1,38 +1,25 @@
 .side-bar{
-    padding-top: 1rem;
-    width: 25%;
+    width: 33%;
 
-    .avaiable-products-class{
-        .avaiable-products-text{
-            padding-bottom: 1rem;
+    .filter-buttons-class{
+        display: grid;
+        padding-bottom: 1rem;
+
+        .title{
+            font-size: 1.1rem;
             text-align: center;
         }
-        .avaiable-products li{
-            list-style: none;
-            
-            .category-button{
-                font-size: 1.1rem;
-                padding-right: 2rem;
-                padding-left: .8rem;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
+        .filter-button{
+            padding: 1rem;
+            font-size: 1.1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: 200ms;
         }
-    
-    }
-    .side-bar-boxes{
-       width: 80%;
-       padding-left: 2rem;
-       
-       .accordion-style{
-          box-shadow: none;
-       }
-    }
-    .products{
-        display: flex;
-        position: absolute;
-        left: 24rem;
-        top: 19rem;
+        .filter-button:active{
+            background-color: lightgray;
+            transform: scale(0.85);
+        }
     }
 }

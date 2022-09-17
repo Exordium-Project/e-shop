@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import "../Styles/SideBar.scss";
+import './CatalogStyles/Tech.scss';
+import { Box, Typography, StyledEngineProvider, Grid, Accordion, Checkbox, AccordionSummary, AccordionDetails, FormGroup, FormControlLabel, Card, CardContent, CardActions, CardActionArea } from '@mui/material';
 import axios from 'axios';
-import { Box, Typography, StyledEngineProvider, Grid, Accordion, Checkbox, AccordionSummary, AccordionDetails, FormGroup, FormControlLabel } from '@mui/material';
+import SideBarStyle from '../Styles/SideBar.scss';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const SideBar = () => {
+const Tech = () => {
     const [productPref, setProductPref] = useState([]);
 
     const propFetch = async () => {
-        await axios.get('http://localhost:3004/api/products').then(response => {
+        await axios.get('http://localhost:3004/api/products/category/2').then(response => {
             const data = response.data;
             setProductPref(data);
         })
@@ -16,12 +17,11 @@ const SideBar = () => {
     useEffect(() => {
         propFetch();
     }, [])
-
     return (
-        <StyledEngineProvider injectFirst={true}>
-            <Box className='side-bar'>
+        <Box style={{ display: 'flex' }}>
+            <Box className='side-bar' style={SideBarStyle}>
                 <Box className='filter-buttons-class'>
-                    <Typography className='title'><strong>Avaiable products (69)</strong></Typography>
+                    <Typography className='title'><strong>Avaiable products (123)</strong></Typography>
                     <button className='filter-button'>Phones</button>
                     <button className='filter-button'>Laptops</button>
                     <button className='filter-button'>Periphery</button>
@@ -50,8 +50,32 @@ const SideBar = () => {
                     }
                 </Box>
             </Box>
-        </StyledEngineProvider>
+            <Box className='product-main-class'>
+            {
+                productPref.map((item, index) => {
+                    return (
+                        <Box className='product-class'>
+                            <Card className='card' key={index}>
+                                <CardActionArea>
+                                    <img src={item.image_url} className='productImage' />
+                                </CardActionArea>
+                                <Typography className='name'>{item.name}</Typography>
+                                <Box className='productInfo'>
+                                    <Typography fontSize=".7rem">{item.small_description}</Typography>
+                                </Box>
+
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <Typography className="productPrice">{item.price}$</Typography>
+
+                                </Box>
+                            </Card>
+                        </Box>
+                    )
+                })
+            }
+            </Box>
+        </Box>
     )
 }
 
-export default SideBar
+export default Tech
