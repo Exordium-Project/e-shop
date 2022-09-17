@@ -16,21 +16,12 @@ const ProductPage = () => {
     const navigate = useNavigate();
     const id = useParams().productID;
     const [product, setProduct] = useState([]);
-    const [category, setCategory] = useState([]);
-    const [productImages, setProductImages] = useState([]);
-    const [msizes, setSizes] = useState([]);
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productInfoURL = `${url}/api/products/product-info/${id}`;
-    const categoryURL = `${url}/api/types`;
-    const imagesURL = `${url}/api/images/image-info/${id}`;
-    const sizesURL = `${url}/api/sizes/size-info/${id}`;
 
     useEffect(() => {
         getProductInfo();
-        getCategory();
-        getProductImages();
-        getSizes();
     }, []);
 
     const getProductInfo = () => {
@@ -42,36 +33,8 @@ const ProductPage = () => {
         .catch(error => console.error(`Error: ${error}`));
     }
 
-    const getCategory = () => {
-        axios.get(categoryURL)
-        .then ((response) => {
-            const categoryArray = response.data;
-            setCategory(categoryArray);
-            
-        })
-        .catch(error => console.error(`Error: ${error}`));
-    }
-
-    const getProductImages = () => {
-        axios.get(imagesURL)
-            .then((response) => {
-                const imagesArray = response.data;
-                setProductImages(imagesArray);
-            })
-            .catch(error => console.error(`Error: ${error}`));
-    }
-
-    const getSizes = () => {
-        axios.get(sizesURL)
-            .then((response) => {
-                const sizesArray = response.data.sizes;
-                setSizes(sizesArray);
-            })
-            .catch(error => console.error(`Error: ${error}`));
-    }
-
     function hasSizes(productCategory) {
-        if (productCategory === 'clothes' || productCategory ===  'shoes') {
+        if (productCategory === 'clothing') {
             return true;
         }
         else {
@@ -79,10 +42,10 @@ const ProductPage = () => {
         }
     }
     
-    const productCategory = category[product.typeId-1]?.name;
+    const productCategory = product.category?.name;
     
     return(
-        <div className='product-page'>
+       product && <div className='product-page'>
             <Box className='back-banner'>
                 <IconButton className='back-button'>
                     <KeyboardBackspaceIcon onClick={() => navigate(-1)} />
@@ -99,11 +62,11 @@ const ProductPage = () => {
                                 className='carousel'
                                 naturalSlideWidth={1}
                                 naturalSlideHeight={1}
-                                totalSlides={productImages.length}
+                                totalSlides={product.images?.length}
                             >
                                 <Box className='slider-and-buttons'>
                                     <Slider>
-                                        {productImages.map((image, i) => (
+                                        {product.images?.map((image, i) => (
                                             <Slide index={i}>
                                                 <Box component="img"
                                                     className='product-image'
@@ -156,32 +119,32 @@ const ProductPage = () => {
                                     <Grid container 
                                         columnSpacing={1}
                                         rowSpacing={2}>
-                                        {msizes.map((element,index) => {
-                                            let obj = Object.keys(element);
-                                            let size = obj[0];
-                                            let quantity = element[size];
-                                            if (quantity > 5) {
+                                        {product.sizes.map((element,index) => {
+                                            // let obj = Object.keys(element);
+                                            // let size = obj[0];
+                                            // let quantity = element[size];
+                                            if (element.quantity > 5) {
                                                 return <Grid item xs={4}>
                                                     <Button className='product-size-button' variant="outlined">
                                                         <Typography>
-                                                            {size}
+                                                            {element.size}
                                                         </Typography>
                                                     </Button>
                                                 </Grid>
-                                            } else if (quantity >= 1) {
+                                            } else if (element.quantity >= 1) {
                                                 return <Grid item xs={4}>
                                                     <Button className='product-size-button-few-left' variant="outlined">
                                                         <Typography>
-                                                            {size}
+                                                            {element.size}
                                                         </Typography>
-                                                        <Typography className='size-quantity'>{quantity} more left</Typography>
+                                                        <Typography className='size-quantity'>{element.quantity} more left</Typography>
                                                     </Button>
                                                 </Grid>                        
                                             } else {
                                                 return <Grid item xs={4}>
                                                     <Button className='product-size-button-sold-out' variant="outlined" disabled>
                                                         <Typography>
-                                                            {size}
+                                                            {element.size}
                                                         </Typography>
                                                         <Typography className='size-quantity'>sold out</Typography>
                                                     </Button>

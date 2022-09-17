@@ -75,7 +75,8 @@ export default class ProductService {
     static async getProduct(productId) {
         Product.hasMany(Size);
         Product.hasMany(ImageProduct);
-        Product.hasOne(Type);
+        Product.belongsTo(Type);
+        Product.belongsTo(Category);
 
         const product = await Product.findOne({
             attributes: ['id', 'name', 'color', 'price',
@@ -98,6 +99,16 @@ export default class ProductService {
                 where: {
                     productId: productId,
                 },
+                required: false
+            },
+            {
+                model: Type,
+                attributes: ['name'],
+                required: false
+            },
+            {
+                model: Category,
+                attributes: ['name'],
                 required: false
             }
             ],
