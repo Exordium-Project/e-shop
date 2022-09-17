@@ -833,7 +833,7 @@
 			"response": []
 		},
 		{
-			"name": "get from category",
+			"name": "tech products",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -843,7 +843,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3004/api/products/product-category/2",
+					"raw": "http://localhost:3004/api/products/category/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -852,8 +852,35 @@
 					"path": [
 						"api",
 						"products",
-						"product-category",
+						"category",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "clothing products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3004/api/products/category/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"products",
+						"category",
+						"1"
 					]
 				}
 			},

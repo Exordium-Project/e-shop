@@ -107,7 +107,7 @@ export default class ProductService {
 
         return product;
     }
-    static async getTechProducts() {
+    static async getProductsByCategory(category_id) {
         Product.belongsTo(Type);
         Product.belongsTo(Category);
         const allProducts = await Product.findAll({
@@ -115,7 +115,7 @@ export default class ProductService {
                 'date_added', 'is_special', 'image_url',
                 'small_description', 'brand_id'],
                 where: {
-                    categoryId: 2
+                    categoryId: category_id
                 },
                 include: [
                     {
@@ -127,31 +127,6 @@ export default class ProductService {
                     attributes: [ 'name']
                 }
             ],
-        })
-        .catch(err => {
-            console.error(err);
-            return new Error(500, err.message)
-        })
-        return allProducts;
-    }
-    static async getClothingProducts() {
-        Product.belongsTo(Type);
-        Product.belongsTo(Category);
-        const allProducts = await Product.findAll({
-            attributes: ['id', 'name', 'color', 'price', 'quantity',
-                'date_added', 'is_special', 'image_url',
-                'small_description', 'brand_id'],
-                where: {
-                    categoryId: 1
-                },
-                include: [{
-                    model: Type,
-                    attributes: [ 'name']
-                },
-                {
-                    model: Category,
-                    attributes: ['name']
-                }],
         })
         .catch(err => {
             console.error(err);

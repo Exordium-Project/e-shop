@@ -79,7 +79,7 @@ const ProductPage = () => {
         }
     }
     
-    const productCategory = category[product.typeId-1]?.name;
+    const productCategory = category[product.typeId]?.name;
     
     return(
         <div className='product-page'>

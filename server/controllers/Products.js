@@ -60,13 +60,8 @@ productsController.get(`/product-info/:id`, async (req, res) => {
 
     res.send(product)
 })
-productsController.get(`/tech-products`, async (req, res) => {
-    const product = await productService.getTechProducts()
-
-    res.send(product)
-})
-productsController.get(`/clothing-products`, async (req, res) => {
-    const product = await productService.getClothingProducts()
+productsController.get(`/category/:id`, async (req, res) => {
+    const product = await productService.getProductsByCategory(req.params['id'])
 
     res.send(product)
 })
