@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3fb19ee3-5520-4889-8681-f4d7ecd9925d",
+		"_postman_id": "dc8007f5-778f-411c-ae49-5376c138c01a",
 		"name": "mock data brands/types/products",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21609321"
@@ -250,7 +250,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"gender\":\"male\",\n\"typeId\": 1,\n\"categoryId\": 1,\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"small_description\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
+					"raw": "{\n\"name\":\"Adidas Superstar\",\n\"color\": \"white\",\n\"price\": 90,\n\"quantity\": 5,\n\"brand_id\":1,\n\"gender\":\"male\",\n\"typeId\": 1,\n\"categoryId\": 1,\n\"is_special\": true,\n\"image_url\": \"https://images.pexels.com/photos/11239249/pexels-photo-11239249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"small_description\": \"Superstar EG4958 Ftwwht/Cblack/Ftwwht\"\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -279,7 +279,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000206693594_01_jc.jpg\",\n\"productId\": 1\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/11239249/pexels-photo-11239249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 1\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -308,7 +308,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://sizeer.bg/media/cache/gallery/rc/rk14wrxg/adidas-superstar-junior-mladezhki-maratonki-byal-fu7712.jpg\",\n\"productId\": 1\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/9492337/pexels-photo-9492337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 1\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -337,7 +337,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Adidas Stan Smith\",\n\"color\": \"black\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"typeId\": 1,\n\"categoryId\": 1,\n\"gender\":\"male\",\n\"is_special\": true,\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"small_description\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
+					"raw": "{\n\"name\":\"Kjook Sneakers\",\n\"color\": \"red\",\n\"price\": 50,\n\"quantity\": 5,\n\"brand_id\":1,\n\"typeId\": 1,\n\"categoryId\": 1,\n\"gender\":\"male\",\n\"is_special\": true,\n\"image_url\": \"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=796&q=80\",\n\"small_description\": \"Stan Smith J FX7519 Ftwwht/Ftwwht/Green\"\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -366,65 +366,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207770294_07_mf_1.jpg\",\n\"productId\": 2\n\t\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3004/api/images",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3004",
-					"path": [
-						"api",
-						"images"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "create image - 2 Adidas Stan Smith",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://sneakerstudio.bg/bul_pl_adidas-Originals-Stan-Smith-Vegan-FX5502-1022031_5.jpg\",\n\"productId\": 2\n\t\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3004/api/images",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3004",
-					"path": [
-						"api",
-						"images"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "create image - 3 Adidas Stan Smith",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.obuvki.bg/media/catalog/product/cache/image/650x650/0/0/0000207773493_01_ki_1_1.jpg\",\n\"productId\": 2\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=796&q=80\",\n\"productId\": 2\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -453,7 +395,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"gold\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"gender\":\"unisex\",\n\"typeId\": 2,\n\"categoryId\": 2,\n\"is_special\": true,\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"small_description\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
+					"raw": "{\n\"name\":\"iPhone 13\",\n\"color\": \"pink\",\n\"price\": 1500,\n\"quantity\": 4,\n\"brand_id\":2,\n\"gender\":\"unisex\",\n\"typeId\": 2,\n\"categoryId\": 2,\n\"is_special\": true,\n\"image_url\": \"https://images.pexels.com/photos/4279152/pexels-photo-4279152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"small_description\": \"Apple iPhone 13 Pro 256GB Gold\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -482,7 +424,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://technome.bg/image/cache/catalog/Apple/Apple-iPhone-13-Pro-Max-517-500x500.jpg\",\n\"productId\": 3\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/4279152/pexels-photo-4279152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 3\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -511,7 +453,36 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://www.yettel.bg/sites/default/files/styles/device-full/public/28.02._22_-_iphone_pro_max_-_gold_-_1234.png?itok=UEeCbm42\",\n\"productId\": 3\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/4279153/pexels-photo-4279153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 3\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create image - 3 iPhone 13",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/4279151/pexels-photo-4279151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 3\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -540,7 +511,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"typeId\": 2,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"small_description\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
+					"raw": "{\n\"name\":\"iPhone 6S\",\n\"color\": \"silver\",\n\"price\": 250,\n\"quantity\": 10,\n\"brand_id\":2,\n\"typeId\": 2,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"small_description\": \"Apple iPhone 6S - silver - 64GB - A+ grade - refurbished\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -569,7 +540,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-silver-select-2015.png\",\n\"productId\": 4\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 4\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -598,7 +569,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://gsm-bg.eu/image/cache/catalog/apple-iphone-6s-white%20silver-500x500.png\",\n\"productId\": 4\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/850360/pexels-photo-850360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 4\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -627,7 +598,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"typeId\": 3,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"small_description\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
+					"raw": "{\n\"name\":\"Acer Swift 3\",\n\"color\": \"silver\",\n\"price\": 550,\n\"quantity\": 2,\n\"brand_id\":3,\n\"typeId\": 3,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://images.pexels.com/photos/6452/laptop-notebook-technology-white-6452.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"small_description\": \"Acer Swift SF314-512-56MS - NX.K0EEX.003\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -656,7 +627,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200928/Acer-Swift-3_SF314-59_WP_FP-Backlit_Aqua-Blue_modelpreview.png\",\n\"productId\": 5\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/6452/laptop-notebook-technology-white-6452.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 5\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -674,7 +645,7 @@
 			"response": []
 		},
 		{
-			"name": "create image - 2 Acer Swift",
+			"name": "create image - 2 Acer Swift 3 Copy",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -685,7 +656,36 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/SF314_512/20220328/acer-laptop-swift-3-pick-up-and-go-s.jpg\",\n\"productId\": 5\n\t\n}"
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/169484/pexels-photo-169484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 5\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create image - 3 Acer Swift",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"image_url\": \"https://images.pexels.com/photos/6168/hands-woman-laptop-notebook.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2\",\n\"productId\": 5\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/images",
@@ -714,7 +714,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"typeId\": 3,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
+					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"typeId\": 3,\n\"categoryId\": 2,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1720&q=80\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3004/api/products",
@@ -726,6 +726,93 @@
 					"path": [
 						"api",
 						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create image - 1 MacBook Pro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"image_url\": \"https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1720&q=80\",\n\"productId\": 6\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create image - 2 MacBook Pro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"image_url\": \"https://images.unsplash.com/photo-1582056615449-5dcb2332b3b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80\",\n\"productId\": 6\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create image - 3 MacBook Pro Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"image_url\": \"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80\",\n\"productId\": 6\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3004/api/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"images"
 					]
 				}
 			},
@@ -749,7 +836,7 @@
 					"raw": "{\n\"name\":\"MacBook Pro\",\n\"color\": \"silver\",\n\"price\": 2300,\n\"quantity\": 15,\n\"brand_id\":2,\n\"typeId\": 3,\n\"gender\":\"unisex\",\n\"is_special\": false,\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"small_description\": \"Supercharged for pros.\"\n\t\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3004/api/products/product-info/1",
+					"raw": "http://localhost:3004/api/products/product-info/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -759,7 +846,7 @@
 						"api",
 						"products",
 						"product-info",
-						"1"
+						"3"
 					]
 				}
 			},
@@ -870,7 +957,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3004/api/products/category/1",
+					"raw": "http://localhost:3004/api/products/category/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -880,65 +967,7 @@
 						"api",
 						"products",
 						"category",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "create image - 1 MacBook Pro",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mbp-14-sg.jpeg\",\n\"productId\": 6\n\t\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3004/api/images",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3004",
-					"path": [
-						"api",
-						"images"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "create image - 2 MacBook Pro",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"image_url\": \"https://wips.plug.it/cips/tecnologia/cms/2021/10/macbook-pro-2021.jpg\",\n\"productId\": 6\n\t\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3004/api/images",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3004",
-					"path": [
-						"api",
-						"images"
+						"2"
 					]
 				}
 			},
@@ -1171,33 +1200,6 @@
 			"response": []
 		},
 		{
-			"name": "get sizes for products",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3004/api/sizes/size-info/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3004",
-					"path": [
-						"api",
-						"sizes",
-						"size-info",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "create sizes product 1",
 			"request": {
 				"method": "POST",
@@ -1250,6 +1252,33 @@
 					"path": [
 						"api",
 						"sizes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get sizes for products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3004/api/sizes/size-info/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"api",
+						"sizes",
+						"size-info",
+						"2"
 					]
 				}
 			},
