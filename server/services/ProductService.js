@@ -30,10 +30,37 @@ export default class ProductService {
 
     }
     static async getAllProducts() {
+        Size.belongsTo(Product);
+        Product.hasMany(Size);
+        ImageProduct.belongsTo(Product);
+        Product.hasMany(ImageProduct);
+        Product.belongsTo(Type);
+        Product.belongsTo(Category);
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special', 'image_url',
-                'small_description', 'brand_id', 'typeId', 'categoryId']
+                'small_description', 'brand_id', 'typeId', 'categoryId'],
+            include: [{
+                model: Size,
+                attributes: ['size', 'quantity'],
+                required: false
+            },
+            {
+                model: ImageProduct,
+                attributes: ['image_url'],
+                required: false
+            },
+            {
+                model: Type,
+                attributes: ['name'],
+                required: false
+            },
+            {
+                model: Category,
+                attributes: ['name'],
+                required: false
+            }
+            ]
         }).catch(err => {
             return new Error(500, err.message)
         })
@@ -123,6 +150,8 @@ export default class ProductService {
     static async getProductsByCategory(category_id) {
         Product.belongsTo(Type);
         Product.belongsTo(Category);
+        Size.belongsTo(Product);
+        Product.hasMany(Size);
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special', 'image_url',
@@ -131,6 +160,11 @@ export default class ProductService {
                 categoryId: category_id
             },
             include: [
+                {
+                    model: Size,
+                    attributes: ['size', 'quantity'],
+                    required: false
+                },
                 {
                     model: Type,
                     attributes: ['name'],
