@@ -43,6 +43,20 @@ const ProductPage = () => {
     }
 
     const productCategory = product.category?.name;
+    function ShowArrows() {
+        if (product?.images?.length > 1) {
+            return (
+                <div>
+                    <IconButton as={ButtonBack} className='back-img'>
+                        <div class="circle"> <ArrowBackIosIcon /> </div>
+                    </IconButton>
+                    <IconButton as={ButtonNext} className='next-img'>
+                        <div class="circle"> <ArrowForwardIosIcon /></div>
+                    </IconButton>
+                </div>
+            );
+        }
+    }
 
     return (
         product && <div className='product-page'>
@@ -77,13 +91,7 @@ const ProductPage = () => {
                                             </Slide>
                                         ))}
                                     </Slider>
-
-                                    <IconButton as={ButtonBack} className='back-img'>
-                                        <div class="circle"> <ArrowBackIosIcon /> </div>
-                                    </IconButton>
-                                    <IconButton as={ButtonNext} className='next-img'>
-                                        <div class="circle"> <ArrowForwardIosIcon /></div>
-                                    </IconButton>
+                                    <ShowArrows></ShowArrows>
                                 </Box>
                             </CarouselProvider>
 
