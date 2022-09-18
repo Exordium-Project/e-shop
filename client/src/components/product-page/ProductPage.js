@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { Box, Grid, Typography, Divider, IconButton, Button } from '@mui/material'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import DeliveryAccordion from './DeliveryAccordion';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -48,10 +48,10 @@ const ProductPage = () => {
             return (
                 <div>
                     <IconButton as={ButtonBack} className='back-img'>
-                        <div class="circle"> <ArrowBackIosIcon /> </div>
+                        <ArrowCircleLeftOutlinedIcon sx={{border: 'none'}}  />
                     </IconButton>
                     <IconButton as={ButtonNext} className='next-img'>
-                        <div class="circle"> <ArrowForwardIosIcon /></div>
+                        <ArrowCircleRightOutlinedIcon sx={{border: 'none'}}/>
                     </IconButton>
                 </div>
             );
