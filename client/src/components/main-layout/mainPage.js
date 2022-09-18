@@ -17,7 +17,6 @@ const Main = () => {
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productURL = `${url}/api/products`;
-    const categoryURL = `${url}/api/types`;
     const addedTodayURL = `${url}/api/products/today`;
 
     useEffect(() => {

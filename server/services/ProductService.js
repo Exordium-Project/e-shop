@@ -86,13 +86,21 @@ export default class ProductService {
         return allProducts;
     }
     static async getSpecialProducts() {
+        Product.belongsTo(Type);
         const allProducts = await Product.findAll({
             attributes: ['id', 'name', 'color', 'price', 'quantity',
                 'date_added', 'is_special',
                 'small_description', 'image_url', 'brand_id', 'typeId', 'categoryId'],
             where: {
                 is_special: true
-            }
+            },
+            include: [
+                {
+                    model: Type,
+                    attributes: ['name'],
+                    required: false
+                }
+            ]
         }).catch(err => {
             return new Error(500, err.message)
         })
