@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import SideBar from './SideBar';
 import "../Catalog/CatalogStyles/Tech.scss";
 import SideBarStyle from '../Styles/SideBar.scss';
-import { Box, Typography, StyledEngineProvider, Grid, Accordion, Checkbox, AccordionSummary, AccordionDetails, FormGroup, FormControlLabel, Card, CardContent, CardActions, CardActionArea } from '@mui/material';
+import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, FormGroup, Card, CardActionArea } from '@mui/material';
 import axios from 'axios';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -20,63 +19,62 @@ const Clothing = () => {
     }, [])
     return (
         <Box style={{ display: 'flex' }}>
-             <Box className='side-bar' style={SideBarStyle}>
+            <Box className='side-bar' style={SideBarStyle}>
                 <Box className='filter-buttons-class'>
-                    <Typography className='title'><strong>Avaiable products (123)</strong></Typography>
+                    <Typography className='title' component={'span'}><strong>Avaiable products (123)</strong></Typography>
                     <button className='filter-button'>Torso</button>
                     <button className='filter-button'>Shorts</button>
                     <button className='filter-button'>Shoes</button>
                 </Box>
                 <Box className='product-properies'>
-                    {
-                        productPref.map((item, index) => {
-                            return (
-                                <Box className='side-bar-boxes' key={index}>
-
-                                    <Accordion className='acordion-style' defaultExpanded={true}>
-                                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                            <Typography>Color</Typography> 
-                                        </AccordionSummary>
+                    <Accordion className='acordion-style' defaultExpanded={true}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography component={'span'}>Color</Typography>
+                        </AccordionSummary>
+                        {
+                            productPref.map((item, index) => {
+                                return (
+                                    <Box className='side-bar-boxes' key={index}>
                                         <AccordionDetails>
-                                            <Typography>
+                                            <Typography component={'span'}>
                                                 <FormGroup>
                                                     {item.color}
                                                 </FormGroup>
                                             </Typography>
                                         </AccordionDetails>
-                                    </Accordion>
-                                </Box>
-                            )
-                        })
-                    }
+                                    </Box>
+                                )
+                            })
+                        }
+                    </Accordion>
                 </Box>
             </Box>
             <Box className='product-main-class'>
-            {
-                productPref.map((item, index) => {
-                    return (
-                        <Box className='product-class'>
-                            <Card className='card' key={index}>
-                                <CardActionArea>
-                                    <img src={item.image_url} className='productImage' />
-                                </CardActionArea>
-                                <Typography className='name'>{item.name}</Typography>
-                                <Box className='productInfo'>
-                                    <Typography fontSize=".7rem">{item.small_description}</Typography>
-                                </Box>
+                {
+                    productPref.map((item, index) => {
+                        return (
+                            <Box className='product-class' key={index}>
+                                <Card className='card'>
+                                    <CardActionArea>
+                                        <img src={item.image_url} className='productImage' />
+                                    </CardActionArea>
+                                    <Typography className='name' component={'span'}>{item.name}</Typography>
+                                    <Box className='productInfo'>
+                                        <Typography fontSize=".7rem" component={'span'}>{item.small_description}</Typography>
+                                    </Box>
 
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <Typography className="productPrice">{item.price}$</Typography>
+                                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <Typography className="productPrice" component={'span'}>{item.price}$</Typography>
 
-                                </Box>
-                            </Card>
-                        </Box>
-                    )
-                })
-            }
+                                    </Box>
+                                </Card>
+                            </Box>
+                        )
+                    })
+                }
             </Box>
         </Box>
     )
-}   
+}
 
 export default Clothing

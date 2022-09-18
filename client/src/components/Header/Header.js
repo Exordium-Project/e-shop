@@ -40,43 +40,43 @@ const Header = () => {
   return (
     <StyledEngineProvider injectFirst={true}>
       <Box className='header-div'>
-        <Grid container={true} spacing={0} >
-          <Grid item={true} xs={12} md={3}>
-            <Typography variant="h6" color="inherit" component="div" className='first-typography'>
+        <Grid container={true} spacing={0} component={'div'}>
+          <Grid item={true} xs={12} md={3} component={'div'}>
+            <Typography variant="h6" color="inherit" component={'div'} className='first-typography'>
               <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
-              <Typography className='exordium-header-title'>
+              <Typography className='exordium-header-title' component={'div'}>
                 EXORDIUM
-                <Typography className='exordium-header-subtitle'>ALL DAY STORE</Typography>
+                <Typography className='exordium-header-subtitle' component={'div'}>ALL DAY STORE</Typography>
               </Typography>
             </Typography>
           </Grid>
-          <Grid item={true} xs={12} sm={2.4} md={1.8}>
+          <Grid item={true} xs={12} sm={2.4} md={1.8} component={'div'}>
 
             <Link to='/clothing' style={textDecorationObject}>
               <Button className='header-buttons'>
-                <Typography className='pages'>{t("Navigation.clothing")}</Typography>
+                <Typography className='pages' component={'span'}>{t("Navigation.clothing")}</Typography>
               </Button>
             </Link>
 
           </Grid>
 
-          <Grid item={true} xs={12} sm={2.4} md={1.8}>
+          <Grid item={true} xs={12} sm={2.4} md={1.8} component={'div'}>
 
             <Link to="/tech" style={textDecorationObject}>
               <Button className='header-buttons'>
-                <Typography className='pages'>{t('Navigation.tech')}</Typography>
+                <Typography className='pages' component={'span'}>{t('Navigation.tech')}</Typography>
               </Button>
             </Link>
 
           </Grid>
 
 
-          <Grid item={true} xs={12} sm={2.4} md={1.8}>
+          <Grid item={true} xs={12} sm={2.4} md={1.8} component={'div'}>
             {
               languages.map((languageItem, index) => {
                 return (
                   <FormControl key={index + "formcontrol"} fullWidth className='languages'>
-                    <Typography sx={{ color: 'black', width: '100%' }} className='input-label'><LanguageRoundedIcon fontSize='small' />{languageItem.title}</Typography>
+                    <Typography sx={{ color: 'black', width: '100%' }} component={'span'} className='input-label'><LanguageRoundedIcon fontSize='small' />{languageItem.title}</Typography>
                     <Select
                       sx={{ height: '2.5rem', textAlign: 'center', width: '100.1%' }}
                       onChange={onLanguageChange}
@@ -91,19 +91,19 @@ const Header = () => {
             }
           </Grid>
 
-          <Grid item={true} xs={12} sm={2.4} md={1.8}>
+          <Grid item={true} xs={12} sm={2.4} md={1.8} component={'div'}>
                <Link to={path} style={textDecorationObject}>
                 <Button className='header-buttons'><AccountCircleRoundedIcon color='disabled' fontSize='large' />
-                  <Typography className='pages'>{username}</Typography>
+                  <Typography className='pages' component={'span'}>{username}</Typography>
                 </Button>
               </Link>
           </Grid>
 
-          <Grid item={true} xs={12} sm={2.4} md={1.8}>
+          <Grid item={true} xs={12} sm={2.4} md={1.8} component={'div'}>
 
             <Link to='/mybag' style={textDecorationObject}>
               <Button className='header-buttons'>
-                <Typography className='pages'>{t('Navigation.cart')}</Typography>
+                <Typography className='pages' component={'span'}>{t('Navigation.cart')}</Typography>
                 <ShoppingCartOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
               </Button>
             </Link>

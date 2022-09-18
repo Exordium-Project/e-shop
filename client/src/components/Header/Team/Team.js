@@ -97,11 +97,11 @@ const Team = () => {
         <Grid className="container-grid" container spacing={2}>
 
             {
-                teamMembers.map((item) => {
-                    return <Grid item xs={12} sm={6} md={3}>
+                teamMembers.map((item, index) => {
+                    return <Grid item xs={12} sm={6} md={3} key={index}>
                         <Box className="body">
                             <Box className="banner"  >
-                                <Grid class="card-container" >
+                                <Grid className="card-container" >
                                     <div className="card" >
                                         <img src={item.imgsrc} alt="" className='memberImage' />
                                         <h1 className="name">{item.name}</h1>

@@ -55,8 +55,8 @@ const SearchBar = () => {
                     </Grid>
                     <Grid item={true} sm={3} xs={12}>
                         <Select className="input" value={category} onChange={handleChange}>
-                            {arr.map(category => {
-                                let item = <MenuItem value={categoryCount}>{category.value.name}</MenuItem>;
+                            {arr.map((category, index) => {
+                                let item = <MenuItem key={index} value={categoryCount}>{category.value.name}</MenuItem>;
                                 categoryCount++;
                                 return item;
                             })}
