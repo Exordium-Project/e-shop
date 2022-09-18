@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { productAdded } from '../../features/cartSlice';
 import axios from 'axios';
 import { Box, Grid, Typography, Divider, IconButton, Button } from '@mui/material'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
@@ -14,17 +16,44 @@ import './product-page.scss';
 const ProductPage = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
-    const id = useParams().productID;
+    const dispatch = useDispatch();
+    const id = parseInt(useParams().productID);
     const [product, setProduct] = useState([]);
     const [category, setCategory] = useState([]);
     const [productImages, setProductImages] = useState([]);
     const [msizes, setSizes] = useState([]);
+    const [btnState, setBtnState] = useState([false]);
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productInfoURL = `${url}/api/products/product-info/${id}`;
     const categoryURL = `${url}/api/types`;
     const imagesURL = `${url}/api/images/image-info/${id}`;
     const sizesURL = `${url}/api/sizes/size-info/${id}`;
+
+    const sizeSelected = (size) => () =>
+        setBtnState(size);
+    
+    const addToCartClicked = () => {
+        if (hasSizes(productCategory)){
+            dispatch(
+                productAdded({
+                    id: id,
+                    category: productCategory,
+                    productName: product.name,
+                    quantity: 1,
+                })
+            )
+        } else {
+            dispatch(
+                productAdded({
+                    id: id,
+                    
+                    productName: product.name,
+                    quantity: 1,
+                })
+            )
+        }
+    }
 
     useEffect(() => {
         getProductInfo();
@@ -160,11 +189,12 @@ const ProductPage = () => {
                                             let obj = Object.keys(element);
                                             let size = obj[0];
                                             let quantity = element[size];
+                                            let state = btnState.toString();
                                             if (quantity > 5) {
                                                 return <Grid item xs={4}>
-                                                    <Button className='product-size-button' variant="outlined">
+                                                    <Button className='product-size-button' variant="outlined" onClick={sizeSelected(size)}>
                                                         <Typography>
-                                                            {size}
+                                                            {size} {String(btnState === size)}
                                                         </Typography>
                                                     </Button>
                                                 </Grid>
@@ -195,7 +225,7 @@ const ProductPage = () => {
                             </Box>  }
 
                             <Box className='add-to-cart-button-div'>
-                            <Button className='add-to-cart-button' variant="contained"> {t('ProductPage.addToCart')} </Button>
+                            <Button className='add-to-cart-button' variant="contained" onClick={addToCartClicked}> {t('ProductPage.addToCart')} </Button>
                             </Box>
 
                             <Box className='product-description-div'>

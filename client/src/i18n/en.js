@@ -14,8 +14,19 @@ export const en = {
             "toys": "Toys",
             "catalog": "Catalog",
             "brands": "Brands",
-            "cart": "Cart",
-            "trending": "trending"
+            "cart": "My Cart",
+            "hot": "hot"
+        },
+        "Footer": {
+            "team": "About us",
+            "join": "Join Discord Community",
+            "copyright": "Copyright"
+        },
+        "ProductPage": {
+            "selectSize": "Select Size",
+            "addToCart": "Add To Cart",
+            "deliveryAndReturns": "Free Delivery And Returns",
+            "reviews": "Reviews"
         },
         "ShoppingCart": {
             "productsHeading": "Your cart",
@@ -30,25 +41,26 @@ export const en = {
                 "totalPriceLabel": "Total ",
                 "guestCheckoutButton": "Guest Checkout",
                 "memberCheckoutButton": "Member Checkout"
-            },
-            "Navigation":{
-                "toys":"Toys",
-                "catalog":"Catalog",
-                "brands":"Brands",
-                "cart":"My Cart",
-                "hot":"hot"
-            },
-            "Footer": {
-                "team": "About us",
-                "join": "Join Discord Community",
-                "copyright": "Copyright"
-            },
-            "ProductPage":{
-                "selectSize":"Select Size",
-                "addToCart":"Add To Cart",
-                "deliveryAndReturns":"Free Delivery And Returns",
-                "reviews":"Reviews"
             }
+        },
+        "Navigation":{
+            "toys":"Toys",
+            "catalog":"Catalog",
+            "brands":"Brands",
+            "cart":"My Cart",
+            "hot":"hot"
+        },
+        "Footer": {
+            "team": "About us",
+            "join": "Join Discord Community",
+            "copyright": "Copyright"
+        },
+        "ProductPage":{
+            "selectSize":"Select Size",
+            "addToCart":"Add To Cart",
+            "deliveryAndReturns":"Free Delivery And Returns",
+            "reviews":"Reviews"
         }
+    
     }
 }
