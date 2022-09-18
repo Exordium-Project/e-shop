@@ -26,11 +26,11 @@ const ProductPage = () => {
 
     const getProductInfo = () => {
         axios.get(productInfoURL)
-        .then ((response) => {
-            const productArray = response.data;
-            setProduct(productArray);
-        })
-        .catch(error => console.error(`Error: ${error}`));
+            .then((response) => {
+                const productArray = response.data;
+                setProduct(productArray);
+            })
+            .catch(error => console.error(`Error: ${error}`));
     }
 
     function hasSizes(productCategory) {
@@ -41,11 +41,11 @@ const ProductPage = () => {
             return false;
         }
     }
-    
+
     const productCategory = product.category?.name;
-    
-    return(
-       product && <div className='product-page'>
+
+    return (
+        product && <div className='product-page'>
             <Box className='back-banner'>
                 <IconButton className='back-button'>
                     <KeyboardBackspaceIcon onClick={() => navigate(-1)} />
@@ -79,13 +79,12 @@ const ProductPage = () => {
                                     </Slider>
 
                                     <IconButton as={ButtonBack} className='back-img'>
-                                        <ArrowBackIosIcon />
+                                        <div class="circle"> <ArrowBackIosIcon /> </div>
                                     </IconButton>
                                     <IconButton as={ButtonNext} className='next-img'>
-                                        <ArrowForwardIosIcon />
+                                        <div class="circle"> <ArrowForwardIosIcon /></div>
                                     </IconButton>
                                 </Box>
-                                
                             </CarouselProvider>
 
                         </Box>
@@ -93,36 +92,33 @@ const ProductPage = () => {
 
                     <Grid item lg={4} md={12}
                         className='product-details-grid'>
-                            <Box className='title-and-category-div'>
-                                <Typography className='product-title'>
-                                    {product.name}
-                                </Typography>
-                                <Typography className='product-category'>
-                                    {productCategory}
-                                </Typography>
-                            </Box>
-                            <Box className='price-div'>
-                                <Typography className='product-price'>
-                                    USD {product.price}
-                                </Typography>
-                            </Box>
-                            
-                                
-                            {hasSizes(productCategory) &&
-                                <Box className='sizes-div'>
+                        <Box className='title-and-category-div'>
+                            <Typography className='product-title'>
+                                {product.name}
+                            </Typography>
+                            <Typography className='product-category'>
+                                {productCategory}
+                            </Typography>
+                        </Box>
+                        <Box className='price-div'>
+                            <Typography className='product-price'>
+                                USD {product.price}
+                            </Typography>
+                        </Box>
+
+
+                        {hasSizes(productCategory) &&
+                            <Box className='sizes-div'>
                                 <Box className='sizes-text-div'>
                                     <Typography className='select-size-text'>
                                         {t('ProductPage.selectSize')}
                                     </Typography>
                                 </Box>
                                 <Box className='product-size-select'>
-                                    <Grid container 
+                                    <Grid container
                                         columnSpacing={1}
                                         rowSpacing={2}>
-                                        {product.sizes.map((element,index) => {
-                                            // let obj = Object.keys(element);
-                                            // let size = obj[0];
-                                            // let quantity = element[size];
+                                        {product.sizes.map((element, index) => {
                                             if (element.quantity > 5) {
                                                 return <Grid item xs={4}>
                                                     <Button className='product-size-button' variant="outlined">
@@ -139,7 +135,7 @@ const ProductPage = () => {
                                                         </Typography>
                                                         <Typography className='size-quantity'>{element.quantity} more left</Typography>
                                                     </Button>
-                                                </Grid>                        
+                                                </Grid>
                                             } else {
                                                 return <Grid item xs={4}>
                                                     <Button className='product-size-button-sold-out' variant="outlined" disabled>
@@ -148,49 +144,49 @@ const ProductPage = () => {
                                                         </Typography>
                                                         <Typography className='size-quantity'>sold out</Typography>
                                                     </Button>
-                                                </Grid>   
+                                                </Grid>
                                             }
-                                            
+
                                         })}
                                     </Grid>
 
                                 </Box>
-                            </Box>  }
+                            </Box>}
 
-                            <Box className='add-to-cart-button-div'>
+                        <Box className='add-to-cart-button-div'>
                             <Button className='add-to-cart-button' variant="contained"> {t('ProductPage.addToCart')} </Button>
-                            </Box>
+                        </Box>
 
-                            <Box className='product-description-div'>
-                                <Typography className='product-description'>
-                                    {product.small_description}
-                                </Typography>
-                            </Box>
+                        <Box className='product-description-div'>
+                            <Typography className='product-description'>
+                                {product.small_description}
+                            </Typography>
+                        </Box>
 
-                            <Box className='product-details-div'>
-                                <Typography className='product-details-bullet-points'>
-                                    
-                                    <li> Colour shown: {product.color}</li>
-                                    
-                                </Typography>
-                            </Box>
+                        <Box className='product-details-div'>
+                            <Typography className='product-details-bullet-points'>
 
-                            <Divider orientation='horizontal'
+                                <li> Colour shown: {product.color}</li>
+
+                            </Typography>
+                        </Box>
+
+                        <Divider orientation='horizontal'
                             className='horizontal-divider' />
 
-                            <Box className='accordion-div'>
-                                <DeliveryAccordion />
-                            </Box>
+                        <Box className='accordion-div'>
+                            <DeliveryAccordion />
+                        </Box>
 
-                            <Divider orientation='horizontal'
+                        <Divider orientation='horizontal'
                             className='horizontal-divide' />
 
                     </Grid>
 
                 </Grid>
             </Box>
-        </div>  
-    );    
+        </div>
+    );
 }
 
 export default ProductPage
