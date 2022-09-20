@@ -15,7 +15,9 @@ const CartItem = (props) => {
             <div className={styles.infoContainer}>
                 <b>{props.name}</b>
                 <p>{props.type}</p>
-                <p>{t('ShoppingCart.CartItem.sizeLabel')}{props.size}</p>
+                 {props.size &&
+                    <p>{t('ShoppingCart.CartItem.sizeLabel')}{props.size}</p>
+                    }
                 {t('ShoppingCart.CartItem.quantityLabel')}
                 <IconButton onClick={props.onDecrease} className={styles.decreaseQuantityButton}>-</IconButton>
                 {props.quantity}

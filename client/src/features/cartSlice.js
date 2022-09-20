@@ -21,13 +21,15 @@ const cartSlice = createSlice({
         },
         clothingProductAdded(state, action) {
             const newProduct = action.payload;
-            const existingCartProduct = state.productCartList.find((item) => item.id == newProduct.id);
+            const existingCartProduct = state.productCartList.find((item) => (item.id == newProduct.id && item.size==newProduct.size));
 
-            if (existingCartProduct) {
-                existingCartProduct.quantity++;
-                state.totalProducts++;
-            } else {
-                state.productCartList.push(action.payload);
+            if (existingCartProduct) {         
+                    console.log('a product with the same size exists', existingCartProduct)          
+                    existingCartProduct.quantity++;
+                    state.totalProducts++;
+                } else {
+                console.log('adding a new product')
+                state.productCartList.push(newProduct);
                 state.totalProducts++;
             }
         }

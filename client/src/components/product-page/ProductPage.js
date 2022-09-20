@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { productAdded } from '../../features/cartSlice';
+import { productAdded, clothingProductAdded } from '../../features/cartSlice';
 import axios from 'axios';
 import { Box, Grid, Typography, Divider, IconButton, Button } from '@mui/material'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
@@ -22,7 +22,7 @@ const ProductPage = () => {
     const [category, setCategory] = useState([]);
     const [productImages, setProductImages] = useState([]);
     const [msizes, setSizes] = useState([]);
-    const [btnState, setBtnState] = useState([false]);
+    const [btnSelectSize, setBtnSelectSize] = useState([false]);
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productInfoURL = `${url}/api/products/product-info/${id}`;
@@ -31,25 +31,34 @@ const ProductPage = () => {
     const sizesURL = `${url}/api/sizes/size-info/${id}`;
 
     const sizeSelected = (size) => () =>
-        setBtnState(size);
+        setBtnSelectSize(size);
     
     const addToCartClicked = () => {
         if (hasSizes(productCategory)){
-            dispatch(
-                productAdded({
-                    id: id,
-                    category: productCategory,
-                    productName: product.name,
-                    quantity: 1,
-                })
-            )
+            while(!btnSelectSize[0]){
+                alert("please select size first");
+                return;
+            }
+                dispatch(
+                    clothingProductAdded({
+                        id: id,
+                        name: product.name,
+                        imageUrl: product.image_url,
+                        category: productCategory,
+                        quantity: 1,
+                        price: product.price,
+                        size: btnSelectSize
+                    })
+                )
         } else {
             dispatch(
                 productAdded({
                     id: id,
-                    
-                    productName: product.name,
+                    name: product.name,
+                    imageUrl: product.image_url,
+                    category: productCategory,
                     quantity: 1,
+                    price: product.price
                 })
             )
         }
@@ -189,18 +198,18 @@ const ProductPage = () => {
                                             let obj = Object.keys(element);
                                             let size = obj[0];
                                             let quantity = element[size];
-                                            let state = btnState.toString();
+                                            let state = btnSelectSize.toString();
                                             if (quantity > 5) {
                                                 return <Grid item xs={4}>
                                                     <Button className='product-size-button' variant="outlined" onClick={sizeSelected(size)}>
                                                         <Typography>
-                                                            {size} {String(btnState === size)}
+                                                            {size} {String(btnSelectSize === size)}
                                                         </Typography>
                                                     </Button>
                                                 </Grid>
                                             } else if (quantity >= 1) {
                                                 return <Grid item xs={4}>
-                                                    <Button className='product-size-button-few-left' variant="outlined">
+                                                    <Button className='product-size-button-few-left' variant="outlined" onClick={sizeSelected(size)}>
                                                         <Typography>
                                                             {size}
                                                         </Typography>
