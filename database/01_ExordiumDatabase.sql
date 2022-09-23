@@ -1,175 +1,146 @@
 USE `exordium-eshop`;
 
-create table users(
-id int not null auto_increment primary key,
-username varchar(50) not null,
-password varchar(255) not null,
-email varchar(50) not null,
-full_name varchar(150) not null,
-profile_img varchar(2048) not null, 
-date_on_creating datetime not null,
-date_of_last_modified datetime not null,
-role varchar(20) not null
+CREATE TABLE users(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    profile_img VARCHAR(2048) NOT NULL, 
+    date_on_creating date NOT NULL,
+    date_of_last_modified date NOT NULL,
+    role VARCHAR(20) NOT NULL
 );
+
 CREATE TABLE categories(
-id int not null auto_increment primary key,
-name VARCHAR(50) NOT NULL
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
 );
-create table types(
-id int not null auto_increment primary key,
-name varchar(50),
-categoryId int not null,
-constraint fk_types_categories
-foreign key(categoryId)
-references categories(id)
+
+CREATE TABLE types(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50),
+    categoryId BIGSERIAL NOT NULL,
+    FOREIGN KEY(categoryId) references categories(id)
 );
 
 
-create table brands(
-id int not null auto_increment primary key,
-name varchar(50)
+CREATE TABLE brands(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50)
 );
 
-create table products(
-id int not null auto_increment primary key,
-name varchar(100) not null,
-small_description varchar(1024) not null,
-image_url varchar(2048) not null,
-color varchar(40),
-price decimal not null,
-quantity int not null,
-date_added datetime not null,
-is_special boolean,
-gender ENUM('male', 'female', 'unisex'),
-brand_id int not null,
-typeId int not null,
-categoryId int not null,
-constraint fk_products_brands
-foreign key (brand_id)
-references brands(id),
-constraint fk_products_types
-foreign key (typeId)
-references types(id),
-constraint fk_products_categories
-foreign key (categoryId)
-references categories(id)
+CREATE TYPE gender AS ENUM ('unisex', 'female', 'male');
+
+CREATE TABLE products(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    small_description VARCHAR(1024) NOT NULL,
+    image_url VARCHAR(2048) NOT NULL,
+    color VARCHAR(40),
+    price decimal NOT NULL,
+    quantity BIGSERIAL NOT NULL,
+    date_added date NOT NULL,
+    is_special boolean,
+    gender gender,
+    brand_id BIGSERIAL NOT NULL,
+    typeId BIGSERIAL NOT NULL,
+    categoryId BIGSERIAL NOT NULL,
+    FOREIGN KEY (brand_id) references brands(id),
+    FOREIGN KEY (typeId) references types(id),
+    FOREIGN KEY (categoryId) references categories(id)
 );
+
 
 CREATE TABLE sizes(
-	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id BIGSERIAL NOT NULL PRIMARY KEY,
     size VARCHAR(50) NOT NULL,
-	quantity int not null,
-    productId int not null,
-    constraint fk_sizes_products
-    foreign key(productId)
-    references products(id)
-);
-create table baskets(
-id int not null auto_increment primary key, 
-price decimal not null,
-user_id int not null,
-basket_products_id int not null,
-constraint fk_basket_users
-foreign key (user_id)
-references users(id)
+	quantity BIGSERIAL NOT NULL,
+    productId BIGSERIAL NOT NULL,
+    FOREIGN KEY(productId) references products(id)
 );
 
-create table basket_products(
-product_id int not null,
-basket_id int not null,
-quantity int not null,
-primary key(product_id,basket_id),
-constraint fk_basketproducts_basket
-foreign key (basket_id)
-references baskets(id),
-constraint fk_basketproducts_products
-foreign key (product_id)
-references products(id)
+CREATE TABLE baskets(
+	id BIGSERIAL NOT NULL PRIMARY KEY, 
+	price decimal NOT NULL,
+	user_id BIGSERIAL NOT NULL,
+	basket_products_id BIGSERIAL NOT NULL,
+	FOREIGN KEY (user_id) references users(id)
 );
 
-create table  review(
-id int not null auto_increment primary key,
-description varchar(300) not null,
-likes int default 0,
-product_id int not null,
-user_id int not null,
-constraint fk_reviews_products
-foreign key (product_id)
-references products(id),
-constraint fk_review_users
-foreign key (user_id)
-references users(id)
+CREATE TABLE basket_products(
+	product_id BIGSERIAL NOT NULL,
+	basket_id BIGSERIAL NOT NULL,
+	quantity BIGSERIAL NOT NULL,
+	primary key(product_id,basket_id),
+	FOREIGN KEY (basket_id) references baskets(id),
+	FOREIGN KEY (product_id)references products(id)
 );
 
-create table comments(
-id int not null auto_increment primary key,
-description varchar(300) not null,
-review_id int not null,
-user_id int not null,
-constraint fk_comments_reviews
-foreign key(review_id)
-references review(id),
-constraint fk_comments_users
-foreign key(user_id)
-references users(id)
+CREATE TABLE review(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	description VARCHAR(300) NOT NULL,
+	likes BIGSERIAL,
+	product_id BIGSERIAL NOT NULL,
+	user_id BIGSERIAL NOT NULL,
+	FOREIGN KEY (product_id) references products(id),
+	FOREIGN KEY (user_id)references users(id)
 );
 
-create table images(
-id int not null auto_increment primary key,
-image_url varchar(2048) not null,
-productId int not null,
-constraint fk_images_products
-foreign key (productId)
-references products(id)
-);
-create table address(
-id int not null auto_increment primary key,
-full_name varchar(100) not null,
-city varchar(100) not null,
-full_address nvarchar(300) not null,
-postcode varchar(30) not null,
-country varchar(50) not null,
-phone varchar(15) not null,
-user_id int not null,
-constraint fk_address_users
-foreign key(user_id)
-references users(id)
+CREATE TABLE comments(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	description VARCHAR(300) NOT NULL,
+	review_id BIGSERIAL NOT NULL,
+	user_id BIGSERIAL NOT NULL,
+	FOREIGN KEY(review_id) references review(id),
+	FOREIGN KEY(user_id) references users(id)
 );
 
-create table orders(
-id int not null auto_increment primary key,
-price decimal not null,
-description varchar(300),
-payment_type varchar(50) not null,
-user_id int not null,
-address_id int not null,
-constraint fk_orders_users
-foreign key(user_id)
-references users(id),
-constraint fk_orders_address
-foreign key(address_id)
-references address(id)
+CREATE TABLE images(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	image_url VARCHAR(2048) NOT NULL,
+	productId BIGSERIAL NOT NULL,
+	FOREIGN KEY (productId) references products(id)
 );
 
-create table order_products(
-id int not null auto_increment primary key,
-order_id int not null,
-product_price decimal not null,
-quantity int not null,
-product_reference varchar(2048),
-constraint fk_orderproducts_order
-foreign key (order_id)
-references orders(id)
+CREATE TABLE address(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	full_name VARCHAR(100) NOT NULL,
+	city VARCHAR(100) NOT NULL,
+	full_address VARCHAR(300) NOT NULL,
+	postcode VARCHAR(30) NOT NULL,
+	country VARCHAR(50) NOT NULL,
+	phone VARCHAR(15) NOT NULL,
+	user_id BIGSERIAL NOT NULL,
+	FOREIGN KEY(user_id) references users(id)
+);
+
+CREATE TABLE orders(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	price decimal NOT NULL,
+	description VARCHAR(300),
+	payment_type VARCHAR(50) NOT NULL,
+	user_id BIGSERIAL NOT NULL,
+	address_id BIGSERIAL NOT NULL,
+	FOREIGN KEY(user_id) references users(id),
+	FOREIGN KEY(address_id) references address(id)
+);
+
+CREATE TABLE order_products(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	order_id BIGSERIAL NOT NULL,
+	product_price decimal NOT NULL,
+	quantity BIGSERIAL NOT NULL,
+	product_reference VARCHAR(2048),
+	FOREIGN KEY (order_id)references orders(id)
 );
 
 
-create table active_sessions(
-id int not null auto_increment primary key,
-device varchar(200) not null,
-ip_address varchar(40) not null,
-location varchar(80) not null,
-user_id int not null,
-constraint fk_active_sessions_users
-foreign key(user_id)
-references users(id)
+CREATE TABLE active_sessions(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	device VARCHAR(200) NOT NULL,
+	ip_address VARCHAR(40) NOT NULL,
+	location VARCHAR(80) NOT NULL,
+	user_id BIGSERIAL NOT NULL,
+	FOREIGN KEY(user_id) references users(id)
 );
