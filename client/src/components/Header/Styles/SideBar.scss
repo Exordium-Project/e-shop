@@ -1,25 +1,54 @@
-.side-bar{
+.side-bar {
+    margin-top: 1.5rem;
     width: 33%;
 
-    .filter-buttons-class{
+    .filter-buttons-class {
         display: grid;
         padding-bottom: 1rem;
 
-        .title{
+        .title {
             font-size: 1.1rem;
             text-align: center;
         }
-        .filter-button{
+
+        .filter-button {
             padding: 1rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             background: none;
             border: none;
             cursor: pointer;
             transition: 200ms;
         }
-        .filter-button:active{
+        .filter-button:hover{
             background-color: lightgray;
+        }
+        .filter-button:active {
             transform: scale(0.85);
+        }
+    }
+
+    .product-properies {
+        width: 90%;
+        padding-left: 1rem;
+        box-shadow: none;
+
+        .side-bar-boxes{
+            .filter-size-button{
+                background: none;
+                border: none;
+                font-size: 1rem;
+                color: black;
+                cursor: pointer;
+                transition: 200ms;
+                padding: .6rem;
+                text-transform: capitalize;
+            }
+            .filter-size-button:hover{
+                background-color: lightgray;
+            }
+            .filter-button:active{
+                transform: scale(0.85);
+            }
         }
     }
 }
