@@ -2,10 +2,9 @@ import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import {useLayoutEffect} from 'react';
 import Header from './components/Header/Header';
+import Clothing from './components/Header/Catalog/Clothing';
+import Tech from './components/Header/Catalog/Tech';
 import Footer from './components/Header/Footer/Footer';
-import Toys from './components/Header/Toys/Toys';
-import Catalog from './components/Header/Catalog/Catalog';
-import Brands from './components/Header/Brands/Brands';
 import User from './components/Header/User-profile/UserProfile';
 import MyBag from './components/Header/MyBag/MyBag';
 import Main from './components/main-layout/mainPage';
@@ -53,9 +52,8 @@ function App() {
 
                 <Routes>
                     <Route path='/' element={<Main />} />
-                    <Route path='/toys' element={<Toys />} />
-                    <Route path='/catalog' element={<Catalog />} />
-                    <Route path='/brands' element={<Brands />} />
+                    <Route path='/clothing' element={<Clothing />} />
+                    <Route path='/tech' element={<Tech />} />
                     <Route path='/team' element={<TeamHistory />} />
                     <Route path='/user' element={<User />} />
                     <Route path='/mybag' element={<MyBag />} />

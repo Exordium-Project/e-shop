@@ -21,7 +21,7 @@ const SignUp = () => {
     return (
         <StyledEngineProvider injectFirst={true}>
             <Grid container={true} spacing={0}>
-                <Grid xs={12} md={12}>
+                <Grid item xs={12} md={12}>
                     <Box className="signUp-header">
                         <Box className='left-side-header'>
                             <img src={LogoWithoutBackground} alt="sign up logo" className='sign-up-img' />
@@ -32,17 +32,17 @@ const SignUp = () => {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid xs={12} md={12}>
+                <Grid item xs={12} md={12}>
                     {
-                        options.map(item => {
+                        options.map((item, index) => {
                             return (
-                                <Box sx={{ textAlign: 'center', mt: '2rem' }}>
+                                <Box sx={{ textAlign: 'center', mt: '2rem' }} key={index}>
                                     <Typography variant='h4'>{item.title}</Typography>
                                     <Box className='option-part'>
                                         {
-                                            item.option.map(optionItem => {
+                                            item.option.map((optionItem, index) => {
                                                 return (
-                                                    <FormControl>
+                                                    <FormControl key={index}>
                                                         <RadioGroup onChange={handleChange} value={value}>
                                                             <FormControlLabel control={<Radio />} value={optionItem} label={optionItem} />
                                                         </RadioGroup>
