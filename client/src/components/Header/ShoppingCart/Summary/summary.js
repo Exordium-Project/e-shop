@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 
 import styles from './summary.module.scss';
-import {Button, StyledEngineProvider} from "@mui/material";
+import {Button, StyledEngineProvider, Box, Typography} from "@mui/material";
 
 const Summary = (props) => {
     const {t} = useTranslation();
@@ -10,20 +10,20 @@ const Summary = (props) => {
     return (
         <div className={styles.summaryContainer}>
             <StyledEngineProvider injectFirst={true}>
-                <div className={styles.subtotalAndDelivery}>
-                    <div className={styles.summaryField}>
-                        <div>{t('ShoppingCart.Summary.subtotalPriceLabel')}</div>
-                        <div className={styles.priceText}>${props.productsPrice.toFixed(2)}</div>
-                    </div>
-                    <div className={styles.summaryField}>
-                        <div>{t('ShoppingCart.Summary.deliveryPriceLabel')}</div>
-                        <div className={styles.priceText}>${props.deliveryPrice.toFixed(2)}</div>
-                    </div>
-                </div>
+                <Box className={styles.subtotalAndDelivery}>
+                    <Box className={styles.summaryField}>
+                        <Typography>{t('ShoppingCart.Summary.subtotalPriceLabel')}</Typography>
+                        <Typography className={styles.priceText}>${props.productsPrice.toFixed(2)}</Typography>
+                    </Box>
+                    <Box className={styles.summaryField}>
+                        <Typography>{t('ShoppingCart.Summary.deliveryPriceLabel')}</Typography>
+                        <Typography className={styles.priceText}>${props.deliveryPrice.toFixed(2)}</Typography>
+                    </Box>
+                </Box>
                 <div className={styles.total}>
                     <div className={styles.summaryField}>
-                        <div>{t('ShoppingCart.Summary.totalPriceLabel')}</div>
-                        <b className={styles.priceText}>${(props.productsPrice + props.deliveryPrice).toFixed(2)}</b>
+                        <Typography>{t('ShoppingCart.Summary.totalPriceLabel')}</Typography>
+                        <Typography className={styles.priceText}>${(props.productsPrice + props.deliveryPrice).toFixed(2)}</Typography>
                     </div>
                 </div>
                 <div className={styles.checkoutButtons}>

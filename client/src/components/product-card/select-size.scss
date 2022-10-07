@@ -1,0 +1,15 @@
+.select-size-dropdown {
+    width: 50%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.select-size-dropdown::before {
+    border-bottom: none;
+}
+
+.select-size-dropdown::after {
+    border-bottom: none;
+}
+

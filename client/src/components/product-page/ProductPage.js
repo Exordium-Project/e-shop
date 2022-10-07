@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { productAdded, clothingProductAdded } from '../../features/cartSlice';
 import axios from 'axios';
-import { Box, Grid, Typography, Divider, IconButton, Button } from '@mui/material'
+import { Box, Grid, Typography, Divider, IconButton, Button, Snackbar, Alert } from '@mui/material'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -23,6 +23,8 @@ const ProductPage = () => {
     const [productImages, setProductImages] = useState([]);
     const [msizes, setSizes] = useState([]);
     const [btnSelectSize, setBtnSelectSize] = useState([false]);
+    const [alertNoSize, setAlertNoSize] = useState(false);
+    const [alertAdded, setAlertAdded] = useState(false);
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productInfoURL = `${url}/api/products/product-info/${id}`;
@@ -32,24 +34,33 @@ const ProductPage = () => {
 
     const sizeSelected = (size) => () =>
         setBtnSelectSize(size);
-    
+
+    const closeAlertAdded = () => {
+        setAlertAdded(false);
+    }
+
+    const closeAlertNoSize = () => {
+        setAlertNoSize(false);
+    }
+
     const addToCartClicked = () => {
         if (hasSizes(productCategory)){
             while(!btnSelectSize[0]){
-                alert("please select size first");
+                setAlertNoSize(true);
                 return;
             }
-                dispatch(
-                    clothingProductAdded({
-                        id: id,
-                        name: product.name,
-                        imageUrl: product.image_url,
-                        category: productCategory,
-                        quantity: 1,
-                        price: product.price,
-                        size: btnSelectSize
-                    })
-                )
+            dispatch(
+                clothingProductAdded({
+                    id: id,
+                    name: product.name,
+                    imageUrl: product.image_url,
+                    category: productCategory,
+                    quantity: 1,
+                    price: product.price,
+                    size: btnSelectSize
+                })
+            )
+            setAlertAdded(true);
         } else {
             dispatch(
                 productAdded({
@@ -61,6 +72,7 @@ const ProductPage = () => {
                     price: product.price
                 })
             )
+            setAlertAdded(true);
         }
     }
 
@@ -201,9 +213,9 @@ const ProductPage = () => {
                                             let state = btnSelectSize.toString();
                                             if (quantity > 5) {
                                                 return <Grid item xs={4}>
-                                                    <Button className='product-size-button' variant="outlined" onClick={sizeSelected(size)}>
+                                                    <Button className='product-size-button' variant="outlined" onClick={sizeSelected(size)} >
                                                         <Typography>
-                                                            {size} {String(btnSelectSize === size)}
+                                                            {size} 
                                                         </Typography>
                                                     </Button>
                                                 </Grid>
@@ -236,6 +248,23 @@ const ProductPage = () => {
                             <Box className='add-to-cart-button-div'>
                             <Button className='add-to-cart-button' variant="contained" onClick={addToCartClicked}> {t('ProductPage.addToCart')} </Button>
                             </Box>
+                            {alertAdded &&
+                                <Snackbar open={alertAdded}
+                                    autoHideDuration={3000}
+                                    onClose={closeAlertAdded}
+                                >
+                                    <Alert variant="filled" severity="success">{product.name} has been added to your cart</Alert>
+                                </Snackbar>
+                            }
+                            {alertNoSize &&
+                                <Snackbar open={alertNoSize}
+                                    autoHideDuration={3000}
+                                    onClose={closeAlertNoSize}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                >
+                                    <Alert variant="filled" severity="error">Choose size first</Alert>
+                                </Snackbar>
+                            }
 
                             <Box className='product-description-div'>
                                 <Typography className='product-description'>

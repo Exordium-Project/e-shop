@@ -2,21 +2,22 @@
 @import '../../../../shared/styles/colors';
 
 .summaryContainer {
-  width: 22.5rem;
+  width: 100%;
 
   .summaryField {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 
     .priceText {
-      width: 6rem;
+      
       display: flex;
     }
   }
 
   .subtotalAndDelivery {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border-bottom: 2px solid $orchid-whisper;
   }
 
