@@ -4,11 +4,12 @@ This is an all purpose e-shop practice project, maintain by a group of highly mo
 ## Tech stack
 The client app is a React 18 JavaScript project, using MUI React components. 
 
-The server application is a Node JS application. MySQL / Sequelize (Sequelize is a modern TypeScript and Node.js ORM for Oracle, Postgres, MySQL, MariaDB, SQLite and SQL Server, and more.) 
+The server application is a Node JS application. ExpressJS framework.  
+MySQL / Sequelize (Sequelize is a modern TypeScript and Node.js ORM for Oracle, Postgres, MySQL, MariaDB, SQLite and SQL Server, and more.) 
 
 Database is loaded by Docker container locally.
 
-<img src="./img/mui.png?w=200" alt="react mui" width="200"><img src="./img/sequalize.jpeg" alt="sequalize" width="200"><img src="./img/docker.png" alt="docker" width="200">
+<img src="./img/mui.png?w=200" alt="react mui" width="200"><img src="./img/Expressjs.svg?w=200" alt="express js" width="200"><img src="./img/sequalize.jpeg" alt="sequalize" width="200"><img src="./img/docker.png" alt="docker" width="200">
 
 ## Local setup
 ```
@@ -32,4 +33,31 @@ Database is loaded by Docker container locally.
 
 ## Demo screenshots of the e-shop project
 
-<img src="./img/mainpage.png" alt="main" width="1000"><img src="./img/mainpage2.png" alt="mainpage2" width="1000"><img src="./img/productpage.png" alt="productpage" width="1000"><img src="./img/signup.png" alt="signup" width="1000"><img src="./img/signin.png" alt="signin" width="1000"><img src="./img/team.png" alt="team" width="1000">
+#### Main page
+<img src="./img/mainpage.png" alt="main" width="1000"> 
+#### Footer page
+<img src="./img/mainpage2.png" alt="mainpage2" width="1000">
+
+#### Product Detail
+<img src="./img/productpage.png" alt="productpage" width="1000">
+
+#### Tech catalog
+<img src="./img/tech_catalog.png" alt="tech_catalog" width="1000">
+
+#### Clothing catalog
+<img src="./img/clothing_catalog.png" alt="clothing_catalog" width="1000">
+
+#### Add to cart page
+<img src="./img/addcart_mainpage.png" alt="addcart_mainpage" width="1000">
+
+#### Cart page
+<img src="./img/cart_page.png" alt="cart_page" width="1000">
+
+#### Sign up page
+<img src="./img/signup.png" alt="signup" width="1000">
+
+#### Sign in page
+<img src="./img/signin.png" alt="signin" width="1000">
+
+#### Team page
+<img src="./img/team.png" alt="team" width="1000">
