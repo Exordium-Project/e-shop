@@ -14,8 +14,23 @@ export const bg ={
             "clothing":"Дрехи",
             "tech":"Техника",
             "brands":"Марки",
-            "cart":"Количка",
-            "hot":"промо"
+            "cart": "Количка",
+            "hot": "промо"
+        },
+        "ShoppingCart": {
+            "productsHeading": "Вашата количка",
+            "summaryHeading": "Ценоразпис",
+            "CartItem": {
+                "sizeLabel": "Размер ",
+                "quantityLabel": "Количество "
+            },
+            "Summary": {
+                "subtotalPriceLabel": "Междинна сума ",
+                "deliveryPriceLabel": "Цена за доставка ",
+                "totalPriceLabel": "Крайна сума ",
+                "guestCheckoutButton": "Платете без регистрация",
+                "memberCheckoutButton": "Платете с регистрация"
+            }
         },
         "Footer": {
             "team": "За нас",

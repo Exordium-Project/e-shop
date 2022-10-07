@@ -6,7 +6,6 @@ import Clothing from './components/Header/Catalog/Clothing';
 import Tech from './components/Header/Catalog/Tech';
 import Footer from './components/Header/Footer/Footer';
 import User from './components/Header/User-profile/UserProfile';
-import MyBag from './components/Header/MyBag/MyBag';
 import Main from './components/main-layout/mainPage';
 import './components/main-layout/mainPage.scss';
 import SignUp from './components/SignUp/SignUp';
@@ -18,6 +17,7 @@ import { en } from './i18n/en'
 import { bg } from './i18n/bg'
 import ErrorPage from './components/Error/ErrorPage';
 import TeamHistory from './components/Header/Team/TeamHistory';
+import ShoppingCart from "./components/Header/ShoppingCart/shopping-cart";
 import ProductPage from './components/product-page/ProductPage';
 i18n.use(Backend).use(initReactI18next).init({
     resources: {
@@ -42,7 +42,7 @@ const Wrapper = ({children}) => {
 
 
 function App() {
-
+    
     return (
         <div className="App" id="page-container">
           <Wrapper>
@@ -56,7 +56,7 @@ function App() {
                     <Route path='/tech' element={<Tech />} />
                     <Route path='/team' element={<TeamHistory />} />
                     <Route path='/user' element={<User />} />
-                    <Route path='/mybag' element={<MyBag />} />
+                    <Route path='/cart' element={<ShoppingCart />} />
                     <Route path='/sign' element={<SignUp />} />
                     <Route path='/login' element={<SignIn />} />
                     <Route path='*' element={<ErrorPage />} />

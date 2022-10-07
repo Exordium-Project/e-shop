@@ -1,0 +1,94 @@
+@import '../../../../shared/styles/palette';
+@import '../../../../shared/styles/colors';
+
+.cartItem {
+  width: 100%;
+  padding-top: 2rem;
+  display: flex;
+  border-bottom: 2px black;
+
+  .imageContainer {
+    min-width: 12.5rem;
+    padding-right: 1.5rem;
+    img {
+      max-width: 12.5rem;
+      max-height: 12.5rem;
+    }
+  }
+
+  .infoContainer {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    min-width: 15rem;
+    
+    .categoryLabel{
+      color:$shopping-cart-item-details-text;
+    }
+
+    .sizeAndQuantity{
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      bottom: 20px;
+      
+      .changeSize{
+        margin-right: 1rem;
+        .sizeLabel{
+          position: relative;
+          top: 23px;
+          color: $shopping-cart-item-details-text;
+        }
+        .sizeSelect{  
+          padding-left: 3rem; 
+          font-size: 16px;
+          position: relative;
+          bottom: 1px;
+          color: $shopping-cart-item-details-text;
+        }
+        
+        .sizeSelect::before {
+          border-bottom: none;
+        }
+
+        .sizeSelect::after {
+          border-bottom: none;
+        }
+
+      }
+
+      .quantityContainer{
+        padding-top: 1rem;
+        display: flex;
+        
+        .quantityLabel{
+          color: $shopping-cart-item-details-text;
+        }
+
+        .changeQuantity{
+          display: flex;
+          justify-content: space-between;
+
+          .increaseQuantityButton{
+            
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+      
+          .decreaseQuantityButton{
+            
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+
+      }
+    }
+  }
+
+  .priceContainer {
+    padding-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

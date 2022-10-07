@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { productAdded, clothingProductAdded } from '../../features/cartSlice';
 import axios from 'axios';
-import { Box, Grid, Typography, Divider, IconButton, Button } from '@mui/material'
+import { Box, Grid, Typography, Divider, IconButton, Button, Snackbar, Alert } from '@mui/material'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
@@ -14,11 +16,62 @@ import './product-page.scss';
 const ProductPage = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
-    const id = useParams().productID;
+    const dispatch = useDispatch();
+    const id = parseInt(useParams().productID);
     const [product, setProduct] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [productImages, setProductImages] = useState([]);
+    const [msizes, setSizes] = useState([]);
+    const [btnSelectSize, setBtnSelectSize] = useState([false]);
+    const [alertNoSize, setAlertNoSize] = useState(false);
+    const [alertAdded, setAlertAdded] = useState(false);
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productInfoURL = `${url}/api/products/product-info/${id}`;
+
+    const sizeSelected = (size) => () =>
+        setBtnSelectSize(size);
+
+    const closeAlertAdded = () => {
+        setAlertAdded(false);
+    }
+
+    const closeAlertNoSize = () => {
+        setAlertNoSize(false);
+    }
+
+    const addToCartClicked = () => {
+        if (hasSizes(productCategory)){
+            while(!btnSelectSize[0]){
+                setAlertNoSize(true);
+                return;
+            }
+            dispatch(
+                clothingProductAdded({
+                    id: id,
+                    name: product.name,
+                    imageUrl: product.image_url,
+                    category: productCategory,
+                    quantity: 1,
+                    price: product.price,
+                    size: btnSelectSize
+                })
+            )
+            setAlertAdded(true);
+        } else {
+            dispatch(
+                productAdded({
+                    id: id,
+                    name: product.name,
+                    imageUrl: product.image_url,
+                    category: productCategory,
+                    quantity: 1,
+                    price: product.price
+                })
+            )
+            setAlertAdded(true);
+        }
+    }
 
     useEffect(() => {
         getProductInfo();
@@ -126,18 +179,22 @@ const ProductPage = () => {
                                     <Grid container
                                         columnSpacing={1}
                                         rowSpacing={2}>
-                                        {product.sizes.map((element, index) => {
-                                            if (element.quantity > 5) {
+                                        {msizes.map((element,index) => {
+                                            let obj = Object.keys(element);
+                                            let size = obj[0];
+                                            let quantity = element[size];
+                                            let state = btnSelectSize.toString();
+                                            if (quantity > 5) {
                                                 return <Grid item xs={4}>
-                                                    <Button className='product-size-button' variant="outlined">
+                                                    <Button className='product-size-button' variant="outlined" onClick={sizeSelected(size)} >
                                                         <Typography>
-                                                            {element.size}
+                                                            {size} 
                                                         </Typography>
                                                     </Button>
                                                 </Grid>
                                             } else if (element.quantity >= 1) {
                                                 return <Grid item xs={4}>
-                                                    <Button className='product-size-button-few-left' variant="outlined">
+                                                    <Button className='product-size-button-few-left' variant="outlined" onClick={sizeSelected(size)}>
                                                         <Typography>
                                                             {element.size}
                                                         </Typography>
@@ -161,25 +218,42 @@ const ProductPage = () => {
                                 </Box>
                             </Box>}
 
-                        <Box className='add-to-cart-button-div'>
-                            <Button className='add-to-cart-button' variant="contained"> {t('ProductPage.addToCart')} </Button>
-                        </Box>
+                            <Box className='add-to-cart-button-div'>
+                            <Button className='add-to-cart-button' variant="contained" onClick={addToCartClicked}> {t('ProductPage.addToCart')} </Button>
+                            </Box>
+                            {alertAdded &&
+                                <Snackbar open={alertAdded}
+                                    autoHideDuration={3000}
+                                    onClose={closeAlertAdded}
+                                >
+                                    <Alert variant="filled" severity="success">{product.name} has been added to your cart</Alert>
+                                </Snackbar>
+                            }
+                            {alertNoSize &&
+                                <Snackbar open={alertNoSize}
+                                    autoHideDuration={3000}
+                                    onClose={closeAlertNoSize}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                >
+                                    <Alert variant="filled" severity="error">Choose size first</Alert>
+                                </Snackbar>
+                            }
 
-                        <Box className='product-description-div'>
-                            <Typography className='product-description'>
-                                {product.small_description}
-                            </Typography>
-                        </Box>
+                            <Box className='product-description-div'>
+                                <Typography className='product-description'>
+                                    {product.small_description}
+                                </Typography>
+                            </Box>
 
-                        <Box className='product-details-div'>
-                            <Typography className='product-details-bullet-points'>
+                            <Box className='product-details-div'>
+                                <Typography className='product-details-bullet-points'>
+                                    
+                                    <li> Colour shown: {product.color}</li>
+                                    
+                                </Typography>
+                            </Box>
 
-                                <li> Colour shown: {product.color}</li>
-
-                            </Typography>
-                        </Box>
-
-                        <Divider orientation='horizontal'
+                            <Divider orientation='horizontal'
                             className='horizontal-divider' />
 
                         <Box className='accordion-div'>

@@ -101,7 +101,7 @@ const Header = () => {
 
           <Grid item={true} xs={12} sm={2.4} md={1.8} component={'div'}>
 
-            <Link to='/mybag' style={textDecorationObject}>
+            <Link to='/cart' style={textDecorationObject}>
               <Button className='header-buttons'>
                 <Typography className='pages' component={'span'}>{t('Navigation.cart')}</Typography>
                 <ShoppingCartOutlinedIcon fontSize='large' sx={{ color: 'black' }} />
