@@ -64,7 +64,7 @@ const Team = () => {
         {
             name: 'Petya Marinova',
             linkedin: "https://www.linkedin.com/in/pmmarinova/",
-            position: "Front-End Developer",
+            position: "Full-Stack Developer",
             github: "https://github.com/petya0111",
             imgsrc: petyaImg,
             moreInfo: "Software developer currently with frontend technologies Angular & JavaScript. Interested in IT conferences and networking. Glad to take part in programming and different aspect of courses and workshops. I live in Rousse."
@@ -97,11 +97,11 @@ const Team = () => {
         <Grid className="container-grid" container spacing={2}>
 
             {
-                teamMembers.map((item) => {
-                    return <Grid item xs={12} sm={6} md={3}>
+                teamMembers.map((item, index) => {
+                    return <Grid item xs={12} sm={6} md={3} key={index}>
                         <Box className="body">
                             <Box className="banner"  >
-                                <Grid class="card-container" >
+                                <Grid className="card-container" >
                                     <div className="card" >
                                         <img src={item.imgsrc} alt="" className='memberImage' />
                                         <h1 className="name">{item.name}</h1>

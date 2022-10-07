@@ -11,7 +11,6 @@ const ProductList = () => {
 
     const url = 'http://localhost:3004'; // change url when deploying
     const productURL = `${url}/api/products`;
-    const categoryURL = `${url}/api/types`;
 
     useEffect(() => {
         getAllProducts();

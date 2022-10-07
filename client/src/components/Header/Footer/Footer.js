@@ -21,9 +21,9 @@ const Footer = () => {
           <Grid item={true} xs={12} sm={4} md={3} className='grid' >
             <Typography variant="h6" color="inherit" component="div" className='first-typography'>
               <Link to='/'><img src={Logo} alt="logo" className='img' /></Link>
-              <Typography className='exordium-header-title'>
+              <Typography className='exordium-header-title' component={'div'}>
                 EXORDIUM
-                <Typography className='exordium-header-subtitle'>ALL DAY STORE</Typography>
+                <Typography className='exordium-header-subtitle' component={'div'}>ALL DAY STORE</Typography>
               </Typography>
             </Typography>
           </Grid>
@@ -34,7 +34,7 @@ const Footer = () => {
           <Button className='buttonDecoration' target="_blank"  href="https://discord.gg/FdHFU3Mm6a">{t("Footer.join")}</Button>
           </Grid>
           <Grid item={true} xs={12} sm={6} md={3} >
-            <Typography color={'white'} fontFamily={'Montserrat'}>
+            <Typography color={'white'} fontFamily={'Montserrat'} component={'div'}>
             {t("Footer.copyright")}{" © "}
               {new Date().getFullYear()}
               {"."}

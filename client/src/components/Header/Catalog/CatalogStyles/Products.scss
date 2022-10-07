@@ -1,0 +1,47 @@
+.product-main-class{
+    margin-top: 1.5rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding-left: 1rem;
+    .product-class{
+    
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: auto;
+            text-align: start;
+            font-family: arial;
+            padding: 12px;
+          
+            .productImage {
+              width: 100%;
+              object-fit: cover;
+            }
+          
+            .productInfo {
+              display: inline-block;
+          
+            }
+          
+            .productPrice {
+              color: black;
+              font-size: .8rem;
+            }
+          
+        }
+    }
+}
+@media screen and (max-width: 600px){
+    .product-map{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 899px){
+    .product-map{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

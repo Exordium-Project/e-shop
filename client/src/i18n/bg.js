@@ -11,8 +11,8 @@ export const bg ={
             }
         },
         "Navigation":{
-            "toys":"Играчки",
-            "catalog":"Каталог",
+            "clothing":"Дрехи",
+            "tech":"Техника",
             "brands":"Марки",
             "cart": "Количка",
             "hot": "промо"
