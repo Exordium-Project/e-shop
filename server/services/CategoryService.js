@@ -6,8 +6,8 @@ export default class CategoryService{
     static async createCategory(categoryRequest){
         const category = await Category.findOne({
             where: {
-                name: categoryRequest.name
-            }
+                name: categoryRequest.name,
+            },
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -27,7 +27,7 @@ export default class CategoryService{
 
     static async getAllCategories() {
         const categories = await Category.findAll({
-            attributes: ["id", "name"]
+            attributes: ["id", "name"],
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -40,8 +40,8 @@ export default class CategoryService{
     static async deleteCategory(categoryId) {
         const category = await Category.findOne({
             where: {
-                id: categoryId
-            }
+                id: categoryId,
+            },
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -54,8 +54,8 @@ export default class CategoryService{
         await Category.destroy({
             attributes: ["id"],
             where: {
-                id: categoryId
-            }
+                id: categoryId,
+            },
         }).catch(error =>{
             console.log(error);
             return new Error(500, error.message);

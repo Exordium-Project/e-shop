@@ -6,8 +6,8 @@ export default class BrandService {
     static async createBrand(brandData) {
         const brand = await Brand.findOne({
             where: {
-                name: brandData.name
-            }
+                name: brandData.name,
+            },
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -28,7 +28,7 @@ export default class BrandService {
 
     static async getAllBrands() {
         const allBrands = await Brand.findAll({
-            attributes: ["name"]
+            attributes: ["name"],
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
