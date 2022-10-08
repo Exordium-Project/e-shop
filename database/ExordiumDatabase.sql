@@ -38,28 +38,6 @@ foreign key (type_id)
 references types(id)
 );
 
-create table baskets(
-id int not null auto_increment primary key, 
-price decimal not null,
-user_id int not null,
-basket_products_id int not null,
-constraint fk_basket_users
-foreign key (user_id)
-references users(id)
-);
-
-create table basket_products(
-product_id int not null,
-basket_id int not null,
-quantity int not null,
-primary key(product_id,basket_id),
-constraint fk_basketproducts_basket
-foreign key (basket_id)
-references baskets(id),
-constraint fk_basketproducts_products
-foreign key (product_id)
-references products(id)
-);
 
 create table  review(
 id int not null auto_increment primary key,
