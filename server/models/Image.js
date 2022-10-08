@@ -8,22 +8,22 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: false,
         },
        image_url: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
        },
         product_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Product,
-                key: 'id'
-            }
-        }
+                key: 'id',
+            },
+        },
     },
     {
-        timestamps: false
-    }
+        timestamps: false,
+    },
 )

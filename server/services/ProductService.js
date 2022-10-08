@@ -7,8 +7,8 @@ export default class ProductService {
 
         const product = await Product.findOne({
             where: {
-                name: productData.name
-            }
+                name: productData.name,
+            },
         });
 
 
@@ -25,7 +25,7 @@ export default class ProductService {
     }
     static async getAllProducts(){    
         const allProducts = await Product.findAll({
-            attributes: ['id', 'name', 'color', 'price', 'quantity', 'brand_id', 'type_id']
+            attributes: ['id', 'name', 'color', 'price', 'quantity', 'brand_id', 'type_id'],
         }).catch(err => {
             return new Error(500, err.message)
         })
@@ -35,8 +35,8 @@ export default class ProductService {
         await Product.destroy({
             attributes: ['id', 'name', 'color', 'price', 'quantity', 'type_id', 'date_on_creating', 'date_of_last_modified', 'brand_id'],
             where: {
-                id: projectId
-            }
+                id: projectId,
+            },
         }).catch(error =>{
             console.log(error);
             return new Error(500, error.message);

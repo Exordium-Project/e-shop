@@ -1,5 +1,6 @@
 import express from 'express';
 import productService from '../services/ProductService.js';
+import { checkProvidedData } from './validationData.js';
 import Error from '../error/Error.js';
 
 const productsController = express.Router()
@@ -11,9 +12,10 @@ productsController.post("/", async (req, res) => {
         price: req.body.price,
         quantity: req.body.quantity,
         type_id: req.body.type_id,
-        brand_id: req.body.brand_id
+        brand_id: req.body.brand_id,
     }
 
+    checkProvidedData(productData);
     const createdProduct = await productService.createProduct(productData);
 
     if(createdProduct instanceof Error){
@@ -41,6 +43,7 @@ productsController.delete("/", async (req, res) => {
         res.status(result.statusCode);
         return res;
     }
+
     res.send(true)
 })
 

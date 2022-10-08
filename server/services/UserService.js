@@ -5,20 +5,31 @@ import Error from "../error/Error.js"
 
 export default class UserService {
     static async registerUser(userData) {
-        const user = await User.findOne({
+        let user = await User.findOne({
             where: {
-                email: userData.email
-            }
+                email: userData.email,
+            },
         }).catch(error => {
             console.log(error)
             return new Error(500, error.message)
         })
 
         if (user) {
-            return new Error(409, "User exists")
+            return new Error(409, "User with this email already registered")
+        }
+
+        user = await User.findOne({
+            where: {
+                username: userData.username,
+            },
+        })
+
+        if (user) {
+            return new Error(409, "Username isnt avaiable")
         }
 
         const isPasswordValid = userData.password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/)
+
         if (isPasswordValid === null) {
             return new Error(400, "Weak password")
         }
@@ -32,8 +43,8 @@ export default class UserService {
     static async login(userData) {
         const user = await User.findOne({
             where: {
-                email: userData.username
-            }
+                username: userData.username,
+            },
         })
 
         if (!user) {
@@ -45,11 +56,11 @@ export default class UserService {
         return isLoggedIn
     }
 
-    static async generateToken(userEmail) {
+    static async generateToken(userEmail,req) {
         const user = User.findOne({
             where: {
-                email: userEmail
-            }
+                email: userEmail,
+            },
         }).catch(error => {
             return new Error(500, error.message)
         })
@@ -59,14 +70,15 @@ export default class UserService {
         }
 
         if (bcrypt.compareSync(req.body.password, user.password)) {
-            let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                expiresIn: 1440
+            const token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
+                expiresIn: 1440,
             })
 
             return token
-        } else {
-            return new Error(400, "Invaid data")
         }
+ 
+            return new Error(400, "Invaid data")
+        
     }
 
     static async getAllUsers() {
@@ -79,29 +91,29 @@ export default class UserService {
         return users;
     }
 
-    static async changeAvatar(userId, img_url) {
+    static async changeAvatar(userId, imgUrl) {
         User.update(
             {
-                profile_img: img_url
+                profile_img: imgUrl,
             },
             {
                 where: {
-                    id: userId
-                }
+                    id: userId,
+                },
             })
             .then(user => {
                 return true
             })
             .catch(err => {
-                return new Error(500, error.message)
+                return new Error(500, err.message)
             })
     }
 
-    static async changePassword(userEmail, oldPassword, newPassword) {
+    static async changePassword(userEmail, oldPassword, newPassword,req) {
         const user = User.findOne({
             where: {
-                email: userEmail
-            }
+                email: userEmail,
+            },
         })
 
         if (!user) {
@@ -109,17 +121,21 @@ export default class UserService {
         }
 
         if (bcrypt.compareSync(oldPassword, newPassword)) {
-            bcrypt.hash(req.body.new_password, SALT_ROUNDS, (err, hash) => {
+            bcrypt.hash(req.body.new_password, process.env.SALT_ROUNDS, (err, hash) => {
+                if(err) {
+                    throw new Error(err.message);
+                }
+
                 req.body.new_password = hash
                 const updatedRecord = User.update(
                     {
-                        password: newPassword
+                        password: newPassword,
                     },
                     {
                         where: {
-                            email: userEmail
-                        }
-                    }
+                            email: userEmail,
+                        },
+                    },
                 ).catch(error => {
                     return new Error(500, error.message)
                 })
@@ -134,10 +150,10 @@ export default class UserService {
         const user = User.findAll({
             attributes: ['id', 'username', 'email', 'full_name', 'profile_img', 'date_on_creating', 'date_of_last_modified', 'role'],
             where: {
-                id: userId
-            }
+                id: userId,
+            },
         }).catch(error => {
-            return new Error(404, "User not found")
+            return new Error(404, error.message);
         })
 
         return user;

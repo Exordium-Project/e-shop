@@ -1,5 +1,5 @@
 import {
-    Sequelize
+    Sequelize,
 } from "sequelize"
 import db from "../config/db.config.js"
 import Product from "./Product.js"
@@ -12,39 +12,39 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: false,
         },
         quantity: {
             type: Sequelize.DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
         },
         price: {
             type: Sequelize.DataTypes.DECIMAL,
-            allowNull: false
+            allowNull: false,
         },
         order_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Order,
-                key: 'id'
-            }
+                key: 'id',
+            },
         },
         product_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Product,
-                key: 'id'
-            }
+                key: 'id',
+            },
         },
         user_id: {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: User,
-                key: 'id'
-            }
-        }
-    }
+                key: 'id',
+            },
+        },
+    },
 )

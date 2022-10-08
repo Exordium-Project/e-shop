@@ -1,14 +1,16 @@
 import express from 'express';
 import BrandService from '../services/BrandService.js';
 import Error from '../error/Error.js';
+import { checkProvidedData } from './validationData.js';
 
 const brandsCotnroller = express.Router();
 
 brandsCotnroller.post("/", async (req, res) => {
     const brandData = {
-        name: req.body.name
+        name: req.body.name,
     }
 
+    checkProvidedData(brandData);
     const createdBrand = await BrandService.createBrand(brandData).catch(error => {
         console.log(error);
         return new Error(500, error.message);

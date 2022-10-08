@@ -9,42 +9,42 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: false,
         },        
         full_name: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         city: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         country: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         street: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         postcode: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         phone: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         user_id:{
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: User,
-                key: 'id'
-            }
-        }
+                key: 'id',
+            },
+        },
     },
     {
-        timestamps: true
-    }
+        timestamps: true,
+    },
 )

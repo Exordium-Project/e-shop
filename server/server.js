@@ -13,13 +13,13 @@ import BrandsController from './controllers/Brands.js';
 import OrdersController from './controllers/Orders.js';
 import CategoriesController from './controllers/Categories.js';
 
-let app = express();
-let port = process.env.PORT || 3004;
+const app = express();
+const port = process.env.PORT || 3004;
 
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: false,
 }));
 app.use(cookieParser())
 

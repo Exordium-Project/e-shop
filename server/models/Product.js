@@ -10,40 +10,40 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: false,
         },        
         name: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         color: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         price: {
             type: Sequelize.DataTypes.DECIMAL,
-            allowNull: false
+            allowNull: false,
         },
         quantity: {
             type: Sequelize.DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
         },
         type_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Type,
-                key: 'id'
-            }
+                key: 'id',
+            },
         },
         brand_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: Brand,
-                key: 'id'
-            }
-        }
+                key: 'id',
+            },
+        },
 
         // TODO: Add the following fields in the database
         // date_on_creating: {
@@ -58,6 +58,6 @@ export default db.sequelize.define(
         // }
     },
     {
-        timestamps: false
-    }
+        timestamps: false,
+    },
 )

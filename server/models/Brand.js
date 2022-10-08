@@ -8,14 +8,14 @@ export default db.sequelize.define(
             type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: false,
         },        
         name: {
             type: Sequelize.DataTypes.STRING,
-            allowNull: false
-        }
+            allowNull: false,
+        },
     },
     {
-        timestamps: false
-    }
+        timestamps: false,
+    },
 )

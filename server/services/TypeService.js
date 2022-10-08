@@ -6,8 +6,8 @@ export default class TypeService {
     static async createType(typeData) {
         const type = await Type.findOne({
             where: {
-                name: typeData.name
-            }
+                name: typeData.name,
+            },
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -27,7 +27,7 @@ export default class TypeService {
 
     static async getAllTypes() {
         const [types] = await Promise.all([Type.findAll({
-            attributes: ["name"]
+            attributes: ["name"],
         })]).catch(error => {
             console.log(error);
             return new Error(500, error.message);

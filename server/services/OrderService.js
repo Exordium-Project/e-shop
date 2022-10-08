@@ -7,8 +7,8 @@ export default class OrderService {
     static async getOrderByNumber(orderNumber) {
         const order = await Order.findOne({
             where:{
-                number: orderNumber
-            }
+                number: orderNumber,
+            },
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -24,7 +24,7 @@ export default class OrderService {
 
     static async createOrder(order) {
         
-        let createdOrder = await Order.create(order).catch(error => {
+        const createdOrder = await Order.create(order).catch(error => {
             console.log(error);
             return new Error(500, error.message);
         });
@@ -38,12 +38,12 @@ export default class OrderService {
         });
 
 
-        let orderNumber = `EX-${new Date().getUTCMilliseconds}-${createdOrder.id}`
+        const orderNumber = `EX-${new Date().getUTCMilliseconds}-${createdOrder.id}`
 
-        let updatedOrder = await Order.update({number:orderNumber},{
+        const updatedOrder = await Order.update({number:orderNumber},{
             where:{
-                id:createdOrder.id
-            }
+                id:createdOrder.id,
+            },
         })
 
         return updatedOrder.number
@@ -53,8 +53,8 @@ export default class OrderService {
         
         const order = await Order.findOne({
             where:{
-                number: orderNumber
-            }
+                number: orderNumber,
+            },
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);
@@ -67,8 +67,8 @@ export default class OrderService {
 
         Order.update({status:newStatus},{
             where:{
-                number:orderNumber
-            }
+                number:orderNumber,
+            },
         }).catch(error => {
             console.log(error);
             return new Error(500, error.message);

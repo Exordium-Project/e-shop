@@ -4,9 +4,9 @@ import Error from '../error/Error.js';
 const categoriesController = express.Router();
 
 categoriesController.post("/", async (req, res) => {
-    const categoryRequest = {
-        ...req.body
-    }
+    const categoryRequest = [
+        ...req.body,
+]
 
     const createdCategory = await categoryService.createCategory(categoryRequest).catch(error =>{
         console.log(error);
