@@ -1,0 +1,6 @@
+{
+    "extends": "richardpringle",
+   "rules": {
+     "no-unused-expressions": "off"
+   }
+ }
